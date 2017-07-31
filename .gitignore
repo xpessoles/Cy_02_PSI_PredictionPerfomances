@@ -1,3 +1,13 @@
+# Latex
+.toc
+.synctex.gz
+.ptc
+.aux
+.bcf
+.idx
+.log
+.run.xml
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
