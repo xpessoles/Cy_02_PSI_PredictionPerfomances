@@ -84,8 +84,29 @@ Chapitre 1 -- \xxactivite%
 \vspace{2cm}
 \pagestyle{fancy}
 \thispagestyle{plain}
-\section{Introduction}
-\subsection{Qu'est-ce qu'un système multiphysique}
+\section{Notion de stabilité}
+\subsection{Représentation graphique}
+\subsection{Premières définitions}
+\begin{defi}[Définition intuitive]
+Un système est asymptotiquement stable si et seulement si : 
+\begin{itemize}
+\item abandonné à lui-même à partir de conditions initiales quelconques il revient à son état d'équilibre;
+\item son régime transitoire finit par disparaître;
+\item sa sortie finit par ressembler à l'entrée;
+\item sa réponse tend vers zéro au cours du temps.
+\end{itemize}
+
+\end{defi}
+
+\begin{rem}
+La stabilité d'un système \textbf{est indépendante} de la nature de l'entrée. Ainsi, l'étude de la stabilité peut se faire à partir d'une réponse impulsionnelle (entrée Dirac), indicielle (entrée échelon d'amplitude 1), d'une réponse harmonique (entrée sinusoïdale)...
+
+Pour simplifier les calculs, une première approche pourra être d'utiliser la réponse impulsionnelle. 
+\end{rem}
+\begin{defi}
+En conséquence, on peut considérer qu'un système est asymptotiquement stable si et seulement si sa réponse impulsionnelle tend vers zéro au cours du temps.
+\end{defi}
+\section{Étude des pôles de la fonction de transfert}
 
 \begin{thebibliography}{2}
    \bibitem[1]{ref1} Frédéric Mazet, {\it Cours d'automatique de deuxième année, Lycée Dumont Durville, Toulon.}
