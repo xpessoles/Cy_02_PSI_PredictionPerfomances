@@ -88,6 +88,7 @@ Chapitre 1 -- \xxactivite%
 \subsection{Représentation graphique}
 \subsection{Premières définitions}
 \begin{defi}[Définition intuitive]
+
 Un système est asymptotiquement stable si et seulement si : 
 \begin{itemize}
 \item abandonné à lui-même à partir de conditions initiales quelconques il revient à son état d'équilibre;
@@ -106,7 +107,52 @@ Pour simplifier les calculs, une première approche pourra être d'utiliser la r
 \begin{defi}
 En conséquence, on peut considérer qu'un système est asymptotiquement stable si et seulement si sa réponse impulsionnelle tend vers zéro au cours du temps.
 \end{defi}
-\section{Étude des pôles de la fonction de transfert}
+
+\subsection{Étude des pôles de la fonction de transfert}
+Dans le cas général la fonction de transfert d'un système peut se mettre sous la forme :
+$$
+H(p)=\dfrac{b_mp^m + b_{m-1}p^{m-1}+...+b_1p+b_0}{a_np^n + a_{n-1}p^{n-1}+...+a_1p+a_0} \quad \text{avec } n\geq m.
+$$
+
+Lors du calcul de la réponse temporelle en utilisant la transformée de Laplace inverse (quelle que soit l'entrée), la nature du régime transitoire ne dépend que des pôles $p_i$de la fonction de transfert (zéros du dénominateur).
+
+En factorisant le numérateur et le dénominateur de $H(p)$ on peut alors retrouver une fonction de la forme  :
+$$
+H(p)=\dfrac{\left(p+ z_m\right)\cdot \left(p+ z_{m-1}\right)...}{\left(p+ p_n\right)\cdot \left(p+ p_{n-1}\right)...} \quad \text{avec } p_i,z_i\in \mathbb{C}.
+$$
+
+En passant dans le domaine temporel : 
+\begin{itemize}
+\item les pôles réels (de type $p=-a$) induisent des modes\footnote{mode : fonction temporelle associée à un pôle} du type $e^{-at}$;
+\item les pôles complexes conjugués (de type $p=-a\pm j\omega$) induisent des modes du type 
+$e^{-at} \sin \omega t$.
+\end{itemize}
+
+\textbf{On peut ainsi constater que si les pôles sont à partie réelle strictement négative, l'exponentielle décroissante permet de stabiliser la réponse temporelle.}
+
+Ainsi, on peut observer la réponse temporelle des systèmes en fonction du positionnement des pôles dans le plan complexe. 
+
+\begin{center}
+\includegraphics[width=14cm]{images/poles_simple_double}
+
+\textit{Représentation d'un système à pôle simple et à pôles conjugués dans le plan complexe -- Réponse indicielle}
+\end{center}
+
+\subsection{Position des pôles dans le plan complexe}
+Par extension on peut observer dans le plan complexe les pôles de fonctions de transfert et leur indicielle associée.
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/plan_complexe_fm}
+
+\textit{Allure de la réponse à l’impulsion de Dirac selon la position des pôles de la FTBF d’un système \cite{2}.}
+\end{center}
+
+\begin{defi}[À retenir]
+Un système est asymptotiquement stable si et seulement si tous les pôles de sa fonction de transfert sont à partie réelle strictement négative. 
+\end{defi}
+
+\subsection{Pôles dominants \cite{1}}
+Lors de l’étude d’un système, on se contente en général de ne prendre en compte que les pôles les plus influents. Ces pôles sont appelés les pôles dominants. Pour un système asymptotiquement stable, ce sont ceux qui sont le plus proche de l’axe des imaginaires, puisque ce sont eux qui induisent des modes qui disparaissent dans le temps le plus lentement.
 
 \begin{thebibliography}{2}
    \bibitem[1]{ref1} Frédéric Mazet, {\it Cours d'automatique de deuxième année, Lycée Dumont Durville, Toulon.}
