@@ -151,12 +151,39 @@ Par extension on peut observer dans le plan complexe les pôles de fonctions de 
 Un système est asymptotiquement stable si et seulement si tous les pôles de sa fonction de transfert sont à partie réelle strictement négative. 
 \end{defi}
 
+\begin{rem}On peut montrer que :
+\begin{itemize}
+\item \textbf{pour les systèmes d'ordre 1 et 2 :} le système est stable si tous les coefficients du dénominateur sont non nuls et de même signe;
+\item \textbf{pour les systèmes d'ordre 3 :} de la forme $a_0+a_1p+a_2p^2+a_3p^3$ les coefficients doivent être strictement de même signe et $a_2 a_1 > a_3 a_0$.
+\end{itemize}
+\end{rem}
+
 \subsection{Pôles dominants \cite{1}}
 Lors de l’étude d’un système, on se contente en général de ne prendre en compte que les pôles les plus influents. Ces pôles sont appelés les pôles dominants. Pour un système asymptotiquement stable, ce sont ceux qui sont le plus proche de l’axe des imaginaires, puisque ce sont eux qui induisent des modes qui disparaissent dans le temps le plus lentement.
+
+\section{Marges de stabilité}
+\subsection{Lorsque la BO commence à pointer le bout de son nez...}
+
+
+Soit le schéma-blocs suivant : 
+
+\includestandalone{images/Schema_1_entree_F_R}
+
+La fonction de transfert en boucle ouverte est donnée par $H_{BO}=\dfrac{R(p)}{\varepsilon(p)}=F(p)G(p)$. 
+
+La fonction de transfert en boucle fermée est donnée par : $H_{BF}=\dfrac{S(p)}{E(p)}=\dfrac{F(p)}{1+F(p)G(p)}=\dfrac{F(p)}{1+H_{BO}(p)}$. 
+
+\begin{defi}[Équation caractéristique]
+Soit $H(p)=\dfrac{N(p)}{D(p)}$ une fonction de transfert. On appelle $D(p)=0$ l'équation caractéristique de la fonction de transfert. Ainsi les racines de $D(p)$ correspondent aux pôles de $H(p)$.
+
+\textbf{Pour un système bouclé, l'équation caractéristique sera $1+H_{BO}(p)$.}
+
+\end{defi}
 
 \begin{thebibliography}{2}
    \bibitem[1]{ref1} Frédéric Mazet, {\it Cours d'automatique de deuxième année, Lycée Dumont Durville, Toulon.}
       \bibitem[2]{ref2} Florestan Mathurin, {\it Stabilité des SLCI, Lycée Bellevue, Toulouse, \url{http://florestan.mathurin.free.fr/}.}
+
 
 
 \end{thebibliography}
