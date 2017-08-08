@@ -161,6 +161,9 @@ Un système est asymptotiquement stable si et seulement si tous les pôles de sa
 \subsection{Pôles dominants \cite{1}}
 Lors de l’étude d’un système, on se contente en général de ne prendre en compte que les pôles les plus influents. Ces pôles sont appelés les pôles dominants. Pour un système asymptotiquement stable, ce sont ceux qui sont le plus proche de l’axe des imaginaires, puisque ce sont eux qui induisent des modes qui disparaissent dans le temps le plus lentement.
 
+\subsection{Caractéristiques dans le lieu de pôles}
+Il est possible de représenter les performances des systèmes asservis en utilisant le lieu des pôles dans le plan complexe \cite{ref1}. 
+
 \section{Marges de stabilité}
 \subsection{Lorsque la BO commence à pointer le bout de son nez...}
 
@@ -177,12 +180,54 @@ La fonction de transfert en boucle fermée est donnée par : $H_{BF}=\dfrac{S(p)
 Soit $H(p)=\dfrac{N(p)}{D(p)}$ une fonction de transfert. On appelle $D(p)=0$ l'équation caractéristique de la fonction de transfert. Ainsi les racines de $D(p)$ correspondent aux pôles de $H(p)$.
 \end{defi}
 
-\textbf{Pour un système bouclé, l'équation caractéristique sera $1+H_{BO}(p)$.}
+\textbf{Pour un système bouclé, l'équation caractéristique sera $1+H_{BO}(p)=0$.}
 
 \subsection{Critère algébrique de stabilité : le critère de Routh}
+Pour un système d'ordre supérieur à 3 il devient délicat d'obtenir analytiquement (ou numériquement) les racines du polynômes et ainsi conclure sur la stabilité à partir du signe des parties réelles. 
+
 Il existe un critère algébrique permettant de vérifier la stabilité d'un système : il s'agit de critère de Routh. Pour un système bouclé, ce critère utilise le dénominateur de la BF. Ce critère n'étant pas au programme, on pourra rechercher dans la littérature des articles s'y référant si nécessaire. 
 
 \subsection{Critère graphique de stabilité : le critère du Revers}
+ On a vu que l'équation caractéristique était de la forme $1+H_{BO}(p)=0$. Ainsi, Pour cela revient à résoudre l'équation $H_{BO}(p)=-1$. Ainsi dans le plan complexe, le point $(-1;0)$ permet d'avoir une information sur la stabilité. En terme de module et de phase, ce nombre complexe a un module de 1 (gain de 1) et une phase de $-180\degres$.
+ 
+\begin{resultat}
+Le système en boucle ouverte étant asymptotiquement stable (ou juste stable), le système en boucle fermée est asymptotiquement stable si et seulement si :
+$$
+\left. G_{\text{dB}} \right|_{\omega=\omega(-180\degres)}<0_{\text{dB}} 
+\quad
+\text{et}
+\quad
+\left. \varphi \right|_{\omega=\omega(0\text{dB})}>-180\degres.
+$$
+\end{resultat}
+ 
+ 
+ FIGURES
+ 
+\subsection{Vers le système réel...}
+
+Le résultat donné ci-dessus est un résultat théorique dans le sens ou le diagramme de Bode de la boucle ouverte du système réel aura un écart avec le diagramme de Bode du système modélisé. 
+
+\begin{resultat}[Marges]
+Pour tenir compte des écarts entre le modèle et le système réel, on est amené à définir une marge de gain et une marge de phase. Cela signifie que dans l'étude des systèmes asservis, on considèrera, dans le cas général que le système est stable si :
+\begin{itemize}
+\item la marge de gain est supérieure à \SI{10}{dB};
+\item la marge de phase est supérieure à $45\degres$.
+\end{itemize}
+\end{resultat}
+ 
+La marge de gain permet compte de tenir compte de variations de gain de la boucle ouverte. 
+
+De même, la marge de phase permet de tenir compte de variation de phase (retard ou déphasage non modélisés). 
+
+La nécessité d'avoir recours à des marges de stabilité apparaît notamment lorsque : 
+\begin{itemize}
+\item la simplification du modèle amène à considérer uniquement les pôles dominant, 
+\item le modèle ne prend pas en compte la dynamique de certains composants du système;
+\item le système n'est pas invariant au cours du temps;
+\item on s'éloigne de la zone de fonctionnement linéaire;
+\item certaines non linéarités sont ignorées.
+\end{itemize}
 
 \begin{thebibliography}{2}
    \bibitem[1]{ref1} Frédéric Mazet, {\it Cours d'automatique de deuxième année, Lycée Dumont Durville, Toulon.}
