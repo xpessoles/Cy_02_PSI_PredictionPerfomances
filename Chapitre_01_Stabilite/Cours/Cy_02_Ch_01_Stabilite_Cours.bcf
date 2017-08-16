@@ -2236,5 +2236,6 @@
   <bcf:section number="0">
     <bcf:citekey order="3">2</bcf:citekey>
     <bcf:citekey order="4">1</bcf:citekey>
+    <bcf:citekey order="5">ref1</bcf:citekey>
   </bcf:section>
 </bcf:controlfile>
