@@ -85,7 +85,17 @@ Chapitre 1 -- \xxactivite%
 \pagestyle{fancy}
 \thispagestyle{plain}
 \section{Notion de stabilité}
-\subsection{Représentation graphique}
+\subsection{Représentation graphique \cite{1}}
+Un état d'équilibre d'un système est asymptotiquement stable lorsque le système, écarté de sa position d'équilibre par une
+cause extérieure, finit par retrouver ce même état d'équilibre après disparition de la
+cause.
+Illustrons cette définition de façon très intuitive à travers l'exemple suivant : une boule
+soumise à l'accélération de la pesanteur se déplaçant (avec un peu de dissipation
+énergétique) sur une surface donnée.
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{images/fig_stabilite}
+\end{center}
 \subsection{Premières définitions}
 \begin{defi}[Définition intuitive]
 
@@ -162,7 +172,7 @@ Un système est asymptotiquement stable si et seulement si tous les pôles de sa
 Lors de l’étude d’un système, on se contente en général de ne prendre en compte que les pôles les plus influents. Ces pôles sont appelés les pôles dominants. Pour un système asymptotiquement stable, ce sont ceux qui sont le plus proche de l’axe des imaginaires, puisque ce sont eux qui induisent des modes qui disparaissent dans le temps le plus lentement.
 
 \subsection{Caractéristiques dans le lieu de pôles}
-Il est possible de représenter les performances des systèmes asservis en utilisant le lieu des pôles dans le plan complexe \cite{ref1}. 
+Il est possible de représenter les performances des systèmes asservis en utilisant le lieu des pôles dans le plan complexe \cite{1}. 
 
 \section{Marges de stabilité}
 \subsection{Lorsque la BO commence à pointer le bout de son nez...}
@@ -170,7 +180,9 @@ Il est possible de représenter les performances des systèmes asservis en utili
 
 Soit le schéma-blocs suivant : 
 
+\begin{center}
 \includestandalone{images/Schema_1_entree_F_R}
+\end{center}
 
 La fonction de transfert en boucle ouverte est donnée par $H_{BO}=\dfrac{R(p)}{\varepsilon(p)}=F(p)G(p)$. 
 
@@ -202,8 +214,9 @@ $$
 \end{resultat}
  
  
- FIGURES
- 
+\begin{center}
+\includegraphics[width=.9\linewidth]{images/marges}
+\end{center} 
 \subsection{Vers le système réel...}
 
 Le résultat donné ci-dessus est un résultat théorique dans le sens ou le diagramme de Bode de la boucle ouverte du système réel aura un écart avec le diagramme de Bode du système modélisé. 

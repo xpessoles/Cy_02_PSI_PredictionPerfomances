@@ -3,15 +3,15 @@
 \select@language {french}
 \ttl@starttoc {default@1}
 \contentsline {section}{\numberline {1}Notion de stabilit\IeC {\'e}}{2}{section.1}
-\contentsline {subsection}{\numberline {1.1}Repr\IeC {\'e}sentation graphique}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.1}Repr\IeC {\'e}sentation graphique \cite {1}}{2}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}Premi\IeC {\`e}res d\IeC {\'e}finitions}{2}{subsection.1.2}
 \contentsline {subsection}{\numberline {1.3}\IeC {\'E}tude des p\IeC {\^o}les de la fonction de transfert}{2}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}Position des p\IeC {\^o}les dans le plan complexe}{2}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.4}Position des p\IeC {\^o}les dans le plan complexe}{3}{subsection.1.4}
 \contentsline {subsection}{\numberline {1.5}P\IeC {\^o}les dominants \cite {1}}{3}{subsection.1.5}
-\contentsline {subsection}{\numberline {1.6}Caract\IeC {\'e}ristiques dans le lieu de p\IeC {\^o}les}{3}{subsection.1.6}
-\contentsline {section}{\numberline {2}Marges de stabilit\IeC {\'e}}{3}{section.2}
-\contentsline {subsection}{\numberline {2.1}Lorsque la BO commence \IeC {\`a} pointer le bout de son nez...}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {1.6}Caract\IeC {\'e}ristiques dans le lieu de p\IeC {\^o}les}{4}{subsection.1.6}
+\contentsline {section}{\numberline {2}Marges de stabilit\IeC {\'e}}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Lorsque la BO commence \IeC {\`a} pointer le bout de son nez...}{4}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Crit\IeC {\`e}re alg\IeC {\'e}brique de stabilit\IeC {\'e} : le crit\IeC {\`e}re de Routh}{4}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Crit\IeC {\`e}re graphique de stabilit\IeC {\'e} : le crit\IeC {\`e}re du Revers}{4}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Vers le syst\IeC {\`e}me r\IeC {\'e}el...}{4}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.4}Vers le syst\IeC {\`e}me r\IeC {\'e}el...}{5}{subsection.2.4}
 \contentsfinish 
