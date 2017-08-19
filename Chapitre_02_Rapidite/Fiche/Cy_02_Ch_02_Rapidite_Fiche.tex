@@ -29,7 +29,7 @@
 \def\xxnumpartie{Cycle 02}
 \def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
 
-\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxnumchapitre{Chapitre 2 \vspace{.2cm}}
 \def\xxchapitre{\hspace{.12cm} Rapidité des systèmes}
 
 \def\xxposongletx{2}
@@ -68,22 +68,60 @@ Chapitre 2 -- \xxactivite%
 
 \section{Amortissement}
 La notion d'amortissement est associé \textbf{à la boucle fermée}. Cette notion caractérise :  
+\begin{itemize}
 \item la façon dont les oscillations décroissent pour un système oscillatoire;
 \item le temps de stabilisation pour un système non oscillatoire.
 \end{itemize}
+\begin{center}
+\includegraphics[width=\linewidth]{images/amortissement}
+\end{center}
+
+\noindent\begin{minipage}[c]{.7\linewidth}
 \begin{resultat}
 En observant la réponse d'un système dans le domaine temporel, plus le dépassement $D_1$ est important, moins le système est amorti.
 \end{resultat}
+\end{minipage} \hfill
+\begin{minipage}[c]{.25\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{images/depassement}
+\end{center}
+\end{minipage}
 
+\noindent\begin{minipage}[c]{.55\linewidth}
 \begin{resultat}
 En observant la réponse fréquentielle du système, il en résulte que plus la surtension est importante, moins le système est amorti.
 \end{resultat}
+\end{minipage} \hfill
+\begin{minipage}[c]{.4\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{images/surtension}
+\end{center}
+\end{minipage}
 
+\noindent\begin{minipage}[c]{.75\linewidth}
 \begin{resultat}
 Dans le lieu des pôles, plus les pôles sont dans une position correspondant à un angle $\varphi$ grand, plus le système est amorti.
 \end{resultat}
+\end{minipage} \hfill
+\begin{minipage}[c]{.2\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{images/poles}
+\end{center}
+\end{minipage}
+
 
 \section{Rapidité}
+\noindent\begin{minipage}[c]{.75\linewidth}
+\begin{resultat}
+Plus le temps de réponse à 5\;\% d'un système est petit, plus le régime transitoire disparaît rapidement.
+\end{resultat}
+\end{minipage} \hfill
+\begin{minipage}[c]{.2\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{images/t5pcent}
+\end{center}
+\end{minipage}
+
 \end{document}
 
 
