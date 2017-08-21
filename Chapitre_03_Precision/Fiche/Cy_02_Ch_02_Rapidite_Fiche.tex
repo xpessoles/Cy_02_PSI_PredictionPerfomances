@@ -1,0 +1,161 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Modélisation SLCI : Rapidité des systèmes},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+
+\input{style/new_style}
+\input{style/macros_SII}
+
+\fichetrue
+%\fichefalse
+
+\proftrue
+%\proffalse
+
+%\tdtrue
+\tdfalse
+
+%\courstrue
+\coursfalse
+
+% -------------------------------------
+% Déclaration des titres
+% -------------------------------------
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{\textsf{Cy 02}}
+\def\xxnumpartie{Cycle 02}
+\def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
+
+\def\xxnumchapitre{Chapitre 2 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Rapidité des systèmes}
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{19}%16
+
+\def\xxonglet{Cycle 02}
+
+\def\xxactivite{Fiche}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+}}
+
+\def\xxfigures{
+%incgraphics[width=.8\textwidth]{}%images/prot_01}
+}%figues de la page de garde
+
+\def\xxpied{%
+Cycle 02 -- Modéliser les SLCI dans le but de prévoir leur comportement\\
+Chapitre 2 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{2cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\section{Amortissement}
+La notion d'amortissement est associé \textbf{à la boucle fermée}. Cette notion caractérise :  
+\begin{itemize}
+\item la façon dont les oscillations décroissent pour un système oscillatoire;
+\item le temps de stabilisation pour un système non oscillatoire.
+\end{itemize}
+\begin{center}
+\includegraphics[width=\linewidth]{images/amortissement}
+\end{center}
+
+\noindent\begin{minipage}[c]{.7\linewidth}
+\begin{resultat}
+En observant la réponse d'un système dans le domaine temporel, plus le dépassement $D_1$ est important, moins le système est amorti.
+\end{resultat}
+\end{minipage} \hfill
+\begin{minipage}[c]{.25\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{images/depassement}
+\end{center}
+\end{minipage}
+
+\noindent\begin{minipage}[c]{.55\linewidth}
+\begin{resultat}
+En observant la réponse fréquentielle du système, il en résulte que plus la surtension est importante, moins le système est amorti.
+\end{resultat}
+\end{minipage} \hfill
+\begin{minipage}[c]{.4\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{images/surtension}
+\end{center}
+\end{minipage}
+
+\noindent\begin{minipage}[c]{.75\linewidth}
+\begin{resultat}
+Dans le lieu des pôles, plus les pôles sont dans une position correspondant à un angle $\varphi$ grand, plus le système est amorti.
+\end{resultat}
+\end{minipage} \hfill
+\begin{minipage}[c]{.2\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{images/poles}
+\end{center}
+\end{minipage}
+
+
+\section{Rapidité}
+\noindent\begin{minipage}[c]{.75\linewidth}
+\begin{resultat}
+Plus le temps de réponse à 5\;\% d'un système est petit, plus le régime transitoire disparaît rapidement.
+\end{resultat}
+\end{minipage} \hfill
+\begin{minipage}[c]{.2\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{images/t5pcent}
+\end{center}
+\end{minipage}
+
+\noindent\begin{minipage}[c]{.75\linewidth}
+\begin{resultat}
+Plus la bande passante d'un système est élevée, plus le système est rapide.
+\end{resultat}
+\end{minipage} \hfill
+\begin{minipage}[c]{.2\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{images/bandepassante}
+\end{center}
+\end{minipage}
+
+
+\noindent\begin{minipage}[c]{.75\linewidth}
+\begin{resultat}
+Plus la pulsation de coupure à \SI{0}{dB} de la boucle ouverte est grande, plus le système asservi est rapide.
+\end{resultat}
+\end{minipage} \hfill
+\begin{minipage}[c]{.2\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{images/bobf}
+\end{center}
+\end{minipage}
+
+
+
+\begin{resultat}~\\
+
+\begin{center}
+\includegraphics[width=.45\linewidth]{images/bilan_poles}
+\end{center}
+
+\end{resultat}
+
+
+\end{document}
+
+
