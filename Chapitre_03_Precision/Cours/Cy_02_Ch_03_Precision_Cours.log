@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.7.16)  21 AUG 2017 22:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.7.16)  21 AUG 2017 23:29
 entering extended mode
 **Cy_02_Ch_03_Precision_Cours.tex
 (Cy_02_Ch_03_Precision_Cours.tex
@@ -2701,10 +2701,15 @@ Package mdframed Info: mdframed inside float
 Package mdframed Info: mdframed inside a box 
  mdframed uses option nobreak mdframed on input line 64.
 \c@ttl@toc@default=\count441
-(Cy_02_Ch_03_Precision_Cours.ptc) <png/logoCC.png, id=8, 88.33pt x 31.11626pt>
+(Cy_02_Ch_03_Precision_Cours.ptc
+LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <10> not available
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `T1/pag/b/n' in size <10> not available
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 5.
+)
+<png/logoCC.png, id=12, 88.33pt x 31.11626pt>
 File: png/logoCC.png Graphic file (type png)
-
-<use png/logoCC.png>
+ <use png/logoCC.png>
 Package pdftex.def Info: png/logoCC.png used on input line 85.
 (pdftex.def)             Requested size: 56.9055pt x 20.04631pt.
  [1
@@ -2712,43 +2717,67 @@ Package pdftex.def Info: png/logoCC.png used on input line 85.
 {C:/Users/Xavier/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./png/Fond
 _SLCI.png> <./png/logoCC.png>])
 LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 88.
+(Font)              scaled to size 11.03998pt on input line 86.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 87.
+Package mdframed Info: mdframed inside float 
+ mdframed uses option nobreak mdframed on input line 89.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 91.
+Package mdframed Info: mdframed inside float 
+ mdframed uses option nobreak mdframed on input line 93.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 95.
+Package mdframed Info: mdframed inside float 
+ mdframed uses option nobreak mdframed on input line 97.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 99.
+Package mdframed Info: mdframed inside float 
+ mdframed uses option nobreak mdframed on input line 101.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 103.
+Package mdframed Info: mdframed inside float 
+ mdframed uses option nobreak mdframed on input line 105.
 LaTeX Font Info:    Font shape `T1/cmtt/m/it' will be
-(Font)              scaled to size 10.46997pt on input line 90.
+(Font)              scaled to size 10.46997pt on input line 111.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 \tf@ptc=\write6
 LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 96.
+(Font)              scaled to size 7.35999pt on input line 117.
 LaTeX Font Info:    Font shape `T1/mdput/m/sl' will be
-(Font)              scaled to size 7.35999pt on input line 96.
+(Font)              scaled to size 7.35999pt on input line 117.
 LaTeX Font Info:    Font shape `T1/mdput/bx/n' in size <8> not available
-(Font)              Font shape `T1/mdput/b/n' tried instead on input line 96.
+(Font)              Font shape `T1/mdput/b/n' tried instead on input line 117.
 LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
-(Font)              scaled to size 7.35999pt on input line 96.
+(Font)              scaled to size 7.35999pt on input line 117.
  [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 96.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 96.
-
-(Cy_02_Ch_03_Precision_Cours.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 96.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 96.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 117.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 117.
+ (Cy_02_Ch_03_Precision_Cours.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 117.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 117.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package logreq Info: Writing requests to 'Cy_02_Ch_03_Precision_Cours.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 96.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 117.
  ) 
 Here is how much of TeX's memory you used:
- 49741 strings out of 493675
- 1043501 string characters out of 3143992
- 1719493 words of memory out of 3000000
- 52206 multiletter control sequences out of 15000+200000
- 176147 words of font info for 164 fonts, out of 3000000 for 9000
+ 49769 strings out of 493675
+ 1043905 string characters out of 3143992
+ 1719623 words of memory out of 3000000
+ 52221 multiletter control sequences out of 15000+200000
+ 182424 words of font info for 170 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  57i,17n,98p,10488b,1969s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Xavier\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi628
@@ -2763,9 +2792,9 @@ ts/type1/mathdesign/mdput/md-utri7m.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 s/MiKTeX 2.9/fonts/type1/adobe/utopia/putri8a.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/urw/avantgar/uagd8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
 w/zapfding/uzdr.pfb>
-Output written on Cy_02_Ch_03_Precision_Cours.pdf (2 pages, 811170 bytes).
+Output written on Cy_02_Ch_03_Precision_Cours.pdf (2 pages, 815407 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
- 8 named destinations out of 1000 (max. 500000)
- 57879 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 15 named destinations out of 1000 (max. 500000)
+ 60455 words of extra memory for PDF output out of 61914 (max. 10000000)
 
