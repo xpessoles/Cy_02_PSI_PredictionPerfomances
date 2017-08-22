@@ -84,9 +84,30 @@ Chapitre 3 -- \xxactivite%
 \pagestyle{fancy}
 \thispagestyle{plain}
 \section{Définition}
-\begin{defi}
-écart erreur
+\begin{defi}~\\
+
+\begin{minipage}[c]{.6\linewidth}
+La précision est l'écart entre la valeur de consigne et la valeur de la sortie. Pour caractériser la précision d'un système, on s'intéresse généralement à l'écart en régime permanent.
+
+Attention à bien s'assurer que, lors d'une mesure expérimentale par exemple, les grandeurs de consigne et de sortie sont bien de la même unité (et qualifient bien la même grandeur physique).
+
+À partir du schéma-blocs ci-contre, on caractérise l'écart en régime permanent par :
+$$
+\varepsilon_{\text{permanent}}=\lim\limits_{t\to +\infty} \varepsilon(t)
+\quad
+\Longleftrightarrow 
+\quad
+\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\varepsilon(p)
+$$
+\end{minipage}
+\hspace{.5cm}
+\begin{minipage}[c]{.25\linewidth}
+\includestandalone{images/Schema_1_entree_F_R}
+\end{minipage}
+
 \end{defi}
+
+
 
 \begin{defi}
 Écart statique, écart dynamique (en vitesse ou en poursuite), écart en accélération
