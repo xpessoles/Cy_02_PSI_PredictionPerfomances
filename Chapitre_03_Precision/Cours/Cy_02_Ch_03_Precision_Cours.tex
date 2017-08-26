@@ -83,15 +83,18 @@ Chapitre 3 -- \xxactivite%
 \vspace{2cm}
 \pagestyle{fancy}
 \thispagestyle{plain}
-\section{Définition}
+\section{Système non perturbé}
 \begin{defi}~\\
 
-\begin{minipage}[c]{.6\linewidth}
+
 La précision est l'écart entre la valeur de consigne et la valeur de la sortie. Pour caractériser la précision d'un système, on s'intéresse généralement à l'écart en régime permanent.
 
 Attention à bien s'assurer que, lors d'une mesure expérimentale par exemple, les grandeurs de consigne et de sortie sont bien de la même unité (et qualifient bien la même grandeur physique).
 
-À partir du schéma-blocs ci-contre, on caractérise l'écart en régime permanent par :
+\vspace{.2cm}
+
+\noindent \begin{minipage}[c]{.6\linewidth}
+Pour un système non perturbé dont le schéma-blocs est celui donné ci-contre, on caractérise l'écart en régime permanent par :
 $$
 \varepsilon_{\text{permanent}}=\lim\limits_{t\to +\infty} \varepsilon(t)
 \quad
@@ -109,13 +112,110 @@ $$
 
 
 
-\begin{defi}
-Écart statique, écart dynamique (en vitesse ou en poursuite), écart en accélération
+\begin{defi} \~\\
+Le nom de l'écart dépend de l'entrée avec lequel le système est sollicité : 
+\begin{itemize}
+\item écart statique : système sollicité par une entrée échelon -- $e(t)=E_0$ et $E(p)=\dfrac{E_0}{p}$;
+\item écart dynamique (en vitesse ou en poursuite) : système sollicité par une rampe -- $e(t)=Vt$ et $E(p)=\dfrac{V}{p^2}$;
+\item écart en accélération : système sollicité par une parabole  -- $e(t)=At^2$ et $E(p)=\dfrac{A}{p^2}$.
+\end{itemize}
 \end{defi}
 
-\begin{methode}[Détermination de l'erreur pour un système non perturbé]
 
-\end{methode}
+\subsection*{Petit développement ...}
+
+Calculons l'écart statique pour le système précédent. On a : $\varepsilon(p)=E(p)-R(p)=E(p)-\varepsilon(p) F(p) G(p)$. En conséquences,
+$\varepsilon(p)=E(p)-\varepsilon(p) F(p) G(p) 
+\Longleftrightarrow \varepsilon(p)\left( 1+F(p) G(p) \right) =E(p) 
+\Longleftrightarrow   \varepsilon(p) =\dfrac{E(p)}{1+F(p) G(p)}$.
+
+\begin{resultat} ~\\
+
+$$\varepsilon(p) =\dfrac{E(p)}{1+FTBO(p)}$$
+\end{resultat}
+
+
+\subsection*{Poursuivons ...}
+On a $FTBO(p)=\dfrac{K_{BO}\left(1+a_1p+...+a_mp^m \right)}{p^{\alpha}\left(1+b_1p+...+b_np^n\right)}$ avec $m< n$.
+\subsubsection*{FTBO de classe nulle}
+
+\begin{itemize}
+\item Pour une entrée échelon : 
+$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{E_0}{p}\dfrac{1}{1+FTBO(p)} 
+= \dfrac{E_0}{1+K_{BO}}$.
+\item Pour une entrée de type rampe : 
+$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{V}{p^2}\dfrac{1}{1+FTBO(p)} 
+=+\infty$.
+\item Pour une entrée de type parabole : 
+$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{A}{p^3}\dfrac{1}{1+FTBO(p)} 
+=+\infty$.
+\end{itemize}
+
+\subsubsection*{FTBO de classe 1}
+
+\begin{itemize}
+\item Pour une entrée échelon : 
+$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{E_0}{p}\dfrac{1}{1+\dfrac{K_{BO}\left(1+a_1p+...+a_mp^m \right)}{p\left(1+b_1p+...+b_np^n\right)}} 
+= 0$.
+\item Pour une entrée de type rampe : 
+$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{V}{p^2}\dfrac{1}{1+\dfrac{K_{BO}\left(1+a_1p+...+a_mp^m \right)}{p\left(1+b_1p+...+b_np^n\right)}} 
+=\dfrac{V}{K_{BO}}$.
+\item Pour une entrée de type parabole : 
+$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{A}{p^3}\dfrac{1}{1+\dfrac{K_{BO}\left(1+a_1p+...+a_mp^m \right)}{p\left(1+b_1p+...+b_np^n\right)}} 
+=+\infty$.
+\end{itemize}
+
+\subsubsection*{FTBO de classe 2}
+
+\begin{itemize}
+\item Pour une entrée échelon : 
+$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{E_0}{p}\dfrac{1}{1+\dfrac{K_{BO}\left(1+a_1p+...+a_mp^m \right)}{p^{2}\left(1+b_1p+...+b_np^n\right)}} 
+= 0$.
+\item Pour une entrée de type rampe : 
+$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{V}{p^2}\dfrac{1}{1+\dfrac{K_{BO}\left(1+a_1p+...+a_mp^m \right)}{p^{2}\left(1+b_1p+...+b_np^n\right)}} 
+=0$.
+\item Pour une entrée de type parabole : 
+$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{A}{p^3}\dfrac{1}{1+\dfrac{K_{BO}\left(1+a_1p+...+a_mp^m \right)}{p^{2}\left(1+b_1p+...+b_np^n\right)}} 
+=\dfrac{A}{K_{BO}}$.
+\end{itemize}
+
+
+\begin{resultat} ~\\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Classe & Consigne échelon & Consigne en rampe & Consigne parabolique \\
+& $e(t)=E_0$ & $e(t)=V t $ & $e(t)=At^2$ \\ 
+& $E(p)=\dfrac{E_0}{p}$ & $E(p)=\dfrac{V}{p^2}$ & $E(p)=\dfrac{A}{p^3}$ \\ 
+\hline \hline 
+&&&\\
+0 & $\varepsilon_S = \dfrac{E_0}{1+K_{BO}} $ & $\varepsilon_V = +\infty$ & $\varepsilon_A = +\infty$ \\
+&&&\\
+\hline 
+&&&\\
+1 & $\varepsilon_S = 0$ & $\varepsilon_V = \dfrac{V}{K_{BO}} $ & $\varepsilon_A = +\infty$ \\
+&&&\\
+\hline 
+&&&\\
+2 & $\varepsilon_S = 0 $ & $\varepsilon_V = 0$ & $\varepsilon_A = \dfrac{A}{K_{BO}}$ \\
+&&&\\
+\hline 
+\end{tabular}
+\end{center}
+
+\begin{rem}
+L'écart statique est nul si la boucle ouverte comprend au moins une intégration. À défaut, l'augmentation du gain statique de la boucle ouverte provoque une amélioration de la précision.
+\end{rem}
+
+\end{resultat}
+
+
+
+
+%\begin{methode}[Détermination de l'erreur pour un système non perturbé]
+%
+%\end{methode}
 
 \begin{methode}[Détermination de l'erreur pour un système perturbé]
 
@@ -124,6 +224,9 @@ $$
 \begin{resultat}
 Tableau...
 \end{resultat}
+
+\section{Système perturbé}
+
 \section{Précision et réponse fréquentielle}
 
 
