@@ -91,7 +91,7 @@ Chapitre 1 -- \xxactivite%
 \begin{multicols}{2}
 \subsection*{Identificaiton de la FTBF et de la FTBO -- Etude de la stabilité}
 
-Un système a fait l’objet d’essais en temporel et en harmonique.
+Un système a fait l’objet d’essais temporel et harmoniques.
 \begin{center}
 \includegraphics[width=\linewidth]{images/fig_01}
 \end{center}
@@ -102,14 +102,44 @@ Un système a fait l’objet d’essais en temporel et en harmonique.
 
 
 \subparagraph{}\textit{En utilisant la réponse temporelle, identifier la fonction de transfert du système}
+\ifprof
+\begin{corrige}
+Le premier dépassement a une valeur de 30,4\%. On a
+$D_\%=e^{-\dfrac{\pi \xi}{\sqrt{1-\xi^2}}}$
+$\Rightarrow \ln D = -\dfrac{\pi \xi}{\sqrt{1-\xi^2}}$
+$\Rightarrow \left( \sqrt{1-\xi^2} \right)  = -\dfrac{\pi \xi}{\ln D}$
+$\Rightarrow 1-\xi^2= \dfrac{\pi^2 \xi^2}{\left(\ln D\right)^2}$
+$\Rightarrow 1= \xi^2\left( 1+\dfrac{\pi^2 }{\left(\ln D\right)^2}\right)$
+$\Rightarrow \xi^2= \dfrac{1}{ 1+\dfrac{\pi^2 }{\left(\ln D\right)^2}}$
+$\Rightarrow \xi=0,35$.
+
+La pseudo-période est de \SI{0,475}{s}. On a  $T_p=\dfrac{2\pi}{\omega_0\sqrt{1-\xi^2}}$
+$\Leftrightarrow \omega_0=\dfrac{2\pi}{T_p\sqrt{1-\xi^2}}$ et $\omega_0=\SI{14,15}{rad.s^{-1}}$.
+ 
+\end{corrige}
+\else
+\fi
 
 \subparagraph{}\textit{En utilisant la réponse fréquentielle, identifier à nouveau la fonction de transfert du système.}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 \subparagraph{}\textit{Conclure.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
-\subparagraph{}\textit{Caractérisier la stabilité à partir des éléments de la FTBF.}
-
+\subparagraph{}\textit{Caractériser la stabilité à partir des éléments de la FTBF.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 On donne le schéma bloc suivant :
 
 \begin{center}
@@ -117,22 +147,63 @@ On donne le schéma bloc suivant :
 \end{center}
 
 \subparagraph{}\textit{Justifier la forme du schéma-blocs retenu pour modéliser la FTBO qui sera notée $H(p)$.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
-On sonsidère le correcteur poroportionnel $K=1$. 
-\subparagraph{}\textit{Déterminer les vaelurs de $G$ et de $\tau$ et en déduire $H(p)$.}
-
+On considère le correcteur proportionnel $K=1$. 
+\subparagraph{}\textit{Déterminer les valeurs de $G$ et de $\tau$ et en déduire $H(p)$.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 \subparagraph{}\textit{Effectuer les tracés des diagrammes de Bode de la FTBO.}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 Le cahier des charges impose une marge de gain de $\SI{10}{dB}$ et une marge de phase de $
 \SI{45}{\degree}$.
 
 \subparagraph{}\textit{Déterminer graphiquement les marges de gains et de phase.}
-\subparagraph{}\textit{Confirmer ces résultats par le calcul.}
-\subparagraph{}\textit{Conclure par rapport au cahier des charges.}
-\subparagraph{}\textit{Déterminer graphiquement la valeur du correcteur $K$ à placer ans la chaaîne directe, afin de respecter les critères de stabilité du cahier des charges.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
-\subparagraph{}\textit{Quel sera alors le 1\ier dépassement pour la réponse indicielle du système ?.}
+\subparagraph{}\textit{Confirmer ces résultats par le calcul.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{Conclure par rapport au cahier des charges.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{Déterminer graphiquement la valeur du correcteur $K$ à placer ans la chaîne directe, afin de respecter les critères de stabilité du cahier des charges.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{Quel sera alors le 1\ier dépassement pour la réponse indicielle du système ?}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 \end{multicols}
 %
