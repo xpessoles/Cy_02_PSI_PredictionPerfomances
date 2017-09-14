@@ -95,9 +95,9 @@ En mettant la fonction de transfert d'un système sous la forme :
 %$$
 %
 %En factorisant le numérateur et le dénominateur de $H(p)$ on peut alors retrouver une fonction de la forme  :
-$$
+$
 H(p)=\dfrac{\left(p+ z_m\right)\cdot \left(p+ z_{m-1}\right)...}{\left(p+ p_n\right)\cdot \left(p+ p_{n-1}\right)...} \quad \text{avec } p_i,z_i\in \mathbb{C},
-$$
+$
 
 \textbf{on peut constater que si les pôles sont à partie réelle strictement négative, l'exponentielle décroissante permet de stabiliser la réponse temporelle.}
 %
@@ -130,7 +130,8 @@ Un système est asymptotiquement stable si et seulement si tous les pôles de sa
 \end{rem}
 
 \subsection{Pôles dominants \cite{1}}
-Lors de l’étude d’un système, on se contente en général de ne prendre en compte que les pôles les plus influents. Ces pôles sont appelés les pôles dominants. Pour un système asymptotiquement stable, ce sont ceux qui sont le plus proche de l’axe des imaginaires, puisque ce sont eux qui induisent des modes qui disparaissent dans le temps le plus lentement.
+%Lors de l’étude d’un système, on se contente en général de ne prendre en compte que les pôles les plus influents. Ces pôles sont appelés les pôles dominants. Pour un système asymptotiquement stable, ce sont ceux qui sont le plus proche de l’axe des imaginaires, puisque ce sont eux qui induisent des modes qui disparaissent dans le temps le plus lentement.
+Les pôles dominants sont ceux qui sont le plus proche de l’axe des imaginaires. 
 
 \subsection{Caractéristiques dans le lieu de pôles}
 Il est possible de représenter les performances des systèmes asservis en utilisant le lieu des pôles dans le plan complexe \cite{ref1}. 
@@ -139,13 +140,18 @@ Il est possible de représenter les performances des systèmes asservis en utili
 \subsection{Lorsque la BO commence à pointer le bout de son nez...}
 
 
+\begin{minipage}[c]{.48\linewidth}
 Soit le schéma-blocs suivant : 
 
 \includestandalone{images/Schema_1_entree_F_R}
 
-La fonction de transfert en boucle ouverte est donnée par $H_{BO}=\dfrac{R(p)}{\varepsilon(p)}=F(p)G(p)$. 
+\end{minipage}\hfill
+\begin{minipage}[c]{.48\linewidth}
+La fonction de transfert en boucle ouverte est donnée par $H_{BO}(p)=\dfrac{R(p)}{\varepsilon(p)}=F(p)G(p)$. 
 
-La fonction de transfert en boucle fermée est donnée par : $H_{BF}=\dfrac{S(p)}{E(p)}=\dfrac{F(p)}{1+F(p)G(p)}=\dfrac{F(p)}{1+H_{BO}(p)}$. 
+La fonction de transfert en boucle fermée est donnée par : $H_{BF}(p)=\dfrac{S(p)}{E(p)}=\dfrac{F(p)}{1+F(p)G(p)}=\dfrac{F(p)}{1+H_{BO}(p)}$. 
+
+\end{minipage}
 
 \begin{defi}[Équation caractéristique]
 Soit $H(p)=\dfrac{N(p)}{D(p)}$ une fonction de transfert. On appelle $D(p)=0$ l'équation caractéristique de la fonction de transfert. Ainsi les racines de $D(p)$ correspondent aux pôles de $H(p)$.
@@ -173,11 +179,9 @@ $$
 \end{resultat}
  
  
- FIGURES
+% FIGURES
  
 %\subsection{Vers le système réel...}
-
-Le résultat donné ci-dessus est un résultat théorique dans le sens ou le diagramme de Bode de la boucle ouverte du système réel aura un écart avec le diagramme de Bode du système modélisé. 
 
 \begin{resultat}[Marges]
 Pour tenir compte des écarts entre le modèle et le système réel, on est amené à définir une marge de gain et une marge de phase. Cela signifie que dans l'étude des systèmes asservis, on considèrera, dans le cas général que le système est stable si :
@@ -188,6 +192,23 @@ Pour tenir compte des écarts entre le modèle et le système réel, on est amen
 \end{resultat}
  
 
+\begin{minipage}[c]{.58\linewidth}
+\begin{defi}[Marge de phase]
+
+La marge de phase est définie telle que $M_\varphi= \SI{180}{\degree} + \arg\left(\text{FTBO}(j\omega_{co})\right)$ où $\omega_{co}$ est la pulsation de coupure pour laquelle $|\text{FTBO}\left(j\omega_{co}\right)|=\SI{0}{dB}$.
+\end{defi}
+
+\begin{defi}[Marge de gain]
+La marge de gain est définie telle
+que $M_G = -20\log|\text{FTBO} (j\omega_{\varphi 180})|$
+où $\omega_{\varphi 180}$ est la pulsation pour laquelle $\arg(\text{FTBO}(j\omega_{ \varphi 180}))= -\SI{180}{\degres}$.
+\end{defi}
+\end{minipage}\hfill
+\begin{minipage}[c]{.4\linewidth}
+\begin{center}
+\includegraphics[width=.8\linewidth]{images/marges}
+\end{center}
+\end{minipage}
 
 \end{document}
 

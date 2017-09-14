@@ -1,12 +1,12 @@
-# Latex
-.toc
-.synctex.gz
-.ptc
-.aux
-.bcf
-.idx
-.log
-.run.xml
+*.aux
+*.backup
+*.log
+*.xml
+*.bcf
+*.idx
+*.synctex.gz
+*.ptc
+
 
 # Windows image file caches
 Thumbs.db
