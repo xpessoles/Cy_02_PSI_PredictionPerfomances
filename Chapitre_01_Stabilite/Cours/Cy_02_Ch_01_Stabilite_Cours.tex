@@ -222,6 +222,7 @@ $$
 
 Le résultat donné ci-dessus est un résultat théorique dans le sens ou le diagramme de Bode de la boucle ouverte du système réel aura un écart avec le diagramme de Bode du système modélisé. 
 
+
 \begin{resultat}[Marges]
 Pour tenir compte des écarts entre le modèle et le système réel, on est amené à définir une marge de gain et une marge de phase. Cela signifie que dans l'étude des systèmes asservis, on considèrera, dans le cas général que le système est stable si :
 \begin{itemize}
@@ -229,6 +230,26 @@ Pour tenir compte des écarts entre le modèle et le système réel, on est amen
 \item la marge de phase est supérieure à $45\degres$.
 \end{itemize}
 \end{resultat}
+
+\begin{minipage}[c]{.58\linewidth}
+\begin{defi}[Marge de phase]
+
+La marge de phase est définie telle que $M_\varphi= \SI{180}{\degree} + \arg\left(\text{FTBO}(j\omega_{co})\right)$ où $\omega_{co}$ est la pulsation de coupure pour laquelle $|\text{FTBO}\left(j\omega_{co}\right)|=\SI{0}{dB}$.
+\end{defi}
+
+\begin{defi}[Marge de gain]
+La marge de gain est définie telle
+que $M_G = -20\log|\text{FTBO} (j\omega_{\varphi 180})|$
+où $\omega_{\varphi 180}$ est la pulsation pour laquelle $\arg(\text{FTBO}(j\omega_{ \varphi 180}))= -\SI{180}{\degres}$.
+\end{defi}
+\end{minipage}\hfill
+\begin{minipage}[c]{.4\linewidth}
+\begin{center}
+\includegraphics[width=.8\linewidth]{images/marges_fm}
+\end{center}
+\end{minipage}
+
+
  
 La marge de gain permet compte de tenir compte de variations de gain de la boucle ouverte. 
 
