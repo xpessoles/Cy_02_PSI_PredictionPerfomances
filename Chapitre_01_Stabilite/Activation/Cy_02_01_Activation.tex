@@ -1,0 +1,153 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Modélisation SLCI : Stabilité des systèmes},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+\usepackage{multicol}
+\usepackage{siunitx}
+%\usepackage{picins}
+\fichetrue
+%\fichefalse
+
+\proftrue
+%\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PSI$\star$ -- MP}
+\def\xxnumpartie{Cycle 02}
+\def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
+
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Stabilité des systèmes}
+
+
+\def\xxtitreexo{Activation}%Motorisation du moteur Haibike}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Patrick Dupas, \url{http://patrick.dupas.chez-alice.fr/}.}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{Cycle 02}
+
+\def\xxactivite{Activation}
+\def\xxauteur{\textsl{P. Dupas.}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
+%\end{itemize}
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
+}}
+
+\def\xxfigures{
+%\includegraphics[width=.9\linewidth]{images/c-evolution}
+}%figues de la page de garde
+
+
+\def\xxpied{%
+Cycle 02 -- Modéliser les SLCI dans le but de prévoir leur comportement\\
+Chapitre 1 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+\usepackage{pgfplots}
+\begin{document}
+\def\pathfig{images}
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{6cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\def\pathfig{images}
+
+\begin{multicols}{2}
+\subsection*{Identificaiton de la FTBF et de la FTBO -- Etude de la stabilité}
+
+Un système a fait l’objet d’essais en temporel et en harmonique.
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_01}
+\end{center}
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_03}
+\end{center}
+
+
+
+\subparagraph{}\textit{En utilisant la réponse temporelle, identifier la fonction de transfert du système}
+
+\subparagraph{}\textit{En utilisant la réponse fréquentielle, identifier à nouveau la fonction de transfert du système.}
+
+
+\subparagraph{}\textit{Conclure.}
+
+\subparagraph{}\textit{Caractérisier la stabilité à partir des éléments de la FTBF.}
+
+On donne le schéma bloc suivant :
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_02}
+\end{center}
+
+\subparagraph{}\textit{Justifier la forme du schéma-blocs retenu pour modéliser la FTBO qui sera notée $H(p)$.}
+
+On sonsidère le correcteur poroportionnel $K=1$. 
+\subparagraph{}\textit{Déterminer les vaelurs de $G$ et de $\tau$ et en déduire $H(p)$.}
+
+
+\subparagraph{}\textit{Effectuer les tracés des diagrammes de Bode de la FTBO.}
+
+Le cahier des charges impose une marge de gain de $\SI{10}{dB}$ et une marge de phase de $
+\SI{45}{\degree}$.
+
+\subparagraph{}\textit{Déterminer graphiquement les marges de gains et de phase.}
+\subparagraph{}\textit{Confirmer ces résultats par le calcul.}
+\subparagraph{}\textit{Conclure par rapport au cahier des charges.}
+\subparagraph{}\textit{Déterminer graphiquement la valeur du correcteur $K$ à placer ans la chaaîne directe, afin de respecter les critères de stabilité du cahier des charges.}
+
+\subparagraph{}\textit{Quel sera alors le 1\ier dépassement pour la réponse indicielle du système ?.}
+
+\end{multicols}
+%
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/fig_02}
+%\end{center}
+%
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/fig_03}
+%\end{center}
+%
+%\begin{center}
+%\includegraphics[width=.8\linewidth]{images/fig_04}
+%\end{center}
+
+
+
+\end{document}
