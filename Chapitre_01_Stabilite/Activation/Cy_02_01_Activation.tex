@@ -88,7 +88,10 @@ Chapitre 1 -- \xxactivite%
 
 \def\pathfig{images}
 
+\ifprof
+\else
 \begin{multicols}{2}
+\fi
 \subsection*{Identificaiton de la FTBF et de la FTBO -- Etude de la stabilité}
 Un système a fait l’objet d’essais temporel et harmoniques.
 
@@ -119,6 +122,7 @@ $\Rightarrow \xi=0,35$.
 La pseudo-période est de \SI{0,475}{s}. On a  $T_p=\dfrac{2\pi}{\omega_0\sqrt{1-\xi^2}}$
 $\Leftrightarrow \omega_0=\dfrac{2\pi}{T_p\sqrt{1-\xi^2}}$ et $\omega_0=\SI{14,15}{rad.s^{-1}}$.
  
+ On a donc $K=1$, $\xi=0,35$ et $\omega_0=\SI{14,15}{rad.s^{-1}}$.
 \end{corrige}
 \else
 \fi
@@ -126,7 +130,22 @@ $\Leftrightarrow \omega_0=\dfrac{2\pi}{T_p\sqrt{1-\xi^2}}$ et $\omega_0=\SI{14,1
 \subparagraph{}\textit{En utilisant la réponse fréquentielle, identifier à nouveau la fonction de transfert du système.}
 \ifprof
 \begin{corrige}
-On observe une réponse harmonique constituée d'une asymptote horizontale quand $\omega$ tend vers 0 et d'une asymptote de pente $-\SI{40}{dB}$.
+On observe une réponse harmonique constituée d'une asymptote horizontale quand $\omega$ tend vers 0 et d'une asymptote de pente $-\SI{40}{dB/decade}$. Il en résulte qu'on peut modéliser le système par un second ordre. 
+
+Lorsque $\omega$ tend vers 0, le gain est nul; donc $K=1$.
+
+L'intersection des asymptotes a lieu pour $\omega_0=\SI{14,14}{rad.s^{-1}}$. 
+
+À la résonance, on mesure un gain de $20\log A_{\text{max}}=\SI{3,59}{dB}\Rightarrow A_{\text{max}}=1,51$. On a donc 
+$A_{\text{max}} = \dfrac{1}{2\xi\sqrt{1-\xi^2}}$
+$\Leftrightarrow {2\xi\sqrt{1-\xi^2}}A_{\text{max}}=1$
+$\Rightarrow 4\xi^2\left(1-\xi^2\right)A_{\text{max}}^2=1 $
+$\Rightarrow 4\xi^2A_{\text{max}}^2 -4\xi^4 A_{\text{max}}^2-1=0 $
+$\Rightarrow \xi^4 - \xi^2 +\dfrac{1}{4A_{\text{max}}^2}=0 $. En posant $\xi^2=X$,  
+$ X^2 - X +\dfrac{1}{4A_{\text{max}}^2}=0 $
+. On a alors $\Delta = 1-\dfrac{1}{A_{\text{max}}^2}$ et $X_{1,2}=\dfrac{1\pm \sqrt{\Delta}}{2}\simeq \dfrac{1\pm 0,75}{2}$. On a donc $X_1=0,125$, $X_2=0,875$ et $\xi_1=0,35$, $\xi_2=0,94$. Étant donné qu'il existe une résonance, on prend $\xi=0,35$.
+
+ On a donc $K=1$, $\xi=0,35$ et $\omega_0=\SI{14,15}{rad.s^{-1}}$ et $F(p)=\dfrac{1}{1+0,05p+0,005p^2}$.
 
 \end{corrige}
 \else
@@ -135,6 +154,7 @@ On observe une réponse harmonique constituée d'une asymptote horizontale quand
 \subparagraph{}\textit{Conclure.}
 \ifprof
 \begin{corrige}
+On retrouve les mêmes coefficients. 
 \end{corrige}
 \else
 \fi
@@ -142,6 +162,7 @@ On observe une réponse harmonique constituée d'une asymptote horizontale quand
 \subparagraph{}\textit{Caractériser la stabilité à partir des éléments de la FTBF.}
 \ifprof
 \begin{corrige}
+On a un système du second ordre. Le système est stable. 
 \end{corrige}
 \else
 \fi
@@ -154,6 +175,11 @@ On donne le schéma bloc suivant :
 \subparagraph{}\textit{Justifier la forme du schéma-blocs retenu pour modéliser la FTBO qui sera notée $H(p)$.}
 \ifprof
 \begin{corrige}
+On a $H(p)=\dfrac{S(p)}{E(p)}
+=\dfrac{\dfrac{KG}{\left(1+\tau p\right)p}}{1+\dfrac{KG}{\left(1+\tau p\right)p}}
+=\dfrac{1}{\dfrac{\tau}{KG} p^2+\dfrac{p}{KG}+1}$.
+
+Ainsi, $H(p)$ est un système du second ordre avec un gain unitaire, comme la fonction identifiée dans les premières questions. 
 \end{corrige}
 \else
 \fi
@@ -162,6 +188,10 @@ On considère le correcteur proportionnel $K=1$.
 \subparagraph{}\textit{Déterminer les valeurs de $G$ et de $\tau$ et en déduire $H(p)$.}
 \ifprof
 \begin{corrige}
+On a :
+$\dfrac{1}{\dfrac{\tau}{G} p^2+\dfrac{p}{G}+1}
+= \dfrac{1}{1+0,05p+0,005p^2}$. En conséquences, $G=20$ et $\tau/20=0,005 \Rightarrow \tau=\SI{0,1}{s}$ et $FTBO(p)=\dfrac{20}{(1+0,1p)p}$.
+
 \end{corrige}
 \else
 \fi
@@ -169,6 +199,10 @@ On considère le correcteur proportionnel $K=1$.
 \subparagraph{}\textit{Effectuer les tracés des diagrammes de Bode de la FTBO.}
 \ifprof
 \begin{corrige}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/cor_01}
+\end{center}
 \end{corrige}
 \else
 \fi
@@ -210,7 +244,10 @@ Le cahier des charges impose une marge de gain de $\SI{10}{dB}$ et une marge de 
 \else
 \fi
 
+\ifprof
+\else
 \end{multicols}
+\fi
 %
 %\begin{center}
 %\includegraphics[width=\linewidth]{images/fig_02}
