@@ -219,6 +219,34 @@ Le cahier des charges impose une marge de gain de $\SI{10}{dB}$ et une marge de 
 \subparagraph{}\textit{Confirmer ces résultats par le calcul.}
 \ifprof
 \begin{corrige}
+La phase ne coupe jamais l'axe des abscisses. Ainsi, La marge de gain n'est pas définie (elle est infinie).
+Pour déterminer la marge de phase analytiquement :
+\begin{enumerate}
+\item On cherche $\omega_c$ tel que $G_{\text{dB}}(\omega_c)=0$;
+\item On calcule $\varphi(\omega_c)$;
+\item La marge de phase est de $\varphi(\omega_c) -(-180)$.
+\end{enumerate}
+
+Cherchons $\omega_c$ tel que $G_{\text{dB}}(\omega_c)=0$. 
+On a $FTBO(j\omega )
+=\dfrac{20}{(1+0,1j\omega)j\omega}
+=\dfrac{20}{j\omega-0,1\omega^2}$. 
+$20\log |FTBO(j\omega )| 
+= 20\log 20 - 20\log \sqrt{\omega^2+0,01\omega^4}
+= 20\log 20 - 20\log \omega\sqrt{1+0,01\omega^2}$.
+
+ $G_{\text{dB}}(\omega_c)=0 
+\Leftrightarrow   20 =\omega_c\sqrt{1+0,01\omega_c^2} 
+\Leftrightarrow   400 =\omega_c^2 \left(1+0,01\omega_c^2\right)$
+On pose $x=\omega_c^2$ et on a :
+$400 =x \left(1+0,01x\right)\Leftrightarrow x^2+100x-40000=0$. 
+On a donc $\Delta = 412,3^2$ et $x_{1,2}=\dfrac{-100\pm412,3}{2}$ on conserve la racine positive et  $x_1=156,15$ et $\omega_c=\SI{12,5}{rad.s^{-1}}$.
+
+$\varphi(\omega_c)=\arg(20)-90 -\arg\left(1+0,1j\omega_c \right)
+=0- 90 -\arctan\left( 0,1\omega_c \right)
+=0-90-51,34=-141,34\degres$.
+
+La marge de phase est donc de 38,66\degres.
 \end{corrige}
 \else
 \fi
@@ -226,6 +254,7 @@ Le cahier des charges impose une marge de gain de $\SI{10}{dB}$ et une marge de 
 \subparagraph{}\textit{Conclure par rapport au cahier des charges.}
 \ifprof
 \begin{corrige}
+Le système ne sera pas stable vis-à-vis du cahier des charges.
 \end{corrige}
 \else
 \fi
@@ -233,6 +262,11 @@ Le cahier des charges impose une marge de gain de $\SI{10}{dB}$ et une marge de 
 \subparagraph{}\textit{Déterminer graphiquement la valeur du correcteur $K$ à placer ans la chaîne directe, afin de respecter les critères de stabilité du cahier des charges.}
 \ifprof
 \begin{corrige}
+On a une phase de -135\degres pour $\omega=\SI{10}{rad.s^{-1}}$. Il faut donc déterminer $K$ tel que le gain soit nul en $\omega=\SI{10}{rad.s^{-1}}$.
+
+$20\log 20 - 20\log 10\sqrt{1+0,01\cdot 10^2}=20\log 20 - 20\log 10\sqrt{2}=\SI{3}{dB}$. Il faut donc diminuer le gain de \SI{3}{dB}.
+
+On cherche donc $K$ tel que $20 \log K = -3$ et il faut prendre $K=0,7$.
 \end{corrige}
 \else
 \fi
@@ -240,6 +274,7 @@ Le cahier des charges impose une marge de gain de $\SI{10}{dB}$ et une marge de 
 \subparagraph{}\textit{Quel sera alors le 1\ier dépassement pour la réponse indicielle du système ?}
 \ifprof
 \begin{corrige}
+Dépassement de 23\%.
 \end{corrige}
 \else
 \fi
