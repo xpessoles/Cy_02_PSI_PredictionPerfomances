@@ -25,7 +25,7 @@
 
 \def\classe{PSI$\star$ -- MP}
 \def\xxnumpartie{Cycle 02}
-\def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
+\def\xxpartie{Modéliser les SLCI dans le but de prévoir leur comportement}
 
 
 \def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
@@ -67,7 +67,7 @@
 
 
 \def\xxpied{%
-Cycle 02 -- Modéliser les SLCI dans le but de prévoir leur comportement\\
+Cycle 02 -- Modéliser les systèmes afin de prévoir leur comportement\\
 Chapitre 1 -- \xxactivite%
 }
 
@@ -92,10 +92,13 @@ Chapitre 1 -- \xxactivite%
 \else
 \begin{multicols}{2}
 \fi
-\subsection*{Identificaiton de la FTBF et de la FTBO -- Etude de la stabilité}
+\subsection*{Identification de la FTBF}
+\begin{obj}
+Identifier les caractéristiques de la FTBF d'un système à partir d'une réponse temporelle et fréquentielle. Caractériser la stabilité du système.
+\end{obj}
+
+
 Un système a fait l’objet d’essais temporel et harmoniques.
-
-
 
 
 \subparagraph{}\textit{En utilisant la réponse temporelle, identifier la fonction de transfert du système}
@@ -142,6 +145,11 @@ $ X^2 - X +\dfrac{1}{4A_{\text{max}}^2}=0 $
 \else
 \fi
 
+\begin{rem}
+On montrera dans les deux questions précédentes que 
+$K=1$, $\xi\simeq0,35$ et $\omega_0\simeq\SI{14,15}{rad.s^{-1}}$.
+\end{rem}
+
 \subparagraph{}\textit{Conclure.}
 \ifprof
 \begin{corrige}
@@ -151,12 +159,26 @@ On retrouve les mêmes coefficients.
 \fi
 
 \subparagraph{}\textit{Caractériser la stabilité à partir des éléments de la FTBF.}
+
+
+
 \ifprof
 \begin{corrige}
 On a un système du second ordre. Le système est stable. 
 \end{corrige}
 \else
 \fi
+
+\subsection*{Étude de la stabilité}
+
+\begin{obj}
+\begin{itemize}
+\item Caractériser la stabilité d'un système à partir de la FTBO.
+\item La marge de gain est supérieure à $\SI{10}{dB}$ et que la marge de phase est supérieure à \SI{45}{\degres}.
+\end{itemize}
+
+\end{obj}
+
 On donne le schéma bloc suivant :
 
 \begin{center}
@@ -187,6 +209,8 @@ $\dfrac{1}{\dfrac{\tau}{G} p^2+\dfrac{p}{G}+1}
 \else
 \fi
 
+\subparagraph{}\textit{Déterminer l'erreur statique et l'erreur de traînage.}
+
 \subparagraph{}\textit{Effectuer les tracés des diagrammes de Bode de la FTBO.}
 \ifprof
 \begin{corrige}
@@ -197,8 +221,8 @@ $\dfrac{1}{\dfrac{\tau}{G} p^2+\dfrac{p}{G}+1}
 \end{corrige}
 \else
 \fi
-Le cahier des charges impose une marge de gain de $\SI{10}{dB}$ et une marge de phase de $
-\SI{45}{\degree}$.
+%Le cahier des charges impose une marge de gain de $\SI{10}{dB}$ et une marge de phase de $
+%\SI{45}{\degree}$.
 
 \subparagraph{}\textit{Déterminer graphiquement les marges de gains et de phase.}
 \ifprof
@@ -250,7 +274,15 @@ Le système ne sera pas stable vis-à-vis du cahier des charges.
 \else
 \fi
 
+\subsection*{Choix d'un gain}
+
+\begin{obj}
+Déterminer le gain permettant de satisfaire le cahier des charges.
+\end{obj}
+
 \subparagraph{}\textit{Déterminer graphiquement la valeur du correcteur $K$ à placer ans la chaîne directe, afin de respecter les critères de stabilité du cahier des charges.}
+
+\subparagraph{}\textit{Déterminer analytiquement la valeur du correcteur $K$ à placer ans la chaîne directe, afin de respecter les critères de stabilité du cahier des charges.}
 \ifprof
 \begin{corrige}
 On a une phase de -135\degres pour $\omega=\SI{10}{rad.s^{-1}}$. Il faut donc déterminer $K$ tel que le gain soit nul en $\omega=\SI{10}{rad.s^{-1}}$.
@@ -275,9 +307,9 @@ Dépassement de 23\%.
 \end{multicols}
 \fi
 
-\begin{minipage}[c]{.4\linewidth}
+\noindent\begin{minipage}[c]{.4\linewidth}
 \begin{center}
-\includegraphics[width=.9\linewidth]{images/fig_03}
+\includegraphics[width=\linewidth]{images/fig_03}
 \end{center}
 \end{minipage}\hfill
 \begin{minipage}[c]{.46\linewidth}
@@ -286,6 +318,9 @@ Dépassement de 23\%.
 \end{center}
 \end{minipage}
 
+\begin{center}
+\includegraphics[width=.7\linewidth]{images/img_04}
+\end{center}
 
 %
 %\begin{center}
