@@ -67,7 +67,7 @@
 
 
 \def\xxpied{%
-Cycle 02 -- Modéliser les systèmes asservis dans le but de prévoir leur comportement\\
+Cycle 02 -- Modéliser les SLCI dans le but de prévoir leur comportement\\
 Chapitre 1 -- \xxactivite%
 }
 
@@ -118,6 +118,9 @@ Afin d’assurer un bon positionnement angulaire de la pince P, la commande de s
 \item la rotation $\theta_{EC}$ de la pièce d’entrée du double joint de Cardan est telle que $\theta_{EC} = \lambda \theta_M$, grâce au réducteur de vitesse fixé sur l’arbre moteur;
 \item le double joint de Cardan est homocinétique et a pour fonction de transfert $R(p) = 1$ (l’entrée est l’angle $\theta_{EC}$, et la sortie est $\theta_{SC}=\theta_P$ où $\theta_P$ est la rotation de la pince fixée sur la pièce de sortie du double joint de Cardan).
 \end{itemize}
+
+\subparagraph{}\textit{Tracer le schéma bloc d’asservissement en position, d’entrée $\theta_{PC}(p)$ et de sortie $\theta_{P}(p)$, faisant apparaître toutes les variables et les fonctions de transfert définies ci-dessus.}
+
 \section*{Performances de la commande}
 On donne : $\lambda=0,2$ et $K_{\theta}=\SI{0,01}{V.rad^{-1}}$.
 
@@ -146,10 +149,44 @@ $H_B(p)=\dfrac{V_{\theta}(p)}{\varepsilon_P}=C(p)\dfrac{86}{p\left(10^3+3,2 p + 
 
 Les exigences de l'orientation du flacon sont données dans le tableau suivant. 
 \begin{center}
-\begin{tabular}{ccc}
+\begin{tabular}{|p{2cm}|l|p{2.8cm}|}
+\hline
+Fonction & Critères & Niveaux \\ \hline
+Orienter le flacon & Stabilité & Marge de phase $M\varphi > 45\degres$  \\
+& & Marge de gain $MG>\SI{10}{dB}$\\ \hline
+& Précision & Écart statique nul à une entrée en échelon $\varepsilon_\infty = 0$ \\ \hline
+& Rapidité & Bande passante à \SI{0}{dB} de la fonction $H_B(p)$ : $BP_0 > \SI{50}{rad.s^{-1}}$. On définit la bande passante par sa largeur de bande (ici : \SI{50}{rad.s^{-1}}).
+\\ \hline
 \end{tabular}
 \end{center}
+
+On considère pour l’instant que le système n’est pas corrigé : $C(p) = 1$.
+
+
+
+\subparagraph{}\textit{Tracer les diagrammes asymptotiques de Bode en amplitude et phase de la fonction de transfert $H_{BO}(p)$ du système non corrigé en plaçant avec précision les points caractéristiques.}
+
+Pour la fin, la courbe de gain sera assimilée à son tracé asymptotique.
+
+\subparagraph{}\textit{Déterminer les valeurs de $M\varphi$, marge de phase, $MG$, marge de gain et $BP_0$, bande passante à \SI{0}{dB} de la fonction de transfert $H_B(p)$. Les critères de la fonction précédente sont-ils vérifiés ?}
+
+\subparagraph{}\textit{Vérifier les valeurs des marges par le calcul.}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_02}
+\end{center}
+
+On prend une correction proportionnelle : $C(p) = C_0$.
+\subparagraph{}\textit{Déterminer la bande de valeurs de $C_0$ qui permettent de vérifier les critères du cahier des charges partiel donné précédemment.}
+
 \end{multicols}
+
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/cor_01}
+
+\includegraphics[width=\linewidth]{images/cor_02}
+\end{center}
 \end{document}
 
 
