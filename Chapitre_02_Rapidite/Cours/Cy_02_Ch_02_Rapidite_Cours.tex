@@ -27,7 +27,7 @@
 \def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
 \def\xxtete{Sciences Industrielles de l'Ingénieur}
 
-\def\classe{PSI$\star$ -- MP}
+\def\classe{\textsf{PSI$\star$ -- MP}}
 \def\xxnumpartie{Cycle 02}
 \def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
 
@@ -89,9 +89,52 @@ Chapitre 1 -- \xxactivite%
 
 \subsection{Temps de réponse à 5\%}
 
+\begin{methode}
+[Détermination du temps de réponse à $n\%$] (En pratique $n=5$).\\
+
+\begin{enumerate}
+ \item Tracer sur le même graphe la consigne $e(t)$ et la réponse du système
+$s(t)$.
+\item Tracer la droite correspondant à la valeur asymptotique de $s(t)$.
+\item Tracer la bande correspondant à une variation de $\pm n\%$ de la valeur
+asymptotique.
+\item Relever la dernière valeur à partir de laquelle $s(t)$ coupe la bande et
+n'en sort plus.
+\end{enumerate}
+\end{methode}
+
+\begin{center}
+%\includestandalone{images/perf}
+\includegraphics{images/perf}
+\end{center}
+
+\begin{resultat}
+Plus le temps de réponse à 5\% d'un système est petit, plus le régime transitoire disparaît rapidement. 
+\end{resultat}
+
+\begin{exemple}
+Donner le temps de réponse à 5\% de la réponse à un échelon donné dans la figure suivante. 
+
+
+\begin{minipage}[c]{.5\linewidth}
+\begin{center}
+%\includestandalone{images/perf}
+\includegraphics[width=8cm]{images/tr.jpg}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.4\linewidth}
+Les pièges du temps de réponse à 5\% :
+\begin{itemize}
+\item le temps de réponse à 5\% se mesure à plus ou moins 5\% de la sortie (et pas de l'entrée). Ainsi, si le système est stable, le temps de réponse n'est \textbf{jamais l'infini};
+\item si le signal ne part pas de 0 (en ordonnée), il faut réaliser la bande à $S_0+\Delta s \pm 0.05\Delta s$;
+\item si le signal ne part pas de 0 (en abscisse), il faut tenir compte du décalage des temps.
+\end{itemize}
+\end{minipage} 
+\end{exemple}
+
 \subsection{Temps de montée}
 
-\section{Résultat dans me diagramme de Bode}
+\section{Résultat dans le diagramme de Bode}
 \begin{thebibliography}{2}
    \bibitem[1]{ref1} Frédéric Mazet, {\it Cours d'automatique de deuxième année, Lycée Dumont Durville, Toulon.}
       \bibitem[2]{ref2} Florestan Mathurin, {\it Stabilité des SLCI, Lycée Bellevue, Toulouse, \url{http://florestan.mathurin.free.fr/}.}
