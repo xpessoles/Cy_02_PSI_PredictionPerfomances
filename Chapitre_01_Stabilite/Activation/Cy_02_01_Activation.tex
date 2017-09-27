@@ -103,7 +103,7 @@ Un système a fait l’objet d’essais temporel et harmoniques.
 
 \subparagraph{}\textit{En utilisant la réponse temporelle, identifier la fonction de transfert du système}
 \ifprof
-\begin{corrige}
+\begin{corrige}~\\
 Le premier dépassement a une valeur de 30,4\%. On a
 $D_\%=e^{-\dfrac{\pi \xi}{\sqrt{1-\xi^2}}}$
 $\Rightarrow \ln D = -\dfrac{\pi \xi}{\sqrt{1-\xi^2}}$
@@ -123,7 +123,7 @@ $\Leftrightarrow \omega_0=\dfrac{2\pi}{T_p\sqrt{1-\xi^2}}$ et $\omega_0=\SI{14,1
 
 \subparagraph{}\textit{En utilisant la réponse fréquentielle, identifier à nouveau la fonction de transfert du système.}
 \ifprof
-\begin{corrige}
+\begin{corrige}~\\
 On observe une réponse harmonique constituée d'une asymptote horizontale quand $\omega$ tend vers 0 et d'une asymptote de pente $-\SI{40}{dB/decade}$. Il en résulte qu'on peut modéliser le système par un second ordre. 
 
 Lorsque $\omega$ tend vers 0, le gain est nul; donc $K=1$.
@@ -153,7 +153,7 @@ $K=1$, $\xi\simeq0,35$ et $\omega_0\simeq\SI{14,15}{rad.s^{-1}}$.
 
 \subparagraph{}\textit{Conclure.}
 \ifprof
-\begin{corrige}
+\begin{corrige}~\\
 On retrouve les mêmes coefficients. 
 \end{corrige}
 \else
@@ -164,13 +164,14 @@ On retrouve les mêmes coefficients.
 
 
 \ifprof
-\begin{corrige}
+\begin{corrige}~\\
 On a un système du second ordre. Le système est stable. 
 \end{corrige}
 \else
 \fi
 
 \subsection*{Étude de la stabilité}
+
 
 \ifprof
 \else
@@ -192,9 +193,11 @@ On donne le schéma bloc suivant :
 
 \fi
 
+
+
 \subparagraph{}\textit{Justifier la forme du schéma-blocs retenu pour modéliser la FTBO qui sera notée $H(p)$.}
 \ifprof
-\begin{corrige}
+\begin{corrige}~\\
 On a $H(p)=\dfrac{S(p)}{E(p)}
 =\dfrac{\dfrac{KG}{\left(1+\tau p\right)p}}{1+\dfrac{KG}{\left(1+\tau p\right)p}}
 =\dfrac{1}{\dfrac{\tau}{KG} p^2+\dfrac{p}{KG}+1}$.
@@ -207,7 +210,7 @@ Ainsi, $H(p)$ est un système du second ordre avec un gain unitaire, comme la fo
 On considère le correcteur proportionnel $K=1$. 
 \subparagraph{}\textit{Déterminer les valeurs de $G$ et de $\tau$ et en déduire $H(p)$.}
 \ifprof
-\begin{corrige}
+\begin{corrige}~\\
 On a :
 $\dfrac{1}{\dfrac{\tau}{G} p^2+\dfrac{p}{G}+1}
 = \dfrac{1}{1+0,05p+0,005p^2}$. En conséquences, $G=20$ et $\tau/20=0,005 \Rightarrow \tau=\SI{0,1}{s}$ et $FTBO(p)=\dfrac{20}{(1+0,1p)p}$.
@@ -217,6 +220,24 @@ $\dfrac{1}{\dfrac{\tau}{G} p^2+\dfrac{p}{G}+1}
 \fi
 
 \subparagraph{}\textit{Déterminer l'erreur statique et l'erreur de traînage.}
+
+\ifprof
+\begin{corrige}
+Ici on a $\varepsilon(p)=\dfrac{E(p)}{1+FTBO(p)}$. 
+
+Erreur statique (entrée échelon): $\varepsilon_s 
+= \lim\limits_{t\to +\infty} \varepsilon(t)
+= \lim\limits_{p\to 0} p\varepsilon(p)
+= \lim\limits_{p\to 0} p \dfrac{1}{p}\dfrac{1}{1+\dfrac{20}{(1+0,1p)p}}=0$
+
+Erreur trainate (entrée rampe): $\varepsilon_t
+= \lim\limits_{t\to +\infty} \varepsilon(t)
+= \lim\limits_{p\to 0} p\varepsilon(p)
+= \lim\limits_{p\to 0} p \dfrac{1}{p^2}\dfrac{1}{1+\dfrac{20}{(1+0,1p)p}}=1/20$
+\end{corrige}
+\else
+\fi
+
 
 \subparagraph{}\textit{Effectuer les tracés des diagrammes de Bode de la FTBO.}
 \ifprof
@@ -231,16 +252,17 @@ $\dfrac{1}{\dfrac{\tau}{G} p^2+\dfrac{p}{G}+1}
 %Le cahier des charges impose une marge de gain de $\SI{10}{dB}$ et une marge de phase de $
 %\SI{45}{\degree}$.
 
+
 \subparagraph{}\textit{Déterminer graphiquement les marges de gains et de phase.}
 \ifprof
-\begin{corrige}
+\begin{corrige}~\\
 \end{corrige}
 \else
 \fi
 
 \subparagraph{}\textit{Confirmer ces résultats par le calcul.}
 \ifprof
-\begin{corrige}
+\begin{corrige}~\\
 La phase ne coupe jamais l'axe des abscisses. Ainsi, La marge de gain n'est pas définie (elle est infinie).
 Pour déterminer la marge de phase analytiquement :
 \begin{enumerate}
