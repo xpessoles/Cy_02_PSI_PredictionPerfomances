@@ -85,7 +85,7 @@ Chapitre 1 -- \xxactivite%
 \pagestyle{fancy}
 \thispagestyle{plain}
 
-\section{Rappel : rapidité dans le domaine temporel}
+\section{Rappel : critère de rapidité dans le domaine temporel}
 
 \subsection{Temps de réponse à 5\%}
 
@@ -144,7 +144,39 @@ Pour caractériser la rapidité d'un système, on peut aussi utiliser le temps d
 \includegraphics[width=\linewidth]{images/tm}
 \end{center}
 \end{minipage} 
+\section{Rapidité des systèmes d'ordre 1 et d'ordre 2}
+\subsection{Systèmes d'ordre 1}
+Pour un système du premier ordre, le temps de réponse à 5\% est donné par $3\tau$.
+\begin{resultat}
+Pour un système du premier ordre, plus la constante de temps est petite, plus le système est rapide.
+\end{resultat}
 
+Soit un système du premier ordre bouclé avec un retour unitaire. L'expression de la FTBF est donnée par $FTBF(p)=\dfrac{K}{1+\tau p + K}$. La constante de temps est alors $\tau_{\text{BF}}=\dfrac{\tau}{1+K}$. 
+
+\begin{resultat}
+Pour un système du premier ordre bouclé (avec un retour unitaire), plus le gain statique est grand, plus le système est rapide. 
+\end{resultat}
+
+\subsection{Systèmes d'ordre 2}
+
+\noindent\begin{minipage}[c]{.47\linewidth}
+\begin{resultat}
+Pour un système du second, à $\xi$ constant, plus la pulsation propre est grande, plus le système est rapide. 
+\end{resultat} 
+\end{minipage}\hfill
+\begin{minipage}[c]{.47\linewidth}
+\begin{center}
+\end{center}
+\end{minipage}
+
+Soit un système du deuxième ordre bouclé avec un retour unitaire. En déterminant les caractéristiques de la FTBF, on obtient $K_{\text{BF}}=\dfrac{K}{1+K}$, $\omega_{\text{BF}}=\omega_0\sqrt{1+K}$, $\xi_{\text{BF}}=\dfrac{\xi}{1+K}$.
+
+\begin{resultat}~\\
+\begin{itemize}
+\item L'augmentation du gain de FTBO augmente la pulsation de la FTBF. 
+\item L'augmentation du gain de FTBO diminue le coefficient d'amortissement. Suivant la valeur de $\xi{\text{BF}}$ le système peut devenir plus ou moins rapide.  
+\end{itemize}
+\end{resultat}
 
 \section{Résultat dans le diagramme de Bode}
 \begin{thebibliography}{2}
