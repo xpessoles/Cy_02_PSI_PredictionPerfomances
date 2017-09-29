@@ -69,7 +69,7 @@
 
 \def\xxpied{%
 Cycle 02 -- Modéliser les SLCI dans le but de prévoir leur comportement\\
-Chapitre 1 -- \xxactivite%
+Chapitre 2 -- \xxactivite%
 }
 
 \setcounter{secnumdepth}{5}
@@ -159,26 +159,70 @@ Pour un système du premier ordre bouclé (avec un retour unitaire), plus le gai
 
 \subsection{Systèmes d'ordre 2}
 
-\noindent\begin{minipage}[c]{.47\linewidth}
+\noindent\begin{minipage}[c]{.5\linewidth}
 \begin{resultat}
 Pour un système du second, à $\xi$ constant, plus la pulsation propre est grande, plus le système est rapide. 
 \end{resultat} 
-\end{minipage}\hfill
-\begin{minipage}[c]{.47\linewidth}
-\begin{center}
-\end{center}
-\end{minipage}
+
+
 
 Soit un système du deuxième ordre bouclé avec un retour unitaire. En déterminant les caractéristiques de la FTBF, on obtient $K_{\text{BF}}=\dfrac{K}{1+K}$, $\omega_{\text{BF}}=\omega_0\sqrt{1+K}$, $\xi_{\text{BF}}=\dfrac{\xi}{1+K}$.
 
-\begin{resultat}~\\
+
+\begin{resultat}
 \begin{itemize}
 \item L'augmentation du gain de FTBO augmente la pulsation de la FTBF. 
 \item L'augmentation du gain de FTBO diminue le coefficient d'amortissement. Suivant la valeur de $\xi{\text{BF}}$ le système peut devenir plus ou moins rapide.  
 \end{itemize}
 \end{resultat}
 
+\end{minipage}\hfill
+\begin{minipage}[c]{.47\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{images/image7}
+\end{center}
+\end{minipage}
+
 \section{Résultat dans le diagramme de Bode}
+
+
+\noindent\begin{minipage}[c]{.48\linewidth}
+\begin{resultat}
+Plus la bande passante d'un système est élevée, plus le système est rapide.
+\end{resultat}
+
+\begin{center}
+\includegraphics[height=4.5cm]{images/bandepassante}
+\end{center}
+
+\end{minipage} \hfill
+\begin{minipage}[c]{.48\linewidth}
+\begin{resultat}
+Plus la pulsation de coupure à \SI{0}{dB} de la boucle ouverte est grande, plus le système asservi est rapide.
+\end{resultat}
+
+
+\begin{center}
+\includegraphics[height=4.5cm]{images/bobf}
+\end{center}
+\end{minipage}
+
+
+
+
+\newpage
+\section{Résultat dans le plan complexe}
+
+\begin{resultat}~\\
+
+\begin{center}
+\includegraphics[width=.45\linewidth]{images/bilan_poles}
+\end{center}
+
+\end{resultat}
+
+
+
 \begin{thebibliography}{2}
    \bibitem[1]{ref1} Frédéric Mazet, {\it Cours d'automatique de deuxième année, Lycée Dumont Durville, Toulon.}
       \bibitem[2]{ref2} Florestan Mathurin, {\it Stabilité des SLCI, Lycée Bellevue, Toulouse, \url{http://florestan.mathurin.free.fr/}.}
