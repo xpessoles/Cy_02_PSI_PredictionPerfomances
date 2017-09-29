@@ -1,0 +1,35 @@
+\pdfminorversion=3
+\documentclass[tikz]{standalone}
+\usepackage{vuiprepstandalone}
+\usepackage{alain2}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+grid=both,tick label style={/pgf/number format/fixed},scaled ticks=false,/pgf/number format/1000 sep = {\,}, /pgf/number format/use comma,
+%xtick={0,.01,...,1},
+%xtick={0,.1,...,1},
+%ytick={-0.8,-0.6,...,1},
+%minor y tick num=1,
+%minor x tick num=0,
+xlabel = {Facteur d'amortissement $z$},
+ylabel = {Temps de réponse réduit ($T_{5\%}\cdot \omega_0$)},
+%legend entries={Consigne(en degrés),Position angulaire (en degrés)},
+%legend style={at={(0.22,0.08)},anchor=south west},
+%legend columns=3,
+axis lines=left,
+xmin=0.01,xmax=100,
+ymin=1,ymax=1000,
+xmode = log,
+ymode = log,
+height=8cm,
+width=8cm,
+font=\footnotesize,
+]
+
+\addplot [cyan,thick]  table[x index=0,y index =1]{CHAP3/ex_03_hotbird/images/abaque_tr.txt};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}
