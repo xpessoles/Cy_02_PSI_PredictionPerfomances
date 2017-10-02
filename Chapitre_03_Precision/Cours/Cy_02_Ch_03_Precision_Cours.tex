@@ -110,7 +110,9 @@ $$
 
 \end{defi}
 
-
+\begin{defi}
+Un système est précis pour une entre lorsque $\varepsilon_{\text{permanent}}=0$.
+\end{defi}
 
 \begin{defi} \~\\
 Le nom de l'écart dépend de l'entrée avec lequel le système est sollicité : 
@@ -129,8 +131,7 @@ $\varepsilon(p)=E(p)-\varepsilon(p) F(p) G(p)
 \Longleftrightarrow \varepsilon(p)\left( 1+F(p) G(p) \right) =E(p) 
 \Longleftrightarrow   \varepsilon(p) =\dfrac{E(p)}{1+F(p) G(p)}$.
 
-\begin{resultat} ~\\
-
+\begin{resultat}
 $$\varepsilon(p) =\dfrac{E(p)}{1+FTBO(p)}$$
 \end{resultat}
 
@@ -226,6 +227,47 @@ Tableau...
 \end{resultat}
 
 \section{Système perturbé}
+Soit le schéma-blocs suivant : 
+\begin{center}
+\includestandalone{images/Schema2Entrees_2F_R}
+\end{center}
+
+\vspace{.25cm}
+
+\textbf{L'écart est caractérisé par le soustracteur principal, c'est-à-dire celui situé le plus à gauche du schéma-blocs.}
+
+\vspace{.25cm}
+
+Par lecture directe, on a : 
+$\varepsilon(p)
+=E(p)-R(p)S(p)
+=E(p)-R(p)\left(H_2(p) \left(P(p)+\varepsilon(p)H_1(p) \right)\right)$
+$\Longleftrightarrow 
+\varepsilon(p) =E(p)- R(p)H_2(p)P(p)-R(p)H_1(p)H_2(p)\varepsilon(p) $
+$\Longleftrightarrow \varepsilon(p)\left( 1+R(p)H_1(p)H_2(p)\right) =E(p)- R(p)H_2(p)P(p)$
+$\Longleftrightarrow \varepsilon(p) =\dfrac{E(p)}{1+R(p)H_1(p)H_2(p)}- \dfrac{R(p)H_2(p)}{1+R(p)H_1(p)H_2(p)}P(p)$.
+
+On a donc :
+$\varepsilon(p) =\underbrace{\dfrac{1}{1+\text{FTBO}(p)} E(p)}_{\text{\'Ecart vis-à-vis de la consigne}} - \underbrace{\dfrac{R(p)H_2(p)}{1+\text{FTBO}(p)}P(p)}_{\text{\'Ecart vis-à-vis de la perturbation}}$.
+
+Notons $H_1(p)=\dfrac{K_1}{p^\alpha_1}\dfrac{N_1(p)}{D_1(p)}$ (avec $N_1(0)=1$ et $D_1(0)=1$) et $H_2(p)=\dfrac{K_2}{p^\alpha_2}\dfrac{N_2(p)}{D_2(p)}$ (avec $N_2(0)=1$ et $D_2(0)=1$).
+
+Par ailleurs 
+$H_{\text{bo}}(p)=H_1(p)H_2(p)R(p)
+=\dfrac{H_{\text{bo}}}{p^{\alpha}}\dfrac{N(p)}{D(p)}$.
+
+On peut calculer l'écart vis-à-vis de la perturbation : 
+$\varepsilon 
+= \lim\limits_{t\to\infty}\varepsilon(t)
+= \lim\limits_{p\to 0}p \varepsilon(p) 
+= \lim\limits_{p\to 0} \dfrac{K_2 p^{\alpha_1+1}}{p^{\alpha_1+\alpha_2}K_1K_2}P(p) $.
+
+%$S(p)=H_2(p)\left(P(p)+H_1(p)\left(E(p)-R(p)S(p)\right) \right)$
+%$=P(p)H_2(p)+H_1(p)H_2(p)E(p)-H_1(p)H_2(p)R(p)S(p)$ 
+%$\Leftrightarrow S(p)\left( 1+H_1(p)H_2(p)R(p)\right)=P(p)H_2(p)+H_1(p)H_2(p)E(p)$
+%$\Leftrightarrow S(p)=P(p)\dfrac{H_2(p)}{1+H_1(p)H_2(p)R(p)}+\dfrac{H_1(p)H_2(p)}{1+H_1(p)H_2(p)R(p)}E(p)$.
+
+%On a donc $S(p)=P(p)\dfrac{H_2(p)}{1+\text{FTBO}(p)}+\dfrac{H_1(p)H_2(p)}{1+%\text{FTBO}(p)}E(p)$.
 
 \section{Précision et réponse fréquentielle}
 
