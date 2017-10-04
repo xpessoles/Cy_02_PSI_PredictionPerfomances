@@ -84,9 +84,7 @@ Chapitre 3 -- \xxactivite%
 \pagestyle{fancy}
 \thispagestyle{plain}
 \section{Système non perturbé}
-\begin{defi}~\\
-
-
+\begin{defi}
 La précision est l'écart entre la valeur de consigne et la valeur de la sortie. Pour caractériser la précision d'un système, on s'intéresse généralement à l'écart en régime permanent.
 
 Attention à bien s'assurer que, lors d'une mesure expérimentale par exemple, les grandeurs de consigne et de sortie sont bien de la même unité (et qualifient bien la même grandeur physique).
@@ -218,13 +216,13 @@ L'écart statique est nul si la boucle ouverte comprend au moins une intégratio
 %
 %\end{methode}
 
-\begin{methode}[Détermination de l'erreur pour un système perturbé]
-
-\end{methode}
-
-\begin{resultat}
-Tableau...
-\end{resultat}
+%\begin{methode}[Détermination de l'erreur pour un système perturbé]
+%
+%\end{methode}
+%
+%\begin{resultat}
+%Tableau...
+%\end{resultat}
 
 \section{Système perturbé}
 Soit le schéma-blocs suivant : 
@@ -257,10 +255,10 @@ $H_{\text{bo}}(p)=H_1(p)H_2(p)R(p)
 =\dfrac{H_{\text{bo}}}{p^{\alpha}}\dfrac{N(p)}{D(p)}$.
 
 On peut calculer l'écart vis-à-vis de la perturbation : 
-$\varepsilon 
+$\varepsilon_{\text{perturbation}}
 = \lim\limits_{t\to\infty}\varepsilon(t)
 = \lim\limits_{p\to 0}p \varepsilon(p) 
-= \lim\limits_{p\to 0} \dfrac{K_2 p^{\alpha_1+1}}{p^{\alpha_1+\alpha_2}K_1K_2}P(p) $.
+= \lim\limits_{p\to 0} \dfrac{K_2 p^{\alpha_1+1}}{p^{\alpha_1+\alpha_2}+K_1K_2}P(p) $.
 
 %$S(p)=H_2(p)\left(P(p)+H_1(p)\left(E(p)-R(p)S(p)\right) \right)$
 %$=P(p)H_2(p)+H_1(p)H_2(p)E(p)-H_1(p)H_2(p)R(p)S(p)$ 
@@ -268,8 +266,27 @@ $\varepsilon
 %$\Leftrightarrow S(p)=P(p)\dfrac{H_2(p)}{1+H_1(p)H_2(p)R(p)}+\dfrac{H_1(p)H_2(p)}{1+H_1(p)H_2(p)R(p)}E(p)$.
 
 %On a donc $S(p)=P(p)\dfrac{H_2(p)}{1+\text{FTBO}(p)}+\dfrac{H_1(p)H_2(p)}{1+%\text{FTBO}(p)}E(p)$.
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Cas & Classe du système & Perturbation en échelon $P(p)=\dfrac{P_0}{p}$ \\ \hline
+1 & $\alpha_1\geq 1$ & $\varepsilon_{\text{perturbation}}=0$ \\ \hline
+2 & $\alpha_1=0$ et $\alpha_2=0$ & $\varepsilon_{\text{perturbation}}=\dfrac{K_2}{1+K_1K_2}P_0$ \\ \hline
+3 & $\alpha_1=0$ et $\alpha_2\geq 1$ & $\varepsilon_{\text{perturbation}}=\dfrac{P_0}{K_1}$ \\ \hline
+\end{tabular}
+\end{center}
 
-\section{Précision et réponse fréquentielle}
+\begin{resultat}
+Il faut au moins un intégrateur en amont d'une perturbation constante pour
+annuler l'écart vis-à-vis de cette perturbation. Un intégrateur placé en aval n'a aucune
+influence.
+
+Quand ce n'est pas le cas, un gain $K_1$ important en amont de la perturbation réduit toujours
+l'écart vis-à-vis de cette perturbation.
+\end{resultat}
+
+
+%\section{Précision et réponse fréquentielle}
 
 
 \begin{thebibliography}{2}
