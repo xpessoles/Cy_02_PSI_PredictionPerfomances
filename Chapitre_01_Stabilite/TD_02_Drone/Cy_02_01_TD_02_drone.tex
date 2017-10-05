@@ -123,10 +123,10 @@ directement l'hélice, sans réduction.
 Sous certaines hypothèses simplificatrices, l'équation globale modélisant le moteur et sa commande peut se
 mettre sous la forme suivante :
 $$
-\dfrac{\text{d}\omega(t)}{\text{d}t}=-\dfrac{1}{\tau}\omega -k_q\omega^2 + \dfrac{k_v}{\tau}u.
+\dfrac{\text{d}\omega(t)}{\text{d}t}=-\dfrac{1}{\tau}\omega(t) -k_q\omega(t)^2 + \dfrac{k_v}{\tau}u.
 $$
 
-$u$ représente la tension de commande du moteur, $\omega$ sa fréquence de rotation, $\tau$ et $k_v$ des constantes caractéristiques de l'ensemble moteur-hélice. Le terme $k_q\omega^2$ provient du couple de frottement aérodynamique de l'air sur l'hélice tournant à grande vitesse.
+$u$ représente la tension de commande du moteur, $\omega(t)$ son taux de rotation, $\tau$ et $k_v$ des constantes caractéristiques de l'ensemble moteur-hélice. Le terme $k_q\omega^2$ provient du couple de frottement aérodynamique de l'air sur l'hélice tournant à grande vitesse.
 
 L'équation du modèle du moteur fait apparaître un terme non linéaire en $\omega^2$, qui nécessite de linéariser
 donc l'équation autour du point de fonctionnement $\omega_0$, fréquence de rotation du moteur qui permet de
@@ -136,7 +136,7 @@ On pose $\omega=\omega_0+\delta \omega$ et $u=u_0+\delta u$ où $\delta\omega$ e
 
 \subparagraph{}\textit{Déterminer l’équation stationnaire liant $\omega_0$ et $u_0$.}
 
-\subparagraph{}\textit{Montrer que l'équation différentielle liant $\delta \omega$ et $\delta u$ est de la forme $\dfrac{\text{d}\delta \omega }{\text{d}t}=-A\delta \omega + B \delta u$. Exprimer $A$ et $B$ en fonction des paramètres $\tau$, $k_v$, $k_q$ et $\omega_0$.}
+\subparagraph{}\textit{Montrer que l'équation différentielle liant $\delta \omega$ et $\delta u$ est de la forme $\dfrac{\text{d}\delta \omega(t) }{\text{d}t}=-A\delta \omega(t) + B \delta u$. Exprimer $A$ et $B$ en fonction des paramètres $\tau$, $k_v$, $k_q$ et $\omega_0$.}
 
 On note $\Delta \Omega (p)$ la transformée de Laplace de $\delta \omega$ et $\Delta U(p)$ celle de $\delta u$.
 
