@@ -36,7 +36,7 @@ Cr=0.0;
 Ks=Kc/(Kr*KAN);
 
 %Ouverture des donnees experimentales
-dataexp=csvread('essai_pos1_kp1000000.csv');
+dataexp=csvread('conf1_1e5.csv');
 tp_exp=dataexp(:,1);
 theta_exp=dataexp(:,2);
 dataexp=[dataexp;[10,0]]
