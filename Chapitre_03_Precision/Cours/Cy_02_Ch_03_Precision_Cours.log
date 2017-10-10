@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6400) (preloaded format=pdflatex 2017.9.4)  9 OCT 2017 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6400) (preloaded format=pdflatex 2017.9.4)  10 OCT 2017 10:26
 entering extended mode
 **./Cy_02_Ch_03_Precision_Cours.tex
 (Cy_02_Ch_03_Precision_Cours.tex
@@ -2796,9 +2796,8 @@ LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
 (Font)              scaled to size 6.58002pt on input line 97.
 LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
 (Font)              scaled to size 4.70001pt on input line 97.
-runsystem(pdflatex -interaction=batchmode -shell-escape -jobname "images/Schema
-_1_entree_F_R" images/Schema_1_entree_F_R)...executed.
-
+Package standalone Info: generated file images/Schema_1_entree_F_R.pdf newer th
+en source file images/Schema_1_entree_F_R.tex on input line 106.
 <images/Schema_1_entree_F_R.pdf, id=30, pagebox=cropbox, 133.52083pt x 60.81721
 pt>
 File: images/Schema_1_entree_F_R.pdf Graphic file (type pdf)
@@ -2857,9 +2856,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
-runsystem(pdflatex -interaction=batchmode -shell-escape -jobname "images/Schema
-2Entrees_2F_R" images/Schema2Entrees_2F_R)...executed.
-
+Package standalone Info: generated file images/Schema2Entrees_2F_R.pdf newer th
+en source file images/Schema2Entrees_2F_R.tex on input line 233.
 <images/Schema2Entrees_2F_R.pdf, id=66, pagebox=cropbox, 209.47961pt x 82.23624
 pt>
 File: images/Schema2Entrees_2F_R.pdf Graphic file (type pdf)
@@ -2951,9 +2949,6 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 308.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package logreq Info: Writing requests to 'Cy_02_Ch_03_Precision_Cours.run.xml'.
 
 \openout1 = `Cy_02_Ch_03_Precision_Cours.run.xml'.
@@ -2963,7 +2958,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 308.
 Here is how much of TeX's memory you used:
  54040 strings out of 493352
  1133559 string characters out of 3137163
- 1824071 words of memory out of 3000000
+ 1824064 words of memory out of 3000000
  56558 multiletter control sequences out of 15000+200000
  755459 words of font info for 245 fonts, out of 3000000 for 9000
  1127 hyphenation exceptions out of 8191
@@ -2987,7 +2982,7 @@ putr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/adobe/utopia/putri8a.
 pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/avantgar/uagd8a.pfb><C:/
 Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/avantgar/uagko8a.pfb><C:/Program
  Files (x86)/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on Cy_02_Ch_03_Precision_Cours.pdf (4 pages, 974890 bytes).
+Output written on Cy_02_Ch_03_Precision_Cours.pdf (4 pages, 974871 bytes).
 PDF statistics:
  182 PDF objects out of 1000 (max. 8388607)
  22 named destinations out of 1000 (max. 500000)
