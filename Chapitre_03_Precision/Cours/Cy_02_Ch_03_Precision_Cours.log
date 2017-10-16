@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6400 64-bit) (preloaded format=pdflatex 2017.9.4)  10 OCT 2017 13:27
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6400) (preloaded format=pdflatex 2017.9.4)  10 OCT 2017 10:26
->>>>>>> 3a64fd30cd2d1cea369d0c7cd633dd552220fdd0
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6400 64-bit) (preloaded format=pdflatex 2017.9.4)  12 OCT 2017 15:31
 entering extended mode
 **./Cy_02_Ch_03_Precision_Cours.tex
 (Cy_02_Ch_03_Precision_Cours.tex
@@ -2851,11 +2847,7 @@ Package mdframed Info: mdframed detected package amsthm
 LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
 (Font)              scaled to size 6.43999pt on input line 97.
 LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
-<<<<<<< HEAD
 (Font)              scaled to size 4.59999pt on input line 97.
-=======
-(Font)              scaled to size 4.70001pt on input line 97.
->>>>>>> 3a64fd30cd2d1cea369d0c7cd633dd552220fdd0
 Package standalone Info: generated file images/Schema_1_entree_F_R.pdf newer th
 en source file images/Schema_1_entree_F_R.tex on input line 106.
 <images/Schema_1_entree_F_R.pdf, id=30, pagebox=cropbox, 133.52083pt x 60.81721
@@ -3019,10 +3011,9 @@ Package logreq Info: Writing requests to 'Cy_02_Ch_03_Precision_Cours.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 308.
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
  53848 strings out of 493352
  1132972 string characters out of 3139710
- 1821345 words of memory out of 3000000
+ 1822338 words of memory out of 3000000
  56363 multiletter control sequences out of 15000+200000
  755764 words of font info for 248 fonts, out of 3000000 for 9000
  1127 hyphenation exceptions out of 8191
@@ -3047,36 +3038,7 @@ be/utopia/putr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putr
 i8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/avantgar/uagd8a.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/urw/avantgar/uagko8a.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on Cy_02_Ch_03_Precision_Cours.pdf (4 pages, 974559 bytes).
-=======
- 54040 strings out of 493352
- 1133559 string characters out of 3137163
- 1824064 words of memory out of 3000000
- 56558 multiletter control sequences out of 15000+200000
- 755459 words of font info for 245 fonts, out of 3000000 for 9000
- 1127 hyphenation exceptions out of 8191
- 57i,17n,98p,10474b,1936s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\pt_ptsi\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi64
-2\ectt1000.pk>{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/ly1/texnansi.e
-nc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program F
-iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program File
-s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiK
-TeX 2.9/fonts/type1/mathdesign/mdput/md-utr7t.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/mathdesign/mdput/md-utr7v.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/mathdesign/mdput/md-utr7y.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/mathdesign/mdput/md-utr8t.pfb><C:/Program Files (x86)/MiKTeX 2.9/
-fonts/type1/mathdesign/mdput/md-utri7m.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
-onts/type1/adobe/utopia/putb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
-e1/adobe/utopia/putb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/adobe
-/utopia/putr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/adobe/utopia/
-putr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/adobe/utopia/putri8a.
-pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/avantgar/uagd8a.pfb><C:/
-Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/avantgar/uagko8a.pfb><C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on Cy_02_Ch_03_Precision_Cours.pdf (4 pages, 974871 bytes).
->>>>>>> 3a64fd30cd2d1cea369d0c7cd633dd552220fdd0
+Output written on Cy_02_Ch_03_Precision_Cours.pdf (4 pages, 974544 bytes).
 PDF statistics:
  182 PDF objects out of 1000 (max. 8388607)
  22 named destinations out of 1000 (max. 500000)
