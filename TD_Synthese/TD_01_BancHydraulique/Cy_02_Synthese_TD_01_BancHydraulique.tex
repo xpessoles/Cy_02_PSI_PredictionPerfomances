@@ -43,7 +43,7 @@
 \def\xxonglet{Cycle 02}
 
 \def\xxactivite{TD 01}
-\def\xxauteur{\textsl{Éditions Vuibert}}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
 \def\xxcompetences{%
 \textsl{%
@@ -67,7 +67,7 @@
 
 
 \def\xxpied{%
-Cycle 02 -- Modéliser les systèmes asservis ain de prévoir leur comportement\\
+Cycle 02 -- Modéliser les SLCI ain de prévoir leur comportement\\
 Synthèse -- \xxactivite%
 }
 
@@ -385,6 +385,78 @@ On donne ensuite sa réponse temporelle avec et sans débit de fuite pour une pr
 \includegraphics[width=.8\linewidth]{images_02/fig_10}
 %\textit{}
 \end{center}
+
+\setcounter{exo}{0}
+
+\newpage 
+
+\begin{multicols}{2}
+\subparagraph{} $\left(fp + Mp^2\right) Z(p)=S_hP_h(p)-S_eP_e(p)-\dfrac{Mg}{p}$.
+
+\subparagraph{}
+$Q_e(p)=\left(S_a-S_b \right)pL(p) + \dfrac{V_t}{B_e}p P_e(p)$
+$mp^2 L(p)=-rL(p)+\left( S_a-S_b\right)P_e(t) - f' pL(p)$
+
+\subparagraph{}
+\begin{center}
+\includegraphics[width=\linewidth]{images_02/cor_01}
+\end{center}
+
+
+\subparagraph{}
+$ \dfrac{P_h(p)}{P_r(p)}=\dfrac{1}{1+9,4 p} $ et 
+$ \dfrac{P_h(p)}{P_r(p)}=\dfrac{3,2}{1+9,4 p} $.
+
+\subparagraph{}
+$ \dfrac{P_e(p)}{\Delta Q_e(p)}=\dfrac{160000}{1+14 p} $
+
+\subparagraph{}
+$\varepsilon_{con\%}=\dfrac{1}{1+K_P+K_m+K_{pom}+K_{cap}}$.
+
+\subparagraph{}
+$K_P>19$.
+
+\subparagraph{}
+$\varepsilon_{pert}=\Delta Q_e \dfrac{K_f}{1+K_{cap}K_pK_mK_{pom}}$
+
+\subparagraph{}
+$K_p>2,19$
+
+\subparagraph{}
+$K_p<0,125$
+
+\begin{itemize}
+\item $\varepsilon_{con\%}<5\%\quad \Rightarrow \quad  K_P>19$;
+\item $\varepsilon_{pert}<\SI{40}{bars} \quad \Rightarrow \quad  K_P>2,19$;
+\item $\xi>1 \quad \Rightarrow  \quad K_p < 0,125$.
+\end{itemize}
+
+Ces trois conditions ne peuvent pas être validées simultanément avec un correcteur proportionnel.
+\subparagraph{}
+$C(p)=\dfrac{K_i+K_p p}{p}$.
+
+\subparagraph{}
+
+
+\subparagraph{}
+La présence d’un intégrateur dans ce correcteur, placé avant la perturbation, permet d’annuler   les écarts statiques.
+Par contre, ce correcteur étant à retard de phase, il tend à détériorer la stabilité du système.
+
+
+\subparagraph{}
+$\omega_{\SI{0}{dB}}>\SI{0,075}{rad/s}$.
+
+
+\subparagraph{}
+$T>6,92$.
+
+
+\subparagraph{}
+$K_i=0,089$ et $K_P=0,615$.
+
+\subparagraph{} Bilan.
+\end{multicols}
+
 
 \end{document}
 
