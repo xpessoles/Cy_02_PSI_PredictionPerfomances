@@ -33,7 +33,7 @@
 
 
 \def\xxtitreexo{Robot MIR : Machine d'inspection des réacteurs rapides}
-\def\xxsourceexo{\hspace{.2cm} \footnotesize{E3A MP}}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{D'après concours E3A MP -- 2012}}
 
 
 \def\xxposongletx{2}
@@ -42,8 +42,8 @@
 %\def\xxonglet{Part. 1 -- Ch. 3}
 \def\xxonglet{Cycle 02}
 
-\def\xxactivite{TD 01}
-\def\xxauteur{\textsl{Éditions Vuibert}}
+\def\xxactivite{Colle 01}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
 \def\xxcompetences{%
 \textsl{%
@@ -91,7 +91,7 @@ Chapitre 2 -- \xxactivite%
 \begin{multicols}{2}
 
 
-\section*{Robot MIR : Machine d'inspection des réacteurs rapides}
+%\section*{Robot MIR : Machine d'inspection des réacteurs rapides}
 
 \subsection*{Mise en situation}
 
@@ -122,101 +122,101 @@ L’objectif du robot MIR est de :
 %Chaque module est composé d’un corps, d’une roue, du motoréducteur de traction, du motoréducteur d’orientation et du potentiomètre d’orientation.
 %La roue est la pièce tournante en contact avec les parois de la cuve. La surface extérieure torique est revêtue d’une couche mince de carbure de tungstène déposé par projection plasma. Ce revêtement est très tenace et présente l’avantage d’avoir un coefficient de frottement sur l’acier inoxydable élevé ($f \geq 0,5$).
 %
-
-\subsection*{Étude de la fonction : Synchroniser les vitesses des roues}
-
-On se place au niveau de l’arbre moteur avant réduction, couples et vitesses ramenées sur l’arbre moteur.
-
-\begin{obj}
-Synchroniser les vitesses des roues.
-\end{obj}
-La synchronisation automatique de la vitesse des quatre roues est basée sur la parfaite réversibilité de la transmission des efforts de la roue vers le réducteur puis le moteur. 
-
-%Ceci se concrétise par le fait que, pour une consigne de vitesse donnée, le contrôle-commande envoie la même tension aux bornes des quatre moteurs. La synchronisation s'effectue alors par les variations imposées au courant moteur. 
 %
-%Par exemple si un motoréducteur a tendance à induire une vitesse supérieure à celle imposée par le déplacement de l'engin, cette tendance se traduit par un couple moteur plus grand, donc par une augmentation de l'intensité qui induit elle-même une diminution de la vitesse jusqu'à la valeur permise.
+%\subsection*{Étude de la fonction : Synchroniser les vitesses des roues}
 %
-%Ce principe qui permet un contrôle-commande relativement simple exige en contrepartie une réversibilité parfaite de fonctionnement du réducteur, toute dégradation de cette réversibilité entraînant rapidement un fonctionnement chaotique de l'engin.
+%On se place au niveau de l’arbre moteur avant réduction, couples et vitesses ramenées sur l’arbre moteur.
+%
+%\begin{obj}
+%Synchroniser les vitesses des roues.
+%\end{obj}
+%La synchronisation automatique de la vitesse des quatre roues est basée sur la parfaite réversibilité de la transmission des efforts de la roue vers le réducteur puis le moteur. 
+%
+%%Ceci se concrétise par le fait que, pour une consigne de vitesse donnée, le contrôle-commande envoie la même tension aux bornes des quatre moteurs. La synchronisation s'effectue alors par les variations imposées au courant moteur. 
+%%
+%%Par exemple si un motoréducteur a tendance à induire une vitesse supérieure à celle imposée par le déplacement de l'engin, cette tendance se traduit par un couple moteur plus grand, donc par une augmentation de l'intensité qui induit elle-même une diminution de la vitesse jusqu'à la valeur permise.
+%%
+%%Ce principe qui permet un contrôle-commande relativement simple exige en contrepartie une réversibilité parfaite de fonctionnement du réducteur, toute dégradation de cette réversibilité entraînant rapidement un fonctionnement chaotique de l'engin.
+%
+%Dans une première approche, on ne s’intéresse qu’aux roues inférieures \textbf{SA} et \textbf{SB}.
+%
+%Les roues \textbf{SA} et \textbf{SB} sont munies des mêmes motoréducteurs avec les mêmes moteurs à courant continu.
+%Elles sont commandées en tension sur l’induit. Les circuits d’induit ont la même résistance $R$ et une inductance négligeable.
+%
+%On s’intéresse d’abord au moteur de la roue \textbf{SA} seule.
+%
+%On notera :
+%\begin{itemize}
+%\item $\omega_{mA}(t)$ : vitesse angulaire de rotation à la sortie du moteur, avant réduction (en $\text{rad}\text{s}^{-1}$);
+%\item $c_{mA}(t)$ : couple exercé par le moteur de la roue \textbf{SA} sur l’arbre moteur en N.m;
+%\item $c_{mB}(t)$ : couple exercé par le moteur de la roue \textbf{SB} sur l’arbre moteur en N.m;
+%\item $J$ : moment d’inertie équivalent en $\text{kg}{m}^2$.
+%\end{itemize}
+%Rappelons les équations régissant le moteur : 
+%\begin{itemize}
+%\item équations électriques (en négligeant l’effet de l’inductance) : $u(t)=Ri_A(t)+e_A(t)$;
+%\item équation mécanique issue de l’étude précédente, ramenée à l’arbre moteur de la roue \textbf{SA} : $c_{mA}(t)+c_{mB}(t)=J\dfrac{d\omega_{ma}(t)}{dt}$;
+%\item équations électromécaniques : $e_a(t)=K_A\omega_{mA}(t)$ et $c_{mA}(t)=K_Ai_A(t)$.
+% \end{itemize}
+% 
+%L’entrée du système est la tension de commande appliquée aux bornes du moteur, la sortie est la vitesse de rotation de la roue \textbf{SA}, on peut modéliser le système à l’aide du schéma bloc suivant :
+%\begin{center}
+%	\includegraphics[width=\linewidth]{images/fig_10}
+%\end{center}
+%
+%
+%
+%\subparagraph{}
+%\textit{Exprimer la fonction de transfert $\dfrac{\Omega_{mA}(p)}{U(p)}$ lorsque $C_{mB}(p)=0$ et la mettre sous forme canonique.}
+%\ifprof
+%\begin{corrige}
+%\end{corrige}
+%\else
+%\fi
+%
+%
+%\subparagraph{}
+%\textit{Exprimer quelle serait la valeur finale de la vitesse de rotation du moteur raccordé à la roue \textbf{SA}, notée $\omega_{mAf0}$ si on considère que $C_{mb}(p)=0$, et ceci pour une entrée modélisée par un échelon de tension d’amplitude $u_0$.}
+%\ifprof
+%\begin{corrige}
+%\end{corrige}
+%\else
+%\fi
+%
+%
+%\subparagraph{}
+%\textit{Exprimer la fonction de transfert $\dfrac{\Omega_{ma}(p)}{C_{mb}(p)}$ lorsque $U(p)=0$ et la mettre sous forme canonique.}
+%\ifprof
+%\begin{corrige}
+%\end{corrige}
+%\else
+%\fi
+%
+%Si les deux roues fonctionnent à la même vitesse, on a la structure du schéma bloc de la figure 10 pour chacune des deux roues.
+%
+%Mais si les moteurs ont une légère différence, par exemple la constante électromécanique $K_A$ et $K_B$, les 2 roues prendraient des vitesses différentes. Mais contraintes par le châssis et l’adhérence aux parois à tourner à la même vitesse (en ligne droite), elles exercent l’une sur l’autre un effort qu’on peut ramener à l’arbre moteur sous forme d’un couple supplémentaire $C_{mB}$ sur la roue \textbf{SA}, et $C_{mA}$ sur la roue \textbf{SB}. On a alors le schéma suivant :
+%\begin{center}
+%	\includegraphics[width=\linewidth]{images/fig_11}
+%\end{center}
+%
+%\subparagraph{}
+%\textit{Exprimer la fonction de transfert globale sous forme canonique : $\dfrac{\Omega_m(p)}{U(p)}$.}
+%\ifprof
+%\begin{corrige}
+%\end{corrige}
+%\else
+%\fi
+%
+%
+%\subparagraph{}
+%\textit{Si l’entrée est un échelon de tension d’amplitude $u_0$, calculer la valeur finale de la vitesse de rotation de chacun des moteurs, notée $\omega_\text{finale}$. Conclure quant à la possibilité d’avoir roulement sans glissement entre chacune des roues et les cuves.}
+%\ifprof
+%\begin{corrige}
+%\end{corrige}
+%\else
+%\fi
 
-Dans une première approche, on ne s’intéresse qu’aux roues inférieures \textbf{SA} et \textbf{SB}.
-
-Les roues \textbf{SA} et \textbf{SB} sont munies des mêmes motoréducteurs avec les mêmes moteurs à courant continu.
-Elles sont commandées en tension sur l’induit. Les circuits d’induit ont la même résistance $R$ et une inductance négligeable.
-
-On s’intéresse d’abord au moteur de la roue \textbf{SA} seule.
-
-On notera :
-\begin{itemize}
-\item $\omega_{mA}(t)$ : vitesse angulaire de rotation à la sortie du moteur, avant réduction (en $\text{rad}\text{s}^{-1}$);
-\item $c_{mA}(t)$ : couple exercé par le moteur de la roue \textbf{SA} sur l’arbre moteur en N.m;
-\item $c_{mB}(t)$ : couple exercé par le moteur de la roue \textbf{SB} sur l’arbre moteur en N.m;
-\item $J$ : moment d’inertie équivalent en $\text{kg}{m}^2$.
-\end{itemize}
-Rappelons les équations régissant le moteur : 
-\begin{itemize}
-\item équations électriques (en négligeant l’effet de l’inductance) : $u(t)=Ri_A(t)+e_A(t)$;
-\item équation mécanique issue de l’étude précédente, ramenée à l’arbre moteur de la roue \textbf{SA} : $c_{mA}(t)+c_{mB}(t)=J\dfrac{d\omega_{ma}(t)}{dt}$;
-\item équations électromécaniques : $e_a(t)=K_A\omega_{mA}(t)$ et $c_{mA}(t)=K_Ai_A(t)$.
- \end{itemize}
- 
-L’entrée du système est la tension de commande appliquée aux bornes du moteur, la sortie est la vitesse de rotation de la roue \textbf{SA}, on peut modéliser le système à l’aide du schéma bloc suivant :
-\begin{center}
-	\includegraphics[width=\linewidth]{images/fig_10}
-\end{center}
-
-
-
-\subparagraph{}
-\textit{Exprimer la fonction de transfert $\dfrac{\Omega_{mA}(p)}{U(p)}$ lorsque $C_{mB}(p)=0$ et la mettre sous forme canonique.}
-\ifprof
-\begin{corrige}
-\end{corrige}
-\else
-\fi
-
-
-\subparagraph{}
-\textit{Exprimer quelle serait la valeur finale de la vitesse de rotation du moteur raccordé à la roue \textbf{SA}, notée $\omega_{mAf0}$ si on considère que $C_{mb}(p)=0$, et ceci pour une entrée modélisée par un échelon de tension d’amplitude $u_0$.}
-\ifprof
-\begin{corrige}
-\end{corrige}
-\else
-\fi
-
-
-\subparagraph{}
-\textit{Exprimer la fonction de transfert $\dfrac{\Omega_{ma}(p)}{C_{mb}(p)}$ lorsque $U(p)=0$ et la mettre sous forme canonique.}
-\ifprof
-\begin{corrige}
-\end{corrige}
-\else
-\fi
-
-Si les deux roues fonctionnent à la même vitesse, on a la structure du schéma bloc de la figure 10 pour chacune des deux roues.
-
-Mais si les moteurs ont une légère différence, par exemple la constante électromécanique $K_A$ et $K_B$, les 2 roues prendraient des vitesses différentes. Mais contraintes par le châssis et l’adhérence aux parois à tourner à la même vitesse (en ligne droite), elles exercent l’une sur l’autre un effort qu’on peut ramener à l’arbre moteur sous forme d’un couple supplémentaire $C_{mB}$ sur la roue \textbf{SA}, et $C_{mA}$ sur la roue \textbf{SB}. On a alors le schéma suivant :
-\begin{center}
-	\includegraphics[width=\linewidth]{images/fig_11}
-\end{center}
-
-\subparagraph{}
-\textit{Exprimer la fonction de transfert globale sous forme canonique : $\dfrac{\Omega_m(p)}{U(p)}$.}
-\ifprof
-\begin{corrige}
-\end{corrige}
-\else
-\fi
-
-
-\subparagraph{}
-\textit{Si l’entrée est un échelon de tension d’amplitude $u_0$, calculer la valeur finale de la vitesse de rotation de chacun des moteurs, notée $\omega_\text{finale}$. Conclure quant à la possibilité d’avoir roulement sans glissement entre chacune des roues et les cuves.}
-\ifprof
-\begin{corrige}
-\end{corrige}
-\else
-\fi
-
-\section*{Étude de la fonction Ft12 : Déplacer le transducteur à vitesse constante}
+\subsection*{Étude de la fonction Ft12 : Déplacer le transducteur à vitesse constante}
 
 Le robot MIR étant à l’arrêt entre les deux cuves, le mini bac est plaqué contre la paroi de la cuve à contrôler. Pour l’inspection des soudures, le transducteur 13 (capteur de l’état des soudures) doit se déplacer à l’intérieur du mini bac d’inspection à vitesse constante. Le mini bac est rempli d’un fluide visqueux. L’inspection peut avoir lieu pour n’importe quelle position du robot MIR, donc l’angle $\alpha$ qui caractérise la direction du déplacement du transducteur par rapport à l’horizontale, est susceptible de prendre toute valeur comprise entre $-\pi/2$ (robot tête en bas) et $\pi/2$ (robot tête en haut). Afin de garantir la qualité des résultats de mesure, le transducteur doit donc se déplacer à une vitesse $V_0$ constante par rapport à la paroi, et ceci pour toute valeur de l’angle $\alpha$.
 
@@ -233,9 +233,9 @@ L’objectif de cette partie est de dimensionner le correcteur nécessaire au re
 Le transducteur est en liaison glissière de direction $\vect{x_r}$, avec le corps \textbf{1} du robot MIR. La chaîne d’énergie est composée entre autre, d’un actionneur rotatif qui exerce un couple $c(t)$ sur le pignon \textbf{11}, qui est en liaison pivot, supposée parfaite, avec le robot MIR.
 Un système poulies (\textbf{11} et \textbf{12}) et courroie crantée \textbf{14} impose le mouvement de translation au transducteur \textbf{13}.
  
- Le comportement dynamique du système est régit par l'équation suivante  
+ Le comportement dynamique du système est régit par l'équation suivante  :
  $$
- M_{eq}\dfrac{dv_r(t)}{dt}=\delta c(t) + \beta v_r(t) + \gamma g
+ M_{eq}\dfrac{\text{d}v_r(t)}{\text{d}t}=\delta c(t) + \beta v_r(t) + \gamma g.
  $$
 
 On cherche à garantir une vitesse de translation du transducteur \textbf{13} égale à la valeur de consigne indépendamment de l’angle $\alpha$.
@@ -261,11 +261,11 @@ $f_{\text{pert}}(t) = -m_t  \sin \alpha u(t)$ avec $u(t)$ échelon unitaire.
 \fi
 
 \vspace{.25cm}
-Le capteur est modélisé par un gain pur de valeur $K_{capt}$.
+Le capteur est modélisé par un gain pur de valeur $K_{\text{capt}}$.
 
 
 \subparagraph{}
-\textit{En supposant une perturbation nulle, quelle doit être la valeur du gain $K_{conv}$ du convertisseur modélisé par un gain pur, afin que l’écart $\varepsilon(t)$ soit nul quand la valeur de la vitesse réelle $v_r(t)$ est égale à la valeur de la consigne $v_c(t)$. 
+\textit{En supposant une perturbation nulle, quelle doit être la valeur du gain $K_{\text{conv}}$ du convertisseur modélisé par un gain pur, afin que l’écart $\varepsilon(t)$ soit nul quand la valeur de la vitesse réelle $v_r(t)$ est égale à la valeur de la consigne $v_c(t)$. 
 }
 \ifprof
 \begin{corrige}
@@ -280,11 +280,11 @@ On adopte pour la suite la modélisation suivante :
 	\includegraphics[width=\linewidth]{images/fig_14}
 \end{center}
 
-Avec $H_{mot}(p)=\dfrac{K_m}{1+\tau_m p}$, $G(p)=\dfrac{K}{1+\tau p}$ et $H(p)=K_{cor}$ fonction de transfert du correcteur.
+Avec $H_{\text{mot}}(p)=\dfrac{K_m}{1+\tau_m p}$, $G(p)=\dfrac{K}{1+\tau p}$ et $H(p)=K_{\text{cor}}$ fonction de transfert du correcteur.
 
 
 \subparagraph{}
-\textit{Exprimer les deux fonctions de transfert : $H_1(p)=\left(\dfrac{V_r(p)}{V_c(p)} \right)_{F_{\text{pert}}(p)=0}$ et $H_2(p)=\left(\dfrac{V_r(p)}{F_{\text{pert}}(p)} \right)_{V_c(p)=0}$. en fonction des gains $K_\text{conv}$, $K_{\text{cor}}$, et $K_{\text{capt}}$ ainsi que des fonctions de transfert $H_{\text{mot}}(p)$ et $G(p)$.}
+\textit{Exprimer les deux fonctions de transfert : $H_1(p)=\left(\dfrac{V_r(p)}{V_c(p)} \right)_{F_{\text{pert}}(p)=0}$ et $H_2(p)=\left(\dfrac{V_r(p)}{F_{\text{pert}}(p)} \right)_{V_c(p)=0}$ en fonction des gains $K_\text{\text{conv}}$, $K_{\text{cor}}$, et $K_{\text{capt}}$ ainsi que des fonctions de transfert $H_{\text{mot}}(p)$ et $G(p)$.}
 \ifprof
 \begin{corrige}
 \end{corrige}
@@ -294,13 +294,8 @@ Avec $H_{mot}(p)=\dfrac{K_m}{1+\tau_m p}$, $G(p)=\dfrac{K}{1+\tau p}$ et $H(p)=K
 
 \subparagraph{}
 \textit{En supposant que $K_{\text{cor}}= 1$ et en indiquant les valeurs remarquables, tracer les diagrammes asymptotiques dans le plan de Bode de la fonction de transfert en boucle ouverte $\dfrac{U_r (p)}{\varepsilon(p)}$ en utilisant les valeurs numériques suivantes :}
-$$
-Kçm = \SI{0.1}{N.V^{-1}} 
-\quad \tau_m= \SI{0,01}{s} 
-\quad K_{\text{capt}} = \SI{50}{V.s.m^{-1}}
-\quad K = \SI{200}{m.s^{-1}.N^{-1}}
-\quad \tau = \SI{1}{s}
-$$
+$K_m = \SI{0.1}{N.V^{-1}}$, $\tau_m= \SI{0,01}{s}$, $K_{\text{capt}} = \SI{50}{V.s.m^{-1}}$, 
+$K = \SI{200}{m.s^{-1}.N^{-1}}$, $\quad \tau = \SI{1}{s}$.
 
 \ifprof
 \begin{corrige}
@@ -318,7 +313,7 @@ $$
 \fi
 
 
-On formule l’hypothèse simplificatrice suivante : la phase de la fonction de transfert en boucle ouverte pour une pulsation de 100 rad/s est de -135\degres.
+On formule l’hypothèse simplificatrice suivante : la phase de la fonction de transfert en boucle ouverte pour une pulsation de 100 rad/s est de $-135\degres$.
 
 
 \subparagraph{}
@@ -371,7 +366,7 @@ On souhaite obtenir une vitesse de translation indépendante de l’inclinaison.
 %\else
 %\fi
 
-\newpage
+%\newpage
 
 
 \begin{center}
