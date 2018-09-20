@@ -1,0 +1,318 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Modélisation systèmes multiphysiques : Modélisation linéaire et non linéaire},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+\usepackage{multicol}
+\usepackage{standalone}
+\standaloneconfig{mode=buildnew}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\fichetrue
+
+%\fichefalse
+
+\proftrue
+\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PSI$\star$ -- MP}
+\def\xxnumpartie{Cycle 02}
+\def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Stabilité des systèmes}
+
+
+\def\xxtitreexo{\noindent Machine de rééducation SysReeduc}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{CCP PSI 2012}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{\textsf{Cycle 02}}
+
+\def\xxactivite{TD 1}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+\footnotesize
+\textbf{Savoirs et compétences :}\\
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Mod3.C2 : } pôles dominants et réduction de l’ordre du modèle : principe, justification
+%\item \textit{Res2.C4 : } stabilité des SLCI : définition entrée bornée -- sortie bornée (EB -- SB)	
+%\item \textit{Res2.C5 : } stabilité des SLCI : équation caractéristique	
+%\item \textit{Res2.C6 : } stabilité des SLCI : position des pôles dans le plan complexe
+\item \textit{Res2.C7 : } stabilité des SLCI : marges de stabilité (de gain et de phase)
+\end{itemize}
+\normalsize
+%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
+%\end{itemize}
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma-blocs.
+}}
+
+\def\xxfigures{
+\includegraphics[width=.6\linewidth]{images/fig_01}
+}%figues de la page de garde
+
+
+\def\xxpied{%
+Cycle 02 -- Modéliser les SLCI -- Prédiction du comportement\\
+Chapitre 1 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{5cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%\ifprof
+%\else
+\begin{multicols}{2}
+%\fi
+\section*{Mise en situation}
+\textit{La machine de rééducation SYS-REEDUC est issue d'un projet régional entre différents laboratoires de recherche : le CReSTIC (Centre de Recherche en Sciences et Technologies de l'Information et de la Communication) de Reims et le CRITT-MDTS (Centre Régional d'Innovation et de Transfert de Technologie) de Charleville-Mézières. L'objectif de ce projet était de réaliser un système capable d'évaluer et d'aider à la rééducation des membres inférieurs.}
+
+
+\begin{center}
+\includegraphics[width=.8\linewidth]{images/fig_02}
+%\textit{}
+\end{center}
+
+\begin{obj}
+L'objectif de cette partie est de modéliser l'asservissement du système, puis de paramétrer le correcteur pour répondre aux exigences.
+\end{obj}
+
+Pour permettre au kinésithérapeute de rééduquer les membres inférieurs du patient, on doit respecter les exigences suivantes : 
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline 
+Critère & Niveau \\ \hline\hline
+Angle de rotation de la cuisse &  De 0 à 150\degres \\ \hline
+Effort du patient & Jusqu'à \SI{20}{N}   \\ \hline
+Écart de position & Nul   \\ \hline
+Marge de gain & \SI{7}{dB} mini \\ \hline
+Marge de phase &  45\degres \\ \hline
+Rapidité &  $t_{5\%} < \SI{0,2}{s}$ \\ \hline
+Pulsation au gain unité & $\SI{50}{rad.s^{-1}}$\\
+\hline
+\end{tabular}
+\end{center}
+
+La structure du schéma-blocs permettant l'asservissement du déplacement longitudinal du << chariot >> (support mobile) est donnée dans la figure suivante.
+
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_03}
+%\textit{}
+\end{center}
+
+\subsection*{Éléments de modélisation}
+On propose alors une modélisation par schéma-blocs dans la figure suivante. 
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_04}
+%\textit{}
+\end{center}
+
+Le moteur à courant continu est régi par les équations suivantes :
+$ u_m(t)=e(t)+Ri(t)$, $e(t)=k_e\omega_m(t)$ et $C_{M1}(t)=k_t i(t)$. 
+
+Une étude dynamique a mené à l'équation suivante : 
+$$\left(M+m\right)r\rho_1 \dot{\omega}_m(t)=\dfrac{C_{M1}(t)}{\rho_1 r}-F_p(t)$$ avec : $M$ la masse du chariot et $m$ la masse du support de pied, $\rho_1=\dfrac{1}{10}$ le rapport de réduction du réducteur, $r=\SI{46,1}{mm}$ le rayon de la poulie du transmetteur poulie--courroie, $C_{M1}(t)$ le couple délivré par le moteur et $F_p(t)$ l'effort délivré par le patient sur le support 3. 
+
+Le codeur incrémental possède 500 fentes équiréparties. Deux émetteurs-récepteurs positionnés en quadrature permettent de mesurer l'information. 
+
+\subparagraph{}\textit{À partir des équations proposées, déterminer les fonctions de transfert $K_1$, $K_2$, $H_3(p)$, $H_4(p)$,  $K_5$, $K_6$, $K_7$, $K_8$ et $K_9$.}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{Montrer que le schéma-blocs peut être mis sous la forme suivante. On exprimera $A$, $B$ et $D$ en fonction des paramètres du système $r$, $\rho_1$, $k_t$, $k_e$, $R$, $M$, $m$ et $K_8$. }
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_05}
+%\textit{}
+\end{center}
+
+Pour la suite du sujet on gardera les constantes $A$, $B$ et $D$, avec $A=\SI{6700}{m/V}$, $B=\SI{0,01}{s}$ et $D=\SI{6}{N/V}$.
+
+
+\subsection*{Correction proportionnelle}
+
+On suppose que $C(p)=K_c$. 
+
+
+\subparagraph{}\textit{Exprimer $\varepsilon_x$ en fonction des deux entrées $F_p$ et $X_c$ et des constantes $A$, $B$, $D$ et $K_c$.}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+\subparagraph{}\textit{Déterminer l'écart de position $\varepsilon_x$ en réponse à deux échelons d'intensité $F_0$ pour la force du patient et $X_0$ pour le déplacement. Conclure quant au respect du cahier des charges.}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\subsection*{Correction proportionnelle intégrale}
+On suppose maintenant que $C(p)=K_i\left(1+\dfrac{1}{T_ip}\right)$
+
+\subparagraph{}\textit{Exprimer $\varepsilon_x$ en fonction des deux entrées$F_p$ et $X_c$ et des constantes $A$, $B$, $D$ et $K_i$.}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{Déterminer l'écart de position $\varepsilon_x$ en réponse à deux échelons d'intensité $F_0$ pour la force du patient et $X_0$ pour le déplacement. Conclure quant au respect du cahier des charges.}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+
+\subparagraph{}\textit{Déterminer la fonction de transfert en boucle ouverte du système $FTBO(p)=\dfrac{X}{\varepsilon_x}$ en supposant que $F_p=0$.}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{Déterminer la valeur $T_i$ permettant d'assurer la marge de phase pour la pulsation au gain unité souhaitée (pulsation pour laquelle le gain en décibel est nul).}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+
+\subparagraph{}\textit{Déterminer $K_i$ permettant d'assurer la pulsation au gain unité souhaitée.}
+
+
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+On donne sur le document réponse la réponse temporelle du système à une entrée de type échelon unitaire sur le déplacement ($F_p=0$) ainsi que le diagramme de Bode de la FTBO.
+
+\subparagraph{}\textit{Conclure quant au respect du cahier des charges sur le reste des critères énoncés. Faire apparaître sur le document réponse les grandeurs mesurées.}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\end{multicols}
+
+\begin{center}
+\includegraphics[width=.5\linewidth]{images/fig_06}
+%\textit{}
+\end{center}
+
+\begin{center}
+\includegraphics[width=.5\linewidth]{images/fig_07}
+%\textit{}
+\end{center}
+
+\end{document}
+
+\subparagraph{}\textit{}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/img_04}
+%\textit{}
+\end{center}
+
+
+\subparagraph{}\textit{}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+\begin{center}
+%\includegraphics[width=\linewidth]{images/fig_05}
+\end{center}
