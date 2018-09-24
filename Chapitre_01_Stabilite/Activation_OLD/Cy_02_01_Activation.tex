@@ -1,0 +1,373 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Modélisation SLCI : Stabilité des systèmes},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+\usepackage{multicol}
+\usepackage{siunitx}
+%\usepackage{picins}
+\fichetrue
+%\fichefalse
+
+\proftrue
+%\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PSI$\star$ -- MP}
+\def\xxnumpartie{Cycle 02}
+\def\xxpartie{Modéliser les SLCI dans le but de prévoir leur comportement}
+
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Stabilité des systèmes}
+
+
+\def\xxtitreexo{Activation}%Motorisation du moteur Haibike}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Patrick Dupas, \url{http://patrick.dupas.chez-alice.fr/}.}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{Cycle 02}
+
+\def\xxactivite{Activation}
+\def\xxauteur{\textsl{P. Dupas.}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
+%\end{itemize}
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
+}}
+
+\def\xxfigures{
+%\includegraphics[width=.9\linewidth]{images/c-evolution}
+}%figues de la page de garde
+
+
+\def\xxpied{%
+Cycle 02 -- Modéliser les systèmes afin de prévoir leur comportement\\
+Chapitre 1 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+\usepackage{pgfplots}
+\begin{document}
+\def\pathfig{images}
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{4cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\def\pathfig{images}
+
+\ifprof
+\else
+\begin{multicols}{2}
+\fi
+\subsection*{Identification de la FTBF}
+\begin{obj}
+Identifier les caractéristiques de la FTBF d'un système à partir d'une réponse temporelle et fréquentielle. Caractériser la stabilité du système.
+\end{obj}
+
+
+Un système a fait l’objet d’essais temporel et harmoniques.
+
+
+\subparagraph{}\textit{En utilisant la réponse temporelle, identifier la fonction de transfert du système}
+\ifprof
+\begin{corrige}~\\
+Le premier dépassement a une valeur de 30,4\%. On a
+$D_\%=e^{-\dfrac{\pi \xi}{\sqrt{1-\xi^2}}}$
+$\Rightarrow \ln D = -\dfrac{\pi \xi}{\sqrt{1-\xi^2}}$
+$\Rightarrow \left( \sqrt{1-\xi^2} \right)  = -\dfrac{\pi \xi}{\ln D}$
+$\Rightarrow 1-\xi^2= \dfrac{\pi^2 \xi^2}{\left(\ln D\right)^2}$
+$\Rightarrow 1= \xi^2\left( 1+\dfrac{\pi^2 }{\left(\ln D\right)^2}\right)$
+$\Rightarrow \xi^2= \dfrac{1}{ 1+\dfrac{\pi^2 }{\left(\ln D\right)^2}}$
+$\Rightarrow \xi=0,35$.
+
+La pseudo-période est de \SI{0,475}{s}. On a  $T_p=\dfrac{2\pi}{\omega_0\sqrt{1-\xi^2}}$
+$\Leftrightarrow \omega_0=\dfrac{2\pi}{T_p\sqrt{1-\xi^2}}$ et $\omega_0=\SI{14,15}{rad.s^{-1}}$.
+ 
+ On a donc $K=1$, $\xi=0,35$ et $\omega_0=\SI{14,15}{rad.s^{-1}}$.
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{En utilisant la réponse fréquentielle, identifier à nouveau la fonction de transfert du système.}
+\ifprof
+\begin{corrige}~\\
+On observe une réponse harmonique constituée d'une asymptote horizontale quand $\omega$ tend vers 0 et d'une asymptote de pente $-\SI{40}{dB/decade}$. Il en résulte qu'on peut modéliser le système par un second ordre. 
+
+Lorsque $\omega$ tend vers 0, le gain est nul; donc $K=1$.
+
+L'intersection des asymptotes a lieu pour $\omega_0=\SI{14,14}{rad.s^{-1}}$. 
+
+À la résonance, on mesure un gain de $20\log A_{\text{max}}=\SI{3,59}{dB}\Rightarrow A_{\text{max}}=1,51$. On a donc 
+$A_{\text{max}} = \dfrac{1}{2\xi\sqrt{1-\xi^2}}$
+$\Leftrightarrow {2\xi\sqrt{1-\xi^2}}A_{\text{max}}=1$
+$\Rightarrow 4\xi^2\left(1-\xi^2\right)A_{\text{max}}^2=1 $
+$\Rightarrow 4\xi^2A_{\text{max}}^2 -4\xi^4 A_{\text{max}}^2-1=0 $
+$\Rightarrow \xi^4 - \xi^2 +\dfrac{1}{4A_{\text{max}}^2}=0 $. En posant $\xi^2=X$,  
+$ X^2 - X +\dfrac{1}{4A_{\text{max}}^2}=0 $
+. On a alors $\Delta = 1-\dfrac{1}{A_{\text{max}}^2}$ et $X_{1,2}=\dfrac{1\pm \sqrt{\Delta}}{2}\simeq \dfrac{1\pm 0,75}{2}$. On a donc $X_1=0,125$, $X_2=0,875$ et $\xi_1=0,35$, $\xi_2=0,94$. Étant donné qu'il existe une résonance, on prend $\xi=0,35$.
+
+ On a donc $K=1$, $\xi=0,35$ et $\omega_0=\SI{14,15}{rad.s^{-1}}$ et $F(p)=\dfrac{1}{1+0,05p+0,005p^2}$.
+
+\end{corrige}
+\else
+
+
+\begin{rem}
+On montrera dans les deux questions précédentes que 
+$K=1$, $\xi\simeq0,35$ et $\omega_0\simeq\SI{14,15}{rad.s^{-1}}$.
+\end{rem}
+\fi
+
+\subparagraph{}\textit{Conclure.}
+\ifprof
+\begin{corrige}~\\
+On retrouve les mêmes coefficients. 
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{Caractériser la stabilité à partir des éléments de la FTBF.}
+
+
+
+\ifprof
+\begin{corrige}~\\
+On a un système du second ordre. Le système est stable. 
+\end{corrige}
+\else
+\fi
+
+\subsection*{Étude de la stabilité}
+
+
+\ifprof
+\else
+
+\begin{obj}
+\begin{itemize}
+\item Caractériser la stabilité d'un système à partir de la FTBO.
+\item La marge de gain est supérieure à $\SI{10}{dB}$ et que la marge de phase est supérieure à \SI{45}{\degres}.
+\end{itemize}
+
+\end{obj}
+
+
+On donne le schéma bloc suivant :
+
+\begin{center}
+\includegraphics[width=.6\linewidth]{images/fig_02}
+\end{center}
+
+\fi
+
+
+
+\subparagraph{}\textit{Justifier la forme du schéma-blocs retenu pour modéliser la FTBO qui sera notée $H(p)$.}
+\ifprof
+\begin{corrige}~\\
+On a $H(p)=\dfrac{S(p)}{E(p)}
+=\dfrac{\dfrac{KG}{\left(1+\tau p\right)p}}{1+\dfrac{KG}{\left(1+\tau p\right)p}}
+=\dfrac{1}{\dfrac{\tau}{KG} p^2+\dfrac{p}{KG}+1}$.
+
+Ainsi, $H(p)$ est un système du second ordre avec un gain unitaire, comme la fonction identifiée dans les premières questions. 
+\end{corrige}
+\else
+\fi
+
+On considère le correcteur proportionnel $K=1$. 
+\subparagraph{}\textit{Déterminer les valeurs de $G$ et de $\tau$ et en déduire $H(p)$.}
+\ifprof
+\begin{corrige}~\\
+On a :
+$\dfrac{1}{\dfrac{\tau}{G} p^2+\dfrac{p}{G}+1}
+= \dfrac{1}{1+0,05p+0,005p^2}$. En conséquences, $G=20$ et $\tau/20=0,005 \Rightarrow \tau=\SI{0,1}{s}$ et $FTBO(p)=\dfrac{20}{(1+0,1p)p}$.
+
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{Déterminer l'erreur statique et l'erreur de traînage.}
+
+\ifprof
+\begin{corrige}
+Ici on a $\varepsilon(p)=\dfrac{E(p)}{1+FTBO(p)}$. 
+
+Erreur statique (entrée échelon): $\varepsilon_s 
+= \lim\limits_{t\to +\infty} \varepsilon(t)
+= \lim\limits_{p\to 0} p\varepsilon(p)
+= \lim\limits_{p\to 0} p \dfrac{1}{p}\dfrac{1}{1+\dfrac{20}{(1+0,1p)p}}=0$
+
+Erreur trainate (entrée rampe): $\varepsilon_t
+= \lim\limits_{t\to +\infty} \varepsilon(t)
+= \lim\limits_{p\to 0} p\varepsilon(p)
+= \lim\limits_{p\to 0} p \dfrac{1}{p^2}\dfrac{1}{1+\dfrac{20}{(1+0,1p)p}}=1/20$
+\end{corrige}
+\else
+\fi
+
+
+\subparagraph{}\textit{Effectuer les tracés des diagrammes de Bode de la FTBO.}
+\ifprof
+\begin{corrige}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/cor_01}
+\end{center}
+\end{corrige}
+\else
+\fi
+%Le cahier des charges impose une marge de gain de $\SI{10}{dB}$ et une marge de phase de $
+%\SI{45}{\degree}$.
+
+
+\subparagraph{}\textit{Déterminer graphiquement les marges de gains et de phase.}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{Confirmer ces résultats par le calcul.}
+\ifprof
+\begin{corrige}~\\
+La phase ne coupe jamais l'axe des abscisses. Ainsi, La marge de gain n'est pas définie (elle est infinie).
+Pour déterminer la marge de phase analytiquement :
+\begin{enumerate}
+\item On cherche $\omega_c$ tel que $G_{\text{dB}}(\omega_c)=0$;
+\item On calcule $\varphi(\omega_c)$;
+\item La marge de phase est de $\varphi(\omega_c) -(-180)$.
+\end{enumerate}
+
+Cherchons $\omega_c$ tel que $G_{\text{dB}}(\omega_c)=0$. 
+On a $FTBO(j\omega )
+=\dfrac{20}{(1+0,1j\omega)j\omega}
+=\dfrac{20}{j\omega-0,1\omega^2}$. 
+$20\log |FTBO(j\omega )| 
+= 20\log 20 - 20\log \sqrt{\omega^2+0,01\omega^4}
+= 20\log 20 - 20\log \omega\sqrt{1+0,01\omega^2}$.
+
+ $G_{\text{dB}}(\omega_c)=0 
+\Leftrightarrow   20 =\omega_c\sqrt{1+0,01\omega_c^2} 
+\Leftrightarrow   400 =\omega_c^2 \left(1+0,01\omega_c^2\right)$
+On pose $x=\omega_c^2$ et on a :
+$400 =x \left(1+0,01x\right)\Leftrightarrow x^2+100x-40000=0$. 
+On a donc $\Delta = 412,3^2$ et $x_{1,2}=\dfrac{-100\pm412,3}{2}$ on conserve la racine positive et  $x_1=156,15$ et $\omega_c=\SI{12,5}{rad.s^{-1}}$.
+
+$\varphi(\omega_c)=\arg(20)-90 -\arg\left(1+0,1j\omega_c \right)
+=0- 90 -\arctan\left( 0,1\omega_c \right)
+=0-90-51,34=-141,34\degres$.
+
+La marge de phase est donc de 38,66\degres.
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{Conclure par rapport au cahier des charges.}
+\ifprof
+\begin{corrige}
+Le système ne sera pas stable vis-à-vis du cahier des charges.
+\end{corrige}
+\else
+\fi
+
+\subsection*{Choix d'un gain}
+
+\begin{obj}
+Déterminer le gain permettant de satisfaire le cahier des charges.
+\end{obj}
+
+\subparagraph{}\textit{Déterminer graphiquement la valeur du correcteur $K$ à placer ans la chaîne directe, afin de respecter les critères de stabilité du cahier des charges.}
+
+\subparagraph{}\textit{Déterminer analytiquement la valeur du correcteur $K$ à placer ans la chaîne directe, afin de respecter les critères de stabilité du cahier des charges.}
+\ifprof
+\begin{corrige}
+On a une phase de -135\degres pour $\omega=\SI{10}{rad.s^{-1}}$. Il faut donc déterminer $K$ tel que le gain soit nul en $\omega=\SI{10}{rad.s^{-1}}$.
+
+$20\log 20 - 20\log 10\sqrt{1+0,01\cdot 10^2}=20\log 20 - 20\log 10\sqrt{2}=\SI{3}{dB}$. Il faut donc diminuer le gain de \SI{3}{dB}.
+
+On cherche donc $K$ tel que $20 \log K = -3$ et il faut prendre $K=0,7$.
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}\textit{Quel sera alors le 1\ier dépassement pour la réponse indicielle du système ?}
+\ifprof
+\begin{corrige}
+Dépassement de 23\%.
+\end{corrige}
+\else
+\fi
+
+\ifprof
+\else
+\end{multicols}
+\fi
+
+
+\ifprof
+\else
+\noindent\begin{minipage}[c]{.4\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_03}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[c]{.46\linewidth}
+\begin{center}
+\includegraphics[width=.9\linewidth]{images/fig_01}
+\end{center}
+\end{minipage}
+
+
+\begin{center}
+\includegraphics[width=.7\linewidth]{images/img_04}
+\end{center}
+\fi
+%
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/fig_02}
+%\end{center}
+%
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/fig_03}
+%\end{center}
+%
+%\begin{center}
+%\includegraphics[width=.8\linewidth]{images/fig_04}
+%\end{center}
+
+
+
+\end{document}
