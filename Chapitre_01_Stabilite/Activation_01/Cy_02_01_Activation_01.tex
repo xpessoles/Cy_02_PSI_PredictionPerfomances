@@ -11,7 +11,7 @@
 %\fichefalse
 
 \proftrue
-\proffalse
+%\proffalse
 
 \tdtrue
 %\tdfalse
@@ -87,7 +87,11 @@ Chapitre 1 -- \xxactivite%
 
 \def\pathfig{images}
 
+\ifprof
+\else
 \begin{multicols}{2}
+\fi
+
 \subsection*{Exercice 1 -- Réponse impulsionnelle (entrée Dirac)}
 \begin{center}
 \includegraphics[width=\linewidth]{images/fig_01}
@@ -129,7 +133,12 @@ On donne les pôles des FTBF de plusieurs systèmes :
 %\begin{center}
 %\includegraphics[width=\linewidth]{images/OLD/fig_03}
 %\end{center}
-
+\ifprof
+\begin{center}
+\includegraphics[width=.45\linewidth]{images/OLD/fig_04}
+\includegraphics[width=.45\linewidth]{images/OLD/fig_05}
+\end{center}
+\else
 \begin{center}
 \includegraphics[width=\linewidth]{images/OLD/fig_04}
 \end{center}
@@ -137,7 +146,7 @@ On donne les pôles des FTBF de plusieurs systèmes :
 \begin{center}
 \includegraphics[width=\linewidth]{images/OLD/fig_05}
 \end{center}
-
+\fi
 
 
 
@@ -167,7 +176,7 @@ On donne le schéma bloc suivant :
 
 \fi
 
-On a $K=1$, $\tau = 0,005$ et $G=20$. 
+On a $K=1$, $\tau = 0,1$ et $G=20$. 
 %
 %\subparagraph{}\textit{Justifier la forme du schéma-blocs retenu pour modéliser la FTBO qui sera notée $H(p)$.}
 %\ifprof
@@ -204,7 +213,7 @@ Erreur statique (entrée échelon): $\varepsilon_s
 = \lim\limits_{p\to 0} p\varepsilon(p)
 = \lim\limits_{p\to 0} p \dfrac{1}{p}\dfrac{1}{1+\dfrac{20}{(1+0,1p)p}}=0$
 
-Erreur trainate (entrée rampe): $\varepsilon_t
+Erreur trainage (entrée rampe): $\varepsilon_t
 = \lim\limits_{t\to +\infty} \varepsilon(t)
 = \lim\limits_{p\to 0} p\varepsilon(p)
 = \lim\limits_{p\to 0} p \dfrac{1}{p^2}\dfrac{1}{1+\dfrac{20}{(1+0,1p)p}}=1/20$
@@ -215,10 +224,12 @@ Erreur trainate (entrée rampe): $\varepsilon_t
 
 \subparagraph{}\textit{Effectuer les tracés des diagrammes de Bode de la FTBO.}
 \ifprof
-\begin{corrige}
+\begin{corrige}~\\
+
 
 \begin{center}
-\includegraphics[width=\linewidth]{images/cor_01}
+%\includegraphics[width=\linewidth]{images/cor_01}
+\includegraphics[width=.8\linewidth]{images/cor_03}
 \end{center}
 \end{corrige}
 \else
@@ -276,6 +287,26 @@ Le système ne sera pas stable vis-à-vis du cahier des charges.
 \end{corrige}
 \else
 \fi
+
+\ifprof
+%\begin{corrige}
+%\end{corrige}
+
+\newpage
+
+Pour $\tau  = 0,005$
+
+
+\begin{center}
+%\includegraphics[width=\linewidth]{images/cor_01}
+\includegraphics[width=\linewidth]{images/cor_02}
+\end{center}
+
+
+\else
+\fi
+
+
 
 %
 %\subsection*{Choix d'un gain}

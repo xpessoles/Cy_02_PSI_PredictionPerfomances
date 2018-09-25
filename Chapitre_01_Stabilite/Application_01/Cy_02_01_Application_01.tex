@@ -7,12 +7,11 @@
 \input{style/macros_SII}
 \usepackage{multicol}
 \usepackage{siunitx}
-\usepackage{picins}
 \fichetrue
 %\fichefalse
 
 \proftrue
-%\proffalse
+\proffalse
 
 \tdtrue
 %\tdfalse
@@ -32,8 +31,8 @@
 \def\xxchapitre{\hspace{.12cm} Stabilité des systèmes}
 
 
-\def\xxtitreexo{Applications}%Motorisation du moteur Haibike}
-\def\xxsourceexo{\hspace{.2cm} \footnotesize{Patrick Dupas, \url{http://patrick.dupas.chez-alice.fr/}.}}
+\def\xxtitreexo{Application}%Motorisation du moteur Haibike}
+\def\xxsourceexo{\hspace{.2cm}}% \footnotesize{Patrick Dupas, \url{http://patrick.dupas.chez-alice.fr/}.}}
 
 
 \def\xxposongletx{2}
@@ -42,8 +41,8 @@
 %\def\xxonglet{Part. 1 -- Ch. 3}
 \def\xxonglet{Cycle 02}
 
-\def\xxactivite{Applications}
-\def\xxauteur{\textsl{P. Dupas.}}
+\def\xxactivite{Application}
+\def\xxauteur{\textsl{X. Pessoles}}
 
 \def\xxcompetences{%
 \textsl{%
@@ -79,7 +78,7 @@ Chapitre 1 -- \xxactivite%
 \def\pathfig{images}
 %\chapterimage{png/Fond_Cin}
 \input{style/new_pagegarde}
-\vspace{6cm}
+\vspace{4.5cm}
 \pagestyle{fancy}
 \thispagestyle{plain}
 
@@ -88,30 +87,112 @@ Chapitre 1 -- \xxactivite%
 
 \def\pathfig{images}
 
+\ifprof
+\else
 \begin{multicols}{2}
-\subsection*{Exercice 1 -- Réponse impulsionnelle (entrée Dirac)}
+\fi
+
+%\subsection*{Exercice 1 -- Réponse impulsionnelle (entrée Dirac)}
+On considère le schéma-blocs suivant. 
 \begin{center}
 \includegraphics[width=\linewidth]{images/fig_01}
 \end{center}
-\subparagraph*{}\textit{Pour chaque cas déterminer si la réponse est celle d'un système stable, instable ou juste stable.}
 
-\subsection*{Exercice 2 -- Pôles de la FTBF}
-On donne les pôles des FTBF de plusieurs systèmes :
-\begin{multicols}{2}
-\begin{enumerate}
-\item $-1$, $-2$;
-\item $-3$, $-2$, $0$;
-\item $-2+j$, $-2-j$, $2j$, $-2j$;
-\item $-2+3j$, $-2-3j$, $-2$;
-\item $-j$, $j$, $-1$, $1$;
-\item $-1$, $+1$;
-\item $-1+j$, $-1-j$;
-\item $2$, $-1$, $-3$;
-\item $-6$, $-4$, $7$.
-\end{enumerate}
+On donne ci-dessous la réponse indicielle pour $K_C=1$.
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_02}
+\end{center}
+
+
+\subparagraph{}\textit{Justifier l'allure du diagramme du diagramme de Bode donné ci-dessous pour $K_C=1$.}
+
+\subparagraph{}\textit{Donner graphiquement les marges de phase et de gain pour $K_C=1$.}
+
+
+\subparagraph{}\textit{Donner analytiquement les marges de phase et de gain pour $K_C=1$ (méthode).}
+\ifprof
+\begin{center}
+\includegraphics[width=\linewidth]{images/cor_01}
+\end{center}
+
+\else
+\fi
+
+
+
+\subparagraph{}\textit{Indiquer, en justifiant la réponse, à quelle fonction de transfert correspondent les diagrammes de
+BODE de la figure ci-dessous.}
+
+\subparagraph*{}\textit{Déterminer graphiquement les marges de gain et de phase du système décrit précédemment dans le
+cas où $K_C=1$.}
+
+\subparagraph*{}\textit{Le cahier des charges impose des marges de gain et de phase minimales de \SI{12}{dB} et 40\degres. Déterminer
+la plus grande valeur de $K_C$ permettant de vérifier ce cahier des charges}
+
+
+\ifprof
+\else
 \end{multicols}
-\subparagraph*{}\textit{Pour chaque cas déterminer si la réponse est celle d'un système stable, instable ou juste stable.}
+\fi
 
+
+
+\ifprof
+\else
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_03}
+\end{center}
+
+\fi
+
+
+\ifprof
+\begin{center}
+\includegraphics[width=\linewidth]{images/cor_02}
+\end{center}
+
+\else
+\fi
+
+
+%\ifprof
+%\else
+%\noindent\begin{minipage}[c]{.4\linewidth}
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/fig_03}
+%\end{center}
+%\end{minipage}\hfill
+%\begin{minipage}[c]{.46\linewidth}
+%\begin{center}
+%\includegraphics[width=.9\linewidth]{images/fig_01}
+%\end{center}
+%\end{minipage}
+
+\ifprof
+\else
+\begin{center}
+\includegraphics[width=\linewidth]{images/img_04}
+\end{center}
+\fi
+
+%
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/fig_02}
+%\end{center}
+%
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/fig_03}
+%\end{center}
+%
+%\begin{center}
+%\includegraphics[width=.8\linewidth]{images/fig_04}
+%\end{center}
+
+
+
+\end{document}
 
 \subsection*{Exercice 3 -- Applications du critère du Revers}
 
@@ -134,4 +215,3 @@ On donne les pôles des FTBF de plusieurs systèmes :
 
 
 
-\end{document}
