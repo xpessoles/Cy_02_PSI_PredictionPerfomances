@@ -15,7 +15,7 @@
 %\fichefalse
 
 \proftrue
-\proffalse
+%\proffalse
 
 \tdtrue
 %\tdfalse
@@ -157,6 +157,16 @@ Le codeur incrémental possède 500 fentes équiréparties. Deux émetteurs-réc
 \subparagraph{}\textit{À partir des équations proposées, déterminer les fonctions de transfert $K_1$, $K_2$, $H_3(p)$, $H_4(p)$,  $K_5$, $K_6$, $K_7$, $K_8$ et $K_9$.}
 \ifprof
 \begin{corrige}~\\
+On a :
+\begin{itemize}
+\item $ u_m(t)=e(t)+Ri(t) \Rightarrow  U_m(p)=E(p)+RI(p) $ et $C_{M1}(p)=k_t I(p)$ donc $K_2 = \dfrac{k_t}{R}$;
+\item $E(p)=k_e\Omega_m(p)$ et donc $K_7 = k_e$;
+\item $\left(M+m\right)r\rho_1 p\Omega_m(p)=\dfrac{C_{M1}(p)}{\rho_1 r}-F_p(p) \Leftrightarrow\left(M+m\right)r^2\rho_1^2 p\Omega_m(p)=C_{M1}(p)-\rho_1 rF_p(p) $ et donc $K_9 = \rho_1 r$ et $H_3(p)=\dfrac{1}{\left(M+m\right)r^2\rho_1^2 p}$;
+\item  $H_4(p)$ permet d'obtenir une position à partir d'une vitesse. Il s'agit donc d'un intégrateur et $H_4(p)\dfrac{1}{p}$; 
+\item un codeur incrémental avec 1 émetteur-récepteur permet de détecter les fentes et les << non fentes >> donc ici 1000 informations par tour. Avec un second émetteur, on double la résolution soit 2000 informations pour un tour soit $K_8  = \dfrac{2000}{2\pi}$;
+\item en utilisant le réducteur et le poulie courroie, on a directement $K_5=\rho_1$ et $K_6=r$ (à convertir en mètres);
+\item enfin, $K_1$ convertit des mètres en incréments. $X_c$ est la consigne que doit respectée $X$. Pour avoir un asservissement précis, il faut donc $\varepsilon = 0$ et $X=X_c$ soit $X_c K_
+\end{itemize}
 \end{corrige}
 \else
 \fi
