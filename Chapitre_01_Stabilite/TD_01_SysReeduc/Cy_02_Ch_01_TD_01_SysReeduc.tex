@@ -35,7 +35,7 @@
 
 
 \def\xxtitreexo{\noindent Machine de rééducation SysReeduc}
-\def\xxsourceexo{\hspace{.2cm} \footnotesize{CCP PSI 2012}}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{CCP PSI 2013}}
 
 
 \def\xxposongletx{2}
@@ -98,10 +98,10 @@ Chapitre 1 -- \xxactivite%
 \def\columnseprulecolor{\color{ocre}}
 \setlength{\columnseprule}{0.4pt} 
 
-%\ifprof
-%\else
+\ifprof
+\else
 \begin{multicols}{2}
-%\fi
+\fi
 \section*{Mise en situation}
 \textit{La machine de rééducation SYS-REEDUC est issue d'un projet régional entre différents laboratoires de recherche : le CReSTIC (Centre de Recherche en Sciences et Technologies de l'Information et de la Communication) de Reims et le CRITT-MDTS (Centre Régional d'Innovation et de Transfert de Technologie) de Charleville-Mézières. L'objectif de ce projet était de réaliser un système capable d'évaluer et d'aider à la rééducation des membres inférieurs.}
 
@@ -174,32 +174,47 @@ On a :
 \subparagraph{}\textit{Montrer que le schéma-blocs peut être mis sous la forme suivante. On exprimera $A$, $B$ et $D$ en fonction des paramètres du système $r$, $\rho_1$, $k_t$, $k_e$, $R$, $M$, $m$ et $K_8$. }
 \ifprof
 \begin{corrige}~\\
-D'une part,
+%D'une part,
+%
+%$X(p)=\left(\left(X_C(p)-X(p)\right)C(p)-F_P(p) D \right)\dfrac{A}{p\left(Bp+1\right)}$
+%
+%$X(p)=\dfrac{A\left(X_C(p)-X(p)\right)C(p)}{p\left(Bp+1\right)}- \dfrac{AF_P(p) D}{p\left(Bp+1\right)}$
+%
+%$\Leftrightarrow X(p)+\dfrac{AX(p)C(p)}{p\left(Bp+1\right)}=\dfrac{AX_C(p)C(p)}{p\left(Bp+1\right)}- \dfrac{AF_P(p) D}{p\left(Bp+1\right)}$.
+%
+%$\Leftrightarrow X(p)\left(\dfrac{p\left(Bp+1\right)+AC(p)}{p\left(Bp+1\right)}\right)=\dfrac{AX_C(p)C(p)}{p\left(Bp+1\right)}+ \dfrac{AF_P(p) D}{p\left(Bp+1\right)}$
+%
+%$\Leftrightarrow X(p)=\dfrac{AX_C(p)C(p)}{p\left(Bp+1\right)+AC(p)}- \dfrac{AF_P(p) D}{p\left(Bp+1\right)+AC(p)}$.
+%
+%
+%D'autre part, 
+%$X(p)=\Omega_m(p)H_4(p)K_5K_6$, $U_m(p)=\left(X_c(p)K_1 - \theta_m(p)K_8\right)C(p)$, $\theta_m(p)=\Omega_m(p)H_4(p)$. 
+%
+%$\Omega_m(p) = \left(\left(U_m(p)-\Omega_m(p) K_7\right)K_2- F_P(p)K_9\right)H_3(p)$
+%
+%$\Leftrightarrow \Omega_m(p) \left(1+K_7K_2H_3(p)\right)= U_m(p)H_3(p)K_2- F_P(p)H_3(p)K_9$
+%
+%
+%$X(p)=\left( U_m(p)H_3(p)K_2- F_P(p)H_3(p)K_9 \right)\dfrac{H_4(p)K_5K_6}{1+K_7K_2H_3(p)}$
+%
+%$\Leftrightarrow X(p)=\left( \left(X_c(p)K_1 - \theta_m(p)K_8\right)C(p)H_3(p)K_2- F_P(p)H_3(p)K_9 \right)\dfrac{H_4(p)K_5K_6}{1+K_7K_2H_3(p)}$
+%
+%$\Leftrightarrow X(p)=\left( \left(X_c(p)K_1 - X(p)\dfrac{K_8}{K_5K_6}\right)C(p)H_3(p)K_2- F_P(p)H_3(p)K_9 \right)\dfrac{H_4(p)K_5K_6}{1+K_7K_2H_3(p)}$
+%
+%$\Leftrightarrow X(p)=\left(\left(X_c(p) - X(p)\right)C(p)H_3(p)  K_1K_2- F_P(p)H_3(p)K_9 \right)\dfrac{H_4(p)K_5K_6}{1+K_7K_2H_3(p)}$
+%
+%$\Leftrightarrow X(p)\left( 1+ C(p)H_3(p)  K_1K_2 \dfrac{H_4(p)K_5K_6}{1+K_7K_2H_3(p)}\right)=\left(X_c(p) C(p)H_3(p)  K_1K_2- F_P(p)H_3(p)K_9 \right)\dfrac{H_4(p)K_5K_6}{1+K_7K_2H_3(p)}$
+%
+%
+%$\Leftrightarrow X(p)\left( 1+K_7K_2H_3(p)+ C(p)H_3(p)  K_1K_2 H_4(p)K_5K_6\right)=\left(X_c(p) C(p)H_3(p)  K_1K_2- F_P(p)H_3(p)K_9 \right)H_4(p)K_5K_6$
 
-$X(p)=\left(\left(X_C(p)-X(p)\right)C(p)+F_P(p) D \right)\dfrac{A}{p\left(Bp+1\right)}$
-
-$X(p)=\dfrac{A\left(X_C(p)-X(p)\right)C(p)}{p\left(Bp+1\right)}+ \dfrac{AF_P(p) D}{p\left(Bp+1\right)}$
-
-$\Leftrightarrow X(p)+\dfrac{AX(p)C(p)}{p\left(Bp+1\right)}=\dfrac{AX_C(p)C(p)}{p\left(Bp+1\right)}+ \dfrac{AF_P(p) D}{p\left(Bp+1\right)}$.
-
-$\Leftrightarrow X(p)\left(\dfrac{p\left(Bp+1\right)+AC(p)}{p\left(Bp+1\right)}\right)=\dfrac{AX_C(p)C(p)}{p\left(Bp+1\right)}+ \dfrac{AF_P(p) D}{p\left(Bp+1\right)}$
-
-$\Leftrightarrow X(p)=\dfrac{AX_C(p)C(p)}{p\left(Bp+1\right)+AC(p)}+ \dfrac{AF_P(p) D}{p\left(Bp+1\right)+AC(p)}$.
-
-
-D'autre part, 
-$X(p)=\Theta_m(p)H_4(p)K_5k_5$, $U_m(p)=X_c(p)K_1 - \theta_m(p)K_8$, $\theta_m(p)=\Omega_m(p)H_4(p)$. 
-
-$\Omega_m(p) = \left(\left(U_m(p)-\Omega_m(p) K_7\right)K_2- F_P(p)K_9\right)H_3(p)$
-
-$\Omega_m(p) = \left(\left(U_m(p)-\Omega_m(p) K_7\right)K_2- F_P(p)K_9\right)H_3(p)$
-
+On montre $A=\dfrac{K_8}{k_e}$, $B=\dfrac{R\left(m+M\right)r^2\rho_1^2}{k_ek_t}$ et $D=\dfrac{r^2\rho_1^2R}{K_8k_t}$.
 \end{corrige}
 \else
 \fi
 
 \begin{center}
-\includegraphics[width=\linewidth]{images/fig_05}
+\includegraphics[width=\linewidth]{images/fig_08}
 %\textit{}
 \end{center}
 
@@ -214,6 +229,15 @@ On suppose que $C(p)=K_c$.
 \subparagraph{}\textit{Exprimer $\varepsilon_x$ en fonction des deux entrées $F_p$ et $X_c$ et des constantes $A$, $B$, $D$ et $K_c$.}
 \ifprof
 \begin{corrige}~\\
+On a $\varepsilon_x(p)=X_C(p)-X(p)$ 
+$ =X_C(p)-\left(\left(C(p)\varepsilon_x(p)-F(p)D \right)\dfrac{A}{p\left(Bp+1 \right)}  \right) $
+
+$\Leftrightarrow \varepsilon_x(p) \left(1+ \dfrac{AC(p)}{p\left(Bp+1 \right)}\right)=X_C(p)+\dfrac{AF(p)D }{p\left(Bp+1 \right)}   $
+
+$\Leftrightarrow \varepsilon_x(p) \left( \dfrac{p\left(Bp+1 \right)+AC(p)}{p\left(Bp+1 \right)}\right)=X_C(p)+\dfrac{AF(p)D }{p\left(Bp+1 \right)}   $
+$\Leftrightarrow \varepsilon_x(p) =\dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \right)+AC(p)}X_C(p)+\dfrac{AF(p)D }{p\left(Bp+1 \right)+AC(p)}  $
+
+$\Leftrightarrow \varepsilon_x(p) =\dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \right)+AK_C}X_C(p)+\dfrac{AD }{p\left(Bp+1 \right)+AK_C} F(p) $
 \end{corrige}
 \else
 \fi
@@ -284,7 +308,10 @@ On donne sur le document réponse la réponse temporelle du système à une entr
 \else
 \fi
 
+\ifprof
+\else
 \end{multicols}
+\fi
 
 \begin{center}
 \includegraphics[width=.5\linewidth]{images/fig_06}
