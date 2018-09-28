@@ -15,7 +15,7 @@
 %\fichefalse
 
 \proftrue
-%\proffalse
+\proffalse
 
 \tdtrue
 %\tdfalse
@@ -103,6 +103,10 @@ Chapitre 1 -- \xxactivite%
 \begin{multicols}{2}
 \fi
 \section*{Mise en situation}
+
+\ifprof
+\else
+
 \textit{La machine de rééducation SYS-REEDUC est issue d'un projet régional entre différents laboratoires de recherche : le CReSTIC (Centre de Recherche en Sciences et Technologies de l'Information et de la Communication) de Reims et le CRITT-MDTS (Centre Régional d'Innovation et de Transfert de Technologie) de Charleville-Mézières. L'objectif de ce projet était de réaliser un système capable d'évaluer et d'aider à la rééducation des membres inférieurs.}
 
 
@@ -139,7 +143,12 @@ La structure du schéma-blocs permettant l'asservissement du déplacement longit
 %\textit{}
 \end{center}
 
+\fi
+
 \subsection*{Éléments de modélisation}
+
+\ifprof
+\else
 On propose alors une modélisation par schéma-blocs dans la figure suivante. 
 \begin{center}
 \includegraphics[width=\linewidth]{images/fig_04}
@@ -153,6 +162,7 @@ Une étude dynamique a mené à l'équation suivante :
 $$\left(M+m\right)r\rho_1 \dot{\omega}_m(t)=\dfrac{C_{M1}(t)}{\rho_1 r}-F_p(t)$$ avec : $M$ la masse du chariot et $m$ la masse du support de pied, $\rho_1=\dfrac{1}{10}$ le rapport de réduction du réducteur, $r=\SI{46,1}{mm}$ le rayon de la poulie du transmetteur poulie--courroie, $C_{M1}(t)$ le couple délivré par le moteur et $F_p(t)$ l'effort délivré par le patient sur le support 3. 
 
 Le codeur incrémental possède 500 fentes équiréparties. Deux émetteurs-récepteurs positionnés en quadrature permettent de mesurer l'information. 
+\fi
 
 \subparagraph{}\textit{À partir des équations proposées, déterminer les fonctions de transfert $K_1$, $K_2$, $H_3(p)$, $H_4(p)$,  $K_5$, $K_6$, $K_7$, $K_8$ et $K_9$.}
 \ifprof
@@ -213,14 +223,16 @@ On montre $A=\dfrac{K_8}{k_e}$, $B=\dfrac{R\left(m+M\right)r^2\rho_1^2}{k_ek_t}$
 \else
 \fi
 
+\ifprof
+\else
 \begin{center}
 \includegraphics[width=\linewidth]{images/fig_08}
 %\textit{}
 \end{center}
 
-Pour la suite du sujet on gardera les constantes $A$, $B$ et $D$, avec $A=\SI{6700}{m/V}$, $B=\SI{0,01}{s}$ et $D=\SI{6}{N/V}$.
+Pour la suite du sujet on gardera les constantes $A$, $B$ et $D$, avec $A=\SI{6700}{m/V}$, $B=\SI{0,01}{s}$ et $D=\SI{6}{V/N}$.
 
-
+\fi
 \subsection*{Correction proportionnelle}
 
 On suppose que $C(p)=K_c$. 
@@ -261,6 +273,15 @@ La marge de phase n'est pas respectée.
 \subparagraph{}\textit{Déterminer l'écart de position $\varepsilon_x$ en réponse à deux échelons d'intensité $F_0$ pour la force du patient et $X_0$ pour le déplacement. Conclure quant au respect du cahier des charges.}
 \ifprof
 \begin{corrige}~\\
+
+On a : 
+$\varepsilon_x = \lim_{p\to 0} p\varepsilon_x(p) = \lim_{p\to 0} p\left(\dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \right)+AK_C}\dfrac{X_0}{p}+\dfrac{AD }{p\left(Bp+1 \right)+AK_C} \dfrac{F_p}{p}\right) $
+
+$= \lim_{p\to 0} \dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \right)+AK_C}{X_0}+\dfrac{AD }{p\left(Bp+1 \right)+AK_C} {F_p} $
+
+$= \dfrac{D }{K_C} {F_p} $
+
+L'écart en position n'est donc pas nul.
 \end{corrige}
 \else
 \fi
@@ -268,9 +289,13 @@ La marge de phase n'est pas respectée.
 \subsection*{Correction proportionnelle intégrale}
 On suppose maintenant que $C(p)=K_i\left(1+\dfrac{1}{T_ip}\right)$
 
-\subparagraph{}\textit{Exprimer $\varepsilon_x$ en fonction des deux entrées$F_p$ et $X_c$ et des constantes $A$, $B$, $D$ et $K_i$.}
+\subparagraph{}\textit{Exprimer $\varepsilon_x$ en fonction des deux entrées $F_p$ et $X_c$ et des constantes $A$, $B$, $D$ et $K_i$.}
 \ifprof
 \begin{corrige}~\\
+
+
+$\varepsilon_x(p) =\dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \right)+AK_i\left(1+\dfrac{1}{T_ip}\right)}X_C(p)+\dfrac{AD }{p\left(Bp+1 \right)+AK_i\left(1+\dfrac{1}{T_ip}\right)} F(p) $
+
 \end{corrige}
 \else
 \fi
@@ -278,14 +303,23 @@ On suppose maintenant que $C(p)=K_i\left(1+\dfrac{1}{T_ip}\right)$
 \subparagraph{}\textit{Déterminer l'écart de position $\varepsilon_x$ en réponse à deux échelons d'intensité $F_0$ pour la force du patient et $X_0$ pour le déplacement. Conclure quant au respect du cahier des charges.}
 \ifprof
 \begin{corrige}~\\
+
+$\varepsilon_x =\lim_{p\to 0} p\left(\dfrac{p\left(Bp+1 \right)}{p\left(Bp+1 \right)+AK_i\left(1+\dfrac{1}{T_ip}\right)}\dfrac{X_0}{p}+\dfrac{AD }{p\left(Bp+1 \right)+AK_i\left(1+\dfrac{1}{T_ip}\right)} \dfrac{F_0}{p}\right) $
+
+$=\lim_{p\to 0} \dfrac{pT_ip\left(Bp+1 \right)}{pT_ip\left(Bp+1 \right)+AK_i\left(T_ip+1\right)}X_0+\dfrac{ADT_ip }{T_ipp\left(Bp+1 \right)+AK_i\left(T_ip+1\right)} F_0  = 0$.
+
+
 \end{corrige}
 \else
 \fi
 
 
-\subparagraph{}\textit{Déterminer la fonction de transfert en boucle ouverte du système $FTBO(p)=\dfrac{X}{\varepsilon_x}$ en supposant que $F_p=0$.}
+\subparagraph{}\textit{Déterminer la fonction de transfert en boucle ouverte du système $\text{FTBO}(p)=\dfrac{X(p)}{\varepsilon_x(p)}$ en supposant que $F_p=0$.}
 \ifprof
 \begin{corrige}~\\
+$\text{FTBO}(p)= \dfrac{A}{p\left(Bp+1\right)}K_i\left(1+\dfrac{1}{T_ip}\right)= \dfrac{A}{p\left(Bp+1\right)}K_i\dfrac{1+T_ip}{T_ip}$.
+
+
 \end{corrige}
 \else
 \fi
@@ -293,6 +327,14 @@ On suppose maintenant que $C(p)=K_i\left(1+\dfrac{1}{T_ip}\right)$
 \subparagraph{}\textit{Déterminer la valeur $T_i$ permettant d'assurer la marge de phase pour la pulsation au gain unité souhaitée (pulsation pour laquelle le gain en décibel est nul).}
 \ifprof
 \begin{corrige}~\\
+On souhaite que  pour $\omega=\SI{50}{rad.s^{-1}}$, $\varphi(\omega)=-135\degres $.
+
+$\arg\left(\text{FTBO}(j\omega)\right) =\arg\left(\dfrac{A}{p\left(Bp+1\right)}K_i\dfrac{1+T_ip}{T_ip}\right)	$
+$ =-180-\arg\left(\left(Bp+1\right)\right)  + \arg\left(1+T_ip\right)	$
+
+$ =-180-\arctan B\omega + \arctan T_i \omega 	$
+En $\omega=\SI{50}{rad.s^{-1}}$ on a alors 
+$ -180-\arctan 0,5 + \arctan 50T_i =-135 \Leftrightarrow  \arctan 50T_i =-135+180+\arctan 0,5 =74$. D'où $T_i = \SI{0,05}{s}$.
 \end{corrige}
 \else
 \fi
@@ -303,6 +345,14 @@ On suppose maintenant que $C(p)=K_i\left(1+\dfrac{1}{T_ip}\right)$
 
 \ifprof
 \begin{corrige}~\\
+On souhaite que $|\text{FTBO}(j\omega)|=1$ pour $\omega=\SI{50}{rad.s^{-1}}$.
+
+$|\text{FTBO}(j\omega)| =\left|\dfrac{A}{p\left(Bp+1\right)}K_i\dfrac{1+T_ip}{T_ip}\right|$
+$=A K_i\dfrac{1}{\omega \sqrt{B^2\omega^2+1}}\dfrac{\sqrt{1+T_i^2\omega^2}}{T_i \omega }$
+$=\dfrac{A K_i}{T_i \omega^2}\dfrac{\sqrt{1+T_i^2\omega^2}}{ \sqrt{B^2\omega^2+1}}$.
+
+On a donc $K_i = \dfrac{T_i \omega^2\sqrt{B^2\omega^2+1}}{A\sqrt{1+T_i^2\omega^2}}=\SI{0,0077}{Vm^{-1}}$.
+
 \end{corrige}
 \else
 \fi
@@ -312,8 +362,33 @@ On donne sur le document réponse la réponse temporelle du système à une entr
 \subparagraph{}\textit{Conclure quant au respect du cahier des charges sur le reste des critères énoncés. Faire apparaître sur le document réponse les grandeurs mesurées.}
 \ifprof
 \begin{corrige}~\\
+\begin{itemize}
+\item Ecart de position : nul $\Rightarrow$ Exigence OK.
+\item Marge de gain : infine $\Rightarrow$ Exigence OK.
+\item Marge de phase : $\simeq 45\degres$ $\Rightarrow$ Exigence OK.
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/cor_03}
+%\textit{}
+\end{center}
+ 
 \end{corrige}
 \else
+\fi
+
+
+\ifprof
+\else
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_06}
+%\textit{}
+\end{center}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_07}
+%\textit{}
+\end{center}
 \fi
 
 \ifprof
@@ -321,15 +396,8 @@ On donne sur le document réponse la réponse temporelle du système à une entr
 \end{multicols}
 \fi
 
-\begin{center}
-\includegraphics[width=.5\linewidth]{images/fig_06}
-%\textit{}
-\end{center}
 
-\begin{center}
-\includegraphics[width=.5\linewidth]{images/fig_07}
-%\textit{}
-\end{center}
+
 
 \end{document}
 
