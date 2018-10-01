@@ -1,0 +1,149 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Modélisation systèmes multiphysiques : Modélisation linéaire et non linéaire},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+\usepackage{multicol}
+\usepackage{siunitx}
+\fichetrue
+%\fichefalse
+
+\proftrue
+\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PSI$\star$ -- MP}
+\def\xxnumpartie{Cycle 02}
+\def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
+
+
+\def\xxnumchapitre{Chapitre 2 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Rapidité des systèmes}
+
+
+\def\xxtitreexo{QCM}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Éd Vuibert.}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{\textsf{Cycle 02}}
+
+\def\xxactivite{QCM 01}
+\def\xxauteur{\textsl{Éd Vuibert.}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
+%\end{itemize}
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
+}}
+
+\def\xxfigures{
+%\includegraphics[width=.9\linewidth]{images/c-evolution}
+}%figues de la page de garde
+
+
+\def\xxpied{%
+Cycle 02 -- Modéliser les SLCI dans le but de prévoir leur comportement\\
+Chapitre 2 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+\usepackage{pgfplots}
+\begin{document}
+\def\pathfig{images}
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{4.5cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\def\pathfig{images}
+
+%\begin{multicols}{2}
+%\end{multicols}
+\ifprof
+\else
+Vrai ou faux : 
+\begin{enumerate}
+\item Le temps de réponse à 5\% d’une FTBF d’ordre 3 présentant les pôles -2 et $-12\pm 5j$ est d’environ \SI{1,5}{s}, car -2 est le pôle dominant.
+\item Une FTBO du deuxième ordre fortement résonante conduira à
+une marge de gain très faible, voire à un système instable en
+boucle fermée.
+\item Une FTBF d’ordre 3 présentant les pôles -8 et$-3 \pm 10$ (rad/s)
+sera très oscillante mais rapide.
+\item  Un système présentant une marge de gain élevée de \SI{15}{dB}
+mais une marge de phase faible de 10\degres sera peu stable.
+\item Lorsque la FTBO est elle-même instable, la FTBF sera
+nécessairement instable, car les marges ne sont pas définies.
+\item Une FTBF d’ordre 3 présentant les pôles 4 et $-8\pm 5 $(rad/s) est
+stable.
+\end{enumerate}
+
+\fi
+
+\ifprof
+\begin{corrige}
+\begin{enumerate}
+\item Vrai. Les pôles complexes sont beaucoup plus rapides et donc auront convergé bien avant
+1,5 s. Le pôle -2 est dominant et la constante de temps associée vaut \SI{0,5}{s}. Le temps de réponse
+d’un premier ordre avec cette constante de temps vaut $3\times0,5 = \SI{1,5}{s}$.
+\item Faux. Un deuxième ordre en boucle fermée restera un deuxième ordre à coefficients positifs,
+donc stable. Par ailleurs, la phase d’un deuxième ordre n’atteignant jamais 180\degres, la marge de gain
+n’est pas définie (ou infinie) et ne peut pas conduire à l’instabilité. Néanmoins, pour une FTBO
+du deuxième ordre résonant dont le gain dépasse \SI{0}{dB}, la forme du diagramme de Bode conduit
+à croiser l’axe \SI{0}{dB} après la résonance. Or, pour un système fortement résonant, la phase chute
+brutalement à $\omega_0$ en direction de -180°. Il y a donc toutes les chances pour que la marge de phase
+soit très petite, donc le système en boucle fermée peu stable, donc convergent mais très oscillant.
+\item Vrai, pour les oscillations. Effectivement, les pôles dominants sont les pôles complexes (partie
+réelle la plus faible) et la partie imaginaire est bien plus importante en module que la partie réelle,
+ce qui indique une fréquence d’oscillation élevée au regard du temps de convergence. Par contre,
+il est difficile de dire si le système sera rapide : le temps de réponse est court ou long au regard
+d’un autre temps caractéristique, mais n’est pas court en soi !
+\item Vrai. Si une des deux marges est faible, la courbe passe « près » du point critique -1 et la FTBF
+présente alors une résonance. Une bonne stabilité est assurée si les deux marges sont suffisantes.
+\item Faux. Une FTBO instable peut très bien être stabilisée par la boucle d’asservissement, ce qui
+est le cas des deux exemples du cours. Néanmoins, la caractérisation de la
+stabilité à partir du critère du revers n’est plus possible, car ce critère pose comme hypothèse de
+départ que la FTBO est stable.... 
+\item Faux. Il suffit d’un pôle à partie réelle positive pour que la réponse temporelle à une sollicitation
+d’entrée présente un terme divergent, et donc diverge.
+\end{enumerate}
+\end{corrige}
+\else
+\fi
+
+
+
+
+
+
+
+\end{document}
