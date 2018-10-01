@@ -87,25 +87,98 @@ Chapitre 2 -- \xxactivite%
 
 \def\pathfig{images}
 
-%\begin{multicols}{2}
+\begin{multicols}{2}
 %\end{multicols}
 \ifprof
 \else
 Vrai ou faux : 
 \begin{enumerate}
-\item Le temps de réponse à 5\% d’une FTBF d’ordre 3 présentant les pôles -2 et $-12\pm 5j$ est d’environ \SI{1,5}{s}, car -2 est le pôle dominant.
-\item Une FTBO du deuxième ordre fortement résonante conduira à
-une marge de gain très faible, voire à un système instable en
-boucle fermée.
-\item Une FTBF d’ordre 3 présentant les pôles -8 et$-3 \pm 10$ (rad/s)
-sera très oscillante mais rapide.
-\item  Un système présentant une marge de gain élevée de \SI{15}{dB}
-mais une marge de phase faible de 10\degres sera peu stable.
-\item Lorsque la FTBO est elle-même instable, la FTBF sera
-nécessairement instable, car les marges ne sont pas définies.
-\item Une FTBF d’ordre 3 présentant les pôles 4 et $-8\pm 5 $(rad/s) est
-stable.
+\item Le temps de réponse à 5\% d’une FTBF d’ordre 3 présentant les pôles $-2$ et $-12\pm 5j$ est d’environ \SI{1,5}{s}, car $-2$ est le pôle dominant. % VRAI
+\item Une FTBO du deuxième ordre fortement résonante conduira à une marge de gain très faible, voire à un système instable en boucle fermée. % FAUX
+\item Une FTBF d’ordre 3 présentant les pôles $-8$ et$-3 \pm 10$ (rad/s) sera très oscillante mais rapide. %Vrai
+\item  Un système présentant une marge de gain élevée de \SI{15}{dB} mais une marge de phase faible de 10\degres sera peu stable. %Vrai
+\item Lorsque la FTBO est elle-même instable, la FTBF sera nécessairement instable, car les marges ne sont pas définies. %Faux
+\item Une FTBF d’ordre 3 présentant les pôles 4 et $-8\pm 5 $(rad/s) est stable. %Faux
 \end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item On donne le diagramme de Bode de la FTBF d'un système : 
+\begin{center}
+\includegraphics[width=\linewidth]{images/img_01}
+\end{center}
+\begin{enumerate}
+\item Le système est stable parce que la marge de phase est positive et la marge de gain est infinie.
+\item Le système est instable parce que la marge de phase est négative et la marge de gain est infinie.
+\item La marge de gain est positive.
+\item La marge de gain est négative.
+\item La marge de phase est positive.
+\item La marge de phase est négative.
+\item Le système est stable.
+\item Le système est instable.
+\item On ne peut pas conclure. % OUI
+\end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item On donne le diagramme de Bode de la FTBO d'un système : 
+\begin{center}
+\includegraphics[width=\linewidth]{images/img_02}
+\end{center}
+\begin{enumerate}
+\item Le système est stable parce que la marge de phase est positive et la marge de gain est infinie.
+\item Le système est instable parce que la marge de phase est négative.
+\item La marge de gain est positive. % OUI
+\item La marge de gain est négative. % OUI
+\item La marge de phase est positive.
+\item La marge de phase est négative.
+\item Le système est stable.
+\item Le système est instable. % OUI
+\item On ne peut pas conclure. % 
+\end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item On donne le diagramme de Bode de la FTBF d'un système : 
+\begin{center}
+\includegraphics[width=\linewidth]{images/img_03}
+\end{center}
+\begin{enumerate}
+\item Le système est stable parce que la marge de phase est positive et la marge de gain est infinie.
+\item Le système est instable parce que la marge de phase est négative et la marge de gain est infinie.
+\item La marge de gain est positive.
+\item La marge de gain est négative.
+\item La marge de phase est positive.
+\item La marge de phase est négative.
+\item Le système est stable.
+\item Le système est instable.
+\item On ne peut pas conclure. % OUI
+\end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item On donne le diagramme de Bode de la FTBO d'un système : 
+\begin{center}
+\includegraphics[width=\linewidth]{images/img_04}
+\end{center}
+\begin{enumerate}
+\item Le système est stable parce que la marge de phase est positive et la marge de gain est infinie.
+\item Le système est instable parce que la marge de phase est négative et la marge de gain est infinie.
+\item La marge de gain est positive. % OUI
+\item La marge de gain est négative. % 
+\item La marge de phase est positive. % OUI
+\item La marge de phase est négative.
+\item Le système est stable. % OUI
+\item Le système est instable.
+\item On ne peut pas conclure. % NON
+\end{enumerate}
+\end{enumerate}
+
+
+\end{multicols}
 
 \fi
 
