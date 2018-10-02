@@ -67,7 +67,7 @@
 
 
 \def\xxpied{%
-Cycle 02 -- Modéliser les SLCI dans le but de prévoir leur comportement\\
+Cycle 02 -- Modéliser les SLCI afin de prévoir leur comportement\\
 Chapitre 2 -- \xxactivite%
 }
 
@@ -79,7 +79,7 @@ Chapitre 2 -- \xxactivite%
 
 %\chapterimage{png/Fond_Cin}
 \input{style/new_pagegarde}
-\vspace{5cm}
+\vspace{4.5cm}
 \pagestyle{fancy}
 \thispagestyle{plain}
 
@@ -90,15 +90,17 @@ Chapitre 2 -- \xxactivite%
 
 \begin{multicols}{2}
 
+\footnotesize 
+
 \subsection*{Mise en situation}
 Roboclimber est un robot géotechnique utilisé pour la consolidation des talus de sols naturels
 ou des escarpements rocheux au-dessus des routes ou des zones habitées. Il est
 issu d’un programme européen de recherche et est actuellement exploité par la société italienne
 d’ingénierie D’Appolonia.
 
-Le Roboclimber est un robot d’environ 3 tonnes transportant une unité autonome de forage
-et de pose des pieux. Il utilise, pour se mouvoir et assurer son équilibre lors du forage, 4 pieds
-indépendants ainsi que deux câbles de traction fixés en hauteur.
+%Le Roboclimber est un robot d’environ 3 tonnes transportant une unité autonome de forage
+%et de pose des pieux. Il utilise, pour se mouvoir et assurer son équilibre lors du forage, 4 pieds
+%indépendants ainsi que deux câbles de traction fixés en hauteur.
 
 
 L’objet de l’étude est de valider les performances de l’asservissement de position des pieds.
@@ -261,9 +263,7 @@ réels. Déterminer les marges de gain et de phase du système corrigé par un g
 \subsection*{Optimisation du comportement : réduction des oscillations}
 La solution retenue pour atténuer la résonance est l’utilisation d’un filtre dit « réjecteur », de
 fonction de transfert :
-$C(p)=\dfrac{1+\dfrac{2\xi_1}{\omega_0}p+\dfrac{p^2}{\omega_0^2}}{1+\dfrac{2\xi_2}{\omega_0}p+\dfrac{p^2}{\omega_0^2}}$
-
-avec $\xi_1 < \xi_2 < \dfrac{\sqrt{2}}{2}$.
+$C(p)=\dfrac{1+\dfrac{2\xi_1}{\omega_0}p+\dfrac{p^2}{\omega_0^2}}{1+\dfrac{2\xi_2}{\omega_0}p+\dfrac{p^2}{\omega_0^2}}$ avec $\xi_1 < \xi_2 < \dfrac{\sqrt{2}}{2}$.
 
 \subparagraph{}\textit{Tracer l’allure du diagramme de Bode en gain, asymptotique et réel de ce correcteur et
 expliquer son mode de fonctionnement.}
