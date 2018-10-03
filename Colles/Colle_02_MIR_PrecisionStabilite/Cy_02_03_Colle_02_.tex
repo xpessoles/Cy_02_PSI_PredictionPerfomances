@@ -20,6 +20,9 @@
 \courstrue
 \coursfalse
 
+\newif\ifcolle
+\colletrue
+
 \def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
 \def\xxtete{Sciences Industrielles de l'Ingénieur}
 
@@ -217,8 +220,10 @@ L’objectif du robot MIR est de :
 %\fi
 
 \subsection*{Étude de la fonction Ft12 : Déplacer le transducteur à vitesse constante}
-
+\ifcolle
+\else
 Le robot MIR étant à l’arrêt entre les deux cuves, le mini bac est plaqué contre la paroi de la cuve à contrôler. Pour l’inspection des soudures, le transducteur 13 (capteur de l’état des soudures) doit se déplacer à l’intérieur du mini bac d’inspection à vitesse constante. Le mini bac est rempli d’un fluide visqueux. L’inspection peut avoir lieu pour n’importe quelle position du robot MIR, donc l’angle $\alpha$ qui caractérise la direction du déplacement du transducteur par rapport à l’horizontale, est susceptible de prendre toute valeur comprise entre $-\pi/2$ (robot tête en bas) et $\pi/2$ (robot tête en haut). Afin de garantir la qualité des résultats de mesure, le transducteur doit donc se déplacer à une vitesse $V_0$ constante par rapport à la paroi, et ceci pour toute valeur de l’angle $\alpha$.
+\fi
 
 \begin{obj}
 Qualifier la précision statique du système et définir les améliorations à apporter.
