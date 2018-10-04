@@ -170,28 +170,42 @@ fonctionnelle « amplifier la sensation d'accélération » puis valider les
 performances attendues listées par le cahier des charges (tableau \ref{tab:4})
 \end{obj}
 
+\textbf{Exigence : amplifier la sensation d'accélération}
+\begin{itemize}
+\item  Précision statique de la boucle d'asservissement de position :
+\begin{itemize}
+\item erreur statique de position $<1\%$;
+\item erreur statique de traînage $<1\%$; 
+\item erreur statique d'accélération $<1\%$ .
+\end{itemize}
+\item Rapidité pour un échelon de consigne d'accélération :
+\begin{itemize}
+\item temps de montée de 0 à 100\% de la consigne~$<\SI{5}{ms}$;
+\item dépassement $<20\%$.
+\end{itemize}
+\end{itemize}
 
-%\begin{table}[!htb]
- %\centering
- \begin{center}
-    \begin{tabular}{|p{0.2\linewidth}|p{0.35\linewidth}|p{0.35\linewidth}|}
-    \hline
-    \textbf{Exigence} & \textbf{Critères d'appréciation} & \textbf{Niveau} \\
-    \hline
-    Amplifier la sensation d'accélération & Précision statique de la boucle d'asservissement de position & \multicolumn{1}{r|}{} \\
-          & Erreur statique de position  &$<1\%$\\
-          & Erreur statique de traînage  & $<1\%$ \\
-          & Erreur statique d'accélération & $<1\%$ \\
-\cline{2-3}          & Rapidité pour un échelon de consigne d'accélération &  \\
-          & Temps de montée de 0 à 100\% de la consigne  & $<\SI{5}{ms}$ \\
-          & Dépassement & $<20\%$ \\
-%\cline{2-3}          & Accélération maximale du point $D$ de la tête du spectateur situé à 85 mm au-dessus de l'axe de rotation du dosseret & $\SI{6}{m. s^{-2}}(\SI{0,6}{g})< a_{\text{max}} < \SI{7}{m. s^{-2}}(\SI{0,7}{g})$ \\
-\hline
-    \end{tabular}%
-    
-\textit{Extrait du cahier des charges associé à l'exigence fonctionnelle « Amplifier la sensation d'accélération » \\  réalisée par le dosseret \label{tab:4}}%
- \end{center}
- %\end{table}%
+%%\begin{table}[!htb]
+% %\centering
+% \begin{center}
+%    \begin{tabular}{|p{0.2\linewidth}|p{0.35\linewidth}|p{0.35\linewidth}|}
+%    \hline
+%    \textbf{Exigence} & \textbf{Critères d'appréciation} & \textbf{Niveau} \\
+%    \hline
+%    Amplifier la sensation d'accélération & Précision statique de la boucle d'asservissement de position & \multicolumn{1}{r|}{} \\
+%          & Erreur statique de position  &$<1\%$\\
+%          & Erreur statique de traînage  & $<1\%$ \\
+%          & Erreur statique d'accélération & $<1\%$ \\
+%\cline{2-3}          & Rapidité pour un échelon de consigne d'accélération &  \\
+%          & Temps de montée de 0 à 100\% de la consigne  & $<\SI{5}{ms}$ \\
+%          & Dépassement & $<20\%$ \\
+%%\cline{2-3}          & Accélération maximale du point $D$ de la tête du spectateur situé à 85 mm au-dessus de l'axe de rotation du dosseret & $\SI{6}{m. s^{-2}}(\SI{0,6}{g})< a_{\text{max}} < \SI{7}{m. s^{-2}}(\SI{0,7}{g})$ \\
+%\hline
+%    \end{tabular}%
+%    
+%\textit{Extrait du cahier des charges associé à l'exigence fonctionnelle « Amplifier la sensation d'accélération » \\  réalisée par le dosseret \label{tab:4}}%
+% \end{center}
+% %\end{table}%
 
 %%\FloatBarrier
 %\subsection*{Notations et hypothèses}
@@ -440,7 +454,7 @@ performances attendues listées par le cahier des charges (tableau \ref{tab:4})
 %\newpage
 \subsection*{Comportement de l'ensemble variateur et moteur du dosseret}
 
-\begin{obj}
+\begin{obj} ~\\
 %Valider un modèle simplifié de l'asservissement de position de l'axe
 %moteur afin d'analyser les paramètres influant sur la précision et
 %proposer une amélioration du système.
@@ -532,12 +546,67 @@ muscles cervicaux, peut être modélisée par un échelon.
 \subparagraph{}\textit{Exprimer la fonction de transfert de la boucle de vitesse
   \(H_{\Omega}\left( p \right) = \Omega(p)/U_{C\Omega}(p)\), lorsque
   \(C_{R}\left( p \right) = 0\). Le résultat sera mis sous une forme canonique.}
-  
+
+\ifprof
+\begin{corrige}
+$H_{\Omega}(p)=\dfrac{k_{1}\left( 1 + \dfrac{1}{T_{1}p} \right)\dfrac{K}{K_{rI}}\dfrac{1}{Jp+f}}{1+ K_{\Omega}k_{1}\left( 1 +\dfrac{1}{T_{1}p} \right)\dfrac{K}{K_{rI}}\dfrac{1}{Jp+f}}$
+
+$=\dfrac{k_{1}\left( 1 + T_{1}p \right)K}{T_{1}p K_{rI}\left(Jp+f\right) + K_{\Omega}k_{1}\left(1+ T_{1}p\right) K}$
+
+$=\dfrac{\dfrac{Kk_{1}}{K_{\Omega}k_{1}K}\left( 1 + T_{1}p \right)}{\dfrac{T_{1} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{fT_{1} K_{rI}}{K_{\Omega}k_{1}K}+\dfrac{K_{\Omega}k_{1}T_{1}K}{K_{\Omega}k_{1}K}\right)p + 1 }$
+
+
+$=\dfrac{\dfrac{1}{K_{\Omega}}\left( 1 + T_{1}p \right)}{\dfrac{T_{1} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{f K_{rI}}{K_{\Omega}k_{1}K}+1\right)T_{1}p + 1 }$
+
+\end{corrige}
+\else
+\fi
 
 \subparagraph{}\textit{$T_1$ étant égal à $J/f$, montrer alors que
   la fonction de transfert en boucle fermée peut se mettre sous la forme
   \(\dfrac{b}{\tau p + 1}\). Calculer les valeurs numériques des termes
   \emph{b} et \emph{$\tau$}.}
+
+\ifprof
+\begin{corrige}~\\
+
+On a 
+$H_{\Omega}(p)=\dfrac{\dfrac{1}{K_{\Omega}}\left( 1 + \dfrac{J}{f}p \right)}{\dfrac{\dfrac{J}{f} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{f K_{rI}}{K_{\Omega}k_{1}K}+1\right)\dfrac{J}{f}p + 1 }$
+
+$=\dfrac{\left( f + Jp \right)}{\dfrac{ K_{rI}J^2}{k_{1}K}p^2+\left(\dfrac{f K_{rI}}{k_{1}K}+K_{\Omega}\right)Jp + fK_{\Omega}}$
+
+$=\dfrac{\left( f + Jp \right)k_{1}K}{ K_{rI}J^2p^2+\left(f K_{rI}+K_{\Omega}k_{1}K\right)Jp + fK_{\Omega}k_{1}K}$
+
+
+On a :
+$\Delta =\left(f K_{rI}+K_{\Omega}k_{1}K\right)^2J^2 -4 fK_{\Omega}k_{1}KK_{rI}J^2 $ 
+
+$=\left(f^2 K_{rI}^2+K_{\Omega}^2k_{1}^2K^2+2f K_{rI}K_{\Omega}k_{1}K\right)J^2 -4 fK_{\Omega}k_{1}KK_{rI}J^2 $
+
+$=\left(f^2 K_{rI}^2+K_{\Omega}^2k_{1}^2K^2-2f K_{rI}K_{\Omega}k_{1}K\right)J^2  $
+
+$=\left(f K_{rI}-K_{\Omega}k_{1}K\right)^2J^2  $
+
+On a donc 
+
+$p_{12} = \dfrac{-\left(f K_{rI}+K_{\Omega}k_{1}K\right)J \pm \left(f K_{rI}-K_{\Omega}k_{1}K\right)J}{2 K_{rI}J^2}$
+
+$p_{1} = \dfrac{-fJ K_{rI}-K_{\Omega}k_{1}KJ + fJ K_{rI}-K_{\Omega}k_{1}KJ}{2 K_{rI}J^2}$
+$= -\dfrac{K_{\Omega}k_{1}K }{ K_{rI}J}$
+
+
+$p_{2} = \dfrac{-fJ K_{rI}-K_{\Omega}k_{1}KJ -fJ K_{rI}+K_{\Omega}k_{1}KJ}{2 K_{rI}J^2}= -\dfrac{f }{J}$
+
+On a donc 
+
+$H_{\Omega}(p)=\dfrac{J\left( \dfrac{f}{J} + p \right)k_{1}K}{\left(p+\dfrac{f }{J} \right)\left(p+\dfrac{K_{\Omega}k_{1}K }{ K_{rI}J} \right)}=\dfrac{Jk_{1}K}{p+\dfrac{K_{\Omega}k_{1}K }{ K_{rI}J} }$
+
+$=\dfrac{\dfrac{ K_{rI}J^2}{K_{\Omega} } }{\dfrac{ K_{rI}J}{K_{\Omega}k_{1}K }p+1 }$
+
+On a donc $b=\dfrac{ K_{rI}J^2}{K_{\Omega} }$ et $\tau =\dfrac{ K_{rI}J}{K_{\Omega}k_{1}K }$.
+\end{corrige}
+\else
+\fi
 
 \subparagraph{}\textit{En déduire, à l'aide de la figure précédente, $\theta(p)/C_R(p)$
   lorsque $\theta_C(p)=0$. Calculer ensuite la valeur finale
@@ -546,6 +615,11 @@ muscles cervicaux, peut être modélisée par un échelon.
   proportionnel et intégral sur les effets d'une perturbation
   $c_R(t)$ de type échelon.}
 
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 \subsubsection*{Modélisation de la boucle d'asservissement de position}
 
@@ -568,7 +642,20 @@ position \label{fig14}}
   Déterminer ensuite la valeur numérique de $a$ pour avoir un facteur
   d'amortissement égal à $0,7$. Justifier le choix de ce facteur
   d'amortissement. (Pour ce calcul et les calculs suivants prendre $b =
-  \SI{63}{rad\cdot s^{-1}\cdot V^{-1}}$, $\tau= \SI{2,2}{ms}$, $c = \SI{40}{rad^{-1}}$)}
+  \SI{63}{rad\cdot s^{-1}\cdot V^{-1}}$, $\tau= \SI{2,2}{ms}$, $c = \SI{40}{rad^{-1}}$.)}
+
+\ifprof
+\begin{corrige}
+On a $\dfrac{\theta(p)}{\theta_C(p)}=c\dfrac{\dfrac{ab}{p\left( \tau p + 1\right)}}{1+\dfrac{abc}{p\left( \tau p + 1\right)}}$
+
+$=\dfrac{{abc}}{p\left( \tau p + 1\right)+{abc}}=\dfrac{1}{ \dfrac{\tau}{abc} p^2 + \dfrac{p}{abc}+1}$.
+
+On a $\omega_0 = \sqrt{abc/\tau}$ et $\dfrac{2\xi}{\omega_0}=\dfrac{1}{abc}$ et 
+$\xi=\dfrac{1}{2\sqrt{abc\tau}}$. 
+En conséquence, ${a}=\dfrac{1}{4bc\tau\xi^2}$. (On prend $\xi=0,7$ car cela correspond au temps de réponse le plus rapide pour un second ordre.)
+\end{corrige}
+\else
+\fi
   
 %\subparagraph{}\textit{Tracer le diagramme de Bode de la fonction de le fonction de transfert en boucle ouverte. Quel que soit le résultat de la partie précédente, on prendra $a=\SI{0,1}{V}$.}
 
@@ -592,6 +679,12 @@ sortie $\theta(t)$ et est définie par la variable $\mu(t) = \theta_C(t)-\theta(
   Conclure quant à la précision statique du système suite aux
   différentes consignes $\theta_C(p)$ de type échelon, rampe et
   accélération.}
+
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 \subsection*{Validation et optimisation de la performance simulée en
 accélération du dosseret}
@@ -644,6 +737,11 @@ qui permet d'améliorer la précision statique du système
 \subparagraph{\label{q13}}\textit{Déterminer l'erreur de position $\mu$\emph{\textsubscript{p}} puis
   l'erreur de traînage $\mu$\emph{\textsubscript{v}}. Conclure sur l'erreur
   de position au regard du cahier des charges.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
   
 \subparagraph{\label{q14}}\textit{D'après l'erreur de traînage $\mu$\emph{\textsubscript{v}}. déterminée à
   la question précédente, calculer la valeur numérique de d qui permet
@@ -651,6 +749,11 @@ qui permet d'améliorer la précision statique du système
   numérique de d et de b, déterminer l'expression de l'erreur en
   accélération $\mu$\emph{\textsubscript{a}}. Calculer ensuite sa valeur
   numérique et conclure au regard du cahier des charges.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 Un aspect important pour la simulation sensorielle du siège dynamique
 est la capacité du système à reproduire rapidement les consignes
@@ -669,6 +772,11 @@ pour la période transitoire, et ce lorsque la consigne vaut
 
 \subparagraph{}\textit{Conclure quant au respect du cahier des charges vis-à-vis des
   accélérations produites par le dosseret du siège dynamique de cinéma.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 %%\FloatBarrier
 
@@ -718,6 +826,11 @@ $a =\SI{0,09}{V}$, $c =\SI{40}{rad^{-1}}$ et $d = \SI{0,016}{V.rad^{-1}.s}$.
   finale de $\theta_1(t)-\theta_2(t)$ lorsque la consigne $\theta_C(t)$ est respectivement
   égale à $u(t)$, $t\cdot u(t)$ puis \(\frac{t^{2}}{2}u(t),\) $u(t)$ étant la
   fonction échelon unité.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 La figure \ref{fig20} représente le résultat d'une simulation de
 $\theta$\emph{\textsubscript{1}}(t)--$\theta$\emph{\textsubscript{2}}(t) pour une
@@ -725,7 +838,11 @@ consigne \(\theta_{C}\ \left( t \right) = \ \frac{t^{2}}{2}U(t)\)
 
 \subparagraph{}\textit{Conclure quant à l'erreur en accélération lors de la commande
   simultanée.}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 
 %\begin{figure}[!htb]
