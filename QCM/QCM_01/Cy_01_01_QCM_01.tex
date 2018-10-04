@@ -127,9 +127,9 @@ Vrai ou faux :
 \item Le système est stable parce que la marge de phase est positive et la marge de gain est infinie.
 \item Le système est instable parce que la marge de phase est négative.
 \item La marge de gain est positive. % OUI
-\item La marge de gain est négative. % OUI
+\item La marge de gain est négative.
 \item La marge de phase est positive.
-\item La marge de phase est négative.
+\item La marge de phase est négative. % OUI
 \item Le système est stable.
 \item Le système est instable. % OUI
 \item On ne peut pas conclure. % 
@@ -158,12 +158,12 @@ Vrai ou faux :
 \item Le système est stable parce que la marge de phase est positive et la marge de gain est infinie.
 \item Le système est instable parce que la marge de phase est négative et la marge de gain est infinie.
 \item La marge de gain est positive. % OUI
-\item La marge de gain est négative. % 
-\item La marge de phase est positive. % OUI
+\item La marge de gain est négative. %  
+\item La marge de phase est positive. %  OUI
 \item La marge de phase est négative.
-\item Le système est stable. % OUI
+\item Le système est stable. %  OUI
 \item Le système est instable.
-\item On ne peut pas conclure. % NON
+\item On ne peut pas conclure. % 
 \end{enumerate}
 \end{enumerate}
 
@@ -172,7 +172,8 @@ Vrai ou faux :
 \end{multicols}
 
 \ifprof
-\begin{corrige}
+\begin{corrige} ~\\
+
 \begin{enumerate}
 \item Vrai. Les pôles complexes sont beaucoup plus rapides et donc auront convergé bien avant
 1,5 s. Le pôle -2 est dominant et la constante de temps associée vaut \SI{0,5}{s}. Le temps de réponse
@@ -197,6 +198,11 @@ stabilité à partir du critère du revers n’est plus possible, car ce critèr
 départ que la FTBO est stable.... 
 \item Faux. Il suffit d’un pôle à partie réelle positive pour que la réponse temporelle à une sollicitation
 d’entrée présente un terme divergent, et donc diverge.
+\item (i) : on ne peut pas conclure car il s'agit de la FTBF.
+\item (c), (f), (h).
+\item (i) : on ne peut pas conclure car il s'agit de la FTBF.
+\item (c), (e), (g).
+
 \end{enumerate}
 \end{corrige}
 \else
