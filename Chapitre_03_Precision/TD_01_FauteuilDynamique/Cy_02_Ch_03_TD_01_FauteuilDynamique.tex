@@ -167,7 +167,7 @@ d'accélération »}
 \begin{obj}
 Proposer un modèle de comportement des éléments réalisant l'exigence
 fonctionnelle « amplifier la sensation d'accélération » puis valider les
-performances attendues listées par le cahier des charges (tableau \ref{tab:4})
+performances attendues listées par le cahier des charges.
 \end{obj}
 
 \textbf{Exigence : amplifier la sensation d'accélération}
@@ -652,7 +652,7 @@ $=\dfrac{{abc}}{p\left( \tau p + 1\right)+{abc}}=\dfrac{1}{ \dfrac{\tau}{abc} p^
 
 On a $\omega_0 = \sqrt{abc/\tau}$ et $\dfrac{2\xi}{\omega_0}=\dfrac{1}{abc}$ et 
 $\xi=\dfrac{1}{2\sqrt{abc\tau}}$. 
-En conséquence, ${a}=\dfrac{1}{4bc\tau\xi^2}$. (On prend $\xi=0,7$ car cela correspond au temps de réponse le plus rapide pour un second ordre.)
+En conséquence, ${a}=\dfrac{1}{4bc\tau\xi^2}=0,092$. (On prend $\xi=0,7$ car cela correspond au temps de réponse le plus rapide pour un second ordre.)
 \end{corrige}
 \else
 \fi
@@ -682,6 +682,14 @@ sortie $\theta(t)$ et est définie par la variable $\mu(t) = \theta_C(t)-\theta(
 
 \ifprof
 \begin{corrige}
+On a $\mu(p)=\dfrac{\theta_c(p)}{1+\dfrac{abc}{p\left( 1+\tau p\right)}}=\dfrac{p\left( 1+\tau p\right)}{p\left( 1+\tau p\right)+abc}\theta_c(p)$ $=\dfrac{p\left( 1+\tau p\right)}{p\left( 1+\tau p\right)+abc}\theta_c(p)$.
+
+La FTBO est de classe 1 et de gain $K_{\text{BO}}={abc}$ on a donc : 
+\begin{itemize}
+\item pour une entrée échelon, $\mu_p = 0$;
+\item pour une entrée rampe, $\mu_v = \dfrac{1}{abc}$;
+\item pour une entrée accélération, $\mu_a = \infty$.
+\end{itemize}
 \end{corrige}
 \else
 \fi
@@ -694,13 +702,8 @@ Valider la performance simulée en accélération au regard du cahier des
 charges fonctionnel.
 \end{obj}
 
-Grâce à la modélisation de la chaîne fonctionnelle réalisée
-précédemment, un logiciel de simulation permet d'obtenir la courbe de la
-vitesse angulaire maximale \({\dot{\theta}}_{d}\ \)(figure \ref{fig15}) ainsi que
-celle de l'accélération angulaire maximale
-\({\ddot{\theta}}_{d}\ \)(figure suivante) du dosseret. Ces deux courbes sont
-tracées sur une durée de 30 ms lors du démarrage du moteur (au-delà de
-ce temps le moteur atteint sa vitesse nominale).
+Un logiciel de simulation permet d'obtenir la courbe de la vitesse angulaire maximale \({\dot{\theta}}_{d}\ \) ainsi que celle de l'accélération angulaire maximale
+\({\ddot{\theta}}_{d}\ \)(figure suivante) du dosseret. Ces deux courbes sont tracées sur une durée de 30 ms lors du démarrage du moteur (au-delà de  ce temps le moteur atteint sa vitesse nominale).
 
 %\begin{figure}[!htb]
 \begin{center}
@@ -738,7 +741,28 @@ qui permet d'améliorer la précision statique du système
   l'erreur de traînage $\mu$\emph{\textsubscript{v}}. Conclure sur l'erreur
   de position au regard du cahier des charges.}
 \ifprof
-\begin{corrige}
+\begin{corrige} ~\\
+
+On a 
+$\varepsilon_{\text{codeur}}(p)=c\theta_c(p)-c\theta(p)$ 
+
+$=c\theta_c(p)-\dfrac{bc}{p\left(\tau p + 1 \right)}U_{C \Omega }(p)$
+
+ $=c\theta_c(p)-\dfrac{bc}{p\left(\tau p + 1 \right)}\left( \theta_C(p) dp + a \varepsilon_{\text{codeur}}(p) \right)$
+
+$\Leftrightarrow \varepsilon_{\text{codeur}}(p)\left(1+\dfrac{abc}{p\left(\tau p + 1 \right)}\right) = \theta_C(p)  \left(c-\dfrac{bcd}{\tau p + 1 } \right)$
+
+$\Leftrightarrow \varepsilon_{\text{codeur}}(p)\left(1+\dfrac{abc}{p\left(\tau p + 1 \right)}\right) = \theta_C(p)  c \dfrac{\tau p + 1 -bd}{\tau p + 1 } $
+
+$\Leftrightarrow \varepsilon_{\text{codeur}}(p) = \theta_C(p)  cp \dfrac{\tau p + 1 -bd}{p\left(\tau p + 1 \right)+abc} $
+
+On a alors : 
+\begin{itemize}
+\item $\mu_p=\lim\limits_{p\to0}  p\dfrac{1}{p}  cp \dfrac{\tau p + 1 -bd}{p\left(\tau p + 1 \right)+abc}$ $=\lim\limits_{p\to0}  cp \dfrac{\tau p + 1 -bd}{p\left(\tau p + 1 \right)+abc}=0$;
+\item $\mu_v=\lim\limits_{p\to0}  p\dfrac{1}{p^2}  cp \dfrac{\tau p + 1 -bd}{p\left(\tau p + 1 \right)+abc}$ 
+$= \dfrac{1 -bd}{ab}$.
+\end{itemize}
+
 \end{corrige}
 \else
 \fi
