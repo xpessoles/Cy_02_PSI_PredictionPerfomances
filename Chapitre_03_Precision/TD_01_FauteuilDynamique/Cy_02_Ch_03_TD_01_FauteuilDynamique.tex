@@ -194,12 +194,12 @@ performances attendues listées par le cahier des charges (tableau \ref{tab:4})
  %\end{table}%
 
 %%\FloatBarrier
-\subsubsection{Notations et hypothèses}
+%\subsection*{Notations et hypothèses}
 
 %Le schéma multi physique et le  le schéma-blocs modélisant l'asservissement de position du
 %dosseret sont fournis figure ci-dessous.
 
-Le  schéma-blocs modélisant l'asservissement de position du dosseret est fourni figure ci-dessous.
+%Le  schéma-blocs modélisant l'asservissement global e position du dosseret est fourni en fin de sujet.
 %\textbf{Notations : }
 %
 %\begin{center}
@@ -237,11 +237,7 @@ Le  schéma-blocs modélisant l'asservissement de position du dosseret est fourn
 %%\end{figure}
 
 %\begin{figure}[!htb]
-\begin{center}
-\includegraphics[width=1\linewidth]{images/schema_bloc.jpg}
 
-\textit{Schéma-blocs de l'asservissement du dosseret \label{fig6}}
-\end{center}
 %\end{figure}
 %%\FloatBarrier
 
@@ -335,26 +331,27 @@ Le  schéma-blocs modélisant l'asservissement de position du dosseret est fourn
 %\end{longtable}
 
 %**************
-Correcteur de courant :
-\(C_{I}\left( p \right) = k_{2}\left( 1 + \frac{1}{T_{2}p} \right)\)
-avec \emph{k\textsubscript{2} = 5} et \emph{T\textsubscript{2} = 0,3 ms}.
+%Correcteur de courant :
+%\(C_{I}\left( p \right) = k_{2}\left( 1 + \frac{1}{T_{2}p} \right)\)
+%avec \emph{k\textsubscript{2} = 5} et \emph{T\textsubscript{2} = 0,3 ms}.
+%
+%Correcteur de vitesse :
+%\(C_{\Omega}\left( p \right) = k_{1}\left( 1 + \frac{1}{T_{1}p} \right)\)
+%avec \emph{k\textsubscript{1} = 20}.
 
-Correcteur de vitesse :
-\(C_{\Omega}\left( p \right) = k_{1}\left( 1 + \frac{1}{T_{1}p} \right)\)
-avec \emph{k\textsubscript{1} = 20}.
-
-%\textbf{Hypothèses}
-\begin{hypo}~\\
-
-\begin{itemize}
-\item  La période d'échantillonnage est suffisamment faible pour être
-négligeable devant la dynamique globale du système et les différentes
-variables sont donc toutes considérées comme des fonctions continues du
-temps.
-\item Le temps de réponse du hacheur est considéré négligeable dans l'étude.
-\item Les conditions de Heaviside sont vérifiées.
-\end{itemize}
-\end{hypo}
+%%\textbf{Hypothèses}
+%\newpage
+%
+%\begin{hypo}~\\
+%\begin{itemize}
+%\item  La période d'échantillonnage est suffisamment faible pour être
+%négligeable devant la dynamique globale du système et les différentes
+%variables sont donc toutes considérées comme des fonctions continues du
+%temps.
+%\item Le temps de réponse du hacheur est considéré négligeable dans l'étude.
+%\item Les conditions de Heaviside sont vérifiées.
+%\end{itemize}
+%\end{hypo}
 
 %\subsection{Comportement cinématique du mécanisme de transformation de mouvement du dosseret}
 %
@@ -440,7 +437,8 @@ temps.
 %\subparagraph{}\textit{En tenant compte des informations précédentes, calculer la valeur
 %  numérique de $c$ et de $K_\Omega$ (schéma-blocs précédent).}
 
-\subsection{Comportement de l'ensemble variateur et moteur du dosseret}
+\newpage
+\subsection*{Comportement de l'ensemble variateur et moteur du dosseret}
 
 \begin{obj}
 Valider un modèle simplifié de l'asservissement de position de l'axe
@@ -454,64 +452,61 @@ Pour cela, il faut :
 \item analyser la précision de l'asservissement de position.
 \end{itemize}
 \end{obj}
-
-
-\subsubsection{Modélisation de l'asservissement du courant}
-
-L'étude suivante consiste à vérifier la validité de la simplification du
-modèle de la boucle d'asservissement du courant (passage du modèle initial au modèle simplifié).
-
-%\begin{figure}[!htb]
-\begin{center}
-\includegraphics[width=1.0\linewidth]{images/image11.png}
-
-\textit{Modèle initial de la boucle d'asservissement de courant. \label{fig10}}
-\end{center}
-%\end{figure}
-
-
-%\begin{figure}[!htb]
-\begin{center}
-\includegraphics[width=\linewidth]{images/image12.png}
-
-\textit{Modèle simplifié de la boucle d'asservissement de courant. \label{fig11}}
-\end{center}
-%\end{figure}
-
-
-Pour le modèle initial
- %de la figure \ref{fig10}
-  lorsque C\emph{\textsubscript{R}} (p) =0, la fonction de transfert s'écrit :
-
-\[\frac{\Omega(p)}{I_{c}(p)} = \frac{Kk_{2}hT_{2}p + Kk_{2}h}{T_{2}\text{LJ}p^{3} + \left( T_{2}\left( Lf + RJ \right) + k_{2}hk_{\text{rI}}T_{2}J \right)p + \left( T_{2}\left( Rf + K \right) + k_{2}hk_{\text{rI}}\left( T_{2}f + J \right) \right)p + k_{2}hk_{\text{rI}}f}.\]
-
-À l'aide d'un logiciel de simulation, une comparaison du comportement de la vitesse en sortie des deux modèles a été effectuée (figure suivante)%\ref{fig12})
- et ce pour un échelon unitaire de consigne de courant appliqué en entrée.
-
-%\begin{figure}[!htb]
-\begin{center}
-\begin{tabular}{p{0.5\linewidth}p{0.5\linewidth}}
-\multicolumn{2}{c}{\includegraphics[width=1.0\linewidth]{images/image13.png}}
-\\
-Vitesse de l'axe moteur pour le modèle initial ($\Omega_{\text{initial}}$)
-&
-Écart entre le modèle initial et le modèle simplifié pour la vitesse de l'axe moteur ($\Delta \Omega=\Omega_{\text{initial}}-\Omega_{\text{simplifie}}$)
-\end{tabular}
-\textit{ \label{fig12}}
-\end{center}
-%\end{figure}
-
-
-
-\subparagraph{}\textit{Pour chacun des deux modèles (initial et simplifié), quelle est la
-  valeur finale de $\Omega(t)$ lorsque $i_c(t)$ est un
-  échelon unitaire ? À l'aide de ces résultats et des relevés issus de
-  la simulation dans le régime transitoire, conclure quant à la validité
-  de la simplification du modèle sachant que chaque sollicitation du
-  dosseret a une durée d'environ \SI{30}{ms}.}
-
-
-
+%
+%
+%\subsubsection*{Modélisation de l'asservissement du courant}
+%
+%L'étude suivante consiste à vérifier la validité de la simplification du
+%modèle de la boucle d'asservissement du courant (passage du modèle initial au modèle simplifié).
+%
+%%\begin{figure}[!htb]
+%\begin{center}
+%\includegraphics[width=1.0\linewidth]{images/image11.png}
+%
+%\textit{Modèle initial de la boucle d'asservissement de courant. \label{fig10}}
+%\end{center}
+%%\end{figure}
+%
+%
+%%\begin{figure}[!htb]
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/image12.png}
+%
+%\textit{Modèle simplifié de la boucle d'asservissement de courant. \label{fig11}}
+%\end{center}
+%%\end{figure}
+%
+%
+%Pour le modèle initial
+% %de la figure \ref{fig10}
+%  lorsque C\emph{\textsubscript{R}} (p) =0, la fonction de transfert s'écrit :
+%
+%\[\frac{\Omega(p)}{I_{c}(p)} = \frac{Kk_{2}hT_{2}p + Kk_{2}h}{T_{2}\text{LJ}p^{3} + \left( T_{2}\left( Lf + RJ \right) + k_{2}hk_{\text{rI}}T_{2}J \right)p + \left( T_{2}\left( Rf + K \right) + k_{2}hk_{\text{rI}}\left( T_{2}f + J \right) \right)p + k_{2}hk_{\text{rI}}f}.\]
+%
+%À l'aide d'un logiciel de simulation, une comparaison du comportement de la vitesse en sortie des deux modèles a été effectuée (figure suivante)%\ref{fig12})
+% et ce pour un échelon unitaire de consigne de courant appliqué en entrée.
+%
+%%\begin{figure}[!htb]
+%\begin{center}
+%
+%\includegraphics[width=1.0\linewidth]{images/image13.png}
+%\footnotesize \textit{Vitesse de l'axe moteur pour le modèle initial ($\Omega_{\text{initial}}$) et écart entre le modèle initial et le modèle simplifié pour la vitesse de l'axe moteur ($\Delta \Omega=\Omega_{\text{initial}}-\Omega_{\text{simplifie}}$)}
+%\normalsize
+%
+%\end{center}
+%%\end{figure}
+%
+%
+%
+%\subparagraph{}\textit{Pour chacun des deux modèles (initial et simplifié), quelle est la
+%  valeur finale de $\Omega(t)$ lorsque $i_c(t)$ est un
+%  échelon unitaire ? À l'aide de ces résultats et des relevés issus de
+%  la simulation dans le régime transitoire, conclure quant à la validité
+%  de la simplification du modèle sachant que chaque sollicitation du
+%  dosseret a une durée d'environ \SI{30}{ms}.}
+%
+%
+%
 
 
 %%\FloatBarrier
@@ -531,10 +526,12 @@ muscles cervicaux, peut être modélisée par un échelon.
 \end{center}
 %\end{figure}
 
+ On a \(C_{\Omega}\left( p \right) = k_{1}\left( 1 + \dfrac{1}{T_{1}p} \right)\).
+ 
 
 \subparagraph{}\textit{Exprimer la fonction de transfert de la boucle de vitesse
   \(H_{\Omega}\left( p \right) = \Omega(p)/U_{C\Omega}(p)\), lorsque
-  \(C_{R}\left( p \right) = 0\). On précise que  \(C_{\Omega}\left( p \right) = k_{1}\left( 1 + \dfrac{1}{T_{1}p} \right)\). Le résultat sera mis sous une forme canonique.}
+  \(C_{R}\left( p \right) = 0\). Le résultat sera mis sous une forme canonique.}
   
 
 \subparagraph{}\textit{$T_1$ étant égal à $J/f$, montrer alors que
@@ -573,7 +570,7 @@ position \label{fig14}}
   d'amortissement. (Pour ce calcul et les calculs suivants prendre $b =
   \SI{63}{rad\cdot s^{-1}\cdot V^{-1}}$, $\tau= \SI{2,2}{ms}$, $c = \SI{40}{rad^{-1}}$)}
   
-\subparagraph{}\textit{Tracer le diagramme de Bode de la fonction de le fonction de transfert en boucle ouverte. Quel que soit le résultat de la partie précédente, on prendra $a=\SI{0,1}{V}$.}
+%\subparagraph{}\textit{Tracer le diagramme de Bode de la fonction de le fonction de transfert en boucle ouverte. Quel que soit le résultat de la partie précédente, on prendra $a=\SI{0,1}{V}$.}
 
 \subsection*{Analyse de la précision du système}
 
@@ -675,13 +672,13 @@ pour la période transitoire, et ce lorsque la consigne vaut
 
 %%\FloatBarrier
 
-\subsection{Exigence fonctionnelle << incliner le spectateur suivant l'axe de tangage et de roulis >>}
+\subsection*{Exigence fonctionnelle << incliner le spectateur suivant l'axe de tangage et de roulis >>}
+%
+%\begin{obj}
+%Valider le choix de conception permettant de transmettre l'énergie mécanique à l'assise du siège.
+%\end{obj}
 
-\begin{obj}
-Valider le choix de conception permettant de transmettre l'énergie mécanique à l'assise du siège.
-\end{obj}
-
-\subsubsection{Commande en simultanée des deux moteurs de l'assise du siège}
+%\subsubsection*{Commande en simultanée des deux moteurs de l'assise du siège}
 
 \begin{obj}
 
@@ -733,7 +730,7 @@ consigne \(\theta_{C}\ \left( t \right) = \ \frac{t^{2}}{2}U(t)\)
 
 %\begin{figure}[!htb]
 \begin{center}
-\includegraphics[width=0.6\linewidth]{images/image21.png}
+\includegraphics[width=\linewidth]{images/image21.png}
 
 \textit{$\theta_1-\theta_2$ en
 fonction du temps \label{fig20}}
@@ -749,7 +746,11 @@ fonction du temps \label{fig20}}
 \end{enumerate}
 \end{multicols}
 
-
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/schema_bloc.jpg}
+%
+%\textit{Schéma-blocs de l'asservissement du dosseret \label{fig6}}
+%\end{center}
 
 \end{document}
 
