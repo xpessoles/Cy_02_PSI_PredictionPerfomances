@@ -570,6 +570,8 @@ $=\dfrac{\dfrac{1}{K_{\Omega}}\left( 1 + T_{1}p \right)}{\dfrac{T_{1} K_{rI}J}{K
 \ifprof
 \begin{corrige}~\\
 
+\footnotesize
+
 On a 
 $H_{\Omega}(p)=\dfrac{\dfrac{1}{K_{\Omega}}\left( 1 + \dfrac{J}{f}p \right)}{\dfrac{\dfrac{J}{f} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{f K_{rI}}{K_{\Omega}k_{1}K}+1\right)\dfrac{J}{f}p + 1 }$
 
@@ -604,6 +606,11 @@ $H_{\Omega}(p)=\dfrac{J\left( \dfrac{f}{J} + p \right)k_{1}K}{\left(p+\dfrac{f }
 $=\dfrac{\dfrac{ K_{rI}J^2}{K_{\Omega} } }{\dfrac{ K_{rI}J}{K_{\Omega}k_{1}K }p+1 }$
 
 On a donc $b=\dfrac{ K_{rI}J^2}{K_{\Omega} }$ et $\tau =\dfrac{ K_{rI}J}{K_{\Omega}k_{1}K }$.
+
+\normalsize
+Autre solution : $b=\dfrac{1}{K_{\Omega}} = 20 \pi = \SI{62,8}{rad.s{-1}V^{-1}}$ et $\tau=\dfrac{K_{ri}J}{k_1KK_{\Omega}}=\SI{2,17e-3}{s}$.
+
+
 \end{corrige}
 \else
 \fi
@@ -617,6 +624,9 @@ On a donc $b=\dfrac{ K_{rI}J^2}{K_{\Omega} }$ et $\tau =\dfrac{ K_{rI}J}{K_{\Ome
 
 \ifprof
 \begin{corrige}
+\begin{center}
+\includegraphics[width=\linewidth]{images/cor_01.png}
+\end{center}
 \end{corrige}
 \else
 \fi
@@ -760,14 +770,14 @@ On a alors :
 \begin{itemize}
 \item $\mu_p=\lim\limits_{p\to0}  p\dfrac{1}{p}  cp \dfrac{\tau p + 1 -bd}{p\left(\tau p + 1 \right)+abc}$ $=\lim\limits_{p\to0}  cp \dfrac{\tau p + 1 -bd}{p\left(\tau p + 1 \right)+abc}=0$;
 \item $\mu_v=\lim\limits_{p\to0}  p\dfrac{1}{p^2}  cp \dfrac{\tau p + 1 -bd}{p\left(\tau p + 1 \right)+abc}$ 
-$= \dfrac{1 -bd}{ab}$.
+$= \dfrac{1 -bd}{abc}$.
 \end{itemize}
 
 \end{corrige}
 \else
 \fi
   
-\subparagraph{\label{q14}}\textit{D'après l'erreur de traînage $\mu$\emph{\textsubscript{v}}. déterminée à
+\subparagraph{\label{q14}}\textit{D'après l'erreur de traînage $\mu$\emph{\textsubscript{v}} déterminée à
   la question précédente, calculer la valeur numérique de d qui permet
   d'annuler cette erreur de traînage. En prenant en compte la valeur
   numérique de d et de b, déterminer l'expression de l'erreur en
