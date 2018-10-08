@@ -1,0 +1,191 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Modélisation systèmes multiphysiques : Modélisation linéaire et non linéaire},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+\usepackage{multicol}
+\usepackage{siunitx}
+\fichetrue
+%\fichefalse
+
+\proftrue
+%\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PSI$\star$ -- MP}
+\def\xxnumpartie{Cycle 02}
+\def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
+
+
+\def\xxnumchapitre{Chapitre 3 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Précision des systèmes}
+
+
+\def\xxtitreexo{QCM}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{X. Pessoles}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{\textsf{Cycle 02}}
+
+\def\xxactivite{QCM 02}
+\def\xxauteur{\textsl{X. Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
+%\end{itemize}
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
+}}
+
+\def\xxfigures{
+%\includegraphics[width=.9\linewidth]{images/c-evolution}
+}%figues de la page de garde
+
+
+\def\xxpied{%
+Cycle 02 -- Modéliser les SLCI afin de prévoir leur comportement\\
+Chapitre 3 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+\usepackage{pgfplots}
+\begin{document}
+\def\pathfig{images}
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{4.5cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\def\pathfig{images}
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item Soit un système dont la FTBO est d'ordre 2 et de gain K.
+\begin{enumerate}
+\item L'écart statique est nul. (Échelon unitaire)
+\item L'écart statique vaut 1/(K+1). (Échelon un.)
+\item L'écart statique vaut 1/K. (Échelon unitaire)
+\item L'écart statique est infini. (Échelon unitaire)
+\item L'écart statique est K-1.
+\item On ne peut pas conclure. % OUI
+\end{enumerate}
+\item Soit un système dont la FTBF est un système du second ordre 2 (K/(1+2zp/om+p²/om²))et de gain K.
+\begin{enumerate}
+\item L'écart statique est nul. (Échelon unitaire)
+\item L'écart statique vaut 1/(K+1). (Échelon un.)
+\item L'écart statique vaut 1/K. (Échelon unitaire)
+\item L'écart statique est infini. (Échelon unitaire)
+\item L'écart statique est K-1.% OUI
+\item On ne peut pas conclure. 
+\end{enumerate}
+\item Soit un système dont la FTBO est de classe 0.
+\begin{enumerate}
+\item L'écart statique est nul. (Échelon unitaire)
+\item L'écart statique vaut 1/(K+1). (Échelon un.) % OUI
+\item L'écart statique vaut 1/K. (Échelon unitaire) 
+\item L'écart statique est infini. (Échelon unitaire)
+\item L'écart statique est K-1.
+\item On ne peut pas conclure.  
+\end{enumerate}
+\item  Soit un système dont la FTBO est de classe 1.
+\begin{enumerate}
+\item L'erreur de traînage est nulle. (rampe de pente 1)
+\item L'erreur de traînage vaut 1/(K+1). (rampe de pente 1)
+\item L'erreur de traînage vaut 1/K. (rampe de pente 1) %OUI
+\item L'erreur de traînage est infinie. (rampe de pente 1)
+\item L'erreur de traînage est K-1. (rampe de pente 1)
+\item On ne peut pas conclure.
+\end{enumerate}
+\item Soit un système dont la FTBO est de classe 0.
+\begin{enumerate}
+\item L'erreur de trainage est nulle. (rampe de pente 1)
+\item L'erreur de traînage vaut 1/(K+1). (rampe de pente 1)
+\item L'erreur de traînage vaut 1/K. (rampe de pente~1)
+\item L'erreur de traînage est infinie. (rampe de pente~1) %OUI
+\item L'erreur de traînage est K-1. (rampe de pente~1)
+\item On ne peut pas conclure.
+\end{enumerate}
+\item Soit un système dont la FTBO est de classe 2.
+\begin{enumerate}
+\item L'erreur de trainage est nulle. (rampe de pente 1)%OUI
+\item L'erreur de traînage vaut 1/(K+1). (rampe de pente 1)
+\item L'erreur de traînage vaut 1/K. (rampe de pente 1)
+\item L'erreur de traînage est infinie. (rampe de pente 1) 
+\item L'erreur de traînage est K-1. (rampe de pente 1)
+\item On ne peut pas conclure.
+\end{enumerate}
+\item Soit un système dont la FTBO est de classe 2.
+\begin{enumerate}
+\item L'écart statique est nul. (Échelon unitaire)% OUI
+\item L'écart statique vaut 1/(K+1). (Échelon unitaire) 
+\item L'écart statique vaut 1/K. (Échelon unitaire) 
+\item L'écart statique est infini. (Échelon unitaire)
+\item L'écart statique est K-1.
+\item On ne peut pas conclure.  
+\end{enumerate}
+\item Soit un système dont la FTBO est de classe 1.
+\begin{enumerate}
+\item L'écart statique est nul. (Échelon unitaire)% OUI
+\item L'écart statique vaut 1/(K+1). (Échelon unitaire) 
+\item L'écart statique vaut 1/K. (Échelon unitaire) 
+\item L'écart statique est infini. (Échelon unitaire)
+\item L'écart statique est K-1.
+\item On ne peut pas conclure.  
+\end{enumerate}
+\item Soit F(p) la fonction de transfert en boucle ouverte n'admettant aucune intégration. L'erreur en régime statique est :
+\begin{enumerate}
+\item constante non nulle
+\item nulle
+\item infinie
+\end{enumerate}
+\item Soit F(p) la fonction de transfert en boucle ouverte admettant une seule intégration. L'erreur en régime statique est :
+\begin{enumerate}
+\item constante non nulle
+\item nulle % OUI
+\item infinie
+\end{enumerate}
+La précision des systèmes asservis vis-à-vis d'une perturbation dépend t-elle du point d'application de cette perturbation?
+\begin{enumerate}
+\item OUI
+\item NON
+\end{enumerate}
+\end{enumerate}
+
+\end{multicols}
+
+
+
+
+
+
+
+\end{document}
