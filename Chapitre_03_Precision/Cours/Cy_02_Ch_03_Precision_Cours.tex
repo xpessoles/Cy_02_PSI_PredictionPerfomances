@@ -5,6 +5,7 @@
 
 \input{style/new_style}
 \input{style/macros_SII}
+\input{style/schemabloc.sty}
 
 \fichetrue
 \fichefalse
@@ -116,7 +117,7 @@ Un système est précis pour une entrée lorsque $\varepsilon_{\text{permanent}}
 Le nom de l'écart dépend de l'entrée avec lequel le système est sollicité : 
 \begin{itemize}
 \item écart statique, système sollicité par une entrée échelon : $e(t)=E_0$ et $E(p)=\dfrac{E_0}{p}$;
-\item écart dynamique (en vitesse ou en poursuite), système sollicité par une rampe : $e(t)=Vt$ et $E(p)=\dfrac{V}{p^2}$;
+\item écart en vitesse ou en poursuite, système sollicité par une rampe : $e(t)=Vt$ et $E(p)=\dfrac{V}{p^2}$;
 \item écart en accélération : système sollicité par une parabole, $e(t)=At^2$ et $E(p)=\dfrac{A}{p^3}$.
 \end{itemize}
 \end{defi}
@@ -133,23 +134,23 @@ $\varepsilon(p)=E(p)-\varepsilon(p) F(p) G(p)
 \Longleftrightarrow   \varepsilon(p) =\dfrac{E(p)}{1+F(p) G(p)}$.
 
 \begin{resultat}
-$$\varepsilon(p) =\dfrac{E(p)}{1+FTBO(p)}$$
+$$\varepsilon(p) =\dfrac{E(p)}{1+\text{FTBO}(p)}$$
 \end{resultat}
 
 
 \subsection*{Poursuivons ...}
-On a $FTBO(p)=\dfrac{K_{BO}\left(1+a_1p+...+a_mp^m \right)}{p^{\alpha}\left(1+b_1p+...+b_np^n\right)}$ avec $m< n$.
+On a $\text{FTBO}(p)=\dfrac{K_{BO}\left(1+a_1p+...+a_mp^m \right)}{p^{\alpha}\left(1+b_1p+...+b_np^n\right)}$ avec $m< n$.
 \subsubsection*{FTBO de classe nulle}
 
 \begin{itemize}
 \item Pour une entrée échelon : 
-$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{E_0}{p}\dfrac{1}{1+FTBO(p)} 
+$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{E_0}{p}\dfrac{1}{1+\text{FTBO}(p)} 
 = \dfrac{E_0}{1+K_{BO}}$.
 \item Pour une entrée de type rampe : 
-$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{V}{p^2}\dfrac{1}{1+FTBO(p)} 
+$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{V}{p^2}\dfrac{1}{1+\text{FTBO}(p)} 
 =+\infty$.
 \item Pour une entrée de type parabole : 
-$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{A}{p^3}\dfrac{1}{1+FTBO(p)} 
+$\varepsilon_{\text{permanent}}=\lim\limits_{p\to 0} p\dfrac{A}{p^3}\dfrac{1}{1+\text{FTBO}(p)} 
 =+\infty$.
 \end{itemize}
 
