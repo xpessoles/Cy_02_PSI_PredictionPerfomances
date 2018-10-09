@@ -12,7 +12,7 @@
 %\fichefalse
 
 \proftrue
-%\proffalse
+\proffalse
 
 \tdtrue
 %\tdfalse
@@ -43,7 +43,7 @@
 \def\xxonglet{Cycle 02}
 
 \def\xxactivite{TD 01}
-\def\xxauteur{\textsl{Éditions Vuibert}}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
 \def\xxcompetences{%
 \textsl{%
@@ -556,7 +556,7 @@ $=\dfrac{k_{1}\left( 1 + T_{1}p \right)K}{T_{1}p K_{rI}\left(Jp+f\right) + K_{\O
 $=\dfrac{\dfrac{Kk_{1}}{K_{\Omega}k_{1}K}\left( 1 + T_{1}p \right)}{\dfrac{T_{1} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{fT_{1} K_{rI}}{K_{\Omega}k_{1}K}+\dfrac{K_{\Omega}k_{1}T_{1}K}{K_{\Omega}k_{1}K}\right)p + 1 }$
 
 
-$=\dfrac{\dfrac{1}{K_{\Omega}}\left( 1 + T_{1}p \right)}{\dfrac{T_{1} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{f K_{rI}}{K_{\Omega}k_{1}K}+1\right)T_{1}p + 1 }$
+$H_{\Omega}(p)=\dfrac{\dfrac{1}{K_{\Omega}}\left( 1 + T_{1}p \right)}{\dfrac{T_{1} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{f K_{rI}}{K_{\Omega}k_{1}K}+1\right)T_{1}p + 1 }$
 
 \end{corrige}
 \else
@@ -627,6 +627,7 @@ Autre solution : $b=\dfrac{1}{K_{\Omega}} = 20 \pi = \SI{62,8}{rad.s{-1}V^{-1}}$
 \begin{center}
 \includegraphics[width=\linewidth]{images/cor_01.png}
 \end{center}
+
 \end{corrige}
 \else
 \fi
@@ -893,6 +894,14 @@ fonction du temps \label{fig20}}
 
 \subsection*{Éléments de correction}
 \begin{enumerate}
+\item $H_{\Omega}(p)=\dfrac{\dfrac{1}{K_{\Omega}}\left( 1 + T_{1}p \right)}{\dfrac{T_{1} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{f K_{rI}}{K_{\Omega}k_{1}K}+1\right)T_{1}p + 1 }$.
+\item  $b=\dfrac{1}{K_{\Omega}} = 20 \pi = \SI{62,8}{rad.s{-1}V^{-1}}$ et $\tau=\dfrac{K_{ri}J}{k_1KK_{\Omega}}=\SI{2,17e-3}{s}$.
+\item $\dfrac{\theta(p)}{C_r(p)}=\dfrac{\dfrac{b}{1+\tau p}\dfrac{1}{p}}{1+\dfrac{b}{1+\tau p}\dfrac{1}{p}}
+$ et $\lim\limits_{t\to\infty} \theta(t) = 0$.
+\item  ${a}=\dfrac{1}{4bc\tau\xi^2}=0,092$.
+\item $\mu(p)=\dfrac{p\left( 1+\tau p\right)}{p\left( 1+\tau p\right)+abc}\theta_c(p)$, $\mu_p = 0$, $\mu_v = \dfrac{1}{abc}$ et  $\mu_a = \infty$.
+\item $\mu_p=0$ et $\mu_v= \dfrac{1 -bd}{ab}$.
+\item ...
 \item ...
 \item ...
 \item ...
