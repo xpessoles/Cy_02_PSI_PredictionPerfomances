@@ -12,7 +12,7 @@
 %\fichefalse
 
 \proftrue
-\proffalse
+%\proffalse
 
 \tdtrue
 %\tdfalse
@@ -628,6 +628,13 @@ Autre solution : $b=\dfrac{1}{K_{\Omega}} = 20 \pi = \SI{62,8}{rad.s{-1}V^{-1}}$
 \includegraphics[width=\linewidth]{images/cor_01.png}
 \end{center}
 
+$\dfrac{\theta(p)}{C_r(p)}=\dfrac{1}{C_{\Omega}(p)\dfrac{K}{K_{ri}}}\dfrac{\dfrac{b}{1+\tau p}\dfrac{1}{p}}{1+\dfrac{abc}{1+\tau p}\dfrac{1}{p}}$ 
+
+$=\dfrac{1}{ k_{1}\left( 1 + \dfrac{1}{T_{1}p} \right)\dfrac{K}{K_{ri}}}\dfrac{\dfrac{b}{1+\tau p}\dfrac{1}{p}}{1+\dfrac{abc}{1+\tau p}\dfrac{1}{p}}$
+
+$=\dfrac{T_{1}K_{ri}p}{ k_{1}\left( T_{1}p + 1 \right)K}\cdot \dfrac{b}{p\left(1+\tau p \right)+abc}$
+
+et $\lim\limits_{t\to\infty} \theta(t) = 1$.
 \end{corrige}
 \else
 \fi
@@ -712,17 +719,17 @@ accélération du dosseret}
 Valider la performance simulée en accélération au regard du cahier des
 charges fonctionnel.
 \end{obj}
-
-Un logiciel de simulation permet d'obtenir la courbe de la vitesse angulaire maximale \({\dot{\theta}}_{d}\ \) ainsi que celle de l'accélération angulaire maximale
-\({\ddot{\theta}}_{d}\ \)(figure suivante) du dosseret. Ces deux courbes sont tracées sur une durée de 30 ms lors du démarrage du moteur (au-delà de  ce temps le moteur atteint sa vitesse nominale).
-
-%\begin{figure}[!htb]
-\begin{center}
-\includegraphics[width=1.0\linewidth]{images/image16.png}
-\textit{Vitesse et accélération angulaires en fonction du
-temps \label{fig15}}
-\end{center}
-%\end{figure}
+%
+%Un logiciel de simulation permet d'obtenir la courbe de la vitesse angulaire maximale \({\dot{\theta}}_{d}\ \) ainsi que celle de l'accélération angulaire maximale
+%\({\ddot{\theta}}_{d}\ \)(figure suivante) du dosseret. Ces deux courbes sont tracées sur une durée de 30 ms lors du démarrage du moteur (au-delà de  ce temps le moteur atteint sa vitesse nominale).
+%
+%%\begin{figure}[!htb]
+%\begin{center}
+%\includegraphics[width=1.0\linewidth]{images/image16.png}
+%\textit{Vitesse et accélération angulaires en fonction du
+%temps \label{fig15}}
+%\end{center}
+%%\end{figure}
 
 
 %
@@ -787,6 +794,9 @@ $= \dfrac{1 -bd}{ab}$.
 \ifprof
 \begin{corrige}
 On a $\mu_v= \dfrac{1 -bd}{abc}$. En conséquences, $\mu_v=0 \Leftrightarrow  0=\dfrac{1 -bd}{ab} \Leftrightarrow d=\dfrac{1}{b}$.
+
+$\mu_a=\lim\limits_{p\to0}  p\dfrac{1}{p^3}  cp \dfrac{\tau p + 1 -bd}{p\left(\tau p + 1 \right)+abc}$ 
+$ =   \dfrac{\tau}{ab}$.
 
 \end{corrige}
 \else
@@ -857,7 +867,7 @@ $a =\SI{0,09}{V}$, $c =\SI{40}{rad^{-1}}$ et $d = \SI{0,016}{V.rad^{-1}.s}$.
 %\end{figure}
 
 
-\subparagraph{}\textit{En réutilisant les calculs effectués aux questions \ref{q13} et \ref{q14} et en
+\subparagraph{}\textit{En réutilisant éventuellement les calculs effectués aux questions \ref{q13} et \ref{q14} et en
   tenant compte des différences de réglage de retour vitesse et des
   différences d'inertie entre les deux motorisations, exprimer la valeur
   finale de $\theta_1(t)-\theta_2(t)$ lorsque la consigne $\theta_C(t)$ est respectivement
@@ -865,6 +875,12 @@ $a =\SI{0,09}{V}$, $c =\SI{40}{rad^{-1}}$ et $d = \SI{0,016}{V.rad^{-1}.s}$.
   fonction échelon unité.}
 \ifprof
 \begin{corrige}
+En raisonnant graphiquement, on a $\theta_1(p)- \theta_2(p)=\varepsilon_{\text{codeur 1}}(p)- \varepsilon_{\text{codeur 2}}(p)$; donc : 
+\begin{itemize}
+\item $\mu_p = \mu_{p1}-\mu_{p2} = 0$;
+\item $\mu_v = \mu_{v1}-\mu_{v2} = \dfrac{1-b_1d}{ab_1}-\dfrac{1-b_2d}{ab_2} $ ;
+\item $\mu_a = \mu_{a1}-\mu_{a2} = \infty$.
+\end{itemize}
 \end{corrige}
 \else
 \fi
@@ -896,8 +912,7 @@ fonction du temps \label{fig20}}
 \begin{enumerate}
 \item $H_{\Omega}(p)=\dfrac{\dfrac{1}{K_{\Omega}}\left( 1 + T_{1}p \right)}{\dfrac{T_{1} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{f K_{rI}}{K_{\Omega}k_{1}K}+1\right)T_{1}p + 1 }$.
 \item  $b=\dfrac{1}{K_{\Omega}} = 20 \pi = \SI{62,8}{rad.s{-1}V^{-1}}$ et $\tau=\dfrac{K_{ri}J}{k_1KK_{\Omega}}=\SI{2,17e-3}{s}$.
-\item $\dfrac{\theta(p)}{C_r(p)}=\dfrac{\dfrac{b}{1+\tau p}\dfrac{1}{p}}{1+\dfrac{b}{1+\tau p}\dfrac{1}{p}}
-$ et $\lim\limits_{t\to\infty} \theta(t) = 0$.
+\item $\dfrac{T_{1}K_{ri}p}{ k_{1}\left( T_{1}p + 1 \right)K}\cdot \dfrac{b}{p\left(1+\tau p \right)+b}$ et $\lim\limits_{t\to\infty} \theta(t) = 1$.
 \item  ${a}=\dfrac{1}{4bc\tau\xi^2}=0,092$.
 \item $\mu(p)=\dfrac{p\left( 1+\tau p\right)}{p\left( 1+\tau p\right)+abc}\theta_c(p)$, $\mu_p = 0$, $\mu_v = \dfrac{1}{abc}$ et  $\mu_a = \infty$.
 \item $\mu_p=0$ et $\mu_v= \dfrac{1 -bd}{ab}$.
