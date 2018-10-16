@@ -251,34 +251,34 @@ $\Longleftrightarrow \varepsilon(p) =\dfrac{E(p)}{1+R(p)H_1(p)H_2(p)}- \dfrac{R(
 
 On a donc :
 $\varepsilon(p) =\underbrace{\dfrac{1}{1+\text{FTBO}(p)} E(p)}_{\text{\'Ecart vis-à-vis de la consigne}} - \underbrace{\dfrac{R(p)H_2(p)}{1+\text{FTBO}(p)}P(p)}_{\text{\'Ecart vis-à-vis de la perturbation}}$.
-
-Notons $H_1(p)=\dfrac{K_1}{p^\alpha_1}\dfrac{N_1(p)}{D_1(p)}$ (avec $N_1(0)=1$ et $D_1(0)=1$) et $H_2(p)=\dfrac{K_2}{p^\alpha_2}\dfrac{N_2(p)}{D_2(p)}$ (avec $N_2(0)=1$ et $D_2(0)=1$).
-
-Par ailleurs 
-$H_{\text{bo}}(p)=H_1(p)H_2(p)R(p)
-=\dfrac{H_{\text{bo}}}{p^{\alpha}}\dfrac{N(p)}{D(p)}$.
-
-On peut calculer l'écart vis-à-vis de la perturbation : 
-$\varepsilon_{\text{perturbation}}
-= \lim\limits_{t\to\infty}\varepsilon(t)
-= \lim\limits_{p\to 0}p \varepsilon(p) 
-= \lim\limits_{p\to 0} \dfrac{K_2 p^{\alpha_1+1}}{p^{\alpha_1+\alpha_2}+K_1K_2}P(p) $.
-
-%$S(p)=H_2(p)\left(P(p)+H_1(p)\left(E(p)-R(p)S(p)\right) \right)$
-%$=P(p)H_2(p)+H_1(p)H_2(p)E(p)-H_1(p)H_2(p)R(p)S(p)$ 
-%$\Leftrightarrow S(p)\left( 1+H_1(p)H_2(p)R(p)\right)=P(p)H_2(p)+H_1(p)H_2(p)E(p)$
-%$\Leftrightarrow S(p)=P(p)\dfrac{H_2(p)}{1+H_1(p)H_2(p)R(p)}+\dfrac{H_1(p)H_2(p)}{1+H_1(p)H_2(p)R(p)}E(p)$.
-
-%On a donc $S(p)=P(p)\dfrac{H_2(p)}{1+\text{FTBO}(p)}+\dfrac{H_1(p)H_2(p)}{1+%\text{FTBO}(p)}E(p)$.
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-Cas & Classe du système & Perturbation en échelon $P(p)=\dfrac{P_0}{p}$ \\ \hline
-1 & $\alpha_1\geq 1$ & $\varepsilon_{\text{perturbation}}=0$ \\ \hline
-2 & $\alpha_1=0$ et $\alpha_2=0$ & $\varepsilon_{\text{perturbation}}=\dfrac{K_2}{1+K_1K_2}P_0$ \\ \hline
-3 & $\alpha_1=0$ et $\alpha_2\geq 1$ & $\varepsilon_{\text{perturbation}}=\dfrac{P_0}{K_1}$ \\ \hline
-\end{tabular}
-\end{center}
+%
+%Notons $H_1(p)=\dfrac{K_1}{p^\alpha_1}\dfrac{N_1(p)}{D_1(p)}$ (avec $N_1(0)=1$ et $D_1(0)=1$) et $H_2(p)=\dfrac{K_2}{p^\alpha_2}\dfrac{N_2(p)}{D_2(p)}$ (avec $N_2(0)=1$ et $D_2(0)=1$).
+%
+%Par ailleurs 
+%$H_{\text{bo}}(p)=H_1(p)H_2(p)R(p)
+%=\dfrac{H_{\text{bo}}}{p^{\alpha}}\dfrac{N(p)}{D(p)}$.
+%
+%On peut calculer l'écart vis-à-vis de la perturbation : 
+%$\varepsilon_{\text{perturbation}}
+%= \lim\limits_{t\to\infty}\varepsilon(t)
+%= \lim\limits_{p\to 0}p \varepsilon(p) 
+%= \lim\limits_{p\to 0} \dfrac{K_2 p^{\alpha_1+1}}{p^{\alpha_1+\alpha_2}+K_1K_2}P(p) $.
+%
+%%$S(p)=H_2(p)\left(P(p)+H_1(p)\left(E(p)-R(p)S(p)\right) \right)$
+%%$=P(p)H_2(p)+H_1(p)H_2(p)E(p)-H_1(p)H_2(p)R(p)S(p)$ 
+%%$\Leftrightarrow S(p)\left( 1+H_1(p)H_2(p)R(p)\right)=P(p)H_2(p)+H_1(p)H_2(p)E(p)$
+%%$\Leftrightarrow S(p)=P(p)\dfrac{H_2(p)}{1+H_1(p)H_2(p)R(p)}+\dfrac{H_1(p)H_2(p)}{1+H_1(p)H_2(p)R(p)}E(p)$.
+%
+%%On a donc $S(p)=P(p)\dfrac{H_2(p)}{1+\text{FTBO}(p)}+\dfrac{H_1(p)H_2(p)}{1+%\text{FTBO}(p)}E(p)$.
+%\begin{center}
+%\begin{tabular}{|c|c|c|}
+%\hline
+%Cas & Classe du système & Perturbation en échelon $P(p)=\dfrac{P_0}{p}$ \\ \hline
+%1 & $\alpha_1\geq 1$ & $\varepsilon_{\text{perturbation}}=0$ \\ \hline
+%2 & $\alpha_1=0$ et $\alpha_2=0$ & $\varepsilon_{\text{perturbation}}=\dfrac{K_2}{1+K_1K_2}P_0$ \\ \hline
+%3 & $\alpha_1=0$ et $\alpha_2\geq 1$ & $\varepsilon_{\text{perturbation}}=\dfrac{P_0}{K_1}$ \\ \hline
+%\end{tabular}
+%\end{center}
 
 \begin{resultat}
 Il faut au moins un intégrateur en amont d'une perturbation constante pour

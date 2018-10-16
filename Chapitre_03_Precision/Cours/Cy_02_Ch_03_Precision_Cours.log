@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.12)  8 OCT 2018 21:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.12)  16 OCT 2018 09:17
 entering extended mode
 **./Cy_02_Ch_03_Precision_Cours.tex
 (Cy_02_Ch_03_Precision_Cours.tex
@@ -2812,6 +2812,9 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 309.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package logreq Info: Writing requests to 'Cy_02_Ch_03_Precision_Cours.run.xml'.
 
 \openout1 = `Cy_02_Ch_03_Precision_Cours.run.xml'.
@@ -2819,11 +2822,11 @@ Package logreq Info: Writing requests to 'Cy_02_Ch_03_Precision_Cours.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 309.
  ) 
 Here is how much of TeX's memory you used:
- 55681 strings out of 492972
- 1155944 string characters out of 3135883
+ 55679 strings out of 492972
+ 1155928 string characters out of 3135883
  1857930 words of memory out of 3000000
  58525 multiletter control sequences out of 15000+200000
- 770778 words of font info for 277 fonts, out of 3000000 for 9000
+ 770210 words of font info for 275 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,18n,98p,1018b,1938s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\xpess\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi642\
@@ -2840,7 +2843,7 @@ fonts/type1/adobe/utopia/putr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ad
 obe/utopia/putri8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/avantgar/ua
 gd8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/avantgar/uagko8a.pfb><C:/
 Program Files/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on Cy_02_Ch_03_Precision_Cours.pdf (4 pages, 938310 bytes).
+Output written on Cy_02_Ch_03_Precision_Cours.pdf (4 pages, 936510 bytes).
 PDF statistics:
  145 PDF objects out of 1000 (max. 8388607)
  22 named destinations out of 1000 (max. 500000)
