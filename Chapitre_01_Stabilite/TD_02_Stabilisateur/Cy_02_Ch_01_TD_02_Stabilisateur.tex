@@ -1,0 +1,310 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Modélisation SLCI : Stabilité des systèmes},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+
+    
+\input{style/new_style}
+\input{style/macros_SII}
+
+
+
+
+\fichetrue
+%\fichefalse
+
+\fichetrue
+%\fichefalse
+
+\proftrue
+\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+
+
+\newif\ifnormal
+\normaltrue
+%\normalfalse
+
+\newif\ifdifficile
+\difficilefalse
+%\difficiletrue
+
+\newif\iftdifficile
+\tdifficilefalse
+%\tdifficiletrue
+
+
+\newif\ifcolle
+%\colletrue
+\collefalse
+
+
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{\textsf{PSI$\star$ -- MP}}
+\def\xxnumpartie{Cycle 02}
+\def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Stabilité des systèmes}
+
+
+
+
+\def\xxtitreexo{Stabilisateur actif d'image  \ifnormal $\star$ \else \fi \ifdifficile $\star\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi }
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Mines Ponts 2018 -- PSI}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{Cycle 04}
+
+\def\xxactivite{\ifcolle Colle \else TD 1 \fi }
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Mod2.C13} : centre d'inertie
+%\item \textit{Mod2.C14} : opérateur d'inertie
+%\item \textit{Mod2.C15} : matrice d'inertie
+%\end{itemize}
+}}
+\def\xxfigures{
+\includegraphics[width=.7\linewidth]{images/fig_00}
+}%figues de la page de garde
+
+
+\def\xxpied{%
+Cycle 04 -- Modélisation mécanique -- Cinétique\\% afin de valider leurs performances.\\
+Chapitre 3 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+\usepackage{pgfplots}
+\begin{document}
+\def\pathfig{images}
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{5cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\def\pathfig{images}
+
+\ifprof
+%\begin{multicols}{2}
+\else
+\begin{multicols}{2}
+\fi
+
+\subsection*{Mise en situation}
+ \ifprof
+ \else
+
+
+
+\begin{obj}
+Suite à une sollicitation brève de \SI{0,5}{m.s^{-2}}, l'amplitude des oscillations de la caméra ne doit pas dépasser les 0,5\degres.
+\end{obj}
+
+\subsection*{Travail demandé}
+
+On considère un modèle de l’axe de tangage sans perturbation et qui reçoit des consignes assez rapides modélisées par
+des échelons.
+L’ensemble \{moteur, charge\} ne présente pas de réducteur. Il est modélisé par un ensemble en série de deux fonctions
+de transfert :
+\begin{itemize}
+\item un gain pur de valeur $K_m$;% (La valeur KmT du DOCUMENT D4 est notée Km dans cette partie) ;
+\item une fonction de transfert du premier ordre de gain statique $A$ et de constante de temps $\tau_m$.
+\end{itemize}
+Cet ensemble présente comme entrée la commande du moteur $Com(t)$ et comme sortie la vitesse angulaire de rotation
+du moteur $\omega_m(t)$. Le réglage retenu est tel que $K_m A = 1$. Le retour $K_D$ agit par un sommateur.
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_01}
+
+\textit{Modèle 1 de l’axe de tangage}
+\end{center}
+
+\subparagraph{}
+\textit{Avec $K_m A = 1$, calculer la fonction de transfert en boucle ouverte (FTBO) et la fonction de transfert
+en boucle fermée (FTBF) du schéma (modèle 1).}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+Dans un premier temps en mode pilotage, on s’intéresse au comportement de l’axe de tangage sans le filtre passe bas :
+$A_1(p)=1$.
+
+\subparagraph{}
+\textit{Quelle est la valeur maximale de $K_D$ pour que la commande de l’axe de tangage soit strictement
+stable ? Préciser le(s) critère(s) de stabilité appliqué(s).}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+En accord avec les résultats précédents, on fixe $K_D = 0,5$ et $\tau_m = \SI{0,2}{s}$.
+Dans un premier temps on impose $K_P = \SI{10}{s^{-1}}$.
+
+
+La figure temporelle ci-dessous propose une réponse du système avec un filtre passe
+bas de constante de temps 2 secondes et de gain égal à 1 [i=3].
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_02}
+
+\end{center}
+
+
+\subparagraph{}
+\textit{Montrer que le comportement est alors compatible avec l’exigence 1.12 «~Maîtriser les déplacements~» :
+«~les mouvements de caméra doivent être réalisés avec départ rapide et arrivée lente sans aucun dépassement~». }
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+
+Dans un second temps on se place en mode stabilisation. On s’intéresse toujours au comportement de l’axe de
+tangage mais sans le filtre passe bas ($A_1(p)=1$).
+On considère ici que la consigne est constante donc $\varphi^*_a(t)=0$. Une perturbation $Pe(p)$ agit au niveau de l’ensemble (moteur, charge) modélisée sur le schéma bloc (Modèle 2). On appelle $Com(p)$ la transformée de Laplace de la commande du moteur $com(t)$.
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_03}
+
+\textit{Modèle 2 de l’axe de tangage}
+\end{center}
+
+
+\subparagraph{}
+\textit{Avec le « modèle 2 » calculer la fonction de transfert qui lie la commande du $\text{Stab}(p)=\dfrac{\text{Com}(p)}{\text{Pe}(p)}$
+qui lie à la perturbation. Conseil de résolution : calculer $\varepsilon_1$ en fonction de $\text{Pe}(p)$, $\text{Com}(p)$ et des fonctions de transfert utiles, puis calculer $\varepsilon_2$ en fonction de $\varepsilon_1$ et des fonctions de transfert utiles, puis $\varepsilon_3$ en fonction de $\varepsilon_1$, $\varepsilon_2$ et des fonctions de transfert utiles et enfin en déduire $\text{Stab}(p)=\dfrac{\text{Com}(p)}{\text{Pe}(p)}$.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}
+\textit{Avec le modèle 2 et une entrée $\text{Pe}(p)$ échelon unitaire, déterminer la limite quand t tend vers
+l’infini de la commande : $\text{com}(t)$. Quel sens physique donner à ce résultat ?}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}
+\textit{Avec le modèle 2 déterminer la FTBO $\dfrac{\text{Mes}\varphi(p)}{\varepsilon_2(p)}$ de ce schéma puis calculer la fonction de transfert liant la perturbation et la sortie $\text{Pert}(p)=\dfrac{\varphi(p)}{\varepsilon_2(p)}$ de ce schéma puis calculer la fonction de transfert liant la perturbation et la sortie $\text{Pert}(p)=\dfrac{\varphi(p)}{\text{Pe}(p)}$.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+
+
+\subparagraph{}
+\textit{Déterminer la valeur lorsque t tend vers l’infini de la réponse temporelle de ce système à une
+perturbation de type échelon unitaire. Quel sens physique donner à ce résultat ?}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}
+\textit{On désire une marge de gain de $M_G \geq \SI{5}{dB}$ et une marge de phase $M\varphi \geq 20\degres$ (OU 40 ?) (exigence 1.14 « Stabilité de la commande »). Déterminer la valeur maximale de $K_P$ en utilisant les données ci-dessous.}
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_04}
+\end{center}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+Le document réponse présente la réponse temporelle de l’axe de tangage à une perturbation sinusoïdale (due par
+exemple au vent qui crée un balancement de la GYRCAM).
+
+\subparagraph{}
+\textit{Analyser ce tracé par rapport à l’exigence 1.13 « Perturbations » du DOCUMENT D5-a et justifier le
+tracé de Com(t) relativement à Pe(t) en utilisant le résultat de la question 28****.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+Afin d’améliorer le comportement, un autre réglage a été effectué, ce qui donne sur le document réponse un nouveau
+tracé.
+
+\subparagraph{}
+\textit{Analyser comparativement ce nouveau tracé. Quel(s) réglage(s) ont été fait(s) ? Quelle est
+l’amélioration principale obtenue ?}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+
+
+\ifcolle
+\else
+\vspace{.5cm}
+\begin{tabular}{|p{.95\linewidth}|}
+\hline
+Éléments de corrigé
+\begin{enumerate}
+\item .
+\item .
+\end{enumerate}\\
+\hline
+\end{tabular}
+\fi
+
+\ifprof
+\else
+\end{multicols}
+\fi
+
+
+
+
+
+
+\end{document}
+\begin{center}
+\includegraphics[width=\linewidth]{images/}
+\end{center}
+
+\subparagraph{}
+\textit{}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
