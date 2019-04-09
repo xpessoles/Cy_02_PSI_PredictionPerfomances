@@ -130,7 +130,7 @@ de transfert :
 \item un gain pur de valeur $K_m$;% (La valeur KmT du DOCUMENT D4 est notée Km dans cette partie) ;
 \item une fonction de transfert du premier ordre de gain statique $A$ et de constante de temps $\tau_m$.
 \end{itemize}
-Cet ensemble présente comme entrée la commande du moteur $\text{Com(t)}$ et comme sortie la vitesse angulaire de rotation
+Cet ensemble présente comme entrée la commande du moteur $\text{com(t)}$ et comme sortie la vitesse angulaire de rotation
 du moteur $\omega_m(t)$. Le réglage retenu est tel que $K_m A = 1$. \textbf{Le retour $K_D$ agit par un sommateur.}
 
 Enfin, lors de mouvement brusque de la caméra, on souhaite arriver progressivement sur la scène finale sans choc ni oscillation mais avec précision. Ainsi, la commande peut être modifiée selon 3 cas de fonctionnements : 
@@ -187,22 +187,25 @@ $1-K_D >0$ et $K_D < 1$.
 En accord avec les résultats précédents, on fixe $K_D = 0,5$ et $\tau_m = \SI{0,2}{s}$.
 Dans un premier temps on impose $K_P = \SI{10}{s^{-1}}$.
 
-
-La figure temporelle ci-dessous propose une réponse du système avec un filtre passe
-bas de constante de temps 2 secondes et de gain égal à 1 ($A_i(p)=\dfrac{1}{1+\tau_0 p}$).%'[i=3].
-
-\begin{center}
-\includegraphics[width=\linewidth]{images/fig_02}
-
-\end{center}
+%
+%La figure temporelle ci-dessous propose une réponse du système avec un filtre passe
+%bas de constante de temps 2 secondes et de gain égal à 1 ($A_i(p)=\dfrac{1}{1+\tau_0 p}$).%'[i=3].
+%
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/fig_02}
+%\end{center}
 
 
 \subparagraph{}
-\textit{Montrer que le comportement est alors compatible avec l’exigence 1.12 «~Maîtriser les déplacements~» :
+\textit{Lorsque $A_i(p)=1$, le comportement est-il compatible avec l’exigence 1.12 «~Maîtriser les déplacements~» :
 «~les mouvements de caméra doivent être réalisés avec départ rapide et arrivée lente sans aucun dépassement~». }
 \ifprof
 \begin{corrige}
-En réalisant l'application numérique, on a : $\text{FTBF}(p)=A_i(p)\dfrac{K_P}{p\left(1+\tau_m p- K_D \right)+K_P}$.
+On a : $\text{FTBF}(p)=
+\dfrac{K_P}{p+\tau_m p^2- K_Dp +K_P}$ 
+$=\dfrac{K_P}{\dfrac{\tau_m}{K_p} p^2 + p\dfrac{1- K_D}{K_P} +1}$.
+
+On a alors $\omega_0 = \sqrt{\dfrac{K_P}{\tau_m}}$ et $\xi = \dfrac{1- K_D}{K_P} \dfrac{\sqrt{\dfrac{K_P}{\tau_m}}}{2}= \dfrac{1- K_D}{2\sqrt{K_P \tau_m}}= \dfrac{0,5}{2\sqrt{2}} <1$. Il y a donc du dépassement. L'exigence n'est pas vérifiée. 
 \end{corrige}
 \else
 \fi
@@ -210,7 +213,7 @@ En réalisant l'application numérique, on a : $\text{FTBF}(p)=A_i(p)\dfrac{K_P}
 
 Dans un second temps on se place en mode stabilisation. On s’intéresse toujours au comportement de l’axe de
 tangage mais sans le filtre passe bas ($A_1(p)=1$).
-On considère ici que la consigne est constante donc $\varphi^*_a(t)=0$. Une perturbation $Pe(p)$ agit au niveau de l’ensemble (moteur, charge) modélisée sur le schéma bloc (Modèle 2). On appelle $Com(p)$ la transformée de Laplace de la commande du moteur $com(t)$.
+On considère ici que la consigne est constante donc $\varphi^*_a(t)=0$. Une perturbation $\text{Pe(p)}$ agit au niveau de l’ensemble (moteur, charge) modélisée sur le schéma bloc (Modèle 2). On appelle $\text{Com(p)}$ la transformée de Laplace de la commande du moteur $\text{com(t)}$.
 
 \begin{center}
 \includegraphics[width=\linewidth]{images/fig_03}
@@ -221,9 +224,14 @@ On considère ici que la consigne est constante donc $\varphi^*_a(t)=0$. Une per
 
 \subparagraph{}
 \textit{Avec le « modèle 2 » calculer la fonction de transfert qui lie la commande du $\text{Stab}(p)=\dfrac{\text{Com}(p)}{\text{Pe}(p)}$
-qui lie à la perturbation. Conseil de résolution : calculer $\varepsilon_1$ en fonction de $\text{Pe}(p)$, $\text{Com}(p)$ et des fonctions de transfert utiles, puis calculer $\varepsilon_2$ en fonction de $\varepsilon_1$ et des fonctions de transfert utiles, puis $\varepsilon_3$ en fonction de $\varepsilon_1$, $\varepsilon_2$ et des fonctions de transfert utiles et enfin en déduire $\text{Stab}(p)=\dfrac{\text{Com}(p)}{\text{Pe}(p)}$.}
+qui lie à la perturbation.}% Conseil de résolution : calculer $\varepsilon_1$ en fonction de $\text{Pe}(p)$, $\text{Com}(p)$ et des fonctions de transfert utiles, puis calculer $\varepsilon_2$ en fonction de $\varepsilon_1$ et des fonctions de transfert utiles, puis $\varepsilon_3$ en fonction de $\varepsilon_1$, $\varepsilon_2$ et des fonctions de transfert utiles et enfin en déduire $\text{Stab}(p)=\dfrac{\text{Com}(p)}{\text{Pe}(p)}$.}
 \ifprof
 \begin{corrige}
+On a $\varepsilon_2(p) = -\text{Mes}\left( \varphi(p)\right) = -\varphi(p) = -\varepsilon_1(p)\dfrac{1}{p}$. 
+Par ailleurs, $\varepsilon_1(p)=\text{Pe}_(p)+\varepsilon_3(p)\dfrac{AK_m}{1+\tau_m p}$. 
+Enfin, $\varepsilon_3(p)=K_P\varepsilon_2(p)-K_D \varepsilon_1(p)$ $\Leftrightarrow \varepsilon_3(p)=-\varepsilon_1(p)\left(K_P\dfrac{1}{p} +K_D \right)$. 
+
+On a donc $\varepsilon_2(p) = -\left(\text{Pe}_(p)+\varepsilon_3(p)\dfrac{AK_m}{1+\tau_m p} \right)\dfrac{1}{p}$ 
 \end{corrige}
 \else
 \fi
