@@ -17,7 +17,7 @@
 %\fichefalse
 
 \proftrue
-\proffalse
+%\proffalse
 
 \tdtrue
 %\tdfalse
@@ -115,10 +115,6 @@ Chapitre 3 -- \xxactivite%
 \fi
 
 \subsection*{Mise en situation}
- \ifprof
- \else
-
-
 
 \begin{obj}
 Suite à une sollicitation brève de \SI{0,5}{m.s^{-2}}, l'amplitude des oscillations de la caméra ne doit pas dépasser les 0,5\degres.
@@ -134,9 +130,15 @@ de transfert :
 \item un gain pur de valeur $K_m$;% (La valeur KmT du DOCUMENT D4 est notée Km dans cette partie) ;
 \item une fonction de transfert du premier ordre de gain statique $A$ et de constante de temps $\tau_m$.
 \end{itemize}
-Cet ensemble présente comme entrée la commande du moteur $Com(t)$ et comme sortie la vitesse angulaire de rotation
-du moteur $\omega_m(t)$. Le réglage retenu est tel que $K_m A = 1$. Le retour $K_D$ agit par un sommateur.
+Cet ensemble présente comme entrée la commande du moteur $\text{Com(t)}$ et comme sortie la vitesse angulaire de rotation
+du moteur $\omega_m(t)$. Le réglage retenu est tel que $K_m A = 1$. \textbf{Le retour $K_D$ agit par un sommateur.}
 
+Enfin, lors de mouvement brusque de la caméra, on souhaite arriver progressivement sur la scène finale sans choc ni oscillation mais avec précision. Ainsi, la commande peut être modifiée selon 3 cas de fonctionnements : 
+\begin{itemize}
+\item $A_1(p)=1$ : pas de traitement;
+\item $A_2(p)= \dfrac{1}{\tau_0 p} \left( 1-e^{-\tau_0 p}\right)$ : fonction rampe de pente 1 pour rejoindre la valeur finale;
+\item $A_3(p)= \dfrac{1}{1+\tau_0 p}$ : fonction de transfert du  premier ordre de constante de temps $\tau$ (filtre passe-bas).
+\end{itemize}
 \begin{center}
 \includegraphics[width=\linewidth]{images/fig_01}
 
@@ -148,6 +150,21 @@ du moteur $\omega_m(t)$. Le réglage retenu est tel que $K_m A = 1$. Le retour $
 en boucle fermée (FTBF) du schéma (modèle 1).}
 \ifprof
 \begin{corrige}
+\textbf{Attention au signe du comparateur de la boucle inbriquée !}
+
+On définit la FTBO par $\text{FTBO}(p)=\dfrac{\varepsilon(p)}{\text{Mes}\varphi(p)}$ avec $\varepsilon(p)$ la sortie du premier comparateur.
+
+On a d'une part $G(p)=\dfrac{\dfrac{K_m A}{1+\tau_m p}}{1-\dfrac{K_m A K_D }{1+\tau_m p}}= \dfrac{K_m A}{1+\tau_m p-K_m A K_D }$.
+On a alors $\text{FTBO}(p)=\dfrac{K_m A K_P}{p\left(1+\tau_m p-K_m A K_D \right)}$. 
+
+Si on définit la FTBF par $\text{FTBF(p)}=\dfrac{\varphi(p)}{\varphi^{\star}(p)}$, on a 
+$\text{FTBF(p)}=A_i(p)\dfrac{\dfrac{K_m A K_P}{p\left(1+\tau_m p-K_m A K_D \right)}}{1+\dfrac{K_m A K_P}{p\left(1+\tau_m p-K_m A K_D \right)}}$ 
+
+$=A_i(p)\dfrac{K_m A K_P}{p\left(1+\tau_m p-K_m A K_D \right)+K_m A K_P}$.
+
+Au final, 
+$\text{FTBO}(p)=\dfrac{ K_P}{p\left(1+\tau_m p-K_D \right)}$ et 
+$\text{FTBF}(p)=A_i(p)\dfrac{K_P}{p\left(1+\tau_m p- K_D \right)+K_P}$.
 \end{corrige}
 \else
 \fi
@@ -160,6 +177,9 @@ $A_1(p)=1$.
 stable ? Préciser le(s) critère(s) de stabilité appliqué(s).}
 \ifprof
 \begin{corrige}
+Pour que le système soit stable, tous les coefficients du dénominateur $D(p)$ de la FTBF doivent être de même signe (ainsi toutes les racines sont à partie réelle négative). On a 
+$D(p)=p\left(1+\tau_m p- K_D \right)+K_P = \tau_m p^2 p+ \left(1-K_D \right)p +K_P$ et donc nécessairement, 
+$1-K_D >0$ et $K_D < 1$.
 \end{corrige}
 \else
 \fi
@@ -169,7 +189,7 @@ Dans un premier temps on impose $K_P = \SI{10}{s^{-1}}$.
 
 
 La figure temporelle ci-dessous propose une réponse du système avec un filtre passe
-bas de constante de temps 2 secondes et de gain égal à 1 [i=3].
+bas de constante de temps 2 secondes et de gain égal à 1 ($A_i(p)=\dfrac{1}{1+\tau_0 p}$).%'[i=3].
 
 \begin{center}
 \includegraphics[width=\linewidth]{images/fig_02}
@@ -182,6 +202,7 @@ bas de constante de temps 2 secondes et de gain égal à 1 [i=3].
 «~les mouvements de caméra doivent être réalisés avec départ rapide et arrivée lente sans aucun dépassement~». }
 \ifprof
 \begin{corrige}
+En réalisant l'application numérique, on a : $\text{FTBF}(p)=A_i(p)\dfrac{K_P}{p\left(1+\tau_m p- K_D \right)+K_P}$.
 \end{corrige}
 \else
 \fi
