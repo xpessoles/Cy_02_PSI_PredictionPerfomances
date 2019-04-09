@@ -228,10 +228,19 @@ qui lie à la perturbation.}% Conseil de résolution : calculer $\varepsilon_1$ 
 \ifprof
 \begin{corrige}
 On a $\varepsilon_2(p) = -\text{Mes}\left( \varphi(p)\right) = -\varphi(p) = -\varepsilon_1(p)\dfrac{1}{p}$. 
-Par ailleurs, $\varepsilon_1(p)=\text{Pe}_(p)+\varepsilon_3(p)\dfrac{AK_m}{1+\tau_m p}$. 
-Enfin, $\varepsilon_3(p)=K_P\varepsilon_2(p)-K_D \varepsilon_1(p)$ $\Leftrightarrow \varepsilon_3(p)=-\varepsilon_1(p)\left(K_P\dfrac{1}{p} +K_D \right)$. 
+Par ailleurs, $\varepsilon_1(p)=\text{Pe}(p)+\varepsilon_3(p)\dfrac{AK_m}{1+\tau_m p}$. 
+Enfin, $\varepsilon_3(p)=K_P\varepsilon_2(p)+K_D \varepsilon_1(p)$ $\Leftrightarrow \varepsilon_3(p)=\varepsilon_1(p)\left(K_D-\dfrac{K_P}{p} \right)$
+$\Leftrightarrow \varepsilon_1(p) =\varepsilon_3(p)\dfrac{1}{K_D -\dfrac{K_P}{p} }$. 
 
-On a donc $\varepsilon_2(p) = -\left(\text{Pe}_(p)+\varepsilon_3(p)\dfrac{AK_m}{1+\tau_m p} \right)\dfrac{1}{p}$ 
+On a donc  $\varepsilon_3(p)\dfrac{1}{K_D -\dfrac{K_P}{p}}=\text{Pe}(p)+\varepsilon_3(p)\dfrac{AK_m}{1+\tau_m p} $ $\Leftrightarrow \varepsilon_3(p)\left(\dfrac{p}{pK_D-K_P } -\dfrac{AK_m}{1+\tau_m p}\right)=\text{Pe}(p) $ 
+
+$\Leftrightarrow \varepsilon_3(p)\dfrac{p\left(1+\tau_m p \right) - AK_m \left( pK_D-K_P\right) }{\left(pK_D-K_P \right) \left(1+\tau_m p\right)}=\text{Pe}(p) $.
+
+On a donc $\text{Stab}(p)=\dfrac{\text{Com}(p)}{\text{Pe}(p)}=\dfrac{\left(pK_D-K_P \right) \left(1+\tau_m p\right)}{p\left(1+\tau_m p \right) - AK_m \left( pK_D-K_P\right) }$.
+
+
+
+ 
 \end{corrige}
 \else
 \fi
@@ -241,14 +250,30 @@ On a donc $\varepsilon_2(p) = -\left(\text{Pe}_(p)+\varepsilon_3(p)\dfrac{AK_m}{
 l’infini de la commande : $\text{com}(t)$. Quel sens physique donner à ce résultat ?}
 \ifprof
 \begin{corrige}
+On a $\lim\limits_{t\to\infty}\text{com}(t) = \lim\limits_{p\to 0}p\text{Com}(p)$ 
+$=\lim\limits_{p\to 0}p\text{Stab}(p)\text{Pe}(p)$ 
+ $=\lim\limits_{p\to 0}p\text{Stab}(p)\text{Pe}(p)$
+
+  $= \lim\limits_{p\to 0}p\dfrac{1}{p} \dfrac{\left(pK_D-K_P \right) \left(1+\tau_m p\right)}{p\left(1+\tau_m p \right) - AK_m \left( pK_D-K_P\right) }$
+   $= \lim\limits_{p\to 0} \dfrac{-K_P }{  AK_m  K_P }=-1$ si $AK_m=1$.
+  
+  Ainsi, pour une perturbation angulaire dans un autre sens, le système commande les moteurs avec une consigne dans le sens opposé. 
 \end{corrige}
 \else
 \fi
 
 \subparagraph{}
-\textit{Avec le modèle 2 déterminer la FTBO $\dfrac{\text{Mes}\varphi(p)}{\varepsilon_2(p)}$ de ce schéma puis calculer la fonction de transfert liant la perturbation et la sortie $\text{Pert}(p)=\dfrac{\varphi(p)}{\varepsilon_2(p)}$ de ce schéma puis calculer la fonction de transfert liant la perturbation et la sortie $\text{Pert}(p)=\dfrac{\varphi(p)}{\text{Pe}(p)}$.}
+\textit{Avec le modèle 2 déterminer la FTBO $\dfrac{\text{Mes}\varphi(p)}{\varepsilon_2(p)}$ de ce schéma puis calculer la fonction de transfert liant la perturbation et la sortie $\text{Pert}(p)=\dfrac{\varphi(p)}{\text{Pe}(p)}$.}
 \ifprof
 \begin{corrige}
+
+On a  $\dfrac{\text{Mes}\varphi(p)}{\varepsilon_2(p)} = \dfrac{K_m A K_P}{p\left(1+\tau_m p-K_m A K_D \right)}$ (c'est la même que pour le premier modèle).
+
+On a vu que  $\varepsilon_2(p) = -\varphi(p) = -\varepsilon_1(p)\dfrac{1}{p}$. 
+Par ailleurs, $\varepsilon_1(p)=\text{Pe}(p)+\varepsilon_3(p)\dfrac{AK_m}{1+\tau_m p}$. 
+Enfin, $\varepsilon_3(p)=K_P\varepsilon_2(p)+K_D \varepsilon_1(p)$ $\Leftrightarrow \varepsilon_3(p)=\varepsilon_1(p)\left(K_D-\dfrac{K_P}{p} \right)$
+$\Leftrightarrow \varepsilon_1(p) =\varepsilon_3(p)\dfrac{1}{K_D -\dfrac{K_P}{p} }$. 
+
 \end{corrige}
 \else
 \fi
