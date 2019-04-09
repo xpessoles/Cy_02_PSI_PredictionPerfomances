@@ -17,7 +17,7 @@
 %\fichefalse
 
 \proftrue
-%\proffalse
+\proffalse
 
 \tdtrue
 %\tdfalse
@@ -26,14 +26,15 @@
 \coursfalse
 
 
+% TD PLutot difficile de base
 
 \newif\ifnormal
-\normaltrue
-%\normalfalse
+%\normaltrue
+\normalfalse
 
 \newif\ifdifficile
 \difficilefalse
-%\difficiletrue
+\difficiletrue
 
 \newif\iftdifficile
 \tdifficilefalse
@@ -245,14 +246,13 @@ On a donc $\text{Stab}(p)=\dfrac{\text{Com}(p)}{\text{Pe}(p)}=\dfrac{\left(pK_D-
 \else
 \fi
 
-\subparagraph{}
+\subparagraph{\label{q28}}
 \textit{Avec le modèle 2 et une entrée $\text{Pe}(p)$ échelon unitaire, déterminer la limite quand t tend vers
 l’infini de la commande : $\text{com}(t)$. Quel sens physique donner à ce résultat ?}
 \ifprof
 \begin{corrige}
 On a $\lim\limits_{t\to\infty}\text{com}(t) = \lim\limits_{p\to 0}p\text{Com}(p)$ 
 $=\lim\limits_{p\to 0}p\text{Stab}(p)\text{Pe}(p)$ 
- $=\lim\limits_{p\to 0}p\text{Stab}(p)\text{Pe}(p)$
 
   $= \lim\limits_{p\to 0}p\dfrac{1}{p} \dfrac{\left(pK_D-K_P \right) \left(1+\tau_m p\right)}{p\left(1+\tau_m p \right) - AK_m \left( pK_D-K_P\right) }$
    $= \lim\limits_{p\to 0} \dfrac{-K_P }{  AK_m  K_P }=-1$ si $AK_m=1$.
@@ -269,10 +269,20 @@ $=\lim\limits_{p\to 0}p\text{Stab}(p)\text{Pe}(p)$
 
 On a  $\dfrac{\text{Mes}\varphi(p)}{\varepsilon_2(p)} = \dfrac{K_m A K_P}{p\left(1+\tau_m p-K_m A K_D \right)}$ (c'est la même que pour le premier modèle).
 
-On a vu que  $\varepsilon_2(p) = -\varphi(p) = -\varepsilon_1(p)\dfrac{1}{p}$. 
-Par ailleurs, $\varepsilon_1(p)=\text{Pe}(p)+\varepsilon_3(p)\dfrac{AK_m}{1+\tau_m p}$. 
-Enfin, $\varepsilon_3(p)=K_P\varepsilon_2(p)+K_D \varepsilon_1(p)$ $\Leftrightarrow \varepsilon_3(p)=\varepsilon_1(p)\left(K_D-\dfrac{K_P}{p} \right)$
-$\Leftrightarrow \varepsilon_1(p) =\varepsilon_3(p)\dfrac{1}{K_D -\dfrac{K_P}{p} }$. 
+On a vu que  $\varepsilon_2(p) = -\varphi(p) = -\varepsilon_1(p)\dfrac{1}{p}$, $\varepsilon_1(p)=\text{Pe}(p)+\varepsilon_3(p)\dfrac{AK_m}{1+\tau_m p}$ et $\varepsilon_3(p)=\varepsilon_1(p)\left(K_D-\dfrac{K_P}{p} \right)$. 
+
+En conséquences, $\varepsilon_1(p)=\text{Pe}(p)+\varepsilon_3(p)\dfrac{AK_m}{1+\tau_m p} \Longleftrightarrow 
+\varepsilon_1(p)=\text{Pe}(p)+\varepsilon_1(p)\left(K_D-\dfrac{K_P}{p} \right)\dfrac{AK_m}{1+\tau_m p}$
+
+$ \Leftrightarrow 
+\varepsilon_1(p)\left( 1+\left(\dfrac{K_P}{p}-K_D \right)\dfrac{AK_m}{1+\tau_m p}\right)=\text{Pe}(p)$
+$ \Leftrightarrow 
+p\varphi(p)\left( 1+\left(\dfrac{K_P}{p}-K_D \right)\dfrac{AK_m}{1+\tau_m p}\right)=\text{Pe}(p)$
+
+et donc $\text{Pert}(p)=\dfrac{1}{p\left( 1+\left(\dfrac{K_P}{p}-K_D \right)\dfrac{AK_m}{1+\tau_m p}\right)}$
+$=\dfrac{1}{p\left( 1+\dfrac{K_P-pK_D}{p}\dfrac{AK_m}{1+\tau_m p}\right)}$
+$=\dfrac{1+\tau_m p}{p \left(1+\tau_m p\right)+\left(K_P-pK_D\right)AK_m}$.
+
 
 \end{corrige}
 \else
@@ -285,41 +295,74 @@ $\Leftrightarrow \varepsilon_1(p) =\varepsilon_3(p)\dfrac{1}{K_D -\dfrac{K_P}{p}
 perturbation de type échelon unitaire. Quel sens physique donner à ce résultat ?}
 \ifprof
 \begin{corrige}
+On a $\lim\limits_{t\to\infty}\varphi(t) = \lim\limits_{p\to 0}p\Phi(p)$ 
+$=\lim\limits_{p\to 0}p\text{Pert}(p)\text{Pe}(p)$
+  $= \lim\limits_{p\to 0}p\dfrac{1}{p} \dfrac{1+\tau_m p}{p \left(1+\tau_m p\right)+\left(K_P-pK_D\right)AK_m}$
+  
+  $= \lim\limits_{p\to 0}\dfrac{1}{K_PAK_m} =\dfrac{1}{K_P}=0,1\degres$.
+  
+Le système n'est pas précis s'il y a une perturbation échelon. 
 \end{corrige}
 \else
 \fi
 
 \subparagraph{}
-\textit{On désire une marge de gain de $M_G \geq \SI{5}{dB}$ et une marge de phase $M\varphi \geq 20\degres$ (OU 40 ?) (exigence 1.14 « Stabilité de la commande »). Déterminer la valeur maximale de $K_P$ en utilisant les données ci-dessous.}
+\textit{On désire une marge de gain de $M_G \geq \SI{5}{dB}$ et une marge de phase $M\varphi \geq 20\degres$ (exigence 1.14 « Stabilité de la commande »). Déterminer la valeur maximale de $K_P$ en utilisant les données ci-dessous.}
+% (OU 40 ?degres)
+
+\footnotesize
 \begin{center}
-\includegraphics[width=\linewidth]{images/fig_04}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$\omega$ (rad/s) & 1 & 2,5 & 5 & 7 & 10 \\ \hline
+$\text{Arg}\left( \dfrac{2}{j\omega \left(1+0,4 j\omega \right)}\right)$  & $-112\degres$ & $-135\degres$ & $-153\degres$ & $-160\degres$ & $-166\degres$ \\ \hline
+$20 \log \left| \dfrac{2}{j\omega \left(1+0,4 j\omega \right)}\right|$ & \SI{5,4}{dB} & \SI{3}{dB} & \SI{-1}{dB} & \SI{-3}{dB} & \SI{-6,2}{dB} \\ \hline
+\end{tabular}
 \end{center}
+\normalsize
+
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/fig_04}
+%\end{center}
 \ifprof
 \begin{corrige}
+Pour une marge  de de phase de 20\degres, la phase doit être de $-160\degres$ lorsque le gain est nul. Or en $-160\degres$ le gain est de \SI{-3}{dB}. Pour respecter la marge de phase, il faut donc déterminer $K_P$ tel que $20\log K_P = 3$ soit $K_P < 10^{\dfrac{3}{20}}\simeq1,41 $.
+
+Le système étant d'ordre 2, la marge de gain sera forcément infinie.
 \end{corrige}
 \else
 \fi
 
-Le document réponse présente la réponse temporelle de l’axe de tangage à une perturbation sinusoïdale (due par
-exemple au vent qui crée un balancement de la GYRCAM).
+Le figure suivante présente la réponse temporelle de l’axe de tangage à une perturbation sinusoïdale (due par
+exemple au vent qui crée un balancement de la GYRCAM) (ordonnée en degrés).
+
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_05}
+\end{center}
 
 \subparagraph{}
 \textit{Analyser ce tracé par rapport à l’exigence 1.13 « Perturbations » du DOCUMENT D5-a et justifier le
-tracé de Com(t) relativement à Pe(t) en utilisant le résultat de la question 28****.}
+tracé de Com(t) relativement à Pe(t) en utilisant le résultat de la question \ref{q28}.}
 \ifprof
 \begin{corrige}
+La commande s'oppose à la perturbation (comme évoqué question \ref{q28}). Le stabilisateur a au final un mouvement sinusoïdal dont les valeurs maximales et minimales sont voisines de 0,1\degres et $-0,1\degres$. 
 \end{corrige}
 \else
 \fi
 
-Afin d’améliorer le comportement, un autre réglage a été effectué, ce qui donne sur le document réponse un nouveau
-tracé.
+Afin d’améliorer le comportement, un autre réglage a été effectué (voir figure suivante).
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_06}
+\end{center}
+
 
 \subparagraph{}
-\textit{Analyser comparativement ce nouveau tracé. Quel(s) réglage(s) ont été fait(s) ? Quelle est
-l’amélioration principale obtenue ?}
+\textit{Analyser comparativement ce nouveau tracé.}% Quel(s) réglage(s) ont été fait(s) ? Quelle est l’amélioration principale obtenue ?}
 \ifprof
 \begin{corrige}
+Dans ce cas, les mouvements du porteur sont inférieurs à 0,1 degres (en valeur absolue).
 \end{corrige}
 \else
 \fi
