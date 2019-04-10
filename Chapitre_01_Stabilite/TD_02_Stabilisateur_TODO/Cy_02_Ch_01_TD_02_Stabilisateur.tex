@@ -116,10 +116,17 @@ Chapitre 3 -- \xxactivite%
 \fi
 
 \subsection*{Mise en situation}
+On s'intéresse à une nacelle active de caméra. Ce système de stabilisation, nommé CAM-GYR, permet de s'assurer que quelque soit l'orientation du porteur (caméraman), l'axe vertical de la caméra et toujours parallèle à la direction de la pesanteur. 
+Le système est équipé de 3 moteurs permettant d'ajuster le roulis, le tangage et le lacet. On s'intéresse ici uniquement à la stabilisation de l'axe de tangage. 
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/Exigences}
+\end{center}
 
 \begin{obj}
-Suite à une sollicitation brève de \SI{0,5}{m.s^{-2}}, l'amplitude des oscillations de la caméra ne doit pas dépasser les 0,5\degres.
+Justifier la forme particulière de la commande asservie (ou régulée) de la caméra stabilisée et vérifier l'exigence 1.1 « déplacer la caméra ». %Proposer un réglage d’un axe suivant plusieurs modes de fonctionnement.
 \end{obj}
+
 
 \subsection*{Travail demandé}
 
@@ -133,13 +140,13 @@ de transfert :
 \end{itemize}
 Cet ensemble présente comme entrée la commande du moteur $\text{com(t)}$ et comme sortie la vitesse angulaire de rotation
 du moteur $\omega_m(t)$. Le réglage retenu est tel que $K_m A = 1$. \textbf{Le retour $K_D$ agit par un sommateur.}
-
-Enfin, lors de mouvement brusque de la caméra, on souhaite arriver progressivement sur la scène finale sans choc ni oscillation mais avec précision. Ainsi, la commande peut être modifiée selon 3 cas de fonctionnements : 
-\begin{itemize}
-\item $A_1(p)=1$ : pas de traitement;
-\item $A_2(p)= \dfrac{1}{\tau_0 p} \left( 1-e^{-\tau_0 p}\right)$ : fonction rampe de pente 1 pour rejoindre la valeur finale;
-\item $A_3(p)= \dfrac{1}{1+\tau_0 p}$ : fonction de transfert du  premier ordre de constante de temps $\tau$ (filtre passe-bas).
-\end{itemize}
+Dans cette étude, $A_i(p)=1$.
+%Enfin, lors de mouvement brusque de la caméra, on souhaite arriver progressivement sur la scène finale sans choc ni oscillation mais avec précision. Ainsi, la commande peut être modifiée selon 3 cas de fonctionnements : 
+%\begin{itemize}
+%\item $A_1(p)=1$ : pas de traitement;
+%\item $A_2(p)= \dfrac{1}{\tau_0 p} \left( 1-e^{-\tau_0 p}\right)$ : fonction rampe de pente 1 pour rejoindre la valeur finale;
+%\item $A_3(p)= \dfrac{1}{1+\tau_0 p}$ : fonction de transfert du  premier ordre de constante de temps $\tau$ (filtre passe-bas).
+%\end{itemize}
 \begin{center}
 \includegraphics[width=\linewidth]{images/fig_01}
 
@@ -310,13 +317,15 @@ Le système n'est pas précis s'il y a une perturbation échelon.
 \textit{On désire une marge de gain de $M_G \geq \SI{5}{dB}$ et une marge de phase $M\varphi \geq 20\degres$ (exigence 1.14 « Stabilité de la commande »). Déterminer la valeur maximale de $K_P$ en utilisant les données ci-dessous.}
 % (OU 40 ?degres)
 
+
 \footnotesize
+On note $F(\omega)= \dfrac{2}{j\omega \left(1+0,4 j\omega \right)}$.
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 $\omega$ (rad/s) & 1 & 2,5 & 5 & 7 & 10 \\ \hline
-$\text{Arg}\left( \dfrac{2}{j\omega \left(1+0,4 j\omega \right)}\right)$  & $-112\degres$ & $-135\degres$ & $-153\degres$ & $-160\degres$ & $-166\degres$ \\ \hline
-$20 \log \left| \dfrac{2}{j\omega \left(1+0,4 j\omega \right)}\right|$ & \SI{5,4}{dB} & \SI{3}{dB} & \SI{-1}{dB} & \SI{-3}{dB} & \SI{-6,2}{dB} \\ \hline
+$\text{Arg}\left(F(\omega)\right)$  & $-112\degres$ & $-135\degres$ & $-153\degres$ & $-160\degres$ & $-166\degres$ \\ \hline
+$20 \log \left| F(\omega)\right|$ & \SI{5,4}{dB} & \SI{3}{dB} & \SI{-1}{dB} & \SI{-3}{dB} & \SI{-6,2}{dB} \\ \hline
 \end{tabular}
 \end{center}
 \normalsize
