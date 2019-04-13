@@ -1,5 +1,5 @@
 %%%% Paramétrage du TD %%%%
-\def\xxactivite{Activations}
+\def\xxactivite{Activation}
 \def\xxauteur{\textsl{Xavier Pessoles}}
 
 
@@ -25,18 +25,12 @@
 %\textit{}
 }%figues de la page de garde
 
-\def\xxtitreexo{Activation}%Motorisation du moteur Haibike}
+\def\xxtitreexo{Activation}
 \def\xxsourceexo{\hspace{.2cm} \footnotesize{Patrick Dupas, \url{http://patrick.dupas.chez-alice.fr/}.}}
 
 
-\def\xxposongletx{2}
-\def\xxposonglettext{1.45}
-\def\xxposonglety{20}
-%\def\xxonglet{Part. 1 -- Ch. 3}
-\def\xxonglet{Cycle 02}
-
-\def\xxactivite{Activation}
-\def\xxauteur{\textsl{P. Dupas.}}
+\def\xxactivite{Activation\ifprof \\ Corrigé \else \fi}
+%\def\xxauteur{\textsl{P. Dupas.}}
 
 
 \iflivret
@@ -65,12 +59,19 @@
 \fi
 
 \subsection*{Exercice 1 -- Réponse impulsionnelle (entrée Dirac)}
+\setcounter{exo}{0}
+\ifprof
+\else
 \begin{center}
 \includegraphics[width=\linewidth]{fig_01}
 \end{center}
+\fi
 \subparagraph*{}\textit{Pour chaque cas déterminer si la réponse est celle d'un système stable, instable ou juste (quasi) stable.}
 
 \subsection*{Exercice 2 -- Pôles de la FTBF}
+\setcounter{exo}{0}
+\ifprof
+\else
 On donne les pôles des FTBF de plusieurs systèmes :
 \begin{multicols}{2}
 \begin{enumerate}
@@ -85,6 +86,7 @@ On donne les pôles des FTBF de plusieurs systèmes :
 \item $-6$, $-4$, $7$.
 \end{enumerate}
 \end{multicols}
+\fi
 \subparagraph*{}\textit{Pour chaque cas déterminer si la réponse est celle d'un système stable, instable ou juste  (quasi) stable.}
 
 
@@ -92,7 +94,7 @@ On donne les pôles des FTBF de plusieurs systèmes :
 
 
 \subsection*{Exercice 3 -- Applications du critère du Revers}
-
+\setcounter{exo}{0}
 \subparagraph*{}\textit{On donne ci-dessous les lieux de transferts de plusieurs FTBO. Déterminer, à l'aide du critère du Revers si les systèmes sont stables en BF.}
 \subparagraph*{}\textit{Pour les systèmes stables déterminer les marges de gain et de phase.}
 
@@ -106,10 +108,10 @@ On donne les pôles des FTBF de plusieurs systèmes :
 %\includegraphics[width=\linewidth]{OLD/fig_03}
 %\end{center}
 \ifprof
-\begin{center}
-\includegraphics[width=.45\linewidth]{OLD/fig_04}
-\includegraphics[width=.45\linewidth]{OLD/fig_05}
-\end{center}
+%\begin{center}
+%\includegraphics[width=.45\linewidth]{OLD/fig_04}
+%\includegraphics[width=.45\linewidth]{OLD/fig_05}
+%\end{center}
 \else
 \begin{center}
 \includegraphics[width=\linewidth]{OLD/fig_04}
@@ -121,11 +123,10 @@ On donne les pôles des FTBF de plusieurs systèmes :
 \fi
 
 
-\newpage
+%\newpage
 
 \subsection*{Exercice 4 -- Étude de la stabilité}
-
-
+\setcounter{exo}{0}
 
 
 
@@ -264,8 +265,6 @@ Le système ne sera pas stable vis-à-vis du cahier des charges.
 \ifprof
 %\begin{corrige}
 %\end{corrige}
-
-\newpage
 
 Pour $\tau  = 0,005$
 
