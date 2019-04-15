@@ -1,115 +1,49 @@
-\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
-\usepackage[%
-    pdftitle={Modélisation SLCI : Stabilité des systèmes},
-    pdfauthor={Xavier Pessoles}]{hyperref}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{\ifcolle Colle \else TD 02 \fi   \ifprof \\ Corrigé \else \fi }
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-    
-\input{style/new_style}
-\input{style/macros_SII}
-
-
-
-
-\fichetrue
-%\fichefalse
-
-\fichetrue
-%\fichefalse
-
-\proftrue
-%\proffalse
-
-\tdtrue
-%\tdfalse
-
-\courstrue
-\coursfalse
-
-
-% TD PLutot difficile de base
-
-\newif\ifnormal
-%\normaltrue
-\normalfalse
-
-\newif\ifdifficile
-\difficilefalse
-\difficiletrue
-
-\newif\iftdifficile
-\tdifficilefalse
-%\tdifficiletrue
-
-
-\newif\ifcolle
-%\colletrue
-\collefalse
-
-
-
-\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
-\def\xxtete{Sciences Industrielles de l'Ingénieur}
-
-\def\classe{PSI$\star$ -- MP}
-\def\xxnumpartie{Cycle 02}
-\def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
 
 \def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
 \def\xxchapitre{\hspace{.12cm} Stabilité des systèmes}
 
-
-
-
-\def\xxtitreexo{Stabilisateur actif d'image  \ifnormal $\star$ \else \fi \ifdifficile $\star\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi }
-\def\xxsourceexo{\hspace{.2cm} \footnotesize{Mines Ponts 2018 -- PSI}}
-
-
-\def\xxposongletx{2}
-\def\xxposonglettext{1.45}
-\def\xxposonglety{20}
-%\def\xxonglet{Part. 1 -- Ch. 3}
-\def\xxonglet{Cycle 02}
-
-\def\xxactivite{\ifcolle Colle \else TD 1 \fi }
-\def\xxauteur{\textsl{Xavier Pessoles}}
-
 \def\xxcompetences{%
 \textsl{%
 \textbf{Savoirs et compétences :}\\
-\vspace{-.2cm}
+\vspace{-.4cm}
 \begin{itemize}[label=\ding{112},font=\color{ocre}] 
-\item \textit{Mod2.C7.SF2} : Déterminer les fonctions de transfert.
-\item \textit{Res2.C5} : stabilité des SLCI : équation caractéristique.
-\item \textit{Res2.C7} : stabilité des SLCI : marges de stabilité (de gain et de phase).
+\item \textit{Mod2.C7.SF2} : déterminer les fonctions de transfert;
+\item \textit{Res2.C5} : stabilité des SLCI : équation caractéristique;
+\item \textit{Res2.C7} : stabilité des SLCI : marges de stabilité (de gain et de phase).	
+%\item \textit{Res2.C6 : } stabilité des SLCI : position des pôles dans le plan complexe
+%\item \textit{Res2.C7 : } stabilité des SLCI : marges de stabilité (de gain et de phase)
 \end{itemize}
 }}
+
+
 \def\xxfigures{
-\includegraphics[width=.7\linewidth]{images/fig_00}
+\includegraphics[width=.7\linewidth]{fig_00}
 }%figues de la page de garde
 
+\def\xxtitreexo{Stabilisateur actif d'image  \ifnormal $\star$ \else \fi \ifdifficile $\star\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi }
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Mines Ponts 2018 -- PSI}}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
 
-\def\xxpied{%
-Cycle 02 -- Modéliser les SLCI -- Prédiction du comportement\\
-Chapitre 1 -- \xxactivite%
-}
+\iflivret
+\input{../style/new_pagegarde}
+\else
+\input{../../style/new_pagegarde}
+\fi
+\setlength{\columnseprule}{.1pt}
 
-\setcounter{secnumdepth}{5}
-%---------------------------------------------------------------------------
-
-\usepackage{pgfplots}
-\begin{document}
-\def\pathfig{images}
-%\chapterimage{png/Fond_Cin}
-\input{style/new_pagegarde}
-\vspace{5cm}
 \pagestyle{fancy}
 \thispagestyle{plain}
+
+\vspace{4.5cm}
 
 \def\columnseprulecolor{\color{ocre}}
 \setlength{\columnseprule}{0.4pt} 
 
-\def\pathfig{images}
 
 \ifprof
 %\begin{multicols}{2}
@@ -117,6 +51,7 @@ Chapitre 1 -- \xxactivite%
 \begin{multicols}{2}
 \fi
 
+\setcounter{exo}{0}
 \subsection*{Mise en situation}
 \ifprof
 \else
@@ -124,7 +59,7 @@ On s'intéresse à une nacelle active de caméra. Ce système de stabilisation, 
 Le système est équipé de 3 moteurs permettant d'ajuster le roulis, le tangage et le lacet. On s'intéresse ici uniquement à la stabilisation de l'axe de tangage. 
 
 \begin{center}
-\includegraphics[width=\linewidth]{images/Exigences}
+\includegraphics[width=\linewidth]{Exigences}
 \end{center}
 \fi
 \begin{obj}
@@ -154,7 +89,7 @@ Dans cette étude, $A_i(p)=1$.
 %\item $A_3(p)= \dfrac{1}{1+\tau_0 p}$ : fonction de transfert du  premier ordre de constante de temps $\tau$ (filtre passe-bas).
 %\end{itemize}
 \begin{center}
-\includegraphics[width=\linewidth]{images/fig_01}
+\includegraphics[width=\linewidth]{fig_01}
 
 \textit{Modèle 1 de l’axe de tangage}
 \end{center}
@@ -210,7 +145,7 @@ Dans un premier temps on impose $K_P = \SI{10}{s^{-1}}$.
 %bas de constante de temps 2 secondes et de gain égal à 1 ($A_i(p)=\dfrac{1}{1+\tau_0 p}$).%'[i=3].
 %
 %\begin{center}
-%\includegraphics[width=\linewidth]{images/fig_02}
+%\includegraphics[width=\linewidth]{fig_02}
 %\end{center}
 
 
@@ -235,7 +170,7 @@ tangage mais sans le filtre passe bas ($A_1(p)=1$).
 On considère ici que la consigne est constante donc $\varphi^*_a(t)=0$. Une perturbation $\text{Pe(p)}$ agit au niveau de l’ensemble (moteur, charge) modélisée sur le schéma bloc (Modèle 2). On appelle $\text{Com(p)}$ la transformée de Laplace de la commande du moteur $\text{com(t)}$.
 
 \begin{center}
-\includegraphics[width=\linewidth]{images/fig_03}
+\includegraphics[width=\linewidth]{fig_03}
 
 \textit{Modèle 2 de l’axe de tangage}
 \end{center}
@@ -332,7 +267,7 @@ Le système n'est pas précis s'il y a une perturbation échelon.
 
 
 %\begin{center}
-%\includegraphics[width=\linewidth]{images/fig_04}
+%\includegraphics[width=\linewidth]{fig_04}
 %\end{center}
 \ifprof
 \begin{corrige}
@@ -362,7 +297,7 @@ Le figure suivante présente la réponse temporelle de l’axe de tangage à une
 exemple au vent qui crée un balancement de la GYRCAM) (ordonnée en degrés).
 
 \begin{center}
-\includegraphics[width=\linewidth]{images/fig_05}
+\includegraphics[width=\linewidth]{fig_05}
 \end{center}
 \fi
 
@@ -380,7 +315,7 @@ La commande s'oppose à la perturbation (comme évoqué question \ref{q28}). Le 
 Afin d’améliorer le comportement, un autre réglage a été effectué (voir figure suivante).
 
 \begin{center}
-\includegraphics[width=\linewidth]{images/fig_06}
+\includegraphics[width=\linewidth]{fig_06}
 \end{center}
 \fi
 
@@ -401,12 +336,12 @@ Dans ce cas, les mouvements du porteur sont inférieurs à 0,1 degres (en valeur
 \ifprof
 \begin{corrige}~\\
 \begin{center}
-\includegraphics[width=.75\linewidth]{images/cor_02}
+\includegraphics[width=.75\linewidth]{cor_02}
 \end{center}
 \end{corrige}
 \else
 \begin{center}
-\includegraphics[width=\linewidth]{images/fig_07}
+\includegraphics[width=\linewidth]{fig_07}
 \end{center}
 \fi
 
@@ -444,19 +379,19 @@ Dans ce cas, les mouvements du porteur sont inférieurs à 0,1 degres (en valeur
 \fi
 
 
-
-
-
-
-\end{document}
-\begin{center}
-\includegraphics[width=\linewidth]{images/}
-\end{center}
-
-\subparagraph{}
-\textit{}
-\ifprof
-\begin{corrige}
-\end{corrige}
-\else
-\fi
+%
+%
+%
+%
+%\end{document}
+%\begin{center}
+%\includegraphics[width=\linewidth]{}
+%\end{center}
+%
+%\subparagraph{}
+%\textit{}
+%\ifprof
+%\begin{corrige}
+%\end{corrige}
+%\else
+%\fi
