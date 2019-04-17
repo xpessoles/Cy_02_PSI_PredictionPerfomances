@@ -1,153 +1,103 @@
-%%%% Paramétrage du TD %%%%
-\def\xxactivite{TD 01 \ifprof \\ Corrigé \else \fi }
-\def\xxauteur{\textsl{Xavier Pessoles}}
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Modélisation SLCI : Rapidité des systèmes},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+\usepackage{multicol}
+\usepackage{siunitx}
+%\usepackage{picins}
+\fichetrue
+%\fichefalse
+
+\proftrue
+%\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PSI$\star$ -- MP}
+\def\xxnumpartie{Cycle 02}
+\def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
+
 
 \def\xxnumchapitre{Chapitre 3 \vspace{.2cm}}
 \def\xxchapitre{\hspace{.12cm} Précision des systèmes}
 
+
+\def\xxtitreexo{Fauteuil dynamique de cinéma}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Concours Centrale-Supélec TSI 2015}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{Cycle 02}
+
+\def\xxactivite{TD 01}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
 \def\xxcompetences{%
 \textsl{%
 \textbf{Savoirs et compétences :}\\
-\vspace{-.4cm}
+%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
 %\begin{itemize}[label=\ding{112},font=\color{ocre}] 
-%\item \textit{Mod3.C2 : } pôles dominants et réduction de l’ordre du modèle : principe, justification
-%\item \textit{Res2.C4 : } stabilité des SLCI : définition entrée bornée -- sortie bornée (EB -- SB)	
-%\item \textit{Res2.C5 : } stabilité des SLCI : équation caractéristique	
-%\item \textit{Res2.C6 : } stabilité des SLCI : position des pôles dans le plan complexe
-%\item \textit{Res2.C7 : } stabilité des SLCI : marges de stabilité (de gain et de phase)
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
 %\end{itemize}
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
 }}
 
 \def\xxfigures{
 \includegraphics[width=.4\linewidth]{images/image1}
 }%figues de la page de garde
 
-\def\xxtitreexo{Fauteuil dynamique de cinéma}
-\def\xxsourceexo{\hspace{.2cm} \footnotesize{Concours Centrale-Supélec TSI 2015}}
 
-\iflivret
-\input{../../style/new_pagegarde}
-\else
-\input{../../style/new_pagegarde}
-\fi
-\setlength{\columnseprule}{.1pt}
+\def\xxpied{%
+Cycle 02 -- Modéliser les SLCI afin de prévoir leur comportement\\
+Chapitre 3 -- \xxactivite%
+}
 
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+\usepackage{pgfplots}
+\begin{document}
+
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{4.5cm}
 \pagestyle{fancy}
 \thispagestyle{plain}
-
-
-\vspace{4.5cm}
 
 \def\columnseprulecolor{\color{ocre}}
 \setlength{\columnseprule}{0.4pt} 
 
-%%%%%%%%%%%%%%
-%\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
-%\usepackage[%
-%    pdftitle={Modélisation SLCI : Rapidité des systèmes},
-%    pdfauthor={Xavier Pessoles}]{hyperref}
-%    
-%\input{style/new_style}
-%\input{style/macros_SII}
-%\usepackage{multicol}
-%\usepackage{siunitx}
-%%\usepackage{picins}
-%\fichetrue
-%%\fichefalse
-%
-%\proftrue
-%%\proffalse
-%
-%\tdtrue
-%%\tdfalse
-%
-%\courstrue
-%\coursfalse
-%
-%\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
-%\def\xxtete{Sciences Industrielles de l'Ingénieur}
-%
-%\def\classe{PSI$\star$ -- MP}
-%\def\xxnumpartie{Cycle 02}
-%\def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
-%
-%
+\def\pathfig{images}
 
-%
-%
-%
-%\def\xxposongletx{2}
-%\def\xxposonglettext{1.45}
-%\def\xxposonglety{20}
-%%\def\xxonglet{Part. 1 -- Ch. 3}
-%\def\xxonglet{Cycle 02}
-%
-%\def\xxactivite{TD 01}
-%\def\xxauteur{\textsl{Xavier Pessoles}}
-%
-%\def\xxcompetences{%
-%\textsl{%
-%\textbf{Savoirs et compétences :}\\
-%%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
-%%\noindent \textbf{Résoudre :} à partir des modèles retenus :
-%%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
-%%\item choisir une méthode de résolution analytique, graphique, numérique;
-%%\item mettre en \oe{}uvre une méthode de résolution.
-%%\end{itemize}
-%%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
-%%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
-%%\end{itemize}
-%%
-%%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
-%}}
-%
-%\def\xxfigures{
-%\includegraphics[width=.4\linewidth]{images/image1}
-%}%figues de la page de garde
-%
-%
-%\def\xxpied{%
-%Cycle 02 -- Modéliser les SLCI afin de prévoir leur comportement\\
-%Chapitre 3 -- \xxactivite%
-%}
-%
-%\setcounter{secnumdepth}{5}
-%%---------------------------------------------------------------------------
-%
-%\usepackage{pgfplots}
-%\begin{document}
-%
-%%\chapterimage{png/Fond_Cin}
-%\input{style/new_pagegarde}
-%\vspace{4.5cm}
-%\pagestyle{fancy}
-%\thispagestyle{plain}
-%
-%\def\columnseprulecolor{\color{ocre}}
-%\setlength{\columnseprule}{0.4pt} 
-%
-%\def\pathfig{images}
-
-
-
-
-\ifprof
-\else
 \begin{multicols}{2}
-\fi
+
 
 
 %\section{Fauteuil dynamique de cinéma}
 \section*{Présentation du système}
-\setcounter{exo}{0}
-\ifprof
-\else
+
 Ce concept a été inventé au Canada en 2008, et s'est étendu à toute l'Amérique du Nord avant de traverser l'Atlantique pour proposer un cinéma dynamique avec une quantité d'effets spéciaux et spatiaux. Le fauteuil dynamique de cinéma est principalement destiné à l'industrie du divertissement et de la simulation.
-\fi
 
 \subsection*{Mise en situation}
-\ifprof
-\else
 
 Le siège dynamique est constitué :
 \begin{itemize}
@@ -188,7 +138,6 @@ accouplé aussi sur l'axe de chaque moteur est utilisé par une carte à
 base de microcontrôleur pour réaliser un asservissement de position, une
 sortie analogique de cette carte étant reliée à l'entrée de consigne du
 variateur de vitesse.
-\fi
 %
 %\subsubsection{Étude proposée}
 %
@@ -214,8 +163,6 @@ variateur de vitesse.
 
 \subsection*{Exigence fonctionnelle « amplifier la sensation
 d'accélération »}
-\ifprof
-\else
 
 \begin{obj}
 Proposer un modèle de comportement des éléments réalisant l'exigence
@@ -237,7 +184,6 @@ performances attendues listées par le cahier des charges.
 \item dépassement $<20\%$.
 \end{itemize}
 \end{itemize}
-\fi
 
 %%\begin{table}[!htb]
 % %\centering
@@ -579,8 +525,6 @@ performances attendues listées par le cahier des charges.
 
 %%\FloatBarrier
 \subsubsection*{Modélisation de l'asservissement de vitesse}
-\ifprof
-\else
 
 L'étude suivante consiste à obtenir un modèle simplifié de la boucle
 d'asservissement de vitesse (figure suivante) au regard des réglages effectués
@@ -597,7 +541,6 @@ muscles cervicaux, peut être modélisée par un échelon.
 %\end{figure}
 
  On a \(C_{\Omega}\left( p \right) = k_{1}\left( 1 + \dfrac{1}{T_{1}p} \right)\).
- \fi
  
 
 \subparagraph{}\textit{Exprimer la fonction de transfert de la boucle de vitesse
@@ -605,14 +548,14 @@ muscles cervicaux, peut être modélisée par un échelon.
   \(C_{R}\left( p \right) = 0\). Le résultat sera mis sous une forme canonique.}
 
 \ifprof
-\begin{corrige}~\\
-
+\begin{corrige}
 $H_{\Omega}(p)=\dfrac{k_{1}\left( 1 + \dfrac{1}{T_{1}p} \right)\dfrac{K}{K_{rI}}\dfrac{1}{Jp+f}}{1+ K_{\Omega}k_{1}\left( 1 +\dfrac{1}{T_{1}p} \right)\dfrac{K}{K_{rI}}\dfrac{1}{Jp+f}}$
+
 $=\dfrac{k_{1}\left( 1 + T_{1}p \right)K}{T_{1}p K_{rI}\left(Jp+f\right) + K_{\Omega}k_{1}\left(1+ T_{1}p\right) K}$
 
-~\\
-
 $=\dfrac{\dfrac{Kk_{1}}{K_{\Omega}k_{1}K}\left( 1 + T_{1}p \right)}{\dfrac{T_{1} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{fT_{1} K_{rI}}{K_{\Omega}k_{1}K}+\dfrac{K_{\Omega}k_{1}T_{1}K}{K_{\Omega}k_{1}K}\right)p + 1 }$
+
+
 $H_{\Omega}(p)=\dfrac{\dfrac{1}{K_{\Omega}}\left( 1 + T_{1}p \right)}{\dfrac{T_{1} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{f K_{rI}}{K_{\Omega}k_{1}K}+1\right)T_{1}p + 1 }$
 
 \end{corrige}
@@ -631,6 +574,7 @@ $H_{\Omega}(p)=\dfrac{\dfrac{1}{K_{\Omega}}\left( 1 + T_{1}p \right)}{\dfrac{T_{
 
 On a 
 $H_{\Omega}(p)=\dfrac{\dfrac{1}{K_{\Omega}}\left( 1 + \dfrac{J}{f}p \right)}{\dfrac{\dfrac{J}{f} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{f K_{rI}}{K_{\Omega}k_{1}K}+1\right)\dfrac{J}{f}p + 1 }$
+
 $=\dfrac{\left( f + Jp \right)}{\dfrac{ K_{rI}J^2}{k_{1}K}p^2+\left(\dfrac{f K_{rI}}{k_{1}K}+K_{\Omega}\right)Jp + fK_{\Omega}}$
 
 $=\dfrac{\left( f + Jp \right)k_{1}K}{ K_{rI}J^2p^2+\left(f K_{rI}+K_{\Omega}k_{1}K\right)Jp + fK_{\Omega}k_{1}K}$
@@ -638,22 +582,27 @@ $=\dfrac{\left( f + Jp \right)k_{1}K}{ K_{rI}J^2p^2+\left(f K_{rI}+K_{\Omega}k_{
 
 On a :
 $\Delta =\left(f K_{rI}+K_{\Omega}k_{1}K\right)^2J^2 -4 fK_{\Omega}k_{1}KK_{rI}J^2 $ 
+
 $=\left(f^2 K_{rI}^2+K_{\Omega}^2k_{1}^2K^2+2f K_{rI}K_{\Omega}k_{1}K\right)J^2 -4 fK_{\Omega}k_{1}KK_{rI}J^2 $
 
 $=\left(f^2 K_{rI}^2+K_{\Omega}^2k_{1}^2K^2-2f K_{rI}K_{\Omega}k_{1}K\right)J^2  $
+
 $=\left(f K_{rI}-K_{\Omega}k_{1}K\right)^2J^2  $
 
 On a donc 
 
-$p_{12} = \dfrac{-\left(f K_{rI}+K_{\Omega}k_{1}K\right)J \pm \left(f K_{rI}-K_{\Omega}k_{1}K\right)J}{2 K_{rI}J^2}$, 
+$p_{12} = \dfrac{-\left(f K_{rI}+K_{\Omega}k_{1}K\right)J \pm \left(f K_{rI}-K_{\Omega}k_{1}K\right)J}{2 K_{rI}J^2}$
 
 $p_{1} = \dfrac{-fJ K_{rI}-K_{\Omega}k_{1}KJ + fJ K_{rI}-K_{\Omega}k_{1}KJ}{2 K_{rI}J^2}$
-$= -\dfrac{K_{\Omega}k_{1}K }{ K_{rI}J}$, 
-$p_{2} = \dfrac{-fJ K_{rI}-K_{\Omega}k_{1}KJ -fJ K_{rI}+K_{\Omega}k_{1}KJ}{2 K_{rI}J^2}= -\dfrac{f }{J}$.
+$= -\dfrac{K_{\Omega}k_{1}K }{ K_{rI}J}$
+
+
+$p_{2} = \dfrac{-fJ K_{rI}-K_{\Omega}k_{1}KJ -fJ K_{rI}+K_{\Omega}k_{1}KJ}{2 K_{rI}J^2}= -\dfrac{f }{J}$
 
 On a donc 
 
 $H_{\Omega}(p)=\dfrac{J\left( \dfrac{f}{J} + p \right)k_{1}K}{\left(p+\dfrac{f }{J} \right)\left(p+\dfrac{K_{\Omega}k_{1}K }{ K_{rI}J} \right)}=\dfrac{Jk_{1}K}{p+\dfrac{K_{\Omega}k_{1}K }{ K_{rI}J} }$
+
 $=\dfrac{\dfrac{ K_{rI}J^2}{K_{\Omega} } }{\dfrac{ K_{rI}J}{K_{\Omega}k_{1}K }p+1 }$
 
 On a donc $b=\dfrac{ K_{rI}J^2}{K_{\Omega} }$ et $\tau =\dfrac{ K_{rI}J}{K_{\Omega}k_{1}K }$.
@@ -674,13 +623,13 @@ Autre solution : $b=\dfrac{1}{K_{\Omega}} = 20 \pi = \SI{62,8}{rad.s{-1}V^{-1}}$
   $c_R(t)$ de type échelon.}
 
 \ifprof
-\begin{corrige}~\\
-
+\begin{corrige}
 \begin{center}
 \includegraphics[width=\linewidth]{images/cor_01.png}
 \end{center}
 
 $\dfrac{\theta(p)}{C_r(p)}=\dfrac{1}{C_{\Omega}(p)\dfrac{K}{K_{ri}}}\dfrac{\dfrac{b}{1+\tau p}\dfrac{1}{p}}{1+\dfrac{abc}{1+\tau p}\dfrac{1}{p}}$ 
+
 $=\dfrac{1}{ k_{1}\left( 1 + \dfrac{1}{T_{1}p} \right)\dfrac{K}{K_{ri}}}\dfrac{\dfrac{b}{1+\tau p}\dfrac{1}{p}}{1+\dfrac{abc}{1+\tau p}\dfrac{1}{p}}$
 
 $=\dfrac{T_{1}K_{ri}p}{ k_{1}\left( T_{1}p + 1 \right)K}\cdot \dfrac{b}{p\left(1+\tau p \right)+abc}$
@@ -691,8 +640,6 @@ et $\lim\limits_{t\to\infty} \theta(t) = 1$.
 \fi
 
 \subsubsection*{Modélisation de la boucle d'asservissement de position}
-\ifprof
-\else
 
 Après toutes les simplifications précédentes, est obtenu le modèle de la
 figure suivante où seul le comportement en réponse à la consigne
@@ -708,8 +655,6 @@ position \label{fig14}}
 \end{center}
 %\end{figure}
 
-\fi
-
 
 \subparagraph{}\textit{Exprimer la fonction de transfert $\theta(p)/\theta_C(p)$.
   Déterminer ensuite la valeur numérique de $a$ pour avoir un facteur
@@ -718,9 +663,9 @@ position \label{fig14}}
   \SI{63}{rad\cdot s^{-1}\cdot V^{-1}}$, $\tau= \SI{2,2}{ms}$, $c = \SI{40}{rad^{-1}}$.)}
 
 \ifprof
-\begin{corrige}~\\
-
+\begin{corrige}
 On a $\dfrac{\theta(p)}{\theta_C(p)}=c\dfrac{\dfrac{ab}{p\left( \tau p + 1\right)}}{1+\dfrac{abc}{p\left( \tau p + 1\right)}}$
+
 $=\dfrac{{abc}}{p\left( \tau p + 1\right)+{abc}}=\dfrac{1}{ \dfrac{\tau}{abc} p^2 + \dfrac{p}{abc}+1}$.
 
 On a $\omega_0 = \sqrt{abc/\tau}$ et $\dfrac{2\xi}{\omega_0}=\dfrac{1}{abc}$ et 
@@ -733,8 +678,6 @@ En conséquence, ${a}=\dfrac{1}{4bc\tau\xi^2}=0,092$. (On prend $\xi=0,7$ car ce
 %\subparagraph{}\textit{Tracer le diagramme de Bode de la fonction de le fonction de transfert en boucle ouverte. Quel que soit le résultat de la partie précédente, on prendra $a=\SI{0,1}{V}$.}
 
 \subsection*{Analyse de la précision du système}
-\ifprof
-\else
 
 Un aspect important pour la simulation sensorielle du siège dynamique
 est la capacité du système à reproduire fidèlement la consigne de
@@ -743,7 +686,6 @@ dynamique. Dans un premier temps, l'étude se limite à la précision
 statique en utilisant le modèle défini à la figure précédente. L'erreur
 représente la différence entre l'entrée $\theta_C(t)$ et la
 sortie $\theta(t)$ et est définie par la variable $\mu(t) = \theta_C(t)-\theta(t)$.
-\fi
 
 %\textbf{Indication : } l'erreur d'accélération est déterminée suite à une entrée de type
 %accélération ($\theta_C(t)=t^2\cdot \dfrac{u(t)}{2}$, $\theta_C(p)=\dfrac{1}{p^3}$.
@@ -802,8 +744,6 @@ charges fonctionnel.
 %  siège dynamique de cinéma.}
 %  
 
-\ifprof
-\else
 
 La figure suivante représente la structure d'une correction par anticipation
 qui permet d'améliorer la précision statique du système
@@ -814,7 +754,6 @@ qui permet d'améliorer la précision statique du système
 \textit{Structure avec anticipation \label{fig16}}
 \end{center}
 %\end{figure}
-\fi
 
 \subparagraph{\label{q13}}\textit{Déterminer l'erreur de position $\mu$\emph{\textsubscript{p}} puis
   l'erreur de traînage $\mu$\emph{\textsubscript{v}}. Conclure sur l'erreur
@@ -826,6 +765,7 @@ On a
 $\varepsilon_{\text{codeur}}(p)=c\theta_c(p)-c\theta(p)$ 
 
 $=c\theta_c(p)-\dfrac{bc}{p\left(\tau p + 1 \right)}U_{C \Omega }(p)$
+
  $=c\theta_c(p)-\dfrac{bc}{p\left(\tau p + 1 \right)}\left( \theta_C(p) dp + a \varepsilon_{\text{codeur}}(p) \right)$
 
 $\Leftrightarrow \varepsilon_{\text{codeur}}(p)\left(1+\dfrac{abc}{p\left(\tau p + 1 \right)}\right) = \theta_C(p)  \left(c-\dfrac{bcd}{\tau p + 1 } \right)$
@@ -862,9 +802,6 @@ $ =   \dfrac{\tau}{ab}$.
 \else
 \fi
 
-\ifprof
-\else
-
 Un aspect important pour la simulation sensorielle du siège dynamique
 est la capacité du système à reproduire rapidement les consignes
 d'accélération. À l'aide d'une simulation, la variable accélération
@@ -879,7 +816,6 @@ pour la période transitoire, et ce lorsque la consigne vaut
 \textit{Accélération du dosseret avec et sans anticipation \label{fig17}}
 \end{center}
 %\end{figure}
-\fi
 
 \subparagraph{}\textit{Conclure quant au respect du cahier des charges vis-à-vis des
   accélérations produites par le dosseret du siège dynamique de cinéma.}
@@ -903,9 +839,6 @@ pour la période transitoire, et ce lorsque la consigne vaut
 
 Valider le choix de conception pour la réalisation de la commande simultanée des deux moteurs de l'assise du siège.
 \end{obj}
-
-\ifprof
-\else
 
 En mode simultané (figure suivante), les consignes de vitesse de chaque
 variateur sont issues d'un calculateur numérique : a, d et c sont
@@ -933,7 +866,6 @@ $a =\SI{0,09}{V}$, $c =\SI{40}{rad^{-1}}$ et $d = \SI{0,016}{V.rad^{-1}.s}$.
 \end{center}
 %\end{figure}
 
-\fi
 
 \subparagraph{}\textit{En réutilisant éventuellement les calculs effectués aux questions \ref{q13} et \ref{q14} et en
   tenant compte des différences de réglage de retour vitesse et des
@@ -954,7 +886,7 @@ En raisonnant graphiquement, on a $\theta_1(p)- \theta_2(p)=\varepsilon_{\text{c
 \fi
 
 La figure \ref{fig20} représente le résultat d'une simulation de
-$\theta_1(t)-\theta_2(t)$ pour une
+$\theta$\emph{\textsubscript{1}}(t)--$\theta$\emph{\textsubscript{2}}(t) pour une
 consigne \(\theta_{C}\ \left( t \right) = \ \frac{t^{2}}{2}U(t)\)
 
 \subparagraph{}\textit{Conclure quant à l'erreur en accélération lors de la commande
@@ -965,9 +897,6 @@ consigne \(\theta_{C}\ \left( t \right) = \ \frac{t^{2}}{2}U(t)\)
 \else
 \fi
 
-\ifprof
-\else
-
 
 %\begin{figure}[!htb]
 \begin{center}
@@ -977,7 +906,6 @@ consigne \(\theta_{C}\ \left( t \right) = \ \frac{t^{2}}{2}U(t)\)
 fonction du temps \label{fig20}}
 \end{center}
 %\end{figure}
-\fi
 
 
 \subsection*{Éléments de correction}
@@ -993,35 +921,29 @@ fonction du temps \label{fig20}}
 \item ...
 \item ...
 \end{enumerate}
-
-
-
-\ifprof
-\else
 \end{multicols}
-\fi
 
 %\begin{center}
 %\includegraphics[width=\linewidth]{images/schema_bloc.jpg}
 %
 %\textit{Schéma-blocs de l'asservissement du dosseret \label{fig6}}
 %\end{center}
-%
-%\end{document}
-%
-%\subparagraph{}\textit{}
-%\ifprof
-%\begin{corrige}
-%\end{corrige}
-%\else
-%\fi
-%
-%\begin{center}
-%\includegraphics[width=\linewidth]{images/}
-%%\textit{}
-%\end{center}
-%\begin{center}
-%\includegraphics[width=\linewidth]{images/img_04}
-%%\textit{}
-%\end{center}
-%
+
+\end{document}
+
+\subparagraph{}\textit{}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/}
+%\textit{}
+\end{center}
+\begin{center}
+\includegraphics[width=\linewidth]{images/img_04}
+%\textit{}
+\end{center}
+
