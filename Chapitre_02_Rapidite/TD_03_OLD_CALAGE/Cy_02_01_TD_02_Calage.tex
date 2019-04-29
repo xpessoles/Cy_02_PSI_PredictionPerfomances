@@ -1,0 +1,823 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Modélisation SLCI : Rapidité des systèmes},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+\usepackage{multicol}
+\usepackage{siunitx}
+%\usepackage{picins}
+\fichetrue
+%\fichefalse
+
+\proftrue
+%\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PSI$\star$ -- MP}
+\def\xxnumpartie{Cycle 02}
+\def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
+
+
+\def\xxnumchapitre{Chapitre 2 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Rapidité des systèmes}
+
+
+\def\xxtitreexo{Système de distribution}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Editions Vuibert}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{Cycle 02}
+
+\def\xxactivite{TD 02}
+\def\xxauteur{\textsl{Editions Vuibert}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+Le schéma-blocs du système est mis en place. \textbf{Le modèle est alors affiné pour présenter un comportement  plus proche du réel.} Les grandeurs caractérisant les performances du modèle sont alors déterminées et les résultats sont comparés aux exigences 
+du cahier des charges.}}
+%Le détail des compétences est donné dans le tableau \ref{CompCHAP2}.
+
+%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
+%\end{itemize}
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
+
+
+\def\xxfigures{
+\includegraphics[width=4cm]{images/2.png}
+}%figues de la page de garde
+
+
+\def\xxpied{%
+Cycle 02 -- Modéliser les SLCI dans le but de prévoir leur comportement\\
+Chapitre 2 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+\usepackage{pgfplots}
+\begin{document}
+
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{5cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\def\pathfig{images}
+
+\begin{multicols}{2}
+
+
+\section*{Analyser le moteur et son système de distribution -- Pour information}
+
+\footnotesize
+La figure suivante %\ref{figurepistoncalage} 
+présente le moteur dans les deux positions extrêmes du piston, appelées point mort haut (PMH) et point mort bas (PMB). Le mouvement du piston dans sa chambre de combustion (ou cylindre) est transmis sous forme de rotation à l'arbre moteur (ou vilebrequin, angle de rotation $\theta{}_{V}$) par l'intermédiaire d'une bielle. Le système de distribution simplifié comporte une soupape d'admission et une soupape d'échappement qui permettent respectivement d'assurer le remplissage du cylindre en mélange carburé puis l'évacuation des gaz après combustion. 
+
+%\begin{center}
+%\includegraphics[width=\linewidth]{\pathfig/2.png}
+
+%\captionof{figure}{Moteur 6 cylindres en ligne.}
+%\end{center}
+
+\begin{center}
+%\includegraphics[width=.9\textwidth]{\pathfig/3.png}
+\includegraphics{\pathfig/figure2}
+%\captionof{figure}{Schématisation du moteur dans les deux positions extrêmes du piston. \label{figurepistoncalage}}
+\end{center}
+%\end{minipage}
+
+
+
+
+
+
+
+
+%\noindent \begin{minipage}[c]{.4\linewidth}
+%
+%Les quatre phases du cycle théorique d'un moteur quatre temps sont:
+%
+%\begin{itemize}
+%\item  (a) admission : ouverture de la soupape d'admission (OA);
+%
+%\item  (b) compression : fermeture de la soupape d'admission (FA);
+%
+%
+%\end{itemize}
+%
+%\end{minipage} \hfill
+%\begin{minipage}[c]{.6\linewidth}
+%
+%\begin{center}
+%%\includegraphics[width=.9\textwidth]{\pathfig/4.png}
+%\begin{tikzpicture}
+%	\node {\includegraphics[width=.9\textwidth]{\pathfig/4.pdf}};
+%	\node[scale=.5] at (-2.8,-1.1) {(a) admission};
+%	\node[scale=.5] at (-1,-1.1) {(b) compression};
+%	\node[scale=.5] at (1,-1.1) {(c) explosion,détente};
+%	\node[scale=.5] at (2.8,-1.1) {(d) échappement};
+%\end{tikzpicture}
+%\captionof{figure}{Les 4 temps du fonctionnement du moteur.}
+%\end{center}
+%\end{minipage}
+%
+%\begin{itemize}
+%\item  (c) explosion puis détente : la bougie crée une étincelle qui enflamme les gaz comprimés (allumage All) ;
+%
+%\item  (d) échappement : ouverture de la soupape d'échappement (OE) puis fermeture de la soupape d'échappement (FE), lorsque le piston a atteint sa position haute.
+%\end{itemize}
+
+
+%\noindent \begin{minipage}[c]{.4\linewidth}
+
+
+Le \textbf{système de distribution} pilote l'évolution de la section de passage du mélange carburé en définissant la levée de la soupape \og $h$ \fg{} en fonction de l'angle de rotation du vilebrequin $\theta_{V}$. Dans un système de distribution classique une came vient actionner un linguet par l'intermédiaire d'un galet, ce qui permet le déplacement de la soupape. La synchronisation de la rotation du vilebrequin et des arbres à cames est assurée par un système de type poulie-courroie.
+
+ 
+%\end{minipage} \hfill
+%\begin{minipage}[c]{.6\linewidth}
+%\centering
+%\includegraphics[width=.9\textwidth]{\pathfig/5.png}
+
+\begin{center}
+\includegraphics{\pathfig/figure3}
+%\captionof{figure}{Système de distribution et synchronisation par poulie-courroie.}
+\end{center}
+
+%\end{minipage}
+
+Pour la soupape d'admission la loi de levée idéale est définie figure suivante,%\ref{calageloiideale},
+avec des instants d'ouverture et de fermeture qui correspondent aux positions extrêmes (PMH ou PMB) du piston. 
+
+%\begin{figure}[!ht]
+%\centering
+%\includegraphics[width=.9\textwidth]{\pathfig/6.png}
+\begin{center}
+\includegraphics{\pathfig/figure4}
+\end{center}
+%\caption{Correspondance entre cycle et loi de levée.\label{calageloiideale}}
+%\vspace{-1em}
+%\end{figure}
+
+
+
+La prise en compte de l'inertie des gaz, de leurs temps d'inflammation, des échanges thermiques ont contraint à mettre en place une loi de levée réelle qui diffère sensiblement de la loi idéale.  L'ouverture de la soupape est en avance par rapport à sa position théorique et la fermeture en retard. Le terme \og étalement\fg{} de la loi de levée désigne la plage durant laquelle la soupape est ouverte tandis que le terme \og calage\fg{} désigne la position de cette zone par rapport à l'angle de rotation du vilebrequin.
+
+%\newpage
+On peut se contenter d'introduire un déphasage constant entre l'arbre à cames et le vilebrequin. Ce calage \og moyen \fg{} permet d'obtenir des performances et une consommation honorables, mais la course à la performance a amené les constructeurs à se tourner vers des systèmes de distribution à calage variable, c'est-à-dire susceptibles d'optimiser en permanence le calage en fonction du régime moteur et des autres paramètres influents.
+
+
+La figure ci-après illustre le fonctionnement du système de déphasage pour un des deux arbres à cames du moteur étudié.
+
+%\noindent \begin{minipage}[c]{.5\linewidth}
+
+Le \textbf{système de distribution à calage variable} est installé entre la poulie (1), entraînée par la chaîne de distribution, et l'arbre à cames (2), qui ne sont donc plus solidaires comme dans un système de distribution classique. Un système électro-hydraulique (servo-distributeur) permet de commander le déplacement $x_{3}$ du piston (3) par rapport à la culasse (0), ce qui impose un déplacement longitudinal au coulisseau (4). Celui-ci est relié à la poulie (1) par des cannelures hélicoïdales et à l'arbre à cames (2) par des cannelures droites. Cette cinématique particulière permet de transformer le déplacement $x_{3}$ du piston en un déphasage $\Delta \theta$ entre l'angle $\theta_{1}$ et l'angle $\theta_{2}$, représentant respectivement les positions angulaires par rapport à la culasse (0) de la poulie (1) et de l'arbre à cames (2).
+
+
+
+Le calculateur du véhicule détermine le calage optimal (et donc le déphasage $\Delta \theta $ correspondant) en fonction du régime du moteur et des autres paramètres influents. L'électro-aimant du servo-distributeur est alors actionné par un courant électrique de commande, généré par une électronique de contrôle qui corrige le déphasage de l'arbre à cames en fonction de la consigne générée par le calculateur et des mesures des positions angulaires du vilebrequin $\theta_{V}$ et de l'arbre à cames $\theta_{2}$. Ces mesures sont réalisées par deux capteurs de position angulaire (non représentés sur la photo-schéma) et les angles $\theta_{1}$ et $\theta_{2}$ s'en déduisent aisément.
+
+
+%\end{minipage} \hfill
+%\begin{minipage}[c]{.5\linewidth}
+
+\begin{center}
+%\includegraphics[width=.9\textwidth]{\pathfig/18.png}
+\includegraphics{\pathfig/figure5}
+%\captionof{figure}{Système de déphasage implanté sur les arbres à cames d'admission et d'échappement. \label{photoschemamoteur}}
+\end{center}
+%\end{minipage}
+
+
+\normalsize
+
+\subsection*{Cahier des charges}
+
+\begin{obj}
+L'objectif de cette étude est de définir l'architecture du système de commande et de déterminer les valeurs numériques de certaines caractéristiques afin d'obtenir un asservissement en poursuite du déphasage compatible avec le cahier des charges.
+\end{obj}
+
+
+\begin{center}
+%\begin{figure}[!ht]
+%\centering
+%\includegraphics[width=.7\textwidth]{\pathfig/req.png}
+\rotatebox{90}{\includegraphics[height=.5\linewidth]{\pathfig/Diagramme_exigences}}
+%\includegraphics[width=.7\textwidth]{\pathfig/Diagramme_exigences_02}
+%\caption{Diagramme partiel des exigences.}
+%\end{figure}
+\end{center}
+
+
+
+\section*{Modéliser le contrôle du système de déphasage\\}
+
+
+On rappelle que l'actionneur utilisé pour réaliser le déphasage $\Delta \theta $ de l'arbre à cames est un vérin hydraulique double-effet piloté par un servo-distributeur. La consigne de déphasage $\Delta \theta_{c}$ à obtenir est calculée à partir de diverses informations provenant de capteurs de position angulaire implantés sur le vilebrequin (mesure de $\theta_{V}$) et sur l'arbre à cames (mesure de $\theta_{2}$), de capteurs thermiques implantés à différents endroits dans le moteur et du capteur d'enfoncement de la pédale d'accélération. 
+
+
+
+
+%\begin{center}
+%\includegraphics[width=.9\textwidth]{\pathfig/10.png}
+
+%\captionof{figure}{Schéma bloc de l'architecture du système. %\label{calagebloc1}}
+%\end{center}
+
+% On note :
+% 
+% \begin{itemize}
+%
+%\item $\Delta \theta_{c}(t)$ la consigne de déphasage;
+%
+%\item  $q(t)$  le débit à l'entrée du vérin;
+%
+%\item  $x(t)$  le déplacement axial du piston du vérin;
+%
+%\item  $\theta_{2}(t)$ la position angulaire de l'arbre à cames;
+%
+%\item  $\theta_{v}(t)$ la position angulaire du vilebrequin;
+%
+%\item  $m_d(t)$ la mesure du déphasage;
+%
+%\item $\varepsilon(t) $  l'écart de tension;
+%
+%\item $u_{c}(t)$ la tension de commande;
+%
+%\item $i(t)$  le courant de commande du servo-distributeur;
+%
+%\item $\Delta \theta (t) $ le déphasage de l'arbre à cames;
+%
+%\item $m_{\theta_{2}}(t)$ la mesure de la position angulaire de l'arbre à cames;
+%
+%\item $m_{\theta _{v}}(t)$  la mesure de la position angulaire du vilebrequin;
+%
+%\item $\theta_{1}(t)$ la position angulaire de la poulie;
+%
+%\item $im_{\theta _{v}}(t)$ l'image de la mesure de la position angulaire du vilebrequin.
+%
+%\end{itemize}
+
+
+
+ Afin de simplifier la suite de l'étude, on supposera que la position angulaire du vilebrequin $\theta_{v}(t)$ est nulle, ce qui revient à étudier directement le déphasage de l'arbre à cames. Le schéma-blocs simplifié est donné ci-dessous.%Figure \ref{calagebloc2}.
+
+%Le schéma bloc Figure \ref{calagebloc1} donne alors celui de la Figure \ref{calagebloc2}.
+
+
+%%%%%%%%%%%%SCHEMA BLOC
+\begin{center}
+%\begin{figure}[!ht]
+%\centering
+\rotatebox{90}{\includegraphics[height=.4\linewidth]{\pathfig/22.png}}
+%\scalebox{.65}{
+%\begin{tikzpicture}
+%\sbEntree{E1}
+%\sbBloc[4]{A}{\begin{tabular}{c}Gain de \\ commande\\ \end{tabular}}{E1}
+%\sbRelier[$\Delta\theta_C(t)$]{E1}{A}
+%\sbComp[7]{C1}{A}
+%\sbRelier[$u_c(t)$]{A}{C1}
+%\sbBloc[3]{B}{Amplificateur}{C1}
+%\sbRelier[$\varepsilon(t)$]{C1}{B}
+%\sbBloc[3]{C}{\begin{tabular}{c}Servo\\distributeur\\\end{tabular}}{B}
+%\sbRelier[$i(t)$]{B}{C}
+%\sbBloc[3]{D}{Vérin}{C}
+%\sbRelier[$q(t)$]{C}{D}
+%\sbBloc[3]{E}{\begin{tabular}{c}Coulisseau à \\cannelures\\hélicoïdales\\\end{tabular}}{D}
+%\sbRelier[$x(t)$]{D}{E}
+%\sbSortie[4]{S}{E}
+%\sbRelier[$\Delta\theta(t)$]{E}{S}
+%\sbDecaleNoeudy{D}{F1}
+%\sbBlocr{F}{\begin{tabular}{c}Capteur de\\position de\\ l'arbre à cames\end{tabular}}{F1}
+%\sbRelieryx{E-S}{F}
+%\sbRelierxy[$m_d(t)$]{F}{C1}
+%\end{tikzpicture}}
+%
+%\caption{Schéma-blocs simplifié de l'architecture du système.\label{calagebloc2}}
+%\end{figure}
+\end{center}
+
+%%%%%%%%%%%
+ On considère que les capteurs de mesure des positions angulaires $\theta_{v}(t)$ du vilebrequin et $\theta_{2}(t)$ de l'arbre à cames sont assimilables à des gains purs de même valeur $C$. Le gain de commande est identique au gain du capteur mesurant la position angulaire de l'arbre à cames. Le gain de l'amplificateur est supposé unitaire. Le gain associé au coulisseau à cannelures hélicoïdales est noté $K_{c}$. Le servo-distributeur est modélisé par un gain pur noté $K_{e}$. On considérera les valeurs numériques suivantes : $C=\SI{10}{V/rad}$, $K_e=\SI{6.4e-5}{m^3.s^{-1}.A^{-1}}$  et  $K_{c}=\SI{18}{rad/m}$.
+
+
+
+\section*{Analyser le comportement dynamique en prenant en compte la compressibilité du fluide}
+
+
+ Pour analyser l'influence de la compressibilité du fluide et les fuites dans la partie hydraulique sur le comportement dynamique global du système, il est nécessaire de prendre en compte l'effort résistant exercé par le coulisseau à cannelures hélicoïdales sur le piston du vérin. Cette grandeur physique correspond à une perturbation.
+
+Dans un premier temps, les fuites ne sont pas introduites dans la modélisation. On admet alors que les équations simplifiées traduisant le comportement du vérin en prenant en compte la compressibilité du fluide sont :
+\begin{itemize}
+\item \textbf{pour l'aspect hydraulique}, $q(t)=S\dot{x}(t)+\frac{V}{B} \dot{p}(t)$ où $V$ est le volume moyen de la chambre du vérin (\SI{48}{cm^3}), $S$ est la surface utile du piston  (\SI{9.6}{cm^2}), $B$ est le coefficient de compressibilité de l'huile, de valeur \SI{1500e6}{Pa}, $x(t)$  le déplacement axial du piston du vérin, $q(t)$  le débit à l'entrée du vérin et $p(t)$ est la pression utile dans le vérin ;
+\item \textbf{pour l'aspect dynamique}, $M\ddot{x}(t)=Sp(t)+F_{1\to 4} (t)$ où $M$ est la masse des parties mobiles en translation, de valeur \SI{0,5}{kg} et $F_{1\to 4}(t)$ est la force exercée par la poulie sur le coulisseau.
+\end{itemize}
+
+%\begin{questions}
+
+\subparagraph{}\textit{Après avoir appliqué la transformée de Laplace aux différentes équations, compléter le schéma-blocs.}% de la figure \ref{ex_calage_sb2}.}
+
+%\interenum{
+%%%%%%%%%% SCHEMA BLOC
+\begin{center}
+%\begin{figure}[!ht]
+%\centering
+\rotatebox{90}{\includegraphics[height=.4\linewidth]{\pathfig/21.png}}
+\end{center}
+
+%\scalebox{.65}{
+%\begin{tikzpicture}
+%\sbEntree{E1}
+%\sbBloc[4]{A}{$C$}{E1}
+%\sbComp[6]{C1}{A}
+%\sbBloc{B}{1}{C1}
+%\sbBloc[3]{C}{}{B}
+%\sbBloc[3]{D}{}{C}
+%\sbComp{C2}{D}
+%\sbBloc[3]{E}{}{C2}
+%\sbSumh{C3}{E}
+%\sbBlocL{F}{}{C3}
+%\sbBloc[3]{I}{}{F}
+%\sbSortie[4]{S}{I}
+%\sbDecaleNoeudy[4]{C3}{G1}
+%\sbBlocr[0]{G}{}{G1}
+%\sbDecaleNoeudy[6]{Ddroite}{H1}
+%\sbBlocr[0]{H}{$C$}{H1}
+%\sbDecaleNoeudy[-4]{C3}{E2}
+%
+%\sbRelier[$\Delta\theta_c(p)$]{E1}{A}
+%\sbRelier[$U_c(p)$]{A}{C1}
+%\sbRelier[$\varepsilon(p)$]{C1}{B}
+%\sbRelier[$I(p)$]{B}{C}
+%\sbRelier[$Q(p)$]{C}{D}
+%\sbRelier[]{D}{C2}
+%\sbRelier[$P(p)$]{C2}{E}
+%\sbRelier{E}{C3}
+%\sbRelier[$X(p)$]{F}{I}
+%\sbRelieryx{F-I}{G}
+%\sbRelierxy{G}{C2}
+%\sbRelier[$\Delta\theta(p)$]{I}{S}
+%\sbRelieryx{I-S}{H}
+%\sbRelierxy{H}{C1}
+%\sbRelier[]{E2}{C3}
+%\node[right] at(E2) {$F_{1\to 4}(p)$};
+%\end{tikzpicture}}
+%
+%\captionof{figure}{Schéma-blocs avec fluide compressible.}
+%\label{ex_calage_sb2}
+%\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%}
+
+\subparagraph{}\textit{ Déterminer les fonctions de transfert $H_{Q}(p)$ et $H_{F}(p)$ qui relient $Q(p)$ et ${F}_{1 \rightarrow 4}(p)$ à $X(p)$ par la relation $X(p)={H}_{Q}(p)$.$Q(p)+{H}_{F}(p)$.${F}_{1 \rightarrow 4}(p)$, en prenant soin de mettre ces deux fonctions sous forme canonique afin d'en dégager les caractéristiques qu'on mettra en évidence, d'abord sous forme littérale puis sous forme numérique.}
+
+
+%\textit{Formes canoniques~: $H_{Q} (p)=\frac{1}{a_{1} .p} .\frac{1}{1+a_{2} .p^{2} } $     et     $H_{F} (p)=\frac{a_{3} }{1+a_{2} .p^{2} } $}
+
+
+ Le modèle du système simplifié prenant en compte la compressibilité du fluide peut se ramener au schéma-blocs ci-après.%de la figure \ref{ex_calage_sb3}.
+
+%%%%%%%%%%% SCHEMA BLOC
+\begin{center}
+%\begin{figure}[!ht]
+%\centering
+\rotatebox{90}{\includegraphics[height=.5\linewidth]{\pathfig/12.png}}
+\end{center}
+
+
+%\scalebox{.65}{
+%\begin{tikzpicture}
+%\sbEntree{E1}
+%\sbBloc[4]{A}{$C$}{E1}
+%\sbComp[6]{C1}{A}
+%\sbBloc{B}{1}{C1}
+%\sbBloc[3]{C}{}{B}
+%\sbBloc[3]{D}{$H_Q(p)$}{C}
+%\sbSumh{C3}{D}
+%\sbBloc[3]{I}{}{C3}
+%\sbSortie[4]{S}{I}
+%\sbDecaleNoeudy[4]{Ddroite}{H1}
+%\sbBlocr[0]{H}{$C$}{H1}
+%\sbDecaleNoeudy[-4]{Ddroite}{J1}
+%\sbBlocr[0]{J}{$H_F(p)$}{J1}
+%\sbDecaleNoeudx[-6]{J}{E2}
+%
+%
+%\sbRelier[$\Delta\theta_c(p)$]{E1}{A}
+%\sbRelier[$U_c(p)$]{A}{C1}
+%\sbRelier[$\varepsilon(p)$]{C1}{B}
+%\sbRelier[$I(p)$]{B}{C}
+%\sbRelier[$Q(p)$]{C}{D}
+%\sbRelier[]{D}{C3}
+%\sbRelier[$X(p)$]{C3}{I}
+%\sbRelier[$\Delta\theta(p)$]{I}{S}
+%\sbRelieryx{I-S}{H}
+%\sbRelierxy[$M_d(p)$]{H}{C1}
+%\sbRelier[$F_{1\to 4}(p)$]{E2}{J}
+%\sbRelierxy{J}{C3}
+%
+%\end{tikzpicture}}
+%\caption{Schéma-blocs simplifié.}
+%\label{ex_calage_sb3}
+%\end{figure}
+%
+%}
+%%%%%%%%%%%%%%%%ùùù
+
+
+\subparagraph{}\textit{On calcule les racines du polynôme caractéristique de la fonction de transfert en boucle fermée du système d'entrée $\Delta \theta_c$ ($1,667\cdot 10^{-11} p^{3} +9,6\cdot 10^{-4} p+1,15\cdot 10^{-2} =0$). Deux des racines sont à parties réelles positives. Conclure quant à la pertinence du modèle vis-à-vis de l'asservissement souhaité.}
+
+
+\section*{Déterminer l'influence des fuites hydrauliques}
+
+Il existe plusieurs façons de rendre le système stable. Il est possible, en particulier, d'introduire artificiellement un débit de fuite au niveau du vérin, débit supérieur aux débits de fuites internes qui sont insuffisants pour stabiliser le comportement dynamique du système. L'introduction de ce débit de fuite dans les équations traduisant le comportement du vérin conduit à la présence d'un coefficient d'amortissement $\xi_{Q}$ dans la fonction de transfert $H_{Q}$(p). On a alors :
+
+$H_{Q} (p)=\frac{1}{a_{1} p} \frac{1}{1+\frac{2\xi _{Q} }{\omega _{Q} }p+\frac{p^{2} }{\omega _{Q}^{2} } } $   avec $a_1=\SI{9.6}{10^{-4} m^2}$ et $\omega_Q=\SI{7589}{rad.s^{-1}}.$
+
+%%%% FG : Modifié suite au cobayage de Damien
+%%%%En prenant $\xi_{Q}=\num{0,0001}$, on obtient le diagramme de Bode donné figure \ref{calagebode1} pour la Fonction de Transfert en Boucle Ouverte ${H}_{BO1}(p)$, telle que ${M}_{d}(p) = {H}_{BO1}(p).{U}_{c}(p)$. Un zoom sur la résonance est donné sur la figure \ref{calagebode2}.
+%%%%
+%%%%
+%%%%\begin{figure}[!ht]
+%%%%\centering
+%%%%%\includegraphics[width=.5\textwidth]{\pathfig/13.pdf}
+%%%%%\includegraphics[width=.9\textwidth]{\pathfig/15.png}
+%%%%
+%%%%\subfigure[Diagrammes de Bode de la FTBO\label{calagebode1}]{\includegraphics[]{\pathfig/BO_bode}}\hfill
+%%%%\subfigure[Diagrammes de Bode de la FTBO (ZOOM)\label{calagebode2}]{\includegraphics[]{\pathfig/BO_bode_zoom}}
+%%%%
+%%%%\captionof{figure}{Diagrammes de Bode de la fonction $H_{BO1}$}
+%%%%\end{figure}
+%%%%
+%%%%%\begin{center}
+%%%%%\includegraphics[width=.5\textwidth]{\pathfig/14.pdf}
+%%%%%%\includegraphics[width=.9\textwidth]{\pathfig/15.png}
+%%%%%\captionof{figure}{Diagramme de Bode (ZOOM) de la fonction $H_{BO1}$\label{calagebode2}}
+%%%%%
+%%%%%\end{center}
+%%%%
+%%%%%\noindent \begin{minipage}[c]{.45\linewidth}
+%%%%%\setlength{\parindent}{2ex}
+%%%%%
+%%%%% 
+%%%%%
+%%%%%
+%%%%%
+%%%%%\vspace*{1cm}
+%%%%%
+%%%%%
+%%%%%\end{minipage} \hfill
+%%%%%\begin{minipage}[c]{.6\linewidth}
+%%%%%\end{minipage}
+%%%%%
+%%%%%
+%%%%%
+%%%%La résonance ne dépend que du terme de second ordre de la fonction de transfert en boucle ouverte.}
+%%%%
+%%%%
+%%%%
+%%%%\item{Exprimer le gain du terme de second ordre pour la pulsation de résonance $\omega=\omega_Q\sqrt{1-\xi^2}$ en fonction de $\xi_Q$.}
+%%%%
+%%%%
+%%%%\item{\`A partir de l'analyse des marges de stabilité sur la figure \ref{calagebode2}, déterminer la valeur limite du coefficient d'amortissement $\xi_{Q}$ qui stabilise le comportement du système. Donner dans ce cas les valeurs de la marge de phase et de la marge de gain.}
+%%%%
+%%%%\interenum{
+%%%%%\textcolor{red}{DV : aide à revoir car pas clair. Plutôt demander dans la question d'exprimer le gain pour la pulsation de résonance en fct de xi et faire trouver xi.}
+%%%%%\textbf{\textit{Aide~: Nous avons jusqu'ici stabilité les systèmes en utilisant le gain cependant ici une autre méthode nous est proposée. On détermine aussi de combien il faut \og descendre\fg{} la courbe. Puis on utilise le fait qu'il y a résonance et que pour la diminution on utilise le coefficient de surtension est égal à $Q=20.\log \frac{1}{2.\xi _{Q} .\sqrt{1-\xi _{Q} ^{2} } } =73,9dB$. On peut alors lier la diminution à la valeur du coefficient d'amortissement.}}
+%%%%
+%%%% Afin d'assurer la stabilité du système, on prendra pour la suite comme valeur de coefficient d'amortissement $\xi_{Q}=\num{0,001}$.
+%%%%
+%%%%}
+%%%%
+%%%%\item{Pour cette dernière valeur de $\xi_{Q}$ égale à 0,001 déterminer les valeurs de la marge de phase et de la marge de gain. Conclure sur l'intéret d'introduire les fuites.}
+%%%%%\textcolor{red}{AC : le gain étant toujours négatif, je suis embêté pour la définition de la marge de phase}}
+%%%%
+En prenant $\xi_{Q}=\num{0,001}$, on obtient le diagramme de Bode donné ci-dessous
+%figure \ref{calagebode1} 
+pour la Fonction de Transfert en Boucle Ouverte ${H}_{BO1}(p)$, telle que ${M}_{d}(p) = {H}_{BO1}(p){U}_{c}(p)$. 
+
+
+\begin{center}
+%\begin{figure}[!ht]
+%\centering
+%\includegraphics[width=.8\textwidth]{\pathfig/Bode001.png}
+\includegraphics[width=\linewidth]{\pathfig/BO_bode}
+\end{center}
+
+%\captionof{figure}{Diagrammes de Bode de la fonction $H_{BO1}$.}
+%\label{calagebode1}
+%\end{figure}
+%}
+
+
+%\begin{center}
+%\includegraphics[width=.5\textwidth]{\pathfig/14.pdf}
+%%\includegraphics[width=.9\textwidth]{\pathfig/15.png}
+%\captionof{figure}{Diagramme de Bode (ZOOM) de la fonction $H_{BO1}$\label{calagebode2}}
+%
+%\end{center}
+
+%\noindent \begin{minipage}[c]{.45\linewidth}
+%\setlength{\parindent}{2ex}
+%
+% 
+%
+%
+%
+%\vspace*{1cm}
+%
+%
+%\end{minipage} \hfill
+%\begin{minipage}[c]{.6\linewidth}
+%\end{minipage}
+%
+%
+%
+
+
+
+
+\subparagraph{}\textit{\`A partir du diagramme de Bode précédent,
+%de la figure \ref{calagebode1}, 
+déterminer les valeurs de la marge de phase. Conclure par rapport au cahier des charges et sur l'intérêt d'introduire des fuites.}
+
+%\interenum{
+%\textcolor{red}{DV : aide à revoir car pas clair. Plutôt demander dans la question d'exprimer le gain pour la pulsation de résonance en fct de xi et faire trouver xi.}
+%\textbf{\textit{Aide~: Nous avons jusqu'ici stabilité les systèmes en utilisant le gain cependant ici une autre méthode nous est proposée. On détermine aussi de combien il faut \og descendre\fg{} la courbe. Puis on utilise le fait qu'il y a résonance et que pour la diminution on utilise le coefficient de surtension est égal à $Q=20.\log \frac{1}{2.\xi _{Q} .\sqrt{1-\xi _{Q} ^{2} } } =73,9dB$. On peut alors lier la diminution à la valeur du coefficient d'amortissement.}}
+
+% Afin d'assurer la stabilité du système, on prendra pour la suite comme valeur de coefficient d'amortissement $\xi_{Q}=\num{0,001}$.
+
+%}
+
+%\item{Pour cette dernière valeur de $\xi_{Q}$ égale à 0,001 déterminer les valeurs de la marge de phase et de la marge de gain. Conclure sur l'intéret d'introduire les fuites.}
+%\textcolor{red}{AC : le gain étant toujours négatif, je suis embêté pour la définition de la marge de phase}}
+%%%% FG : fin modif suite cobayage
+
+\section*{Optimiser le comportement du système}
+
+Pour toutes les phases d'accélération et de décélération du véhicule, le régime moteur n'est pas constant. Le système doit donc en permanence ajuster la valeur du déphasage. Il est alors nécessaire d'étudier la réponse du système asservi à une rampe unitaire.
+
+
+\subparagraph{}\textit{ À partir du modèle précédent, préciser le mode dominant de la FTBO $H_{BO2}$(p) telle que $M_{d}(p) = H_{BO2}(p)U_{c}$(p). Déterminer la bande passante de cette modélisation. }
+
+\subparagraph{}\textit{ Déterminer l'erreur statique en réponse à une rampe du système. Quelle doit être la classe du système en boucle ouverte pour annuler cet écart (ici la perturbation est négligée) ?}
+
+\subparagraph{}\textit{On modifie le schéma-blocs comme sur la figure suivante,%\ref{ex_calage_sb4}, 
+quelle serait l'influence d'une perturbation en échelon sur la précision du système ?}
+
+%\begin{center}
+%\includegraphics[width=.85\textwidth]{\pathfig/15.png}
+%\end{center}
+
+
+%%%%%%%%%%%%%%%% SCHEMA BLOCS
+%\begin{figure}[!ht]
+%\centering
+\begin{center}
+\rotatebox{90}{\includegraphics[height=.4\linewidth]{\pathfig/12.png}}
+\end{center}
+%\scalebox{.65}{
+%\begin{tikzpicture}
+%\sbEntree{E1}
+%\sbBloc[4]{A}{$C$}{E1}
+%\sbComp[6]{C1}{A}
+%\sbBloc{B}{$\dfrac{1}{p}$}{C1}
+%\sbBloc[3]{C}{}{B}
+%\sbBloc[3]{D}{$H_Q(p)$}{C}
+%\sbSumh{C3}{D}
+%\sbBloc[3]{I}{}{C3}
+%\sbSortie[4]{S}{I}
+%\sbDecaleNoeudy[4]{Ddroite}{H1}
+%\sbBlocr[0]{H}{$C$}{H1}
+%\sbDecaleNoeudy[-4]{Ddroite}{J1}
+%\sbBlocr[0]{J}{$H_F(p)$}{J1}
+%\sbDecaleNoeudx[-6]{J}{E2}
+%
+%
+%\sbRelier[$\Delta\theta_c(p)$]{E1}{A}
+%\sbRelier[$U_c(p)$]{A}{C1}
+%\sbRelier[$\varepsilon(p)$]{C1}{B}
+%\sbRelier[$I(p)$]{B}{C}
+%\sbRelier[$Q(p)$]{C}{D}
+%\sbRelier[]{D}{C3}
+%\sbRelier[$X(p)$]{C3}{I}
+%\sbRelier[$\Delta\theta(p)$]{I}{S}
+%\sbRelieryx{I-S}{H}
+%\sbRelierxy[$M_d(p)$]{H}{C1}
+%\sbRelier[$F_{1\to 4}(p)$]{E2}{J}
+%\sbRelierxy{J}{C3}
+%
+%\end{tikzpicture}}
+%\caption{Schéma-blocs simplifié.}
+%\label{ex_calage_sb4}
+%\end{figure}
+%%%%%%%%%%%%%%%% SCHEMA BLOCS
+
+%\begin{conclusion}[ - Retour sur le cahier des charges]
+\section*{Retour sur le cahier des charges}
+
+
+
+On donne %Figure \ref{chap2:calage:resultats_avance_phase}, 
+les diagrammes asymptotiques de Bode de la fonction de transfert en boucle ouverte corrigée avec un correcteur à avance de phase et la réponse du modèle final en boucle fermée à un signal de consigne linéaire par morceaux.
+
+
+
+
+%
+%\begin{center}
+%%\includegraphics[width=.7\textwidth]{\pathfig/Bodefinal.png}
+%\includegraphics{\pathfig/systeme_corrige_bode}
+%\end{center}
+%
+%
+%
+%De plus, la figure qui suit représente la réponse du modèle final à un signal de consigne linéaire par morceaux.
+% 
+% \begin{center}
+%% \includegraphics[width=.7\textwidth]{\pathfig/17.png}
+%\includegraphics{\pathfig/systeme_corrige_reponse}
+% \end{center}
+
+
+
+
+
+%\begin{enumerate}[label=\arabic*),start=8]
+
+
+\subparagraph{}\textit{Synthétiser la démarche d'étude et les résultats obtenus vis-à-vis du CDCF.}
+
+
+
+%\end{enumerate}
+
+
+%\end{conclusion}
+
+\begin{center}
+
+\includegraphics[width=.8\linewidth]{\pathfig/systeme_corrige_bode}
+
+\includegraphics[width=.8\linewidth]{\pathfig/systeme_corrige_reponse}
+
+%\begin{figure}[!ht]
+%\centering
+%\subfigure[Diagrammes de Bode de la FTBO.\label{calage_diag_bode_avance_phase}]{\includegraphics[width=0.45\linewidth]{\pathfig/systeme_corrige_bode}}\hfill
+%\subfigure[Réponse en boucle fermée à un signal de consigne linéaire par morceaux.\label{calage_reponse}]{\includegraphics[width=0.45\linewidth]{\pathfig/systeme_corrige_reponse}
+%}
+%\captionof{figure}{Résultats pour un correcteur à avance de phase.
+%\label{chap2:calage:resultats_avance_phase}}
+%\end{figure}
+%
+\end{center}
+
+
+\end{multicols}
+\end{document}
+
+\subparagraph{}\textit{}
+
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_06}
+%\textit{}
+\end{center}
+\begin{center}
+\includegraphics[width=\linewidth]{images/img_04}
+%\textit{}
+\end{center}
+
+
+
+
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%CORRECTION
+
+\begin{questions}
+
+\item Les conditions initiales sont supposées nulles. Dans le domaine de Laplace les équations deviennent : $Q(p) = S p X(p) + \dfrac{V}{B} p P(p)$ et $Mp^2 X(p) = S P(p) + F_{1\to 4}(p)$. On en déduit le schéma-blocs complété de la figure \ref{ex_calage_sb2_corr}.
+
+\begin{figure}[!ht]
+\centering
+
+\scalebox{.65}{
+\begin{tikzpicture}
+\sbEntree{E1}
+\sbBloc[4]{A}{$C$}{E1}
+\sbComp[6]{C1}{A}
+\sbBloc{B}{1}{C1}
+\sbBloc[3]{C}{$K_e$}{B}
+\sbBloc[3]{D}{$\dfrac{B}{Vp}$}{C}
+\sbComp{C2}{D}
+\sbBloc[3]{E}{$S$}{C2}
+\sbSumh{C3}{E}
+\sbBlocL{F}{$\dfrac{1}{Mp^2}$}{C3}
+\sbBloc[3]{I}{$K_c$}{F}
+\sbSortie[4]{S}{I}
+\sbDecaleNoeudy[4]{C3}{G1}
+\sbBlocr[0]{G}{$\dfrac{BS}{V}$}{G1}
+\sbDecaleNoeudy[6]{Ddroite}{H1}
+\sbBlocr[0]{H}{$C$}{H1}
+\sbDecaleNoeudy[-4]{C3}{E2}
+
+\sbRelier[$\Delta\theta_c(p)$]{E1}{A}
+\sbRelier[$U_c(p)$]{A}{C1}
+\sbRelier[$\varepsilon(p)$]{C1}{B}
+\sbRelier[$I(p)$]{B}{C}
+\sbRelier[$Q(p)$]{C}{D}
+\sbRelier[]{D}{C2}
+\sbRelier[$P(p)$]{C2}{E}
+\sbRelier{E}{C3}
+\sbRelier[$X(p)$]{F}{I}
+\sbRelieryx{F-I}{G}
+\sbRelierxy{G}{C2}
+\sbRelier[$\Delta\theta(p)$]{I}{S}
+\sbRelieryx{I-S}{H}
+\sbRelierxy{H}{C1}
+\sbRelier[]{E2}{C3}
+\node[right] at(E2) {$F_{1\to 4}(p)$};
+\end{tikzpicture}}
+
+\captionof{figure}{Schéma-blocs avec fluide compressible.}
+\label{ex_calage_sb2_corr}
+\end{figure}
+
+\item $X(p)={H}_{Q}(p)$.$Q(p)+{H}_{F}(p)$.${F}_{1 \rightarrow 4}(p).$
+
+Analytiquement, il vient $ X(p) = \frac{1}{Mp^2}\left[F_{1\to 4}(p) + S\left( \frac{B}{Vp}Q(p) - \frac{BS}{V} X(p) \right)\right]$.\\
+Donc $\left(Mp^2 +\frac{BS^2}{V}  \right) X(p) = F_{1\to 4}(p) +\frac{BS}{Vp}Q(p).$\\
+D'où, $X(p)=\dfrac{BS}{Vp}\dfrac{1}{Mp^2 +\frac{BS^2}{V}} Q(p) + \dfrac{1}{Mp^2 +\frac{BS^2}{V}} F_{1\to 4}(p).$\\
+Sous forme canonique : $X(p) = \dfrac{1}{p}\dfrac{1/S}{\frac{MV}{BS^2}p^2+1} Q(p) + \dfrac{\frac{V}{BS^2}}{\frac{MV}{BS^2}p^2+1}F_{1\to 4}(p)$.
+
+On en déduit que ${H}_{Q}(p)= \dfrac{1}{p}\dfrac{1/S}{\frac{MV}{BS^2}p^2+1} = \dfrac{\num{1041.7}}{1+\num{1.7e-8}p^2}$, ainsi que :\\${H}_{F}(p)=\dfrac{\frac{V}{BS^2}}{\frac{MV}{BS^2}p^2+1} = \dfrac{\num{3.5e-8}}{1+\num{1.7e-8}p^2}$.
+
+\item Avec deux pôles à partie réelle strictement positive, le système est instable. Ce modèle ne peut donc pas convenir.
+
+%\item Le gain en décibel de la partie du second ordre a pour expression : $G_\textrm{dB}(\omega)=20\log\left(\dfrac{1}{\sqrt{\left(1-\dfrac{\omega^2}{\omega_Q^2}\right)^2+\dfrac{4\xi_Q^2\omega^2}{\omega_Q^2}}}\right)$\\
+%La pulsation de résonance est $\omega=\omega_Q\sqrt{1-2\xi_Q^2}$ d'où le gain a la résonnance vaut $G_\textrm{dB}(\omega)=20\log\left(\dfrac{1}{2\xi_Q\sqrt{1-\xi_Q^2}}\right)$
+
+%\item Modifier $\xi_Q$ revient à modifier en première approximation uniquement la valeur de la résonnance. Pour stabiliser le système, il faut que le gain en décibel soit nul pour $\omega_Q$. Pour cela, il faut diminuer la résonance de \SI{18}{dB}.
+
+%Pour $\xi=\num{0.0001}$, le gain de la résonance est de \SI{74}{dB}. Il faut donc résoudre l'équation $20\log\left(\dfrac{1}{2\xi_Q\sqrt{1-\xi_Q^2}}\right)=74-18=\SI{56}{dB}$.
+
+%Il s'agit d'une équation bicarrée dont la solution est $\xi_Q=\num{0.0008}$.
+
+\item % En prenant $\xi_Q=\num{0.001}$, on assure une résonance encore plus faible de ce qui permet de s'écarter de la limite de stabilité.
+
+Pour la marge de phase, d'après les diagrammes de Bode de la figure \ref{calagebode1}, on constate que le gain en décibel est nul pour $\omega=\SI{10}{rad.s^{-1}}$ et pour cette valeur la phase vaut \SI{-90}{\degree}, d'où une marge de phase de \SI{90}{\degree}.
+On trouve bien une marge de phase supérieure à celle de \SI{50}{\degree} demandée dans le cahier des charges.
+Le débit de fuite artificiel a permis de stabiliser le système.
+
+\item On a $H_{BO2} (p)=\frac{K_e C K_c}{a_{1} p} \frac{1}{1+\frac{2\xi _{Q} }{\omega _{Q} } p+\frac{p^{2} }{\omega _{Q}^{2}}}$. Le pôle dominant est le pôle nul, on peut ainsi simplifier l'expression de la boucle ouverte par : $H_{BO2} (p)=\frac{K_e C K_c}{a_{1} p}$.
+
+On en déduit que la bande passante vaut $\dfrac{K_c C K_e}{a_1} = \SI{12}{rad.s^{-1}}$.
+
+\item L'erreur en réponse à un échelon serait nulle car la fonction de transfert en boucle ouverte est de classe 1. L'erreur en réponse à une rampe va tendre vers une valeur constante : $\dfrac{1}{K_{BO2}}=\dfrac{a_1}{K_eCK_c}=\dfrac{1}{12}=\num{0.083}.$
+
+
+\item En ajoutant un correcteur intégrateur pur, l'erreur en réponse à une rampe serait bien nulle. En revanche, la fonction de transfert en boucle ouverte serait de classe 2 et conduirait donc à un système instable. Il convient d'utiliser un autre correcteur comme un correcteur à avance de phase.
+
+\item Par mesure, la marge de phase semble être de \SI{50}{\degree} et la marge de gain de \SI{30}{dB}.
+
+L'erreur pour des entrées de type rampe semble être nulle. 
+
+Pour le critère de rapidité, on ne peut pas répondre avec la courbe proposée.
+
+\medskip
+La démarche de l'étude a consisté dans un premier temps à proposer un modèle simplifié du vérin hydraulique. \\Ce modèle étant instable, la prise en compte d'un débit de fuite dans le modèle a permis de le stabiliser. \\
+Le modèle retenu a ensuite été analysé et il a permis de montrer que le système n'était pas suffisamment précis en réponse à une rampe. \\
+L'analyse finale avec un correcteur à avance de phase a permis d'obtenir un modèle qui respecte le cahier des charges.
+
+\end{questions}
+\end{correction}
+
+
+
