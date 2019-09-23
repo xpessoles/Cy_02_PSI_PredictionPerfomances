@@ -1,0 +1,168 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Modélisation systèmes multiphysiques : Modélisation linéaire et non linéaire},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+\usepackage{multicol}
+\usepackage{siunitx}
+\fichetrue
+%\fichefalse
+
+\proftrue
+%\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PSI$\star$ -- MP}
+\def\xxnumpartie{Cycle 02}
+\def\xxpartie{Modéliser les systèmes asservis dans le but de prévoir leur comportement}
+
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Stabilité des systèmes}
+
+
+\def\xxtitreexo{QCM}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{X. Pessoles}}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+%\def\xxonglet{Part. 1 -- Ch. 3}
+\def\xxonglet{\textsf{Cycle 02}}
+
+\def\xxactivite{QCM 01}
+\def\xxauteur{\textsl{X. Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+%Les sources sont associées par un \emph{hacheur série}. La détermination des grandeurs électriques associées à ce montage permet de conclure vis à vis du cahier des charges.
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
+%\end{itemize}
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
+}}
+
+\def\xxfigures{
+%\includegraphics[width=.9\linewidth]{images/c-evolution}
+}%figues de la page de garde
+
+
+\def\xxpied{%
+Cycle 02 -- Modéliser les SLCI afin de prévoir leur comportement\\
+Chapitre 3 -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+\usepackage{pgfplots}
+\begin{document}
+\def\pathfig{images}
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{4.5cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\def\pathfig{images}
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item On donne les pôles de la fonction de transfert en boucle fermé d'un système
+asservi : $(-3+4j)$ et $(-3-4j)$. Le système est-il :
+\begin{enumerate}
+\item stable ?
+\item  instable ?
+\item  quasi-stable 
+\end{enumerate}
+\item Soit la fonction de transfert $H(p)=1/(1+p)$. On réalise un bouclage unitaire de
+cette fonction de transfert. Donner le(s) pole(s) de la FTBF. Le système est-il stable ?
+\begin{enumerate}
+\item 1
+\item  -1
+\item  1/2
+\item  -1/2
+\item  Stable
+\item  Instable
+\end{enumerate}
+\item On donne les pôles de la fonction de transfert en boucle ouverte d'un système
+asservi : -1, $(-3+4j)$ et $(-3-4j)$. Donner le(s) pôles dominant(s).
+\begin{enumerate}
+\item -1
+\item  $-3+4j$
+\item  $-3-4j$
+\end{enumerate}
+\item On donne le diagramme de Bode de la FTBF d'un système
+\begin{enumerate}
+\item Le système est stable à cause des marges.
+\item Le système est stable selon le critère du Revers.
+\item Le système est stable parce que c'est un système d'ordre 1 et qu'un
+système d'ordre 1 est toujours stable.
+\item Le système est stable parce que c'est un système d'ordre 2 et qu'un
+système d'ordre 2 est toujours stable.
+\item Le système est stable parce que c'est comme ça et puis c'est tout.
+\item On ne peut pas savoir sur ce tracé.
+\end{enumerate}
+\item On donne le diagramme de Bode de la FTBO d'un système.
+\begin{center}
+\includegraphics[width=\linewidth]{images/Bode_01}
+\end{center}
+\begin{enumerate}
+\item Le système est stable parce que le gain est toujours nul.
+\item Le système est stable parce que la phase est toujours supérieure à
+-180°.
+\item Le système n'est pas stable.
+\item Le système n'est pas stable parce que la marge de gain n'est pas
+définie.
+\item Le système n'est pas stable parce que la marge de phase n'est pas définie.
+\end{enumerate}
+\item On donne le Bode de la BO d'un système asservi (courbe de gain supérieure).
+\begin{center}
+\includegraphics[width=\linewidth]{images/Bode_02}
+\end{center}
+\begin{enumerate}
+\item La marge de gain est positive.
+\item La marge de gain est négative.
+\item La marge de phase est positive.
+\item La marge de phase est négative.
+\item Le système est stable.
+\item Le système est instable.
+\end{enumerate}
+\item On donne le diagramme de Bode d'un système en BO.
+\begin{center}
+\includegraphics[width=\linewidth]{images/Bode_03}
+\end{center}
+\begin{enumerate}
+\item La marge de gain est positive.
+\item La marge de gain est négative.
+\item La marge de phase est positive.
+\item La marge de phase est négative.
+\item Le système est stable.
+\item Le système est instable.
+\end{enumerate}
+\end{enumerate}
+\end{multicols}
+
+
+\end{document}
