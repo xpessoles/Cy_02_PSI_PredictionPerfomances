@@ -95,7 +95,7 @@ On donne les pôles des FTBF de plusieurs systèmes :
 
 \subsection*{Exercice 3 -- Applications du critère du Revers}
 \setcounter{exo}{0}
-\subparagraph*{}\textit{On donne ci-dessous les lieux de transferts de plusieurs FTBO. Déterminer, à l'aide du critère du Revers si les systèmes sont stables en BF.}
+\subparagraph*{}\textit{On donne ci-dessous les lieux de transferts de plusieurs {\text{FTBO}}. Déterminer, à l'aide du critère du Revers si les systèmes sont stables en BF.}
 \subparagraph*{}\textit{Pour les systèmes stables déterminer les marges de gain et de phase.}
 
 %
@@ -135,7 +135,7 @@ On donne les pôles des FTBF de plusieurs systèmes :
 
 \begin{obj}
 \begin{itemize}
-\item Caractériser la stabilité d'un système à partir de la FTBO.
+\item Caractériser la stabilité d'un système à partir de la {\text{FTBO}}.
 \item La marge de gain est supérieure à $\SI{10}{dB}$ et que la marge de phase est supérieure à \SI{45}{\degres}.
 \end{itemize}
 
@@ -152,7 +152,7 @@ On donne le schéma bloc suivant :
 
 On a $K=1$, $\tau = 0,1$ et $G=20$. 
 %
-%\subparagraph{}\textit{Justifier la forme du schéma-blocs retenu pour modéliser la FTBO qui sera notée $H(p)$.}
+%\subparagraph{}\textit{Justifier la forme du schéma-blocs retenu pour modéliser la {\text{FTBO}} qui sera notée $H(p)$.}
 %\ifprof
 %\begin{corrige}~\\
 %On a $H(p)=\dfrac{S(p)}{E(p)}
@@ -170,7 +170,7 @@ On a $K=1$, $\tau = 0,1$ et $G=20$.
 %\begin{corrige}~\\
 %On a :
 %$\dfrac{1}{\dfrac{\tau}{G} p^2+\dfrac{p}{G}+1}
-%= \dfrac{1}{1+0,05p+0,005p^2}$. En conséquences, $G=20$ et $\tau/20=0,005 \Rightarrow \tau=\SI{0,1}{s}$ et $FTBO(p)=\dfrac{20}{(1+0,1p)p}$.
+%= \dfrac{1}{1+0,05p+0,005p^2}$. En conséquences, $G=20$ et $\tau/20=0,005 \Rightarrow \tau=\SI{0,1}{s}$ et ${\text{FTBO}}(p)=\dfrac{20}{(1+0,1p)p}$.
 %
 %\end{corrige}
 %\else
@@ -180,7 +180,7 @@ On a $K=1$, $\tau = 0,1$ et $G=20$.
 
 \ifprof
 \begin{corrige}
-Ici on a $\varepsilon(p)=\dfrac{E(p)}{1+FTBO(p)}$. 
+Ici on a $\varepsilon(p)=\dfrac{E(p)}{1+{\text{FTBO}}(p)}$. 
 
 Erreur statique (entrée échelon): $\varepsilon_s 
 = \lim\limits_{t\to +\infty} \varepsilon(t)
@@ -196,7 +196,7 @@ Erreur trainage (entrée rampe): $\varepsilon_t
 \fi
 
 
-\subparagraph{}\textit{Effectuer les tracés des diagrammes de Bode de la FTBO.}
+\subparagraph{}\textit{Effectuer les tracés des diagrammes de Bode de la {\text{FTBO}}.}
 \ifprof
 \begin{corrige}~\\
 
@@ -231,10 +231,10 @@ Pour déterminer la marge de phase analytiquement :
 \end{enumerate}
 
 Cherchons $\omega_c$ tel que $G_{\text{dB}}(\omega_c)=0$. 
-On a $FTBO(j\omega )
+On a ${\text{FTBO}}(j\omega )
 =\dfrac{20}{(1+0,1j\omega)j\omega}
 =\dfrac{20}{j\omega-0,1\omega^2}$. 
-$20\log |FTBO(j\omega )| 
+$20\log |{\text{FTBO}}(j\omega )| 
 = 20\log 20 - 20\log \sqrt{\omega^2+0,01\omega^4}
 = 20\log 20 - 20\log \omega\sqrt{1+0,01\omega^2}$.
 

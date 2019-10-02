@@ -96,20 +96,36 @@ maintenir le mini-drone en équilibre en vol stationnaire.
 On pose $\omega=\omega_0+\delta \omega$ et $u=u_0+\delta u$ où $\delta\omega$ et $\delta u$ représentent des petites variations de $\omega$ et $u$ autour du point de fonctionnement.
 
 \subparagraph{}\textit{Déterminer l’équation stationnaire liant $\omega_0$ et $u_0$.}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 \subparagraph{}\textit{Montrer que l'équation différentielle liant $\delta \omega$ et $\delta u$ est de la forme $\dfrac{\text{d}\delta \omega(t) }{\text{d}t}=-A\delta \omega(t) + B \delta u$. Exprimer $A$ et $B$ en fonction des paramètres $\tau$, $k_v$, $k_q$ et $\omega_0$.}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 On note $\Delta \Omega (p)$ la transformée de Laplace de $\delta \omega$ et $\Delta U(p)$ celle de $\delta u$.
 
 
 \subparagraph{}\textit{Calculer la fonction de transfert $\dfrac{\Delta{\Omega(s)}}{\Delta U(s)}$ du moteur. Donner l'expression de ses paramètres caractéristiques $K_m$ et $T_m$ en fonction des paramètres $\tau$, $k_v$, $k_q$ et $\omega_0$.}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 \section*{Recherche du point de fonctionnement $\omega_0$}
 Dans le mouvement de déplacement vertical de direction $\vect{z}$ , les quatre moteurs tournent à la même vitesse et fournissent la même poussée $F=F_1=F_2=F_3=F_4$.
 La masse totale du drone est $m=\SI{240}{g}$. On prendra $g=\SI{9,81}{m.s^{-2}}$.
 
 \subparagraph{}\textit{Calculer numériquement la poussée $F_0$ que doit exercer chacun des quatre moteurs pour maintenir l’appareil en vol stationnaire à l’altitude $z_0$ .}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 La poussée $F$ varie avec $\omega^2$ . Des mesures réalisées sur un seul groupe moteur-hélice ont permis de tracer la courbe liant $F$ à la fréquence de rotation $\omega$ en rad/s.
 
 \begin{center}
@@ -118,7 +134,11 @@ La poussée $F$ varie avec $\omega^2$ . Des mesures réalisées sur un seul grou
 
 \subparagraph{}\textit{Déterminer la fréquence de rotation $\omega_0$ des
 moteurs en vol stationnaire.}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 
 
@@ -134,6 +154,11 @@ $\tau=\SI{125}{ms}$.
 \end{center}
 
 \subparagraph{}\textit{Déterminer l'expression des coefficients $k_v$ et $k_q$ en fonction de $a$, $b$ et $\tau$. Préciser leur unité.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 On peut ainsi déduire le modèle $\dfrac{\Delta \Omega(p)}{\Delta U(p)}$ du moteur linéarisé autour de son point de fonctionnement. Pour la suite, on retiendra le modèle suivant : $\dfrac{\Delta \Omega(p)}{\Delta U(p)}=\dfrac{37,5}{1+\dfrac{p}{77}}$.
 
@@ -155,7 +180,11 @@ $$ m\ddot{z} =4F-mg. $$
 
 
 \subparagraph{}\textit{Déterminer la fonction de transfert $\dfrac{\Delta Z(p)}{\Delta F(p)}$ à partir de l'équation du principe fondamental de la dynamique. En déduire l'expression de la fonction de transfert en boucle ouverte. }
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 Dans la suite, le gain de la fonction de transfert en boucle ouverte sera noté $K_{BO}=2,5 K$.
 La courbe de phase du diagramme de Bode de la fonction de transfert en boucle ouverte est représentée ci-dessous, en gras avec un correcteur proportionnel ($T=0$) et en trait fin avec le correcteur retenu ($K=1$ et $T=0,2s$).
@@ -168,13 +197,28 @@ La courbe de phase du diagramme de Bode de la fonction de transfert en boucle ou
 
 \subparagraph{}\textit{Tracer le diagramme asymptotique de la courbe de gain avec le correcteur $T=\SI{0,2}{s}$ et $K=1$.
 Préciser les pentes et les pulsations de brisure. Le diagramme sera tracé entre 1 et \SI{1000}{rad.s^{-1}}, le gain sera compris entre \SI{-120}{dB} et \SI{+10}{dB}.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 \subparagraph{}\textit{Justifier que pour $K=1$, on a $\omega=\SI{1,5}{rad.s^{-1}}$. En déduire graphiquement la marge de phase pour
 $K=1$. Commenter.}
 
 \subparagraph{}\textit{Procéder au réglage du gain $K$ du correcteur afin d’assurer le respect du critère de stabilité du cahier des charges.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 \subparagraph{}\textit{Le critère de précision du cahier des charges est-il vérifié ? Justifier.}
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 La figure suivante représente la position des pôles de la fonction de transfert en boucle fermée dans le plan
 complexe, pour la valeur du gain $K$ précédemment déterminée.
@@ -186,19 +230,39 @@ complexe, pour la valeur du gain $K$ précédemment déterminée.
 
 
 \subparagraph{}\textit{Repérer le(s) pôle(s) dominant(s) et donner sa (leur) valeur(s) numérique(s).}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 \subparagraph{}\textit{À l’aide des droites d’iso-amortissement, indiquer la valeur du coefficient d’amortissement $\xi$ de la
 fonction de transfert du deuxième ordre pouvant modéliser l’asservissement vertical du drone lorsque
 l’on néglige les autres pôles par rapport à ces pôles dominants.}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 \subparagraph{}\textit{En déduire la présence ou l’absence d’oscillations verticales du drone lors d’un décollage supposé
 modélisé par un échelon d’amplitude 1 mètre. Le critère de stabilité est-il intégralement vérifié ?}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 \subparagraph{}\textit{Donner l’expression littérale des pôles d’un système du deuxième ordre de pulsation propre $\omega_n$ et de coefficient d’amortissement $\xi<1$. En déduire une estimation de la pulsation propre $\omega_n$ de la
 fonction de transfert approchée de l’asservissement vertical du drone.}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 \subparagraph{}\textit{Vérifier si le critère de rapidité du cahier des charges est vérifié.}
-
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 \begin{center}
 \includegraphics[width=\linewidth]{fig_09}
 \end{center}

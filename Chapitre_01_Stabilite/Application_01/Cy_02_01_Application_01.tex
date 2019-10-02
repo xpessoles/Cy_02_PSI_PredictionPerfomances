@@ -167,9 +167,6 @@ On donne ci-dessous la réponse indicielle pour $K_C=1$.
 \subparagraph{}\textit{Justifier l'allure du diagramme du diagramme de Bode donné ci-dessous pour $K_C=1$.}
 
 \subparagraph{}\textit{Donner graphiquement les marges de phase et de gain pour $K_C=1$.}
-
-
-\subparagraph{}\textit{Donner analytiquement les marges de phase et de gain pour $K_C=1$ (méthode).}
 \ifprof
 \begin{center}
 \includegraphics[width=\linewidth]{cor_01}
@@ -178,6 +175,37 @@ On donne ci-dessous la réponse indicielle pour $K_C=1$.
 \else
 \fi
 
+
+\subparagraph{}\textit{Donner analytiquement les marges de phase et de gain pour $K_C=1$ (méthode).}
+\ifprof
+\begin{corrige}
+\textbf{Calcul de la marge de gain}
+\begin{itemize}
+\item On détermine $\omega_{180}$ tel que $\arg\left(\text{FTBO}(j\omega_{180})\right)=-180\degres$. 
+
+$\arg\left(\text{FTBO}(j\omega)\right) $ $= -\arg\left( j\omega\right)-\arg\left( 1+ 10 j\omega\right)-\arg\left(1+0,5j\omega \right) $ $= - 90 - \arctan \left( 10 \omega \right) - \arctan \left( 0,5 \omega \right)$.
+
+$\arg\left(\text{FTBO}(j\omega_{180})\right)=-180\degres$ 
+$\Leftrightarrow - 90 - \arctan \left( 10 \omega \right) - \arctan \left( 0,5 \omega \right) = -180$
+
+\begin{python}
+import math as m
+from pylab import *
+from scipy.optimize import bisect 
+
+def f(x):                                       
+    res = m.pi/2 - m.atan(10*x) - m.atan(0.5*x)
+    return res
+
+zero1 = bisect(f, .1, 10)
+\end{python}
+On a $\omega=\SI{0,447}{rad.s^{-1}}$.
+%$\Leftrightarrow - \arctan \left( 10 \omega \right) - \arctan \left( 0,5 \omega \right) = -90$
+\end{itemize}
+
+\end{corrige}
+\else
+\fi
 
 \subparagraph{}\textit{Le cahier des charges impose des marges de gain et de phase minimales de \SI{12}{dB} et 40\degres. Déterminer
 la plus grande valeur de $K_C$ permettant de vérifier ce cahier des charges}
