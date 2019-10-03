@@ -98,12 +98,46 @@ On pose $\omega=\omega_0+\delta \omega$ et $u=u_0+\delta u$ où $\delta\omega$ e
 \subparagraph{}\textit{Déterminer l’équation stationnaire liant $\omega_0$ et $u_0$.}
 \ifprof
 \begin{corrige}
+En vol stationnaire, dans les conditions idéales, la vitesse de rotation des hélices est constante; donc $\dfrac{\dd \omega(t)}{\dd t} = 0$. De plus, il n'y a pas de variation de la vitesse de rotation des hélices et donc pas de variation de la tension d'alimentation. En conséquence, $\delta u =0$ et $\delta \omega = 0$.
+
+On a donc 
+$
+\dfrac{\text{d}\omega(t)}{\text{d}t}=-\dfrac{1}{\tau}\omega(t) -k_q\omega(t)^2 + \dfrac{k_v}{\tau}u $ 
+En notant $\omega_0$ et $u_0$ les vitesses en tensions à l'état stationnaire, on a 
+$\dfrac{1}{\tau}\omega_0 +k_q\omega_0^2 = \dfrac{k_v}{\tau}u_0$.
+
 \end{corrige}
 \else
 \fi
 \subparagraph{}\textit{Montrer que l'équation différentielle liant $\delta \omega$ et $\delta u$ est de la forme $\dfrac{\text{d}\delta \omega(t) }{\text{d}t}=-A\delta \omega(t) + B \delta u$. Exprimer $A$ et $B$ en fonction des paramètres $\tau$, $k_v$, $k_q$ et $\omega_0$.}
 \ifprof
 \begin{corrige}
+On utilise le changement de variable proposé autour d'un point de fonctionnement et on a : 
+$
+\dfrac{\text{d}\omega(t)}{\text{d}t}=-\dfrac{1}{\tau}\omega(t) -k_q\omega(t)^2 + \dfrac{k_v}{\tau}u
+$
+
+$
+\Rightarrow 
+\dfrac{\text{d}\left( \omega_0+\delta \omega \right)}{\text{d}t}=-\dfrac{1}{\tau}\left( \omega_0+\delta \omega\right) -k_q\left( \omega_0+\delta\omega \right)^2 + \dfrac{k_v}{\tau}\left( u_0+\delta u\right)
+$
+
+$
+\Rightarrow 
+\dfrac{\text{d}\left(\delta \omega \right)}{\text{d}t}=-\dfrac{1}{\tau} \omega_0-\dfrac{1}{\tau}\delta \omega -k_q \omega_0^2-k_q\left(\delta\omega\right)^2 -k_q2 \omega_0 \delta\omega + \dfrac{k_v}{\tau} u_0+\dfrac{k_v}{\tau} \delta u
+$
+
+Or $\dfrac{1}{\tau}\omega_0 +k_q\omega_0^2 = \dfrac{k_v}{\tau}u_0$ (question précédente); donc :
+$
+\dfrac{\text{d}\left(\delta \omega \right)}{\text{d}t}= -\dfrac{1}{\tau}\delta \omega-k_q\left(\delta\omega\right)^2 -k_q2 \omega_0 \delta\omega + \dfrac{k_v}{\tau} \delta u
+$
+
+En négligeant les termes d'ordre 2, on a donc : 
+$
+\dfrac{\text{d}\left(\delta \omega \right)}{\text{d}t}= -\dfrac{1}{\tau}\delta \omega -k_q2 \omega_0 \delta\omega + \dfrac{k_v}{\tau} \delta u
+$
+
+Au final, $A=\dfrac{1}{\tau}+k_q2 \omega_0$ et $B=\dfrac{k_v}{\tau}$.
 \end{corrige}
 \else
 \fi
@@ -113,6 +147,10 @@ On note $\Delta \Omega (p)$ la transformée de Laplace de $\delta \omega$ et $\D
 \subparagraph{}\textit{Calculer la fonction de transfert $\dfrac{\Delta{\Omega(s)}}{\Delta U(s)}$ du moteur. Donner l'expression de ses paramètres caractéristiques $K_m$ et $T_m$ en fonction des paramètres $\tau$, $k_v$, $k_q$ et $\omega_0$.}
 \ifprof
 \begin{corrige}
+En utilisant la transformée de Laplace, on obtient $p\Delta\Omega(s) = -A\Delta\Omega(s) + B \Delta U(s)$ et donc 
+ $\dfrac{\Delta{\Omega(s)}}{\Delta U(s)}= \dfrac{B}{p+A} = \dfrac{B/A}{p/A+1}  $. 
+ En conséquence, $K_m = \dfrac{B}{A} = \dfrac{\dfrac{k_v}{\tau}}{\dfrac{1}{\tau}+k_q2 \omega_0}= \dfrac{k_v}{1+\tau k_q2 \omega_0}$. 
+ $\tau_m = \dfrac{\tau}{1+\tau k_q2 \omega_0} $ 
 \end{corrige}
 \else
 \fi
