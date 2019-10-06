@@ -161,6 +161,7 @@ La masse totale du drone est $m=\SI{240}{g}$. On prendra $g=\SI{9,81}{m.s^{-2}}$
 \subparagraph{}\textit{Calculer numériquement la poussée $F_0$ que doit exercer chacun des quatre moteurs pour maintenir l’appareil en vol stationnaire à l’altitude $z_0$ .}
 \ifprof
 \begin{corrige}
+On a  $4 F_0 = mg$. 
 Le poids du drone est de $0,240\times 9,81 = \SI{2,3544}{N}$. Chaque moteur doit donc exercer $\dfrac{2,3544}{4}=\SI{0,59}{N}$.
 \end{corrige}
 \else
@@ -196,7 +197,13 @@ $\tau=\SI{125}{ms}$.
 \subparagraph{}\textit{Déterminer l'expression des coefficients $k_v$ et $k_q$ en fonction de $a$, $b$ et $\tau$. Préciser leur unité.}
 \ifprof
 \begin{corrige}
-Lorsque $\dfrac{\text{d}\omega(t)}{\text{d}(t)}=0$, on a  $u=a\omega0^2+b\omega_0$. Par ailleurs en régime stationnaire, on a $\dfrac{1}{\tau}\omega_0 +k_q\omega_0^2 = \dfrac{k_v}{\tau}u_0$.
+Lorsque $\dfrac{\text{d}\omega(t)}{\text{d}(t)}=0$, on a  $u=a\omega0^2+b\omega_0$. Par ailleurs en régime stationnaire, on a $\dfrac{1}{\tau}\omega_0 +k_q\omega_0^2 = \dfrac{k_v}{\tau}u_0$. Il en résulte que 
+$u_0 = \dfrac{1}{k_v}\omega_0 +\dfrac{k_q\tau}{k_v} \omega_0^2$.
+
+On a donc $a=\dfrac{k_q\tau}{k_v}$ et  $b=\dfrac{1}{k_v}$. On a donc $b$ tel que $[\text{V}]=[\text{B}][\text{s}^{-1}]$ et $[\text{B}]=[\text{V}][\text{s}]$. On a donc $k_v$ en $[\text{V}^{-1}\text{s}^{-1}]$.
+
+Par ailleurs, $[\text{V}]=[\text{k}_{\text{q}}][\text{s}][\text{Vs}][\text{s}^{-2}]$  et $k_q$ n'a pas d'unité. 
+
 \end{corrige}
 \else
 \fi
@@ -214,7 +221,7 @@ transfert autour du point de fonctionnement $\omega_0$, par le schéma-bloc suiv
 
 
 
-Le gain du capteur barométrique est de $\SI{0,05}{V.m^{-1}}$. On pose $z=z_0+\Delta z(p)$, la transformée de Laplace de $\delta Z$, $F=F_0 + \delta F$ représente la poussée d'un seul moteur et on utilise l'équation linéarisée avec conditions initiales nulles.
+Le gain du capteur barométrique est de $\SI{0,05}{V.m^{-1}}$. On pose $z(t)=z_0+\delta z(t)$, $\Delta Z(p)$ la transformée de Laplace de $\delta z(t)$, $F=F_0 + \delta F$ représente la poussée d'un seul moteur et on utilise l'équation linéarisée avec conditions initiales nulles.
 
 Le théorème de la résultante dynamique, en projection sur l’axe vertical, permet d’écrire :
 $$ m\ddot{z} =4F-mg. $$
@@ -223,6 +230,14 @@ $$ m\ddot{z} =4F-mg. $$
 \subparagraph{}\textit{Déterminer la fonction de transfert $\dfrac{\Delta Z(p)}{\Delta F(p)}$ à partir de l'équation du principe fondamental de la dynamique. En déduire l'expression de la fonction de transfert en boucle ouverte. }
 \ifprof
 \begin{corrige}
+On a vu que  $4 _0F = mg$. 
+
+Par ailleurs, $ m\ddot{z} =4F-mg $ et donc, $ m\dfrac{ \dd\left( z_0+\delta z(t) \right)}{\dd t} = 4\left( F_0 + \delta F(t) \right)-mg$ et
+ $ m\dfrac{ \dd\left( \delta z(t) \right)}{\dd t} = 4 \delta F(t) $. Dans le domaine de Laplace, on a 
+  $ m p^2  \Delta Z(p) = 4 \Delta F(p) $. En conséquences,  
+   $\dfrac{\Delta Z(p)}{\Delta F(p)} = \dfrac{4}{mp^2}$.
+   
+La FTBO s'exprime alors par $H_{\text{BO}}(p)=\dfrac{2,5 K}{p^2}\dfrac{1+Tp}{\left( 1+\dfrac{p}{77}\right)\left(1+\dfrac{p}{30} \right)}$.
 \end{corrige}
 \else
 \fi
@@ -319,10 +334,10 @@ Pour éventuellement vous aider....
 \item $-\dfrac{1}{\tau}\omega_0 - k_q \omega_0^2 + \dfrac{k_v}{\tau}u_0=0$;
 \item $A=\dfrac{1}{\tau}+2k_q\omega_0$ et $B=\dfrac{k_v}{\tau}$.
 \item $K_m=\dfrac{k_v}{1+2\tau k_q \omega_0}$ et $T_m=\dfrac{\tau}{1+2\tau k_q \omega_0}$.
-\item $F_0=\dfrac{mg}{4}=\SI{0,6}{N}$
-\item $\omega_0=\SI{340}{rad.s^{-1}}$
-\item $k_v=\dfrac{1}{b}$ (rad/s/V) et $k_b=\dfrac{a}{b\tau}$
-\item $\dfrac{\Delta Z(p)}{\Delta F(p)}=\dfrac{4}{mp^2}$. $H_{BO}(p)=\dfrac{2,5 K}{p^2}\dfrac{1+Tp}{\left( 1+\dfrac{p}{77}\right)\left(1+\dfrac{p}{30} \right)}$ 
+\item $F_0=\dfrac{mg}{4}=\SI{0,6}{N}$.
+\item $\omega_0=\SI{340}{rad.s^{-1}}$.
+\item $k_v=\dfrac{1}{b}$ (rad/s/V) et $k_b=\dfrac{a}{b\tau}$.
+\item $\dfrac{\Delta Z(p)}{\Delta F(p)}=\dfrac{4}{mp^2}$. $H_{BO}(p)=\dfrac{2,5 K}{p^2}\dfrac{1+Tp}{\left( 1+\dfrac{p}{77}\right)\left(1+\dfrac{p}{30} \right)}$.
 \item  $\quad$
 \item $\quad$
 \item $K=17,9$.
