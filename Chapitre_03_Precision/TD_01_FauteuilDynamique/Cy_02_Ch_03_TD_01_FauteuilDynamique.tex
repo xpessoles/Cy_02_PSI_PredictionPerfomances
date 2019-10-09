@@ -596,7 +596,19 @@ muscles cervicaux, peut être modélisée par un échelon.
 \end{center}
 %\end{figure}
 
- On a \(C_{\Omega}\left( p \right) = k_{1}\left( 1 + \dfrac{1}{T_{1}p} \right)\).
+ On a \(C_{\Omega}\left( p \right) = k_{1}\left( 1 + \dfrac{1}{T_{1}p} \right)\). De plus : 
+$K = \SI{0,115}{N.m.A^{-1}}$;
+$R = \SI{1}{\Ohm}$;
+$L = \SI{1,1}{mH}$;
+$K_{rI}= \SI{0,5}{V. A^{-1}}$;
+%	h = 6
+$r = 1/50$;
+$f = \SI{4.10^{-4}}{N.m.s.rad^{-1}}$;
+$J=\SI{0,16.10^{-3}}{kg.m^{2}}$.
+
+ 
+ 
+ 
  \fi
  
 
@@ -985,7 +997,7 @@ fonction du temps \label{fig20}}
 \begin{enumerate}
 \item $H_{\Omega}(p)=\dfrac{\dfrac{1}{K_{\Omega}}\left( 1 + T_{1}p \right)}{\dfrac{T_{1} K_{rI}J}{K_{\Omega}k_{1}K}p^2+\left(\dfrac{f K_{rI}}{K_{\Omega}k_{1}K}+1\right)T_{1}p + 1 }$.
 \item  $b=\dfrac{1}{K_{\Omega}} = 20 \pi = \SI{62,8}{rad.s{-1}V^{-1}}$ et $\tau=\dfrac{K_{ri}J}{k_1KK_{\Omega}}=\SI{2,17e-3}{s}$.
-\item $\dfrac{T_{1}K_{ri}p}{ k_{1}\left( T_{1}p + 1 \right)K}\cdot \dfrac{b}{p\left(1+\tau p \right)+b}$ et $\lim\limits_{t\to\infty} \theta(t) = 1$.
+\item $-\dfrac{T_{1}K_{ri}p}{ k_{1}\left( T_{1}p + 1 \right)K}\cdot \dfrac{b}{p\left(1+\tau p \right)+abc}$ et $\lim\limits_{t\to\infty} \theta(t) = 1$.
 \item  ${a}=\dfrac{1}{4bc\tau\xi^2}=0,092$.
 \item $\mu(p)=\dfrac{p\left( 1+\tau p\right)}{p\left( 1+\tau p\right)+abc}\theta_c(p)$, $\mu_p = 0$, $\mu_v = \dfrac{1}{abc}$ et  $\mu_a = \infty$.
 \item $\mu_p=0$ et $\mu_v= \dfrac{1 -bd}{ab}$.

@@ -255,6 +255,16 @@ La courbe de phase du diagramme de Bode de la fonction de transfert en boucle ou
 Préciser les pentes et les pulsations de brisure. Le diagramme sera tracé entre 1 et \SI{1000}{rad.s^{-1}}, le gain sera compris entre \SI{-120}{dB} et \SI{+10}{dB}.}
 \ifprof
 \begin{corrige}
+On a  $H_{\text{BO}}(p)=\dfrac{2,5 K}{p^2}\dfrac{1+Tp}{\left( 1+\dfrac{p}{77}\right)\left(1+\dfrac{p}{30} \right)}$. 
+Les pulsations de cassure sont alors :  \SI{5}{rad.s{-1}}, \SI{30}{rad.s{-1}} et \SI{77}{rad.s{-1}}.
+Les pentes sont alors : 
+\begin{itemize}
+\item pour $\omega<\SI{5}{rad.s^{-1}}$ : \SI{-40}{dB}/décade;
+\item pour $\SI{5}{rad.s^{-1}}<\omega<\SI{30}{rad.s^{-1}}$ : \SI{-20}{dB}/décade;
+\item pour $\SI{30}{rad.s^{-1}}<\omega<\SI{77}{rad.s^{-1}}$ : \SI{-40}{dB}/décade
+\item pour $\omega>\SI{77}{rad.s^{-1}}$ : \SI{-60}{dB}/décade.
+\end{itemize}
+Pour une pulsation de $\SI{10^{-2}}{rad.s^{-1}}$, on a $\text{FTBO(p)}\simeq \dfrac{2,5}{p^2}$
 \end{corrige}
 \else
 \fi
