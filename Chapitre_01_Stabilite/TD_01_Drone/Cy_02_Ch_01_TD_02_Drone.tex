@@ -51,6 +51,8 @@
 \begin{multicols}{2}
 \setcounter{exo}{0}
 \section*{Présentation}
+\ifprof
+\else
 Cet hélicoptère quadri-rotor à pas fixe est une configuration très répandue dans le monde des microdrones.
 Alors que les hélicoptères classiques utilisent un système mécanique complexe de pas cyclique et
 collectif, le quadri-rotor ne dispose d'aucun organe mécanique spécifique et assure son contrôle en agissant
@@ -65,7 +67,7 @@ Un extrait du cahier des charges en phase de décollage est donné ci-dessous.
 \begin{center}
 \includegraphics[width=\linewidth]{fig_02}
 \end{center}
-
+\fi
 \begin{obj}
 \begin{itemize}
 \item Étudier le comportement du quadri-rotor lors du décollage.
@@ -74,6 +76,9 @@ Un extrait du cahier des charges en phase de décollage est donné ci-dessous.
 \end{obj}
 
 \section*{Linéarisation du modèle de moteur}
+\ifprof
+\else
+
 Les moteurs choisis sont des moteurs synchrones sans balais à 14 pôles de type Hacker A20-54 entraînant
 directement l'hélice, sans réduction.
 
@@ -94,6 +99,7 @@ donc l'équation autour du point de fonctionnement $\omega_0$, fréquence de rot
 maintenir le mini-drone en équilibre en vol stationnaire.
 
 On pose $\omega=\omega_0+\delta \omega$ et $u=u_0+\delta u$ où $\delta\omega$ et $\delta u$ représentent des petites variations de $\omega$ et $u$ autour du point de fonctionnement.
+\fi
 
 \subparagraph{}\textit{Déterminer l’équation stationnaire liant $\omega_0$ et $u_0$.}
 \ifprof
@@ -155,9 +161,11 @@ En utilisant la transformée de Laplace, on obtient $p\Delta\Omega(s) = -A\Delta
 \else
 \fi
 \section*{Recherche du point de fonctionnement $\omega_0$}
+\ifprof
+\else
 Dans le mouvement de déplacement vertical de direction $\vect{z}$ , les quatre moteurs tournent à la même vitesse et fournissent la même poussée $F=F_1=F_2=F_3=F_4$.
 La masse totale du drone est $m=\SI{240}{g}$. On prendra $g=\SI{9,81}{m.s^{-2}}$.
-
+\fi
 \subparagraph{}\textit{Calculer numériquement la poussée $F_0$ que doit exercer chacun des quatre moteurs pour maintenir l’appareil en vol stationnaire à l’altitude $z_0$ .}
 \ifprof
 \begin{corrige}
@@ -166,11 +174,15 @@ Le poids du drone est de $0,240\times 9,81 = \SI{2,3544}{N}$. Chaque moteur doit
 \end{corrige}
 \else
 \fi
+\ifprof
+\else
 La poussée $F$ varie avec $\omega^2$ . Des mesures réalisées sur un seul groupe moteur-hélice ont permis de tracer la courbe liant $F$ à la fréquence de rotation $\omega$ en rad/s.
 
 \begin{center}
 \includegraphics[width=\linewidth]{fig_04}
 \end{center}
+
+\fi
 
 \subparagraph{}\textit{Déterminer la fréquence de rotation $\omega_0$ des
 moteurs en vol stationnaire.}
@@ -181,7 +193,8 @@ En lisant le graphe, on obtient $\omega_0=\SI{340}{rad.s^{-1}}$.
 \else
 \fi
 
-
+\ifprof
+\else
 
 Des essais ont également permis de tracer la
 courbe liant la tension de commande $u$ et la
@@ -193,6 +206,7 @@ $\tau=\SI{125}{ms}$.
 \begin{center}
 \includegraphics[width=\linewidth]{fig_05}
 \end{center}
+\fi
 
 \subparagraph{}\textit{Déterminer l'expression des coefficients $k_v$ et $k_q$ en fonction de $a$, $b$ et $\tau$. Préciser leur unité.}
 \ifprof
@@ -212,6 +226,8 @@ On peut ainsi déduire le modèle $\dfrac{\Delta \Omega(p)}{\Delta U(p)}$ du mot
 
 \section*{Vérification des performances}
 
+\ifprof
+\else
 L'asservissement vertical du drone peut être représente après linéarisation des différentes fonctions de
 transfert autour du point de fonctionnement $\omega_0$, par le schéma-bloc suivant :
 
@@ -225,9 +241,11 @@ Le gain du capteur barométrique est de $\SI{0,05}{V.m^{-1}}$. On pose $z(t)=z_0
 
 Le théorème de la résultante dynamique, en projection sur l’axe vertical, permet d’écrire :
 $$ m\ddot{z} =4F-mg. $$
+\fi
 
 
 \subparagraph{}\textit{Déterminer la fonction de transfert $\dfrac{\Delta Z(p)}{\Delta F(p)}$ à partir de l'équation du principe fondamental de la dynamique. En déduire l'expression de la fonction de transfert en boucle ouverte. }
+
 \ifprof
 \begin{corrige}
 On a vu que  $4 _0F = mg$. 
@@ -242,6 +260,8 @@ La FTBO s'exprime alors par $H_{\text{BO}}(p)=\dfrac{2,5 K}{p^2}\dfrac{1+Tp}{\le
 \else
 \fi
 
+\ifprof
+\else
 Dans la suite, le gain de la fonction de transfert en boucle ouverte sera noté $K_{BO}=2,5 K$.
 La courbe de phase du diagramme de Bode de la fonction de transfert en boucle ouverte est représentée ci-dessous, en gras avec un correcteur proportionnel ($T=0$) et en trait fin avec le correcteur retenu ($K=1$ et $T=0,2s$).
 
@@ -249,14 +269,16 @@ La courbe de phase du diagramme de Bode de la fonction de transfert en boucle ou
 \begin{center}
 \includegraphics[width=\linewidth]{fig_07}
 \end{center}
+\fi
 
 
 \subparagraph{}\textit{Tracer le diagramme asymptotique de la courbe de gain avec le correcteur $T=\SI{0,2}{s}$ et $K=1$.
 Préciser les pentes et les pulsations de brisure. Le diagramme sera tracé entre 1 et \SI{1000}{rad.s^{-1}}, le gain sera compris entre \SI{-120}{dB} et \SI{+10}{dB}.}
+
 \ifprof
 \begin{corrige}
 On a  $H_{\text{BO}}(p)=\dfrac{2,5 K}{p^2}\dfrac{1+Tp}{\left( 1+\dfrac{p}{77}\right)\left(1+\dfrac{p}{30} \right)}$. 
-Les pulsations de cassure sont alors :  \SI{5}{rad.s{-1}}, \SI{30}{rad.s{-1}} et \SI{77}{rad.s{-1}}.
+Les pulsations de cassure sont alors :  $\SI{5}{rad.s^{-1}}$, $\SI{30}{rad.s^{-1}}$ et $\SI{77}{rad.s^{-1}}$.
 Les pentes sont alors : 
 \begin{itemize}
 \item pour $\omega<\SI{5}{rad.s^{-1}}$ : \SI{-40}{dB}/décade;
@@ -264,17 +286,31 @@ Les pentes sont alors :
 \item pour $\SI{30}{rad.s^{-1}}<\omega<\SI{77}{rad.s^{-1}}$ : \SI{-40}{dB}/décade
 \item pour $\omega>\SI{77}{rad.s^{-1}}$ : \SI{-60}{dB}/décade.
 \end{itemize}
-Pour une pulsation de $\SI{10^{-2}}{rad.s^{-1}}$, on a $\text{FTBO(p)}\simeq \dfrac{2,5}{p^2}$
+Pour une pulsation de $\SI{10e-2}{rad.s^{-1}}$, on a $\text{FTBO(p)}\simeq \dfrac{2,5}{p^2}$. On a donc un gain $\simeq 20\log\left(\dfrac{2,5}{0,01^2}\right) \simeq \SI{88}{dB} $.
+Reste à tracer...
+\end{corrige}
+
+\fi
+
+\subparagraph{}\textit{Justifier que pour $K=1$, on a $\omega_{c\SI{0}{dB}}=\SI{1,5}{rad.s^{-1}}$. En déduire graphiquement la marge de phase pour
+$K=1$. Commenter.}
+\ifprof
+\begin{corrige}
+Si on considère que pour $\omega<\SI{5}{rad.s^{-1}}$, on a   $H_{\text{BO}}(p)\simeq \dfrac{2,5 K}{p^2}$. Dans ces conditions, pour $K=1$, on a 
+$\left|\dfrac{2,5 }{-\omega^2}\right|=1$ 
+$\Rightarrow \omega= \sqrt{2,5}\simeq \SI{1,58}{rad.s^{-1}} $.
+
 \end{corrige}
 \else
 \fi
 
-\subparagraph{}\textit{Justifier que pour $K=1$, on a $\omega=\SI{1,5}{rad.s^{-1}}$. En déduire graphiquement la marge de phase pour
-$K=1$. Commenter.}
 
 \subparagraph{}\textit{Procéder au réglage du gain $K$ du correcteur afin d’assurer le respect du critère de stabilité du cahier des charges.}
 \ifprof
 \begin{corrige}
+En raisonnant analytiquement, on cherche la pulsation $\omega_{-145}$ pour laquelle la phase est de $-180\degres+35\degres = -145\degres$, soit $\arg{\text{FTBO}(j\omega)}=-145\degres$. (Résolution à faire à la calculatrice, sur Python ou autre. Il y asurement 2 solutions vu le profil de courbe de phase). 
+On cherche ensuite $K$ tel que $\left| \text{FTBO}(j\omega_{-145}) \right| = 1$. 
+(Résolution à faire à la calculatrice, sur Python ou autre.)
 \end{corrige}
 \else
 \fi
@@ -282,9 +318,14 @@ $K=1$. Commenter.}
 \subparagraph{}\textit{Le critère de précision du cahier des charges est-il vérifié ? Justifier.}
 \ifprof
 \begin{corrige}
+La boucle ouverte comporte 2 intégrateurs. L'écart statique est donc nul. Le cahier des charges est vérifié. 
+
 \end{corrige}
 \else
 \fi
+
+\ifprof
+\else
 
 La figure suivante représente la position des pôles de la fonction de transfert en boucle fermée dans le plan
 complexe, pour la valeur du gain $K$ précédemment déterminée.
@@ -293,11 +334,13 @@ complexe, pour la valeur du gain $K$ précédemment déterminée.
 \begin{center}
 \includegraphics[width=\linewidth]{fig_08}
 \end{center}
+\fi
 
 
 \subparagraph{}\textit{Repérer le(s) pôle(s) dominant(s) et donner sa (leur) valeur(s) numérique(s).}
 \ifprof
 \begin{corrige}
+Les pôles dominants sont $P2\simeq -15$, $P3 \simeq -5 +8i$, $P4\simeq -5 -8i$. 
 \end{corrige}
 \else
 \fi
@@ -306,6 +349,7 @@ fonction de transfert du deuxième ordre pouvant modéliser l’asservissement v
 l’on néglige les autres pôles par rapport à ces pôles dominants.}
 \ifprof
 \begin{corrige}
+Dans ce cas, on ne prend que $P3$ et $P4$. $\xi=0,6$. 
 \end{corrige}
 \else
 \fi
@@ -313,6 +357,7 @@ l’on néglige les autres pôles par rapport à ces pôles dominants.}
 modélisé par un échelon d’amplitude 1 mètre. Le critère de stabilité est-il intégralement vérifié ?}
 \ifprof
 \begin{corrige}
+Le coefficient d'amortissement est inférieur à 0,69. Il y aura donc des oscillations verticales lors du drone. Le dépassement sera supérieur à 5\,\% de la valeur finale.  En conséquence, le critère de stabilité n'est pas totalement respecté. 
 \end{corrige}
 \else
 \fi
@@ -329,10 +374,13 @@ fonction de transfert approchée de l’asservissement vertical du drone.}
 \end{corrige}
 \else
 \fi
+
+\ifprof
+\else
 \begin{center}
 \includegraphics[width=\linewidth]{fig_09}
 \end{center}
-
+\fi
 
 
 %\begin{multicols}
