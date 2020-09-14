@@ -9,6 +9,9 @@
 
 
 \livrettrue
+\newif\iflivcor
+\livcortrue
+%\livcorfalse
 
 \def\xxYCartouche{-2.25cm}
 \def\xxYongletGarde{.9cm}
@@ -18,29 +21,54 @@
 \begin{document}
 % Cours
 \graphicspath{{../../style/png/}{../../Chapitre_01_Stabilite/Cours/images/}}
+\iflivcor
+\else
 \input{../../Chapitre_01_Stabilite/Cours/Cy_02_Ch_01_Stabilite_Cours.tex}
+\fi
+\def\xxYongletGarde{1.1cm}
 
 % Activation
 % Sujet
 \newpage
 \fichetrue \proffalse \tdtrue \coursfalse
 \graphicspath{{../../style/png/}{../../Chapitre_01_Stabilite/Activation_01/images/}}
+\iflivcor
+\else
 \input{../../Chapitre_01_Stabilite/Activation_01/Cy_02_01_Activation_01.tex}
-
+\fi
 % Corrigé
 \newpage
 \fichetrue \proftrue \tdtrue \coursfalse
 \graphicspath{{../../style/png/}{../../Chapitre_01_Stabilite/Activation_01/images/}}
-%\input{../../Chapitre_01_Stabilite/Activation_01/Cy_02_01_Activation_01.tex}
+\iflivcor
+\input{../../Chapitre_01_Stabilite/Activation_01/Cy_02_01_Activation_01.tex}
+\else
+\fi
 
 % Application
 % Sujet
 \newpage
 \fichetrue \proffalse \tdtrue \coursfalse
 \graphicspath{{../../style/png/}{../../Chapitre_01_Stabilite/Application_01/images/}}
+\iflivcor
+\else
 \input{../../Chapitre_01_Stabilite/Application_01/Cy_02_01_Application_01.tex}
+\fi
 
-%% PAS DE CORRIGE !!!
+%% CORRIGE >> TODO
+\newpage
+\fichetrue \proftrue \tdtrue \coursfalse
+\graphicspath{{../../style/png/}{../../Chapitre_01_Stabilite/Application_01/images/}}
+%\input{../../Chapitre_01_Stabilite/Application_01/Cy_02_01_Application_01.tex}
+
+
+% Sujet
+\newpage
+\fichetrue \proffalse \tdtrue \coursfalse
+\graphicspath{{../../style/png/}{../../Chapitre_01_Stabilite/Application_02/images/}}
+%\input{../../Chapitre_01_Stabilite/Application_02/Cy_02_01_Application_02.tex}
+
+%% CORRIGE >> TODO
 \newpage
 \fichetrue \proftrue \tdtrue \coursfalse
 \graphicspath{{../../style/png/}{../../Chapitre_01_Stabilite/Application_01/images/}}
@@ -52,7 +80,10 @@
 \newpage
 \fichetrue \proffalse \tdtrue \coursfalse
 \graphicspath{{../../style/png/}{../../Chapitre_01_Stabilite/Cy_02_Ch_01_TD_01_Drone/images/}}
+\iflivcor
+\else
 \input{../../Chapitre_01_Stabilite/Cy_02_Ch_01_TD_01_Drone/Cy_02_Ch_01_TD_02_Drone.tex}
+\fi
 
 %% PAS DE CORRIGE !!!
 \newpage
@@ -66,14 +97,19 @@
 \newpage
 \fichetrue \proffalse \tdtrue \coursfalse \normalfalse \difficiletrue  \tdifficilefalse \collefalse
 \graphicspath{{../../style/png/}{../../Chapitre_01_Stabilite/Cy_02_Ch_01_TD_02_Stabilisateur/images/}}
+\iflivcor
+\else
 \input{../../Chapitre_01_Stabilite/Cy_02_Ch_01_TD_02_Stabilisateur/Cy_02_Ch_01_TD_02_Stabilisateur.tex}
-
+\fi
 % Corrigé
 \newpage 
 \fichetrue \proftrue \tdtrue \coursfalse \normalfalse \difficiletrue  \tdifficilefalse \collefalse
 \graphicspath{{../../style/png/}{../../Chapitre_01_Stabilite/Cy_02_Ch_01_TD_02_Stabilisateur/images/}}
-%\input{../../Chapitre_01_Stabilite/Cy_02_Ch_01_TD_02_Stabilisateur/Cy_02_Ch_01_TD_02_Stabilisateur.tex}
 
+\iflivcor
+\input{../../Chapitre_01_Stabilite/Cy_02_Ch_01_TD_02_Stabilisateur/Cy_02_Ch_01_TD_02_Stabilisateur.tex}
+\else
+\fi
 
 \end{document}
 
