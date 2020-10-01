@@ -160,18 +160,20 @@ Pour un système d'ordre supérieur à 3 il devient délicat d'obtenir analytiqu
 Il existe un critère algébrique permettant de vérifier la stabilité d'un système : il s'agit de critère de Routh. Pour un système bouclé, ce critère utilise le dénominateur de la BF. Ce critère n'étant pas au programme, on pourra rechercher dans la littérature des articles s'y référant si nécessaire. 
 
 \subsection{Critère graphique de stabilité : le critère du Revers}
- On a vu que l'équation caractéristique était de la forme $1+H_{BO}(p)=0$. Ainsi, Pour cela revient à résoudre l'équation $H_{BO}(p)=-1$. Ainsi dans le plan complexe, le point $(-1;0)$ permet d'avoir une information sur la stabilité. En terme de module et de phase, ce nombre complexe a un module de 1 (gain de 1) et une phase de $-180\degres$.
+ On a vu que l'équation caractéristique était de la forme $1+H_{BO}(p)=0$. Ainsi, Pour cela revient à résoudre l'équation $H_{BO}(p)=-1$. Ainsi dans le plan complexe, le point $(-1;0)$ permet d'avoir une information sur la stabilité. En terme de module et de phase, ce nombre complexe a un module de 1 (gain dB nul) et une phase de $-180\degres$.
  
 \begin{resultat}
 %Le système en boucle ouverte étant asymptotiquement stable (ou juste stable), 
 Le système en boucle fermée est asymptotiquement stable si et seulement si, \textbf{en boucle ouverte, on a} :
 $$
-\left. G_{\text{dB}} \right|_{\omega=\omega(-180\degres)}<0_{\text{dB}} 
+\left. G_{\text{dB}} \right|_{\omega=\omega_{-180\degres}}<0_{\text{dB}} 
 \quad
 \text{et}
 \quad
-\left. \varphi \right|_{\omega=\omega(0\text{dB})}>-180\degres.
+\left. \varphi \right|_{\omega=\omega_{0\text{dB}}}>-180\degres.
 $$
+
+En notant $\omega_{-180\degres}$ la pulsation pour laquelle la phase vaut $-180\degres$ et $\omega_{0\text{dB}}$ la pulsation pour laquelle le gain est nul.
 \end{resultat}
  
  
