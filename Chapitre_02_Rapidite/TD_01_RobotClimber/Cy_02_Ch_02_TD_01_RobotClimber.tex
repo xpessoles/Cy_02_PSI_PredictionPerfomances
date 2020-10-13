@@ -162,29 +162,92 @@ Termes correspondant :
 \else
 \fi
 
-\subparagraph{}\textit{En considérant une évolution au voisinage du point de fonctionnement $P_0$, $F_0$ et $Z_0$ et en
-posant $p(t ) = P_0 +\Delta p(t )$, $F_{\text{forage}(t )} = F_0 +\Delta F(t )$ et $z (t ) = Z_0 +\Delta z (t )$, traduire l’équation d’équilibre du vérin au point de fonctionnement, puis traduire l’équation de comportement
-du vérin en fonction des petites variations.}
+\subparagraph{}\textit{En considérant une évolution au point de fonctionnement $P_0$, $F_0$ et $Z_0$, traduire l'équation d'équilibre du vérin.}
 \ifprof
 \begin{corrige}
-On a : $
-M\dfrac{\dd^2 z(t)}{\dd t^2} = -\mu \dfrac{\dd z (t)}{\dd t} - k\left( z(t) - Z_0\right) +Sp(t)-F_{\text{forage}}(t)
-$. 
-Au voisinage du point de fonctionnement, on a donc : $
-M\dfrac{\dd^2 \Delta z(t)}{\dd t^2} = -\mu \dfrac{\dd \Delta z (t)}{\dd t} - k\Delta z(t) +S\left( P_0 +\Delta p(t ) \right)-F_0 - \Delta F(t )$. De plus, à l'équilibre, $SP_0=F_0$. 
-
-Dans le domaine de Laplace, on a alors $ \Delta Z(p)  \left( Mp^2 + \mu p +k\right) = S+\Delta p(p) - \Delta F(p )
-$.
-
-
-
-On a aussi $q(t)=S \dfrac{\dd z (t)}{\dd t} +\varphi p(t) + \dfrac{V}{2b}  \dfrac{\dd p(t)}{\dd t}$. 
+On a : 
+$M\dfrac{\dd^2 z(t)}{\dd t^2} = -\mu \dfrac{\dd z (t)}{\dd t} - k\left( z(t) - Z_0\right) +Sp(t)-F_{\text{forage}}(t)$. 
+Au point de fonctionnement, on a donc $0 = SP_0-F_0$ et donc $SP_0 = F_0$.
 \end{corrige}
 \else
 \fi
 
-\subparagraph{}\textit{À partir des équations obtenues, compléter le le schéma-blocs traduisant son
-comportement.}
+
+
+\subparagraph{}\textit{On considère maintenant une petite variation autour du point de fonctionnement. On pose alors $p(t ) = P_0 +\Delta p(t )$, $F_{\text{forage}(t )} = F_0 +\Delta F(t )$ et $z (t ) = Z_0 +\Delta z (t )$. Traduire l’équation de comportement du vérin en fonction des petites variations.}
+\ifprof
+\begin{corrige}
+Au voisinage du point de fonctionnement, on a donc : $M\dfrac{\dd^2 \Delta z(t)}{\dd t^2} = -\mu \dfrac{\dd \Delta z (t)}{\dd t} - k\Delta z(t) +S\left( P_0 +\Delta p(t ) \right)-F_0 - \Delta F(t )$. De plus, à l'équilibre, $SP_0=F_0$. 
+Dans le domaine de Laplace, on a alors $ \Delta Z(p)  \left( Mp^2 + \mu p +k\right) = S\Delta P(p) - \Delta F(p )$.
+\end{corrige}
+\else
+\fi
+
+
+\subparagraph{}\textit{En considérant une évolution au point de fonctionnement $P_0$, $Q_0$ et $Z_0$, traduire l'équation de bilan des débits.}
+\ifprof
+\begin{corrige}
+On a $q(t)=S \dfrac{\dd z (t)}{\dd t} +\varphi p(t) + \dfrac{V}{2b}  \dfrac{\dd p(t)}{\dd t} $.
+Au point de fonctionnement, on a donc $Q_0 = \varphi P_0$ .
+\end{corrige}
+\else
+\fi
+
+
+
+
+\subparagraph{}\textit{On considère maintenant une petite variation autour du point de fonctionnement. On pose alors $q(t ) = Q_0 +\Delta q(t )$. Traduire l’équation de comportement du vérin en fonction des petites variations.}
+\ifprof
+\begin{corrige}
+Au voisinage du point de fonctionnement, on a donc  
+
+
+$ Q_0 +\Delta q(t )=S \dfrac{\dd \left(Z_0 +\Delta z (t )\right)}{\dd t} +\varphi \left( P_0 +\Delta p(t ) \right) + \dfrac{V}{2b}  \dfrac{\dd \left(P_0 +\Delta p(t )\right)}{\dd t}$
+
+$ \Leftrightarrow Q_0 +\Delta q(t )=S \dfrac{\dd \Delta z (t )}{\dd t} +\varphi \left( P_0 +\Delta p(t ) \right) + \dfrac{V}{2b}  \dfrac{\dd \Delta p(t )}{\dd t}$
+
+$ \Leftrightarrow \Delta q(t )=S \dfrac{\dd \Delta z (t )}{\dd t} +\varphi  \Delta p(t ) + \dfrac{V}{2b}  \dfrac{\dd \Delta p(t )}{\dd t}$ (en utilisant la question précédente).
+
+Dans le domaine de Laplace, on a donc $  \Delta Q(p)=S p\Delta Z(p ) +\varphi  \Delta P(p) + \dfrac{V}{2b}  p \Delta P(p)$ soit 
+$  \Delta Q(p)=S p\Delta Z(p ) + \Delta P(p)\left(\varphi  + \dfrac{V}{2b}  p\right)$
+
+
+\end{corrige}
+\else
+\fi
+
+%
+%
+%
+%On a aussi $q(t)=S \dfrac{\dd z (t)}{\dd t} +\varphi p(t) + \dfrac{V}{2b}  \dfrac{\dd p(t)}{\dd t}$. 
+%
+%
+%
+%
+%
+%
+% et en
+%posant $p(t ) = P_0 +\Delta p(t )$, $F_{\text{forage}(t )} = F_0 +\Delta F(t )$ et $z (t ) = Z_0 +\Delta z (t )$, traduire l’équation d’équilibre du vérin au point de fonctionnement, puis traduire l’équation de comportement
+%du vérin en fonction des petites variations.}
+%\ifprof
+%\begin{corrige}
+%On a : $
+%M\dfrac{\dd^2 z(t)}{\dd t^2} = -\mu \dfrac{\dd z (t)}{\dd t} - k\left( z(t) - Z_0\right) +Sp(t)-F_{\text{forage}}(t)
+%$. 
+%Au voisinage du point de fonctionnement, on a donc : $
+%M\dfrac{\dd^2 \Delta z(t)}{\dd t^2} = -\mu \dfrac{\dd \Delta z (t)}{\dd t} - k\Delta z(t) +S\left( P_0 +\Delta p(t ) \right)-F_0 - \Delta F(t )$. De plus, à l'équilibre, $SP_0=F_0$. 
+%
+%Dans le domaine de Laplace, on a alors $ \Delta Z(p)  \left( Mp^2 + \mu p +k\right) = S+\Delta p(p) - \Delta F(p )
+%$.
+%
+%
+%
+%On a aussi $q(t)=S \dfrac{\dd z (t)}{\dd t} +\varphi p(t) + \dfrac{V}{2b}  \dfrac{\dd p(t)}{\dd t}$. 
+%\end{corrige}
+%\else
+%\fi
+
+\subparagraph{}\textit{À partir des équations obtenues, compléter le le schéma-blocs traduisant son comportement.}
 \ifprof
 \begin{corrige}
 \end{corrige}
@@ -210,16 +273,42 @@ $q(t ) = Ku(t) \sqrt{p_a-p(t)}$.
 Afin d’implanter le comportement de la servovalve dans une modélisation linéaire, il est nécessaire
 de procéder à une linéarisation au voisinage d’un point de fonctionnement.
 
-\subparagraph{}\textit{Déterminer la relation liant $Q_0$, $U_0$ et $P_0$ au point de fonctionnement, puis linéariser l’équation de comportement de la servovalve au voisinage du point de fonctionnement en posant
+\subparagraph{}\textit{Déterminer la relation liant $Q_0$, $U_0$ et $P_0$ au point de fonctionnement (en considérant qu'en ce point les variations de tension, pressions et débit sont nulles).  Linéariser l’équation de comportement de la servovalve au voisinage du point de fonctionnement. On posera
 $p(t ) = P_0 +\Delta p(t )$, $q(t ) =Q_0 +\Delta q(t )$ et $u(t ) =U_0 +\Delta u(t )$.}
 \ifprof
 \begin{corrige}
+Au point de fonctionnement,  $Q_0 = K U_0 \sqrt{p_a- P_0}$.
+
+Par ailleurs, on a  
+
+$Q_0 +\Delta q(t ) = K\left( U_0 +\Delta u(t ) \right) \sqrt{p_a- P_0 - \Delta p(t )}$
+
+$\Leftrightarrow K U_0 \sqrt{p_a- P_0}+\Delta q(t ) = K\left( U_0 +\Delta u(t ) \right) \sqrt{p_a- P_0 - \Delta p(t )}$
+
+$\Leftrightarrow K U_0 \sqrt{p_a- P_0}+\Delta q(t ) = K\left( U_0 +\Delta u(t ) \right) \sqrt{\left(p_a- P_0\right)\left( 1- \dfrac{\Delta p(t )}{p_a- P_0}\right)}$
+
+et $\sqrt{ 1- \dfrac{\Delta p(t )}{p_a- P_0}}\simeq 1 - \dfrac{1}{2} \dfrac{\Delta p(t )}{p_a- P_0} $.
+
+Soit $K U_0 \sqrt{p_a- P_0}+\Delta q(t ) = K\left( U_0 +\Delta u(t ) \right) \sqrt{p_a- P_0} \left( 1 - \dfrac{1}{2} \dfrac{\Delta p(t )}{p_a- P_0} \right)$
+
+$\Leftrightarrow K U_0 \sqrt{p_a- P_0}+\Delta q(t ) = K\left( U_0 +\Delta u(t ) \right) \sqrt{p_a- P_0} - \dfrac{K\left( U_0 +\Delta u(t ) \right) \sqrt{p_a- P_0}}{2} \dfrac{\Delta p(t )}{p_a- P_0} $
+
+
+$\Leftrightarrow K U_0 \sqrt{p_a- P_0}+\Delta q(t ) = K\left( U_0 +\Delta u(t ) \right) \sqrt{p_a- P_0} 
+- \dfrac{K U_0  \sqrt{p_a- P_0}}{2} \dfrac{\Delta p(t )}{p_a- P_0}
+- \underbrace{\dfrac{K\Delta u(t ) \sqrt{p_a- P_0}}{2} \dfrac{\Delta p(t )}{p_a- P_0}}_{\text{on néglige}} $
+
+
+$\Leftrightarrow \Delta q(t ) = K\Delta u(t )  \sqrt{p_a- P_0} 
+- \dfrac{K U_0 }{2} \dfrac{\Delta p(t )}{ \sqrt{p_a- P_0}}
+ $
+
 \end{corrige}
 \else
 \fi
 
 \subparagraph{}\textit{Compléter le schéma-blocs précédent pour modéliser l’ensemble servovalve et vérin, admettant
-en entrée la tension $\Delta U(p)$ et la force $\Delta F(p)$, et en sortie la position $\Delta Z(p)$.}t
+en entrée la tension $\Delta U(p)$ et la force $\Delta F(p)$, et en sortie la position $\Delta Z(p)$.}
 \ifprof
 \begin{corrige}
 \end{corrige}
