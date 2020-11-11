@@ -45,7 +45,7 @@
 %\def\xxonglet{Part. 1 -- Ch. 3}
 \def\xxonglet{Cycle 02}
 
-\def\xxactivite{Colle 01}
+\def\xxactivite{Colle 02}
 \def\xxauteur{\textsl{Xavier Pessoles}}
 
 \def\xxcompetences{%
@@ -240,8 +240,9 @@ Un système poulies (\textbf{11} et \textbf{12}) et courroie crantée \textbf{14
  
  Le comportement dynamique du système est régit par l'équation suivante  :
  $$
- M_{eq}\dfrac{\text{d}v_r(t)}{\text{d}t}=\delta c(t) + \beta v_r(t) + \gamma g.
+ M_{eq}\dfrac{\text{d}v_r(t)}{\text{d}t}=\delta c(t) + \beta v_r(t) + \gamma g u(t)
  $$
+avec $u(t)$ échelon unitaire.
 
 On cherche à garantir une vitesse de translation du transducteur \textbf{13} égale à la valeur de consigne indépendamment de l’angle $\alpha$.
 
@@ -251,9 +252,9 @@ Pour cela, on réalise le système bouclé suivant :
 	\includegraphics[width=\linewidth]{images/fig_13}
 \end{center}
 
-Notations : $V_r(p)$ est la transformée de Laplace de $v_r(t)$ vitesse de translation du transducteur \textbf{13}.
-$F_{\text{pert}}(p)$ est la transformée de Laplace de $f_{\text{pert}}(t)$, avec :
-$f_{\text{pert}}(t) = -m_t  \sin \alpha u(t)$ avec $u(t)$ échelon unitaire.
+%Notations : $V_r(p)$ est la transformée de Laplace de $v_r(t)$ vitesse de translation du transducteur \textbf{13}.
+%$F_{\text{pert}}(p)$ est la transformée de Laplace de $f_{\text{pert}}(t)$, avec :
+%$f_{\text{pert}}(t) = -m_t  \sin \alpha u(t)$ avec $u(t)$ échelon unitaire.
 
 
 \subparagraph{}
